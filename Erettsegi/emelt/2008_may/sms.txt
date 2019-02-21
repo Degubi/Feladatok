@@ -1,0 +1,61 @@
+30
+9 11 123456789
+Szia, mikor jossz?
+9 13 434324223
+Nem kerek ebedet!
+9 14 434324223
+Hova menjek erted?
+9 16 343567452
+Nem erek oda idoben. Hivd fel a fonokot es ments ki!
+9 20 123456789
+Hozd el a mintas pulcsimat!
+9 21 434324223
+Nyertünk a palyazaton!
+9 40 434325432
+A nyelvvizsgadra mennyi potlekot kapsz? Nekem meg nem fizettek egy fillert sem. :-(
+9 45 434324223
+A gep nem bootol be. Aramot kap, de a monitoron nem jelenik meg semmi.
+9 46 434325632
+Hova tetted a palyazati urlapot? Mar fel oraja keressuk.
+9 51 545432542
+Erdekli Ont egy telefon? A vezetek nelkuli telefon most a legolcsobb!
+9 53 434324223
+Elvesztetted a fogadast! :-)
+10 8 123456789
+Hol vagy mar olyan sokaig? Varlak!
+10 12 454343545
+Add fel postan meg ma a palyazatot!
+10 25 231287556
+Tibi megjott, majd hivd fel delben!
+10 44 565643244
+Erdekli Ont egy telefon? A vezetek nelkuli telefon most a legolcsobb!
+11 1 545453345
+Potyara jottem, az ugyfel nem volt itt.
+11 3 545345345
+Erdekli Ont egy telefon? A vezetek nelkuli telefon most a legolcsobb!
+11 4 853556565
+Sot, az urge visszalepett.
+11 11 854655455
+Hova szallitsam a butort?
+11 13 854655455
+Mikor kezdodik a meccs? A jegyet veszed?
+11 14 123456789
+Este szinhazba megyunk, ugye tudod?
+11 19 435435345
+A megrendelt konyve megerkezett.
+11 21 123456789
+Holnap jonnek Agiek!
+11 22 434324223
+Utalhatod a penzt a lakasert!
+11 29 654647445
+Erdekli Ont egy telefon? A vezetek nelkuli telefon most a legolcsobb!
+11 36 434324223
+Kesz a kocsi!
+11 50 434324223
+No mi van, akarsz focizni?
+12 3 434324223
+Lesz egy londoni ut, erdekel?
+12 44 854655455
+Hany napra kersz szallast?
+12 48 123456789
+A szinhaz ugrott, csotores van!
