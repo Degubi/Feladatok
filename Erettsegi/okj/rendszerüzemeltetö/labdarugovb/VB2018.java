@@ -1,14 +1,12 @@
 import java.io.*;
 import java.nio.charset.*;
 import java.nio.file.*;
-import java.text.*;
 import java.util.*;
 import java.util.stream.*;
 
 public class VB2018 {
 
 	public static void main(String[] args) throws IOException {
-		var formatter = new DecimalFormat("#.#");
 		var helyszinek = Files.lines(Path.of("vb2018.txt"), StandardCharsets.ISO_8859_1)
 							  .skip(1)
 							  .map(Helyszin::new)
@@ -23,7 +21,7 @@ public class VB2018 {
 		Arrays.stream(helyszinek)
 			  .mapToInt(k -> k.ferohely)
 			  .average()
-			  .ifPresent(atlag -> System.out.println("Ferohelyek atlaga: " + formatter.format(atlag)));
+			  .ifPresent(atlag -> System.out.printf("Ferohelyek atlaga: %.1f\n", atlag));
 		
 		System.out.println("6. Feladat");
 		System.out.println("Alternativ neves stadionok: " + Arrays.stream(helyszinek).filter(k -> !k.nev2.equals("n.a.")).count());

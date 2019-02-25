@@ -3,30 +3,26 @@ import java.nio.file.*;
 import java.time.*;
 import java.time.format.*;
 import java.util.*;
+import java.util.stream.*;
 
 public class Txt2Srt{
 	
 	public static void main(String[] args) throws IOException{
-		var feliratok = new ArrayList<IdozitettFelirat>();
-		var adatok = Files.readAllLines(Paths.get("feliratok.txt"));
-		
-		for(int i = 0; i < adatok.size(); i += 2){
-			feliratok.add(new IdozitettFelirat(adatok.get(i), adatok.get(i + 1)));
-        }
+		var file = Files.readAllLines(Path.of("feliratok.txt"));
+		var feliratok = IntStream.iterate(0, k -> k < file.size(), k -> k + 2)
+								 .mapToObj(i -> new IdozitettFelirat(file.get(i), file.get(i + 1)))
+								 .toArray(IdozitettFelirat[]::new);
 
-		System.out.println("5. feladat: A feliratok száma: " + feliratok.size());
+		System.out.println("5. feladat: A feliratok száma: " + feliratok.length);
+		Arrays.stream(feliratok)
+			  .max(Comparator.comparingInt(k -> k.szavakSzama()))
+			  .ifPresent(talalt -> System.out.println("7. feladat: A legtöbb szóból álló felirat: " + talalt.felirat));
 		
-		System.out.println("7. feladat: A legtöbb szóból álló felirat:\n" 
-								+ feliratok.stream().max(Comparator.comparingInt(k -> k.szavakSzama())).get().felirat);
+		var toFile = IntStream.range(0, feliratok.length)
+							  .mapToObj(i -> (i + 1) + "\n" + feliratok[i].strIdozites() + "\n" + feliratok[i].felirat)
+							  .collect(Collectors.joining("\n\n"));
 		
-		try(var output = new PrintWriter("felirat.srt")) {
-			for(int i = 0; i < feliratok.size(); ++i){
-				output.println(i + 1);
-				output.println(feliratok.get(i).strIdozites());
-				output.println(feliratok.get(i).felirat);
-				output.println();
-			}
-        }
+		Files.writeString(Path.of("felirat.srt"), toFile, StandardOpenOption.WRITE, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
 	}
 	
     static class IdozitettFelirat{
@@ -48,7 +44,7 @@ public class Txt2Srt{
         }
 
         public String strIdozites(){
-        	String[] split = idozites.split(" - ");
+        	var split = idozites.split(" - ");
             return str_idoforma("00:" + split[0]) + "--> " + str_idoforma("00:" + split[1]);
         }
     }

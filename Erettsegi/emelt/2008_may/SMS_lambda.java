@@ -11,22 +11,22 @@ import java.util.stream.*;
 
 public class SMS_lambda{
 	
-	private static int sumIf(Uzenet[] smss, Predicate<Uzenet>... preds) {
-		return Stream.of(smss).filter(preds.length == 1 ? preds[0] : preds[1].and(preds[1])).mapToInt(k -> 1).sum();
+	private static int sumIf(Uzenet[] smss, Predicate<Uzenet> pred1, Predicate<Uzenet> pred2) {
+		return Stream.of(smss).filter(pred1.and(pred2)).mapToInt(k -> 1).sum();
 	}
 	
 	public static void main(String[] args) throws IOException{
-		var file = Files.readAllLines(Paths.get("sms.txt"), StandardCharsets.ISO_8859_1);
-		
+		var file = Files.readAllLines(Path.of("sms.txt"), StandardCharsets.ISO_8859_1);
 		var smss = IntStream.iterate(1, k -> k < file.size(), k -> k + 2)
 								 .mapToObj(k -> new Uzenet(file.get(k).split(" "), file.get(k + 1)))
 								 .toArray(Uzenet[]::new);
 		
-		System.out.println("2.Feladat\nUtolsó sms szövege: " + smss[smss.length - 1].message + "\n3.Feladat");
-		System.out.println("Leghosszabb üzenet: " + Stream.of(smss).min(comparing(k -> k.message)).get());
-		System.out.println("Legrövidebb üzenet: " + Stream.of(smss).max(comparing(k -> k.message)).get());
+		System.out.println("2.Feladat\nUtolsó sms szövege: " + smss[smss.length - 1].message);
+		System.out.println("3.Feladat");
+		Arrays.stream(smss).max(comparingInt(k -> k.message.length())).ifPresent(k -> System.out.println("Leghosszabb üzenet: " + k));
+		Arrays.stream(smss).min(comparingInt(k -> k.message.length())).ifPresent(k -> System.out.println("Legrövidebb üzenet: " + k));
 		System.out.println("4.Feladat");
-		System.out.println("1-20 karakteres üzenetek: " + sumIf(smss, k -> k.message.length() <= 20));
+		System.out.println("1-20 karakteres üzenetek: " + sumIf(smss, k -> k.message.length() <= 20, k -> true));
 		System.out.println("21-40 karakteres üzenetek: " + sumIf(smss, k -> k.message.length() > 20, k -> k.message.length() <= 40));
 		System.out.println("41-60 karakteres üzenetek: " + sumIf(smss, k -> k.message.length() > 40, k -> k.message.length() <= 60));
 		System.out.println("61-80 karakteres üzenetek: " + sumIf(smss, k -> k.message.length() > 60, k -> k.message.length() <= 80));
@@ -35,28 +35,28 @@ public class SMS_lambda{
 		//5. Feladat több mint valószínû hogy rossz, még a kérdést se értettem meg teljesen...
 		System.out.println("5.Feladat\nKihagyott üzenetek: " + Stream.of(smss).filter(k -> k.time.getMinute() == 0).count());
 		
-		System.out.println("6. Feladat\nLeghosszabb idõ: " + IntStream.iterate(0, k -> k < smss.length, k -> k + 2)
-				 .filter(k -> smss[k].number == 123456789)
-				 .mapToObj(k -> Duration.between(smss[k].time, smss[k + 1].time))
-				 .max(naturalOrder())
-				 .get().toMinutes());
+		System.out.print("6. Feladat\nLeghosszabb idõ: ");
+		System.out.println(IntStream.iterate(0, k -> k < smss.length, k -> k + 2)
+				 					.filter(k -> smss[k].number == 123456789)
+				 					.mapToObj(k -> Duration.between(smss[k].time, smss[k + 1].time))
+				 					.max(naturalOrder())
+				 					.get()
+				 					.toMinutes());
 		
 		System.out.println("Írd be a hiányzó üzenetet! (Óra perc szám üzenet)");
-		useIO((output, input) -> {
-			Uzenet missing = new Uzenet(new String[] {input.next(), input.next(), input.next()}, input.next());
+		
+		try(var output = new PrintWriter("smski.txt"); 
+			var input = new Scanner(System.in)){
+			
+			var missing = new Uzenet(new String[] {input.next(), input.next(), input.next()}, input.next());
 			
 			Stream.concat(Stream.of(smss), Stream.of(missing))
 			      .sorted(comparingInt(k -> k.number))
 			      .collect(groupingBy(k -> k.number, TreeMap::new, toList()))
 			      .forEach((key, value) -> {
 			    	  output.println(key);
-			    	  value.forEach(msg -> output.println(msg.time.getHour() + " " + msg.time.getMinute() + " " + msg.message));});
-		});
-	}
-	
-	private static void useIO(BiConsumer<PrintWriter, Scanner> io) throws IOException {
-		try(var output = new PrintWriter("smski.txt"); var input = new Scanner(System.in)){
-				io.accept(output, input);
+			    	  value.forEach(msg -> output.println(msg.time.getHour() + " " + msg.time.getMinute() + " " + msg.message));
+			      });
 		}
 	}
 	
