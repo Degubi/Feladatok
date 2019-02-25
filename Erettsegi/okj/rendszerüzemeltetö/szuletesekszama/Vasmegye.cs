@@ -20,9 +20,7 @@ namespace ConsoleApplication1{
             Console.WriteLine("8. Feladat");
             Console.WriteLine(szuletesek.Where(k => k.datum.Year % 4 == 0).Count() > 0 ? "Volt baba szökőévben" : "");
             Console.WriteLine("9. Feladat");
-
-            var evek = szuletesek.Select(k => k.datum.Year).Distinct().ToArray();
-            Array.ForEach(evek, ev => Console.WriteLine(ev + "-ben " + szuletesek.Where(k => k.datum.Year == ev).Count() + " baba született"));
+            Console.WriteLine(szuletesek.GroupBy(k => k.datum.Year).Select(group => group.Key + "-ben " + group.Count() + " baba született").Aggregate((l, r) => l + "\n" + r));
             Console.Read();
         }
 
