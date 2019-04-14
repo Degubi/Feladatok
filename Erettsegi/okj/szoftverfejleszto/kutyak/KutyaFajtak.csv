@@ -1,0 +1,422 @@
+﻿id;név;eredeti név
+1;Abruzzói juhászkutya;Cane da pastore Maremmano-Abruzzese
+2;Afgán agár;Afghan Hound
+3;Afrikai oroszlánkutya;Rhodesian Ridgeback
+4;Airedale terrier;Airedale Terrier
+5;Akbash;Akbash
+6;Akita;Akita
+7;Alaszkai malamut;Alaskan Malamute
+8;Alopekisz;Alopekis
+9;Alpesi tacskókopó;Alpenländische Dachsbracke
+10;Amerikai akita;American Akita
+11;Amerikai bulldog;American bulldog
+12;Amerikai cocker spániel;American Cocker Spaniel
+13;Amerikai eszkimó kutya;American Eskimo Dog
+14;Amerikai kopasz terrier;American hairless terrier
+15;Amerikai pit bullterrier;American Pit Bullterrier
+16;Amerikai rókakopó;American Foxhound
+17;Amerikai staffordshire terrier;American Staffordshire Terrier
+18;Amerikai vízispániel;American Water Spaniel
+19;Amerikai-kanadai fehér juhászkutya;White Shepherd Dog
+20;Anatóliai juhászkutya;Coban Köpegi
+21;Angol agár;Greyhound
+22;Angol bulldog;Bulldog
+23;Angol cocker spániel;English Cocker Spaniel
+24;Angol juhászkutya;English Shepherd
+25;Angol masztiff;Mastiff
+26;Angol mosómedvekopó;English Coonhound
+27;Angol pointer;Pointer
+28;Angol rókakopó;English Foxhound
+29;Angol springer spániel;English Springer Spaniel
+30;Angol szetter;English Setter
+31;Angol véreb;Chien de Saint-Hubert
+32;Angol-francia falkavadász kopó;Anglo-français de petite vénerie
+33;Appenzelli pásztorkutya;Appenzeller Sennenhund
+34;Arab agár;Sloughi
+35;Ardenni pásztorkutya;Bouvier des Ardennes
+36;Argentin dog;Dogo Argentino
+37;Ariége-i kopó;Ariege-Hound
+38;Ariége-i vizsla;Ariege Pointing Dog
+39;Artésien Normand;Artésien Normand
+40;Artois-i basset;Basset d'Artois
+41;Artois-i kopó;Chien d’Artois
+42;Atlasz-hegységi kutya;Chien de Montagne de l’Atlas – Aïdi
+43;Ausztrál csonkafarkú pásztorkutya;Australian Stumpy Tail Cattle Dog
+44;Ausztrál juhászkutya;Australian Shepherd
+45;Ausztrál Kelpie;Australian Kelpie
+46;Ausztrál pásztorkutya;Australian Cattle Dog
+47;Ausztrál selyemszőrű terrier;Australian Silky Terrier
+48;Ausztrál terrier;Australian Terrier
+49;Auvergne-i vizsla;Braque d’Auvergne
+50;Azawakh;Azawakh
+51;Azori-szigeteki kutya;Cão Fila de São Miguel
+52;Bajor hegyi véreb;Bayerischer Gebirgsschweisshund
+53;Bali hegyikutya;Kintamani
+54;Basenji;Basenji
+55;Basset Artésien Normand;Basset Artésien Normand
+56;Basset Bleu de Gascogne;Basset Bleu de Gascogne
+57;Basset hound;Basset Hound
+58;Beagle;Beagle
+59;Beagle harrier;Beagle Harrier
+60;Bearded Collie;Bearded Collie
+61;Beauce-i juhászkutya;Berger de Beauce
+62;Bedlington terrier;Bedlington Terrier
+63;Belga griffon;Griffon Belge
+64;Belga masztiff;Chien de Trait Belge
+65;Belga vizsla;Braque Belge
+66;Bergamói juhászkutya;Cane da pastore Bergamasco
+67;Berni kopó;Bernese Laufhund
+68;Berni pásztorkutya;Berner Sennenhund – Dürrbächler
+69;Bichon frisé;Bichon à poil frisé
+70;Biewer yorkshire terrier;Biewer Yorkshire Terrier
+71;Billy;Billy
+72;Boerboel;Boerboel
+73;Bolognai pincs;Bolognese
+74;Bolonka cvetna;Bolonka Zwetna
+75;Bolonka franzuska;Bolonka Franzuska
+76;Bordeauxi dog;Dogue de Bordeaux
+77;Border collie;Border Collie
+78;Border terrier;Border Terrier
+79;Boston terrier;Boston Terrier
+80;Boszniai drótszőrű kopó;Bosanski Ostrodlaki Gonič – Barak
+81;Boszniai kopó;Tornjak
+82;Bourbonne-i vizsla;Braque du Bourbonnais
+83;Boykin spániel;Boykin Spaniel
+84;Brabanti kis griffon;Petit Brabançon
+85;Brazil kopó;Rastreador Brasileiro
+86;Brazil masztiff;Fila Brasileiro
+87;Brazil terrier;Terrier Brasileiro
+88;Bretagne-i cserszínű basset;Basset Fauve de Bretagne
+89;Bretagne-i cserszínű griffon;Griffon Fauve de Bretagne
+90;Breton spániel;Epagneul Breton
+91;Brie-i juhászkutya;Berger de Brie
+92;Broholmer;Broholmer
+93;Brüsszeli griffon;Griffon Bruxellois
+94;Bukovinai juhászkutya;Ciobanesc Romanesc de Bucovina
+95;Bullmasztiff;Bullmastiff
+96;Bullterrier;Bull Terrier
+97;Burgosi vizsla;Perdiguero de Burgos
+98;Cairn terrier;Cairn Terrier
+99;Cane corso;Cane Corso Italiano
+100;Cardigan welsh corgi;Welsh Corgi Cardigan
+101;Castro Laboreiro-i pásztorkutya;Cão de Castro Laboreiro
+102;Catahoulai leopárdkutya;Catahoula Cur
+103;Cavalier King Charles spániel;Cavalier King Charles Spaniel
+104;Chambray;Chambray
+105;Chesapeake bay retriever;Chesapeake Bay Retriever
+106;Clumber spániel;Clumber Spaniel
+107;Coton de Tuléar;Coton de Tuléar
+108;Csau-csau;Chow Chow
+109;Cseh szálkásszőrű vizsla;Cesky Fousek
+110;Cseh terrier;Ceský Teriér
+111;Csehszlovák farkaskutya;Československý vlčák
+112;Csivava;Chihuahueño
+113;Dalmata;Dalmatinac
+114;Dán-svéd őrkutya;Dansk-Svensk Gårdshund
+115;Dandie Dinmont terrier;Dandie Dinmont Terrier
+116;Délorosz juhászkutya;Ioujnorousskaia Ovtcharka
+117;Dobermann;Dobermann
+118;Drenti vizsla;Drentsche Patrijshond
+119;Drever;Drever
+120;Drótszőrű stíriai kopó;Steirische Rauhhaarbracke
+121;Drótszőrű foxterrier;Wire-haired Foxterrier
+122;Drótszőrű griffon;Griffon d’arrêt à poil dur Korthals
+123;Drótszőrű isztriai kopó;Istarski Ostrodlaki Gonič
+124;Drótszőrű magyar vizsla;Drótszőrű magyar vizsla
+125;Drótszőrű német vizsla;Deutsch Drahthaar
+126;Drótszőrű olasz segugio;Segugio Italiano a Pelo Forte
+127;Dupuy-i vizsla;Braque Dupuy
+128;Entlebuchi pásztorkutya;Entlebucher Sennenhund
+129;Erdélyi kopó;Erdélyi kopó
+130;Estrelai hegyikutya;Cão da Serra da Estrela
+131;Észt kopó;Eesti Hagijas
+132;Eurázsiai;Eurasian
+133;Európai-orosz lajka;Russko-Evropeïakaïa Laïka
+134;Fáraókutya;Pharaoh Hound
+135;Fehér-cser francia kopó;Français Blanc et Orange
+136;Fehér-cser nagy angol-francia kopó;Grand Anglo-Français Blanc et Orange
+137;Fehér-fekete francia kopó;Chien Français Blanc et Noir
+138;Fehér-fekete nagy angol-francia kopó;Grand Anglo-Français Blanc et Noir
+139;Fekete norvég elkhund;Norsk Elghund Sort
+140;Fekete-cser mosómedvekopó;Black and Tan Coonhound
+141;Félhosszúszőrű pireneusi juhászkutya;Chien de berger des Pyrénées à face rase
+142;Field spániel;Field Spaniel
+143;Finn kopó;Suomenajokoira
+144;Finn lapphund;Suomenlapinkoira
+145;Finn spitz;Suomenpystykorva
+146;Flandriai pásztorkutya;Bouvier des Flandres
+147;Foxterrier;Foxterrier Smooth
+148;Francia bulldog;Bouledogue français
+149;Francia spániel;Epagneul français
+150;Francia vízi kutya;Barbet
+151;Gascogne-i francia vizsla;Braque français, type Gascogne
+152;Gascogne-i kék griffon;Griffon Bleu de Gascogne
+153;Glen of Imaal terrier;Irish Glen of Imaal Terrier
+154;Golden retriever;Golden Retriever
+155;Göndör szőrű retriever;Curly Coated Retriever
+156;Gordon szetter;Gordon Setter
+157;Görög kopó;Hellinikos Ichnilatis
+158;Gråhund;Gråhund
+159;Groenendael;Groenendael
+160;Grönlandi kutya;Grønlandshund
+161;Gyapjas szőrű griffon;Griffon á Poil Laineux
+162;Halden kopó;Haldenstøver
+163;Hamilton kopó;Hamiltonstövare
+164;Hannoveri véreb;Hannoverscher Schweisshund
+165;Harlekin pincser;Harlekinpinscher
+166;Harrier;Harrier
+167;Havannai pincs;Bichon havanais
+168;Hokkaïdo;Hokkaïdo
+169;Holland smoushond;Hollandse Smoushond
+170;Horvát juhászkutya;Hrvatski Ovcar
+171;Hosszúszőrű holland juhászkutya;Hollandse Herdershond Langhaar
+172;Hosszúszőrű német vizsla;Deutsch Langhaar
+173;Hosszúszőrű pireneusi juhászkutya;Chien de berger des Pyrénées à poil long
+174;Hosszúszőrű skót juhászkutya;Collie Rough
+175;Hovawart;Hovawart
+176;Hygen kopó;Hygenhund
+177;Ibizai kopó;Podenco Ibicenco
+178;Ír farkaskutya;Irish Wolfhound
+179;Ír terrier;Irish Terrirer
+180;Ír vízispániel;Irish Water Spaniel
+181;Izlandi juhászkutya;Islenskur Fjárhundur
+182;Jack Russell terrier;Jack Russell Terrier
+183;Jämthund;Jämthund
+184;Japán csin;Chin
+185;Japán közép dog;Japanese Middle Sized Dog
+186;Japán spitz;Nihon Supittsu
+187;Japán terrier;Nihon Teria
+188;Jurai kopó;Jura Laufhund
+189;Kai;Kai
+190;Kánaán kutya;Canaan Dog
+191;Kanadai eszkimó kutya;Canadian Eskimo Dog
+192;Kanári-szigeteki kopó;Podenco Canario
+193;Kanári-szigeteki kutya;Dogo Canario
+194;Karéliai medvekutya;Karjalankarhukoira
+195;Karolina kutya;Carolina dog
+196;Kárpáti pásztorkutya;Ciobănesc Românesc Carpatin
+197;Karszti pásztorkutya;Kraski Ovčar
+198;Katalán pásztorkutya;Gos d’Atura Catala
+199;Kaukázusi juhászkutya;Kavkazskaïa Ovtcharka
+200;Keeshond;Keeshond
+201;Kék pettyes mosómedvekopó;Bluetick Coonhound
+202;Kelet-szibériai lajka;Vostotchno-Sibirskaïa Laïka
+203;Kenguruagár;Kangaroo Dog
+204;Kerry blue terrier;Kerry Blue Terrier
+205;Kínai meztelen kutya;Chinese Crested Dog
+206;King Charles spániel;King Charles Spaniel
+207;Kis angol terrier;English Toy Terrier
+208;Kis berni kopó;Berner Niederlaufhund
+209;Kis gascogne-i kék kopó;Petit Bleu de Gascogne
+210;Kis gascon-saintonge-i kopó;Petit Gascon Saintongeois
+211;Kis jurai kopó;Jura Niederlaufhund
+212;Kis luzerni kopó;Jura Niederlaufhund
+213;Kis münsterlandi vizsla;Kleiner Münsterländer
+214;Kis oroszlánkutya;Lowchen – Little Lion Dog
+215;Kis schwyzi kopó;Schwyzer Niederlaufhund
+216;Kis vendée-i griffon basset;Petit Basset Griffon Vendéen
+217;Kishu;Kishu
+218;Komondor;Komondor
+219;Kooikerhondje;Kooikerhondje
+220;Koreai jindo kutya;Korea Jindo Dog
+221;Közép schnauzer;Schnauzer
+222;Közép uszkár;Medium Caniche
+223;Közép-ázsiai juhászkutya;Sredneasiatskaïa Ovtcharka
+224;Közepes portugál kopó;Podengo Português
+225;Kromfohrländer;Kromfohrländer
+226;Kuvasz;Kuvasz
+227;Labrador retriever;Labrador Retriever
+228;Laekenois;Laekenois
+229;Lagotto Romagnolo;Lagotto Romagnolo
+230;Lakeland terrier;Lakeland Terrier
+231;Landseer;Landseer
+232;Lapp pásztorkutya;Lapinporokoira
+233;Lengyel agár;Chart Polski
+234;Lengyel alföldi juhászkutya;Polski Owczarek Nizinny
+235;Lengyel kopó;Ogar polski
+236;Lengyel vadászkutya;Gończy Polski
+237;Leonbergi;Leonberger
+238;Lett kopó;Latvijas Dzinejsuns
+239;Levesque;Levesque
+240;Lhasa apso;Lhasa Apso
+241;Litván kopó;Lietuvių skalikas
+242;Lundehund;Norsk Lundehund
+243;Luzerni kopó;Luzerner Laufhund
+244;Magyar agár;Magyar agár
+245;Majompincs;Affenpinscher
+246;Malinois;Malinois
+247;Mallorcai masztiff;Ca de Bou – Perro Dogo Mallorquin
+248;Mallorcai pásztorkutya;Ca de Bestiar – Perro de pastor mallorquín
+249;Máltai selyemkutya;Maltese
+250;Manchester terrier;Manchester Terrier
+251;Markiesje;Markiesje
+252;Mexikói szőrtelen kutya;Xoloitzcuintle
+253;Miniatűr bullterrier;Bullterrier Miniatur
+254;Mioritic pásztorkutya;Ciobănesc românesc mioritic
+255;Montenegrói hegyikopó;Crnogorski Planinski Gonič
+256;Mopsz;Mops – Pug – Carlin
+257;Moszkvai dog;Moskovskaya Dog
+258;Moszkvai őrkutya;Moskovskaya Storozhevaya
+259;Mudi;Mudi
+260;Nagy gascogne-i kék kopó;Grand Bleu de Gascogne
+261;Nagy Gascon-Saintonge-i kopó;Grand Gascon Saintongeois
+262;Nagy münsterlandi vizsla;Grosser Münsterländer Vorstehhund
+263;Nagy portugál kopó;Podengo Português Grande
+264;Nagy svájci havasi kutya;Grosser Schweizer Sennenhund
+265;Nagy vendée-i griffon;Grand Griffon Vendéen
+266;Nagy vendée-i griffon basset;Grand Basset Griffon Vendéen
+267;Nápolyi masztiff;Mastino Napoletano
+268;Német boxer;Deutscher Boxer
+269;Német dog;Deutsche Dogge
+270;Német fürjészeb;Deutscher Wachtelhund
+271;Német juhászkutya;Deutsche Schäferhunde
+272;Német kis spitz;Deutscher Kleinspitz
+273;Német kopó;Deutsche Bracke
+274;Német közép spitz;Deutscher Mittelspitz
+275;Német nagy spitz;Großspitz
+276;Német pincser;Deutscher Pinscher
+277;Német vadászterrier;Deutscher Jagdterrier
+278;Nivernais-i griffon;Griffon Nivernais
+279;Norfolk terrier;Norfolk Terrier
+280;Normand poitevin;Normand Poitevin
+281;Norrbotteni spitz;Norrbottenspets
+282;Norvég buhund;Norsk Buhund
+283;Norvég kopó;Dunker
+284;Norwich terrier;Norwich Terrier
+285;Nyugat-szibériai lajka;Zapadno-Sibirskaïa Laïka
+286;Óangol juhászkutya;Bobtail
+287;Olasz agár;Piccolo Levriero Italiano
+288;Olasz griffon;Spinone Italiano
+289;Olasz kopó;Segugio Italiano a Pelo Raso
+290;Olasz vizsla;Bracco Italiano
+291;Olasz volpino;Volpino Italiano
+292;Óriás schnauzer;Riesenschnauzer
+293;Óriás uszkár;Standard Caniche
+294;Orosz agár;Russkaya Psovaya Borzaya
+295;Orosz fekete terrier;Black Terrier
+296;Orosz kopó;Gontchaja Russkaja
+297;Orosz spániel;Russkaja Spaniel
+298;Orosz toy terrier;Russkiy Toy
+299;Ősi dán vizsla;Gammel Dansk Hønsehund
+300;Osztrák kopó;Brandlbracke – Vieräugl
+301;Osztrák pincser;Österreichischer Pinscher
+302;Papillon;Papillon
+303;Parson Jack Russell terrier;Parson Jack Russell Terrier
+304;Pekingi palotakutya;Pekingese
+305;Pembroke Welsh Corgi;Pembroke Welsh Corgi
+306;Perui meztelen kutya;Perro sin pelo del Perú
+307;Perzsa agár;Saluki
+308;Phalène;Phalène
+309;Pikárdiai juhászkutya;Berger de Picardie – Berger Picard
+310;Pikárdiai kék spániel;Epagneul bleu de Picardie
+311;Pikárdiai spániel;Épagneul Picard
+312;Pireneusi francia vizsla;Braque français, type Pyrénées
+313;Pireneusi hegyikutya;Chien de Montagne des Pyrénées
+314;Pireneusi masztiff;Mastín del Pirineo
+315;Plott kopó;Plott Hound
+316;Poitevin;Poitevin
+317;Pomerániai törpespitz;Zwergspitz
+318;Pont-Audemer-i spániel;Épagneul de Pont-Audemer
+319;Porcelánkopó;Porcelaine
+320;Portugál juhászkutya;Cão da Serra de Aires
+321;Portugál vízikutya;Cão de Agua Português
+322;Portugál vizsla;Perdigueiro Português
+323;Pudelpointer;Pudelpointer
+324;Puli;Puli
+325;Pumi;Pumi
+326;Rafeiro do Alentejo;Rafeiro do Alentejo
+327;Rottweiler;Rottweiler
+328;Rövidszőrű holland juhászkutya;Hollandse Herdershond Korthaar
+329;Rövidszőrű isztriai kopó;Istarski Kratkodlaki Gonič
+330;Rövidszőrű magyar vizsla;Rövidszőrű magyar vizsla
+331;Rövidszőrű német vizsla;Deutsch Kurzhaar
+332;Rövidszőrű skót juhászkutya;Collie Smooth
+333;Saarloosi farkaskutya;Sarlooswolfdog
+334;Saint Germain-i vizsla;Braque Saint-Germain
+335;Sanshu;Sanshu
+336;Sarplaninai juhászkutya;Jugoslovenski Ovcarski Pas – Sarplaninac
+337;Schapendoes;Nederlandse Schapendoes
+338;Schiller kopó;Schillerstövare
+339;Schipperke;Schipperke
+340;Schwyzi kopó;Schwyzer Laufhund
+341;Sealyham terrier;Sealyham Terrier
+342;Shar pei;Shar Pei
+343;Shetlandi juhászkutya;Shetland Sheepdog
+344;Shiba;Shiba
+345;Shikoku;Shikoku
+346;Si-cu;Shih Tzu
+347;Simaszőrű retriever;Flat Coated Retriever
+348;Skót szarvasagár;Deerhound
+349;Skót terrier;Scottish Terrier
+350;Skye terrier;Skye Terrier
+351;Smålandi kopó;Smålandsstövare
+352;Soft coated wheaten terrier;Irish Soft Coated Wheaten Terrier
+353;Somerset harrier;Somerset Harrier
+354;Spanyol agár;Galgo Español
+355;Spanyol dog;Alano Español
+356;Spanyol kopó;Sabueso Español
+357;Spanyol masztiff;Mastín español
+358;Spanyol vízikutya;Perro de Agua Español
+359;Stabyhoun;Stabyhoun
+360;Staffordshire bullterrier;Staffordshire Bullterrier
+361;Steinbracke;Steinbracke
+362;Sussexi spániel;Sussex Spaniel
+363;Svájci fehér juhászkutya;Berger Blanc Suisse
+364;Svéd juhászkutya;Västgötaspets
+365;Svéd lapphund;Svensk Lapphund
+366;Szálkásszőrű német vizsla;Deutsch Stichelhaar
+367;Szálkászőrű holland juhászkutya;Hollandse Herdershond Ruwhaar
+368;Szamojéd;Samoiedskaïa Sabaka
+369;Szávavölgyi kopó;Posavski Gonič
+370;Szent Bernáthegyi kutya;St. Bernhardshund – Bernhardiner
+371;Szerb kopó;Srpski Gonič
+372;Szerb trikolor kopó;Srpski Trobojni Gonič
+373;Szibériai husky;Siberian Husky
+374;Szicíliai nyúlvadász kutya;Cirneco dell'Etna
+375;Szíriai pásztorkutya;Pastore Siriano
+376;Szlovák csuvacs;Slovenský Ćuvać
+377;Szlovák drótszőrű vizsla;Slovenský hrubosrstý Stavač
+378;Szlovák kopó;Slovenskў Kopov
+379;Szürke norvég elghund;Norsk Elghund Grå
+380;Tacskó;Dachshund
+381;Tajvani kutya;Taiwan Dog
+382;Tátrai juhászkutya;Polski Owczarek Podhalanski
+383;Telomian;Telomian
+384;Tennessee treeing brindle;Tennessee Treeing Brindle
+385;Terceira-i marhaterelő kutya;Barbado Da Terceira
+386;Tervueren;Tervueren
+387;Thai Bangkaew kutya;
+388;Thai Ridgeback;Thai Ridgeback Dog
+389;Tibeti masztiff;Do-Khyi
+390;Tibeti spániel;Tibetan Spaniel
+391;Tibeti terrier;Tibetan Terrier
+392;Tiroli kopó;Tiroler Bracke
+393;Törpe foxterrier;Toy Fox Terrier
+394;Törpe pincser;Zwergpinscher
+395;Törpe portugál kopó;Podengo Português Pequenho
+396;Törpe schnauzer;Zwergschnauzer
+397;Törpe uszkár;Miniature Caniche
+398;Tosa inu;Tosa
+399;Toy uszkár;Toy Caniche
+400;Treeing walker mosómedvekopó;Treeing Walker Coonhound
+401;Trigg kopó;Trigg Hound
+402;Trikolor francia kopó;Chien Français Tricolore
+403;Trikolor nagy angol-francia kopó;Grand Anglo-Français Tricolore
+404;Új-Guineai éneklő kutya;New Guinea singing dog
+405;Újfoundlandi;Newfoundland
+406;Uruguay-i cimarrón;Cimarrón Uruguayo
+407;Vadkacsavadász retriever;Nova Scotia Duck Tolling Retriever
+408;Vendée-i griffonkopó;Briquet Griffon Vendéen
+409;Vesztfáliai tacskókopó;Westphälische Dachsbracke
+410;Vidravadász kopó;Otterhound
+411;Vörös ír szetter;Irish Red Setter
+412;Vörös mosómedvekopó;Redbone Coonhound
+413;Vörös pettyes mosómedvekopó;Redtick Coonhound
+414;Vörös-fehér ír szetter;Irish Red and White Setter
+415;Weimari vizsla;Weimaraner
+416;Welsh springer spániel;Welsh Springer Spaniel
+417;Welsh terrier;Welsh Terrier
+418;West Highland White terrier;West Highland White Terrier
+419;Wetterhoun;Wetterhoun
+420;Whippet;Whippet
+421;Yorkshire terrier;Yorkshire Terrier
