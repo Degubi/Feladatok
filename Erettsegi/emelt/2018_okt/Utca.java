@@ -15,11 +15,11 @@ public class Utca {
 			var split = sor.split(" ");
 			var parose = Integer.parseInt(split[0]) == 0;
 			
-			telkek.add(new Telek(parose, parose ? parosHazszam : paratlanHazszam, Integer.parseInt(split[1]), split[2].charAt(0)));
-			
 			if(parose) {
+				telkek.add(new Telek(true, parosHazszam, Integer.parseInt(split[1]), split[2].charAt(0)));
 				parosHazszam += 2;
-			}else {
+			}else{
+				telkek.add(new Telek(false, paratlanHazszam, Integer.parseInt(split[1]), split[2].charAt(0)));
 				paratlanHazszam += 2;
 			}
 		}
@@ -83,19 +83,12 @@ public class Utca {
 			
 			for(var telek : telkek) {
 				if(!telek.parosE) {
-					for(int k = 0; k < telek.szelesseg; ++k) {
-						if(k == 0) {
-							output.print(telek.hazszam);
-							
-							if(telek.hazszam > 9) {
-								++k;
-							}
-							if(telek.hazszam > 99) {
-								++k;
-							}
-						}else{
-							output.print(' ');
-						}
+					output.print(telek.hazszam);
+					
+					int szokozSzam = telek.szelesseg - Integer.toString(telek.hazszam).length(); 
+
+					for(int k = 0; k < szokozSzam; ++k) {
+						output.print(' ');
 					}
 				}
 			}

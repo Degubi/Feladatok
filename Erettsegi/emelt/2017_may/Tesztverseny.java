@@ -7,7 +7,7 @@ public class Tesztverseny {
 	
 	public static void main(String[] args) throws IOException{
 		Scanner input = new Scanner(System.in);
-		var lines = Files.readAllLines(Paths.get("valaszok.txt"), StandardCharsets.UTF_8);
+		var lines = Files.readAllLines(Paths.get("valaszok.txt"));
 		
 		char[] megoldasok = lines.get(0).toCharArray();
 		ArrayList<Versenyzo> versenyzok = new ArrayList<>();
@@ -68,14 +68,16 @@ public class Tesztverseny {
 				output.println(mindenki.nev + " " + points);
 			}
 		}
-		versenyzok.sort(Comparator.<Versenyzo>comparingInt(k -> k.pontok).reversed());
+		versenyzok.sort(Comparator.comparingInt((Versenyzo k) -> k.pontok).reversed());
 		
 		System.out.println("7. feladat: A verseny legjobbjai:");
 		for(int k = 1, index = 0; k < 4; ++k, ++index) {
 			Versenyzo versenyzo = versenyzok.get(index);
 			System.out.println(k + ". díj " + versenyzo);
-			if(versenyzo.pontok == versenyzok.get(index + 1).pontok) {
-				System.out.println(k + ". díj "+ versenyzok.get(++index));
+			
+			for(int v = index + 1; versenyzok.get(v).pontok == versenyzo.pontok; ++v) {
+				System.out.println(k + ". díj "+ versenyzok.get(index));
+				++index;
 			}
 		}
 	}
