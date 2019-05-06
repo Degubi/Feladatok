@@ -9,9 +9,7 @@ import java.util.stream.*;
 public class Tarsalgo_lambda {
 
 	public static void main(String[] args) throws IOException {
-		var athaladasok = Files.lines(Path.of("ajto.txt"))
-							   .map(Athaladas::new)
-							   .toArray(Athaladas[]::new);
+		var athaladasok = Files.lines(Path.of("ajto.txt")).map(Athaladas::new).toArray(Athaladas[]::new);
 				
 		System.out.println("2. Feladat");
 		
@@ -25,7 +23,7 @@ public class Tarsalgo_lambda {
 			  .reduce((l, r) -> r)
 			  .ifPresent(athaladas -> System.out.println("Utolsó kilépõ: " + athaladas.szemelyID));
 		
-		var athaladasAdat = Arrays.stream(athaladasok).collect(Collectors.toMap(athaladas -> athaladas.szemelyID, ath -> 1, (l, r) -> l + r));
+		var athaladasAdat = Arrays.stream(athaladasok).collect(Collectors.groupingBy(athaladas -> athaladas.szemelyID, Collectors.counting()));
 		
 		System.out.println("4.Feladat");
 		System.out.println("Bent maradtak: " + athaladasAdat.entrySet().stream()
@@ -48,25 +46,25 @@ public class Tarsalgo_lambda {
 			System.out.println("6.Feladat\nÍrj be 1 ID-t");
 			
 			var beID = input.nextInt();
-			var miEmberunk = Arrays.stream(athaladasok)
-								   .filter(athaladas -> athaladas.szemelyID == beID)
-								   .toArray(Athaladas[]::new);
+			var beAthaladasai = Arrays.stream(athaladasok)
+								   	  .filter(athaladas -> athaladas.szemelyID == beID)
+								   	  .toArray(Athaladas[]::new);
 			
 			System.out.println("7. Feladat");
-			System.out.println(Arrays.stream(miEmberunk)
-								     .map(athaladas -> athaladas.belepes ? (athaladas.idopont.toString() + '-') : (athaladas.idopont.toString() + '\n'))
+			System.out.println(Arrays.stream(beAthaladasai)
+								     .map(athaladas -> athaladas.idopont + (athaladas.belepes ? "-" : "\n"))
 								     .collect(Collectors.joining()));
 			
-			var vegIndex = miEmberunk.length % 2 == 0 ? miEmberunk.length : miEmberunk.length - 1;
+			var vegIndex = beAthaladasai.length % 2 == 0 ? beAthaladasai.length : beAthaladasai.length - 1;
 			var bentPercek = IntStream.iterate(0, index -> index < vegIndex, index -> index + 2)
-					 				  .mapToObj(index -> Duration.between(miEmberunk[index].idopont, miEmberunk[index + 1].idopont))
-					 				  .mapToLong(duration -> duration.toMinutes())
+					 				  .mapToObj(index -> Duration.between(beAthaladasai[index].idopont, beAthaladasai[index + 1].idopont))
+					 				  .mapToLong(Duration::toMinutes)
 					 				  .sum();
 			
-			if(miEmberunk.length % 2 == 1) bentPercek += Duration.between(miEmberunk[miEmberunk.length - 1].idopont, LocalTime.of(15, 00)).toMinutes();
+			if(beAthaladasai.length % 2 == 1) bentPercek += Duration.between(beAthaladasai[beAthaladasai.length - 1].idopont, LocalTime.of(15, 00)).toMinutes();
 			
 			System.out.println("8. Feladat");
-			System.out.println("A " + beID + " számú személy " + bentPercek + " percet volt bent, a figyelés végén " + (miEmberunk.length % 2 == 1 ? "bent" : "kint") + " volt.");
+			System.out.println("A " + beID + " számú személy " + bentPercek + " percet volt bent, a figyelés végén " + (beAthaladasai.length % 2 == 1 ? "bent" : "kint") + " volt.");
 		}
 	}
 	
