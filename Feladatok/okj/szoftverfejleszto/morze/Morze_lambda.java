@@ -7,7 +7,7 @@ import java.util.*;
 import java.util.Map.*;
 import java.util.stream.*;
 
-public class Morze {
+public class Morze_lambda {
 
 	public static void main(String[] args) throws IOException {
 		var betuToMorze = Files.lines(Path.of("morzeabc.txt"), StandardCharsets.ISO_8859_1)

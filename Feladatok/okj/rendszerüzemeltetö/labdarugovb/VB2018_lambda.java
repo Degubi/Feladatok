@@ -4,7 +4,7 @@ import java.nio.file.*;
 import java.util.*;
 import java.util.stream.*;
 
-public class VB2018 {
+public class VB2018_lambda {
 
 	public static void main(String[] args) throws IOException {
 		var helyszinek = Files.lines(Path.of("vb2018.txt"), StandardCharsets.ISO_8859_1)

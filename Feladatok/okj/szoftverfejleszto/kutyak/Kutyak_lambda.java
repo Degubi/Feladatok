@@ -10,7 +10,7 @@ import java.util.Map.*;
 import java.util.function.*;
 import java.util.stream.*;
 
-public class Kutyak {
+public class Kutyak_lambda {
 
 	//A KutyaFajtak.csv 388. sorában hibás adat van
 	public static void main(String[] args) throws IOException {

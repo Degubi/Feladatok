@@ -3,7 +3,7 @@ using System.Linq;
 using System.IO;
  
 namespace ConsoleApplication1{
-    class Vasmegye {
+    class Vasmegye_linq {
 
         public static void Main(String[] args) {
             var szuletesek = File.ReadLines("vas.txt")

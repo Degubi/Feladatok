@@ -7,9 +7,8 @@ import java.util.*;
 import java.util.Map.*;
 import java.util.stream.*;
 
-public class Telekocsi {
+public class Telekocsi_lambda {
 
-	
 	public static void main(String[] args) throws IOException {
 		var autok = Files.lines(Path.of("autok.csv"), StandardCharsets.ISO_8859_1)
 						 .skip(1)

@@ -6,7 +6,7 @@ import java.nio.file.*;
 import java.util.*;
 import java.util.stream.*;
 
-public class Nyelvvvizsga {
+public class Nyelvvvizsga_lambda {
 	
 	//Hiba: PDF-ben 2009-2017 van, txt- be 2009-2018
 	public static void main(String[] args) throws IOException {

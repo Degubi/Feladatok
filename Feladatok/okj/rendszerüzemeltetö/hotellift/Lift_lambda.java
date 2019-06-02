@@ -4,7 +4,7 @@ import java.time.*;
 import java.util.*;
 import java.util.stream.*;
 
-public class Lift {
+public class Lift_lambda {
 	static int parseOrDefault(String num, int defaultVal) {
 		try {
 			return Integer.parseInt(num);

@@ -5,7 +5,7 @@ import java.nio.file.*;
 import java.util.*;
 import java.util.stream.*;
 
-public class Hianyzasok {
+public class Hianyzasok_lambda {
 
 	public static void main(String[] args) throws IOException {
 		var hianyzasok = Files.lines(Path.of("szeptember.csv"))

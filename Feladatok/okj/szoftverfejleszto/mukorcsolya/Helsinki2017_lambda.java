@@ -6,7 +6,7 @@ import java.util.*;
 import java.util.Map.*;
 import java.util.stream.*;
 
-public class Helsinki2017 {
+public class Helsinki2017_lambda {
 
 	public static void main(String[] args) throws IOException {
 		var versenyzok = Files.lines(Path.of("rovidprogram.csv")).skip(1).map(Versenyzo::new).toArray(Versenyzo[]::new);

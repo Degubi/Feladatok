@@ -5,7 +5,7 @@ import java.nio.file.*;
 import java.util.*;
 import java.util.stream.*;
 
-public class Nobel {
+public class Nobel_lambda {
 
 	public static void main(String[] args) throws IOException {
 		var dijak = Files.lines(Path.of("nobel.csv"))

@@ -4,7 +4,7 @@ import java.time.*;
 import java.util.*;
 import java.util.stream.*;
 
-public class Vasmegye {
+public class Vasmegye_lambda {
 
 	public static void main(String[] args) throws IOException {
 		var szuletesek = Files.lines(Path.of("vas.txt"))
