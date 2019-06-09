@@ -10,12 +10,12 @@ public class Valasztas_lambda {
 									 .map(Szavazat::new)
 									 .toArray(Szavazat[]::new);
 		
-		System.out.println("2.Feladat\nVálasztáson indult képviselõk száma: " + Arrays.stream(szavazatok)
+		System.out.println("2.Feladat: Választáson indult képviselõk száma: " + Arrays.stream(szavazatok)
 																					  .map(k -> k.nev)
 																					  .distinct()
 																					  .count());
 		try(var input = new Scanner(System.in)){
-			System.out.println("3.Feladat\nÍrd be 1 képviselõ Elsõ nevét");
+			System.out.println("3.Feladat: Írd be 1 képviselõ Elsõ nevét");
 			String firstName = input.nextLine();
 			System.out.println("Írd be 1 képviselõ Második nevét");
 			String lastName = input.nextLine();
@@ -28,7 +28,7 @@ public class Valasztas_lambda {
 		}
 		
 		int szavazatokSzama = Arrays.stream(szavazatok).mapToInt(k -> k.szavazottSzam).sum();
-		System.out.printf("4.Feladat\nA választáson " + szavazatokSzama + 
+		System.out.printf("4.Feladat: A választáson " + szavazatokSzama + 
 						" szavaztak, ami százalékban az összesnek a %.2f %%-a.\n", ((float)szavazatokSzama / 12_345) * 100);
 		
 		System.out.println("5.Feladat");

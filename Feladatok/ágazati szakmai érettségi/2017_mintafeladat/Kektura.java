@@ -13,13 +13,13 @@ public class Kektura{
 							 .map(Szakasz::new)
 							 .collect(Collectors.toList());
 		
-		System.out.println("3.Feladat\nSzakaszok száma: " + szakaszok.size() + " db");
-		System.out.println("4.Feladat\nTeljes hossz: " + szakaszok.stream().mapToDouble(k -> k.hossz).sum() + " km");
+		System.out.println("3.Feladat: Szakaszok száma: " + szakaszok.size() + " db");
+		System.out.println("4.Feladat: Teljes hossz: " + szakaszok.stream().mapToDouble(k -> k.hossz).sum() + " km");
 		
 		szakaszok.stream().min(Comparator.comparingDouble(k -> k.hossz))
-						  .ifPresent(k -> System.out.println("5.Feladat\nLegrövidebb szakasz adatai: " + k));
+						  .ifPresent(k -> System.out.println("5.Feladat: Legrövidebb szakasz adatai: " + k));
 		
-		System.out.println("7.Feladat\nHiányos állomásnevek:");
+		System.out.println("7.Feladat: Hiányos állomásnevek:");
 		var hianyosok = szakaszok.stream().filter(Szakasz::hianyosNev).toArray(Szakasz[]::new);
 		
 		if(hianyosok.length == 0) {
@@ -30,7 +30,7 @@ public class Kektura{
 		
 		szakaszok.stream()
 				 .max(Comparator.comparingInt(k -> k.magasraa(szint)))
-				 .ifPresent(k -> System.out.println("8.Feladat\nA túra legmagasabban fekvõ pontja: " + "Végpont neve: " 
+				 .ifPresent(k -> System.out.println("8.Feladat: A túra legmagasabban fekvõ pontja: " + "Végpont neve: " 
 						 							+ k.vegPont + ", magasság: " + k.magasraa(szint) + "m"));
 		
 		try(var output = new PrintWriter("kektura2.csv")){

@@ -6,8 +6,8 @@ public class Radio {
 	
 	public static void main(String[] args) throws IOException {
 		var file = Files.readAllLines(Paths.get("veetel.txt"));
+		var feljegyzesek = new ArrayList<>(Feljegyzes);
 		
-		List<Feljegyzes> feljegyzesek = new ArrayList<>();
 		for(int k = 0; k < file.size(); k += 2) {
 			feljegyzesek.add(new Feljegyzes(file.get(k).split(" "), file.get(k + 1)));
 		}
@@ -15,16 +15,17 @@ public class Radio {
 		System.out.println("2.Feladat\nElsõ feljegyzõ: " + feljegyzesek.get(0).radioAmator + ", utolsó: " + feljegyzesek.get(feljegyzesek.size() - 1).radioAmator);
 		System.out.println("3.Feladat");
 		
-		for(Feljegyzes feljegyzes : feljegyzesek) {
+		for(var feljegyzes : feljegyzesek) {
 			if(feljegyzes.adat.contains("farkas")) {
 				System.out.println("Nap: " + feljegyzes.nap + ", feljegyzo: " + feljegyzes.radioAmator);
 			}
 		}
 		
 		System.out.println("4.Feladat");
-		for(int k = 1; k < 12; ++k) {
-			int napiSzam = 0;
-			for(Feljegyzes feljegyzes : feljegyzesek) {
+		for(var k = 1; k < 12; ++k) {
+			var napiSzam = 0;
+			
+			for(var feljegyzes : feljegyzesek) {
 				if(feljegyzes.nap == k) {
 					++napiSzam;
 				}
@@ -32,10 +33,10 @@ public class Radio {
 			System.out.println(k + ". napon levõ feljegyzések száma: " + napiSzam);
 		}
 		
-		try(PrintWriter output = new PrintWriter("adaas.txt")){
+		try(var output = new PrintWriter("adaas.txt")){
 			for(int k = 1; k < 12; ++k) {
 				char[] felj = null;
-				for(Feljegyzes feljegyzes : feljegyzesek) {
+				for(var feljegyzes : feljegyzesek) {
 					if(feljegyzes.nap == k) {
 						if(felj == null) {
 							felj = feljegyzes.adat.toCharArray();
@@ -55,11 +56,11 @@ public class Radio {
 		}
 		
 		System.out.println("7.Feladat\nÍrj be 1 napot (1-11) és 1 megfigyelõ sorszámát!");
-		try(Scanner input = new Scanner(System.in)){
+		try(var input = new Scanner(System.in)){
 			int readNap = input.nextInt(), readMegfigyelo = input.nextInt(), egyedszam = 0;
 			
 			boolean voltIlyen = false;
-			for(Feljegyzes feljegyzes : feljegyzesek) {
+			for(var feljegyzes : feljegyzesek) {
 				if(feljegyzes.nap == readNap && feljegyzes.radioAmator == readMegfigyelo) {
 					voltIlyen = true;
 					egyedszam += feljegyzes.gyerekekSzama;
@@ -79,7 +80,8 @@ public class Radio {
 	}
 	
 	private static boolean szame(char[] szo) {
-		boolean valasz = true;
+		var valasz = true;
+		
 		for(int i = 1; i < szo.length; ++i) {
 			if(szo[i] < '0' || szo[i] > '9') {
 				valasz = false;

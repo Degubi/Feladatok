@@ -15,7 +15,7 @@ public class Helyjegy_lambda {
 		var utasok = file.stream().skip(1).map(Utas::new).toArray(Utas[]::new);
 		
 		var utolso = utasok[utasok.length - 1];
-		System.out.println("2.Feladat\nUtolsó utas ülése: " + utolso.ules + " utazott távolság: " + utolso.getTavolsag());
+		System.out.println("2.Feladat: Utolsó utas ülése: " + utolso.ules + " utazott távolság: " + utolso.getTavolsag());
 		System.out.println("3.Feladat");
 		Stream.of(utasok).filter(k -> k.getTavolsag() == utHossz).forEach(k -> System.out.print(k.sorszam + " "));
 		System.out.println("\n4.Feladat");
@@ -30,14 +30,14 @@ public class Helyjegy_lambda {
 		var felszallok = Stream.of(utasok).filter(k -> k.start == uccso).count();
 		var leszallok = Stream.of(utasok).filter(k -> k.end == uccso).count();
 
-		System.out.println("5.Feladat\nUtolsó megállónál felszállók: " + felszallok + ", leszállók: " + leszallok);
+		System.out.println("5.Feladat: Utolsó megállónál felszállók: " + felszallok + ", leszállók: " + leszallok);
 		
 		var allomasok = IntStream.concat(Stream.of(utasok).mapToInt(k -> k.end).distinct(), 
 										 Stream.of(utasok).mapToInt(k -> k.start).distinct())
 					  			 .distinct()
 					  			 .toArray();
 		
-		System.out.println("6.Feladat\nMegállók száma: " + (allomasok.length - 2));
+		System.out.println("6.Feladat: Megállók száma: " + (allomasok.length - 2));
 		
 		try(var output = new PrintWriter("kihol.txt"); 
 			var input = new Scanner(System.in)){

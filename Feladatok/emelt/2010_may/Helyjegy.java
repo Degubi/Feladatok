@@ -18,7 +18,7 @@ public class Helyjegy {
 		}
 		
 		Utas utolso = utasok.get(utasok.size() - 1);
-		System.out.println("2.Feladat\nUtolsó utas ülése: " + utolso.ules + " utazott távolság: " + utolso.getTavolsag());
+		System.out.println("2.Feladat: Utolsó utas ülése: " + utolso.ules + " utazott távolság: " + utolso.getTavolsag());
 		
 		System.out.println("3.Feladat");
 		int osszesPenz = 0;
@@ -28,7 +28,7 @@ public class Helyjegy {
 				System.out.print(utas.sorszam + " ");
 			}
 		}
-		System.out.println("\n4.Feladat\nÖsszes bevétel: " + osszesPenz);
+		System.out.println("\n4.Feladat: Összes bevétel: " + osszesPenz);
 		
 		int utolsoMegallo = 0;
 		for(Utas utas : utasok) {
@@ -46,14 +46,14 @@ public class Helyjegy {
 				++leszallok;
 			}
 		}
-		System.out.println("5.Feladat\nUtolsó megállónál felszállók: " + felszallok + ", leszállók: " + leszallok);
+		System.out.println("5.Feladat: Utolsó megállónál felszállók: " + felszallok + ", leszállók: " + leszallok);
 		
 		HashSet<Integer> allomasok = new HashSet<>();
 		for(Utas utas : utasok) {
 			allomasok.add(utas.start);
 			allomasok.add(utas.end);
 		}
-		System.out.println("6.Feladat\nMegállók száma: " + (allomasok.size() - 2));
+		System.out.println("6.Feladat: Megállók száma: " + (allomasok.size() - 2));
 		
 		try(var output = new PrintWriter("kihol.txt"); Scanner input = new Scanner(System.in)){
 			System.out.println("Írj be 1 km számot!");

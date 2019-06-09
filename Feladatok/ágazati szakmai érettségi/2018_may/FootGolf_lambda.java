@@ -6,14 +6,14 @@ public class FootGolf_lambda {
     public static void main(String[] args) throws Exception{
     	var versenyzok = Files.lines(Paths.get("fob2016.txt")).map(Versenyzo::new).collect(Collectors.toList());
     	
-    	System.out.println("3.Feladat\nVersenyzõk száma: " + versenyzok.size());
-    	System.out.println("4.Feladat\nNõi versenyzõk aránya: " + String.format("%.2f", 
+    	System.out.println("3.Feladat: Versenyzõk száma: " + versenyzok.size());
+    	System.out.println("4.Feladat: Nõi versenyzõk aránya: " + String.format("%.2f", 
     					   versenyzok.stream().filter(k -> k.kategoria.contains("Noi"))
     					   					  .count() / (float)versenyzok.size() * 100) + "%");
     	
     	versenyzok.stream().filter(k -> k.kategoria.contains("Noi"))
     					   .max(Comparator.comparingInt(Versenyzo::osszPont))
-    					   .ifPresent(versenyzo -> System.out.println("6.Feladat\nNõi versenyzõ: " 
+    					   .ifPresent(versenyzo -> System.out.println("6.Feladat: Nõi versenyzõ: " 
     							   + "Név: " + versenyzo.nev + ", Egyesület: " + versenyzo.versenyEgyesulet + ", pontok: " + versenyzo.osszPont()));
     	
     	Files.write(Paths.get("osszpontFF.txt"), versenyzok.stream().map(Versenyzo::toString).collect(Collectors.toList()));

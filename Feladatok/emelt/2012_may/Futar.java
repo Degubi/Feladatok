@@ -12,8 +12,8 @@ public class Futar{
 			fuvarLista.add(new Fuvar(line.split(" ")));
 		}
 		
-		System.out.println("2. Feladat\nA hét legelsõ útja km-ben: " + fuvarLista.get(0).tavolsag + " km");
-		System.out.println("3. Feladat\nA hét utolsó útja km-ben: " + fuvarLista.get(fuvarLista.size() - 1).tavolsag + " km");
+		System.out.println("2. Feladat: A hét legelsõ útja km-ben: " + fuvarLista.get(0).tavolsag + " km");
+		System.out.println("3. Feladat: A hét utolsó útja km-ben: " + fuvarLista.get(fuvarLista.size() - 1).tavolsag + " km");
 	
 		HashSet<Integer> napok = new HashSet<>();
 		for(Fuvar fuvar : fuvarLista) {
@@ -42,7 +42,7 @@ public class Futar{
 			masodikLegtobb.clear();
 		}
 		
-		System.out.println("5. Feladat\nLegtöbb fuvarú nap: " + legtobb.get(0).nap);
+		System.out.println("5. Feladat: Legtöbb fuvarú nap: " + legtobb.get(0).nap);
 		System.out.println("6. Feladat");
 		
 		for(int k = 1; k <= 7; ++k) {
@@ -56,7 +56,7 @@ public class Futar{
 		}
 		
 		try(var input = new Scanner(System.in)){
-			System.out.println("7.Feladat\nÍrj be 1 távolságot!");
+			System.out.println("7.Feladat: Írj be 1 távolságot!");
 			int readKm = input.nextInt();
 			System.out.println(readKm + " km esetén fizetendõ: " + calcPrice(readKm));
 		}
@@ -69,7 +69,7 @@ public class Futar{
 				output.println(fuvar.nap + ". nap " + fuvar.sorszam + ". fuvar: " + fuvarAr + "FT");
 			}
 		}
-		System.out.println("9. Feladat\nAz egész heti fizetés: " + allPrice);
+		System.out.println("9. Feladat: Az egész heti fizetés: " + allPrice);
 	}
 	
 	private static int calcPrice(int distance) {

@@ -12,7 +12,7 @@ public class FootGolf {
     		versenyzok.add(new Versenyzo(sor));
     	}
     	
-    	System.out.println("3.Feladat\nVersenyzõk száma: " + versenyzok.size());
+    	System.out.println("3.Feladat: Versenyzõk száma: " + versenyzok.size());
     	
     	int noiVersenyzok = 0;
     	for(Versenyzo versenyzo : versenyzok) {
@@ -20,7 +20,7 @@ public class FootGolf {
     			++noiVersenyzok;
     		}
     	}
-    	System.out.println("4.Feladat\nNõi versenyzõk aránya: " + String.format("%.2f", noiVersenyzok / (float)versenyzok.size() * 100) + "%");
+    	System.out.println("4.Feladat: Nõi versenyzõk aránya: " + String.format("%.2f", noiVersenyzok / (float)versenyzok.size() * 100) + "%");
     	
     	Versenyzo legtobbNoi = versenyzok.get(0);
     	for(Versenyzo vers : versenyzok) {
@@ -28,7 +28,7 @@ public class FootGolf {
     			legtobbNoi = vers;
     		}
     	}
-    	System.out.println("6.Feladat\nNõi versenyzõ: " + "Név: " + legtobbNoi.nev + ", Egyesület: " 
+    	System.out.println("6.Feladat: Nõi versenyzõ: " + "Név: " + legtobbNoi.nev + ", Egyesület: " 
     						+ legtobbNoi.versenyEgyesulet + ", pontok: " + legtobbNoi.osszPont());
     	
     	try(PrintWriter output = new PrintWriter("osszpontFF.txt")){
@@ -53,7 +53,7 @@ public class FootGolf {
     			}
     		}
     	}
-    	System.out.println("8.Feladat\n" + stat);
+    	System.out.println("8.Feladat: " + stat);
     }
     
     static class Versenyzo{

@@ -11,7 +11,7 @@ public class Cimek {
 		System.out.println("Adatsorok száma: " + lines.size());
 		System.out.println("Legkisebb ip cím: " + lines.get(0));
 		
-		int[] counters = new int[3];
+		var counters = new int[3];
 		for(String ip : lines) {
 			if(ip.startsWith("2001:0db8")) {
 				++counters[0];

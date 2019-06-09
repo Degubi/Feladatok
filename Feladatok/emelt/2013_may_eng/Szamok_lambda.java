@@ -8,7 +8,7 @@ public class Szamok_lambda {
 	
 	public static void main(String[] args) throws IOException {
 		var rand = new Random();
-		ArrayList<Feladat> feladatok = new ArrayList<>();
+		var feladatok = new ArrayList<Feladat>();
 		
 		var file = Files.readAllLines(Paths.get("felszam.txt"), StandardCharsets.ISO_8859_1);
 		
@@ -51,11 +51,11 @@ public class Szamok_lambda {
 			System.out.println("Írj be 1 témakört!");
 			String readKor = input.nextLine();
 			
-			Feladat[] categorizalt = feladatok.stream()
-						 					  .filter(k -> k.temakor.equals(readKor))
-						 					  .toArray(Feladat[]::new);
+			var categorizalt = feladatok.stream()
+						 				.filter(k -> k.temakor.equals(readKor))
+						 				.toArray(Feladat[]::new);
 	
-			Feladat chosen = categorizalt[rand.nextInt(categorizalt.length)];
+			var chosen = categorizalt[rand.nextInt(categorizalt.length)];
 			System.out.println(chosen.kerdes);
 			
 			if(input.nextInt() == chosen.valasz) {
@@ -65,11 +65,11 @@ public class Szamok_lambda {
 			}
 		}
 		
-		Feladat[] generalt = rand.ints(0, feladatok.size())
-								 .mapToObj(feladatok::get)
-								 .distinct()
-								 .limit(10)
-								 .toArray(Feladat[]::new);
+		var generalt = rand.ints(0, feladatok.size())
+						   .mapToObj(feladatok::get)
+						   .distinct()
+						   .limit(10)
+						   .toArray(Feladat[]::new);
 		
 		try(var output = new PrintWriter("tesztfel.txt")){
 			Stream.of(generalt).forEach(toPrint -> output.println(toPrint.pont + " " + toPrint.kerdes));

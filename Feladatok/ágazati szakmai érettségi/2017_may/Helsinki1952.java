@@ -11,14 +11,14 @@ public class Helsinki1952 {
     						  .map(Helyezes::new)
     						  .toArray(Helyezes[]::new);
     	
-    	System.out.println("3.Feladat\nPontszerzõ helyezések száma: " + helyezesek.length);
+    	System.out.println("3.Feladat: Pontszerzõ helyezések száma: " + helyezesek.length);
     	
     	var aranyak = Arrays.stream(helyezesek).filter(k -> k.helyezes == 1).count();
     	var ezustok = Arrays.stream(helyezesek).filter(k -> k.helyezes == 2).count();
     	var bronzok = Arrays.stream(helyezesek).filter(k -> k.helyezes == 3).count();
     	
-    	System.out.println("4.Feladat\nAranyak: " + aranyak + ", ezustok: " + ezustok + ", bronzok: " + bronzok + ", összesen: " + (aranyak + ezustok + bronzok));
-    	System.out.println("5.Feladat\nPontok száma: " + Arrays.stream(helyezesek).mapToInt(Helyezes::pontCalc).sum());
+    	System.out.println("4.Feladat: Aranyak: " + aranyak + ", ezustok: " + ezustok + ", bronzok: " + bronzok + ", összesen: " + (aranyak + ezustok + bronzok));
+    	System.out.println("5.Feladat: Pontok száma: " + Arrays.stream(helyezesek).mapToInt(Helyezes::pontCalc).sum());
     	
     	var uszas = Arrays.stream(helyezesek)
 	    				  .filter(k -> k.helyezes <= 3)

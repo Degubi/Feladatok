@@ -21,7 +21,7 @@ public class SMS_lambda{
 								 .mapToObj(k -> new Uzenet(file.get(k).split(" "), file.get(k + 1)))
 								 .toArray(Uzenet[]::new);
 		
-		System.out.println("2.Feladat\nUtolsó sms szövege: " + smss[smss.length - 1].message);
+		System.out.println("2.Feladat: Utolsó sms szövege: " + smss[smss.length - 1].message);
 		System.out.println("3.Feladat");
 		Arrays.stream(smss).max(comparingInt(k -> k.message.length())).ifPresent(k -> System.out.println("Leghosszabb üzenet: " + k));
 		Arrays.stream(smss).min(comparingInt(k -> k.message.length())).ifPresent(k -> System.out.println("Legrövidebb üzenet: " + k));
@@ -33,9 +33,9 @@ public class SMS_lambda{
 		System.out.println("81-100 karakteres üzenetek: " + sumIf(smss, k -> k.message.length() > 80, k -> k.message.length() <= 100));
 		
 		//5. Feladat több mint valószínû hogy rossz, még a kérdést se értettem meg teljesen...
-		System.out.println("5.Feladat\nKihagyott üzenetek: " + Stream.of(smss).filter(k -> k.time.getMinute() == 0).count());
+		System.out.println("5.Feladat: Kihagyott üzenetek: " + Stream.of(smss).filter(k -> k.time.getMinute() == 0).count());
 		
-		System.out.print("6. Feladat\nLeghosszabb idõ: ");
+		System.out.print("6. Feladat: Leghosszabb idõ: ");
 		System.out.println(IntStream.iterate(0, k -> k < smss.length, k -> k + 2)
 				 					.filter(k -> smss[k].number == 123456789)
 				 					.mapToObj(k -> Duration.between(smss[k].time, smss[k + 1].time))
