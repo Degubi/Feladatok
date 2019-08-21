@@ -47,10 +47,10 @@ public class VB2018_lambda {
 	}
 	
 	static class Helyszin{
-		String varos;
-		String nev1;
-		String nev2;
-		int ferohely;
+		public final String varos;
+		public final String nev1;
+		public final String nev2;
+		public final int ferohely;
 		
 		public Helyszin(String line) {
 			var split = line.split(";");

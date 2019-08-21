@@ -62,8 +62,8 @@ public class Csudh {
 	}
 	
 	static class Pair{
-		String domain;
-		String ip;
+		public final String domain;
+		public final String ip;
 		
 		public Pair(String line) {
 			var split = line.split(";");
