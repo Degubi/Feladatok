@@ -1,5 +1,3 @@
-import static java.nio.file.StandardOpenOption.*;
-
 import java.io.*;
 import java.nio.file.*;
 import java.util.*;
@@ -91,7 +89,6 @@ public class Fejvagyiras {
 			generaltTeljes.append(generalt);
 		}
 		
-		//Régi java-ba Files.write(..., string.getBytes(), ...)
-		Files.writeString(Path.of("dobasok.txt"), "FFFF: " + FFFF + ", FFFI: " + FFFI + "\n" + generaltTeljes, WRITE, CREATE, TRUNCATE_EXISTING);
+		Files.writeString(Path.of("dobasok.txt"), "FFFF: " + FFFF + ", FFFI: " + FFFI + "\n" + generaltTeljes);
 	}
 }

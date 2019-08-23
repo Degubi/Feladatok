@@ -4,7 +4,7 @@ import java.time.*;
 import java.util.*;
 import java.util.stream.*;
 
-public class Vasmegye_lambda {
+public class Vasmegye_stream {
 
 	public static void main(String[] args) throws IOException {
 		var szuletesek = Files.lines(Path.of("vas.txt"))
@@ -33,9 +33,9 @@ public class Vasmegye_lambda {
 			  .forEach((ev, babak) -> System.out.println(ev + "-ben " + babak + " baba szuletett"));
 	}
 	
-	static class Szuletes{
-		LocalDate datum;
-		int[] szamjegyek;
+	public static class Szuletes{
+		public final LocalDate datum;
+		public final int[] szamjegyek;
 		
 		public Szuletes(String line) {
 			var split = line.split("-");

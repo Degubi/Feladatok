@@ -4,15 +4,7 @@ import java.time.*;
 import java.util.*;
 import java.util.stream.*;
 
-public class Lift_lambda {
-	static int parseOrDefault(String num, int defaultVal) {
-		try {
-			return Integer.parseInt(num);
-		}catch(NumberFormatException e) {
-			return defaultVal;
-		}
-	}
-	
+public class Lift_stream {
 	public static void main(String[] args) throws IOException {
 		var hasznalatok = Files.lines(Path.of("lift.txt")).map(Hasznalat::new).toArray(Hasznalat[]::new);
 		
@@ -44,11 +36,19 @@ public class Lift_lambda {
 			  .forEach((ido, db) -> System.out.println(ido + " - " + db + "x"));
 	}
 	
-	static class Hasznalat{
-		LocalDate idopont;
-		int kartyaSorszam;
-		int induloSzint;
-		int celSzint;
+	static int parseOrDefault(String num, int defaultVal) {
+		try {
+			return Integer.parseInt(num);
+		}catch(NumberFormatException e) {
+			return defaultVal;
+		}
+	}
+	
+	public static class Hasznalat{
+		public final LocalDate idopont;
+		public final int kartyaSorszam;
+		public final int induloSzint;
+		public final int celSzint;
 		
 		public Hasznalat(String sor) {
 			var split = sor.split(" ");

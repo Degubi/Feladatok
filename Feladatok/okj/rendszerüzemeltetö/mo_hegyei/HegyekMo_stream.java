@@ -1,11 +1,9 @@
-import static java.nio.file.StandardOpenOption.*;
-
 import java.io.*;
 import java.nio.file.*;
 import java.util.*;
 import java.util.stream.*;
 
-public class HegyekMo_lambda {
+public class HegyekMo_stream {
 	public static void main(String[] args) throws IOException{
 		var hegyek = Files.lines(Path.of("hegyekMo.txt"))
 						  .skip(1)
@@ -49,13 +47,13 @@ public class HegyekMo_lambda {
 							 .map(k -> k.replace(',', '.'))
 							 .collect(Collectors.joining("\n"));
 		
-		Files.writeString(Path.of("bukk-videk.txt"), "Hegycsúcs neve;Magasság láb\n" + fileAdat, WRITE, CREATE, TRUNCATE_EXISTING);
+		Files.writeString(Path.of("bukk-videk.txt"), "Hegycsúcs neve;Magasság láb\n" + fileAdat);
 	}
 	
-	static class Hegy{
-		String nev;
-		String hegyseg;
-		int magassag;
+	public static class Hegy{
+		public final String nev;
+		public final String hegyseg;
+		public final int magassag;
 		
 		public Hegy(String line) {
 			var split = line.split(";");

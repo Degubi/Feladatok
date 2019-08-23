@@ -3,7 +3,7 @@ import java.nio.file.*;
 import java.util.*;
 import java.util.stream.*;
 
-public class Helyjegy_lambda {
+public class Helyjegy_stream {
 	
 	public static void main(String[] args) throws IOException {
 		var file = Files.readAllLines(Paths.get("eladott.txt"));
@@ -12,28 +12,30 @@ public class Helyjegy_lambda {
 		var eladottJegyek = Integer.parseInt(firstSplit[0]);
 		var utHossz = Integer.parseInt(firstSplit[1]);
 		var ar = Integer.parseInt(firstSplit[2]);  //10 km-ként
-		var utasok = file.stream().skip(1).map(Utas::new).toArray(Utas[]::new);
+		var utasok = IntStream.range(0, file.size())
+							  .mapToObj(i -> new Utas(file.get(i), i))
+							  .toArray(Utas[]::new);
 		
 		var utolso = utasok[utasok.length - 1];
 		System.out.println("2.Feladat: Utolsó utas ülése: " + utolso.ules + " utazott távolság: " + utolso.getTavolsag());
 		System.out.println("3.Feladat");
-		Stream.of(utasok).filter(k -> k.getTavolsag() == utHossz).forEach(k -> System.out.print(k.sorszam + " "));
+		Arrays.stream(utasok).filter(k -> k.getTavolsag() == utHossz).forEach(k -> System.out.print(k.sorszam + " "));
 		System.out.println("\n4.Feladat");
-		System.out.println("Összes bevétel: " + Stream.of(utasok).mapToInt(k -> k.getTavolsag()).sum());
+		System.out.println("Összes bevétel: " + Arrays.stream(utasok).mapToInt(k -> k.getTavolsag()).sum());
 		
-		var uccso = Stream.of(utasok)
+		var uccso = Arrays.stream(utasok)
 					   	  .mapToInt(k -> k.end)
 					   	  .filter(k -> k != utHossz)
 					   	  .max()
 					   	  .orElseThrow();
 		
-		var felszallok = Stream.of(utasok).filter(k -> k.start == uccso).count();
-		var leszallok = Stream.of(utasok).filter(k -> k.end == uccso).count();
+		var felszallok = Arrays.stream(utasok).filter(k -> k.start == uccso).count();
+		var leszallok = Arrays.stream(utasok).filter(k -> k.end == uccso).count();
 
 		System.out.println("5.Feladat: Utolsó megállónál felszállók: " + felszallok + ", leszállók: " + leszallok);
 		
-		var allomasok = IntStream.concat(Stream.of(utasok).mapToInt(k -> k.end).distinct(), 
-										 Stream.of(utasok).mapToInt(k -> k.start).distinct())
+		var allomasok = IntStream.concat(Arrays.stream(utasok).mapToInt(k -> k.end).distinct(), 
+										 Arrays.stream(utasok).mapToInt(k -> k.start).distinct())
 					  			 .distinct()
 					  			 .toArray();
 		
@@ -47,7 +49,7 @@ public class Helyjegy_lambda {
 			
 			IntStream.rangeClosed(1, 48).forEach(index -> {
 						 System.out.println(index + ". ülés");
-						 Stream.of(utasok)
+						 Arrays.stream(utasok)
 						 	   .filter(k -> k.ules == index)
 						 	   .filter(k -> k.start == readTav || k.end == readTav)
 						 	   .findFirst()
@@ -57,14 +59,13 @@ public class Helyjegy_lambda {
 		}
 	}
 	
-	static class Utas{
-		int ules, start, end, sorszam;
-		static int counter = 0;
+	public static class Utas{
+		public final int ules, start, end, sorszam;
 		
-		public Utas(String line) {
-			sorszam = ++counter;
+		public Utas(String line, int sorsz) {
 			var data = line.split(" ");
 			
+			sorszam = sorsz;
 			ules = Integer.parseInt(data[0]);
 			start = Integer.parseInt(data[1]);
 			end = Integer.parseInt(data[2]);
@@ -75,9 +76,10 @@ public class Helyjegy_lambda {
 		}
 		
 		public int getAr(int kmAr) {
-			int tav = getTavolsag();
-			int utolso = tav % 10;
-			int tizesek = tav / 10;
+			var tav = getTavolsag();
+			var utolso = tav % 10;
+			var tizesek = tav / 10;
+			
 			if(utolso == 3 || utolso == 4 || utolso == 8 || utolso == 9) {
 				++tizesek;
 			}

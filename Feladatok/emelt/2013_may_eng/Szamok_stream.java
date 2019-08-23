@@ -4,12 +4,11 @@ import java.nio.file.*;
 import java.util.*;
 import java.util.stream.*;
 
-public class Szamok_lambda {
+public class Szamok_stream {
 	
 	public static void main(String[] args) throws IOException {
 		var rand = new Random();
 		var feladatok = new ArrayList<Feladat>();
-		
 		var file = Files.readAllLines(Paths.get("felszam.txt"), StandardCharsets.ISO_8859_1);
 		
 		IntStream.iterate(0, k -> k < file.size(), k -> k + 2).forEach(k -> {
@@ -77,9 +76,9 @@ public class Szamok_lambda {
 		}
 	}
 	
-	static class Feladat{
-		String kerdes, temakor;
-		int pont, valasz;
+	public static class Feladat{
+		public final String kerdes, temakor;
+		public final int pont, valasz;
 		
 		public Feladat(String quest, int answ, int points, String cat) {
 			kerdes = quest;

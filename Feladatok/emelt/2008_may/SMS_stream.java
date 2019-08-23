@@ -9,12 +9,7 @@ import java.util.*;
 import java.util.function.*;
 import java.util.stream.*;
 
-public class SMS_lambda{
-	
-	private static int sumIf(Uzenet[] smss, Predicate<Uzenet> pred1, Predicate<Uzenet> pred2) {
-		return Stream.of(smss).filter(pred1.and(pred2)).mapToInt(k -> 1).sum();
-	}
-	
+public class SMS_stream{
 	public static void main(String[] args) throws IOException{
 		var file = Files.readAllLines(Path.of("sms.txt"), StandardCharsets.ISO_8859_1);
 		var smss = IntStream.iterate(1, k -> k < file.size(), k -> k + 2)
@@ -60,10 +55,14 @@ public class SMS_lambda{
 		}
 	}
 	
-	static class Uzenet{
-		LocalTime time;
-		int number;
-		String message;
+	private static int sumIf(Uzenet[] smss, Predicate<Uzenet> pred1, Predicate<Uzenet> pred2) {
+		return Arrays.stream(smss).filter(pred1.and(pred2)).mapToInt(k -> 1).sum();
+	}
+	
+	public static class Uzenet{
+		public final LocalTime time;
+		public final int number;
+		public final String message;
 		
 		public Uzenet(String[] data, String msg) {
 			time = LocalTime.of(Integer.parseInt(data[0]), Integer.parseInt(data[1]));

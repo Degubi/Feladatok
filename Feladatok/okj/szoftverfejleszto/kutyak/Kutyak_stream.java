@@ -1,4 +1,3 @@
-import static java.nio.file.StandardOpenOption.*;
 import static java.util.Comparator.*;
 
 import java.io.*;
@@ -10,7 +9,7 @@ import java.util.Map.*;
 import java.util.function.*;
 import java.util.stream.*;
 
-public class Kutyak_lambda {
+public class Kutyak_stream {
 
 	//A KutyaFajtak.csv 388. sorában hibás adat van
 	public static void main(String[] args) throws IOException {
@@ -53,7 +52,7 @@ public class Kutyak_lambda {
 						   .map(k -> k.getKey() + ";" + k.getValue())
 						   .collect(Collectors.joining("\n"));
 		
-		Files.writeString(Path.of("nevstatisztika.txt"), fileba, WRITE, TRUNCATE_EXISTING, CREATE);
+		Files.writeString(Path.of("nevstatisztika.txt"), fileba);
 	}
 	
 	
@@ -62,9 +61,9 @@ public class Kutyak_lambda {
 	}
 	
 	
-	static class KutyaNev{
-		public int id;
-		public String nev;
+	public static class KutyaNev{
+		public final int id;
+		public final String nev;
 		
 		public KutyaNev(String line) {
 			var split = line.split(";");
@@ -78,10 +77,10 @@ public class Kutyak_lambda {
 		}
 	}
 	
-	static class KutyaFajta{
-		public int id;
-		public String nev;
-		public String eredetiNev;
+	public static class KutyaFajta{
+		public final int id;
+		public final String nev;
+		public final String eredetiNev;
 		
 		public KutyaFajta(String line) {
 			var split = line.split(";");
@@ -100,14 +99,14 @@ public class Kutyak_lambda {
 		}
 	}
 	
-	static class Kutya{
+	public static class Kutya{
 		private static final DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("yyyy.MM.dd");
 		
-		public int id;
-		public int fajtaId;
-		public int nevId;
-		public int eletkor;
-		public LocalDate ellenorzes;
+		public final int id;
+		public final int fajtaId;
+		public final int nevId;
+		public final int eletkor;
+		public final LocalDate ellenorzes;
 		
 		public Kutya(String line) {
 			var split = line.split(";");

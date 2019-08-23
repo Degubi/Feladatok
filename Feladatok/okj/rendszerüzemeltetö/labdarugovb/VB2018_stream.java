@@ -4,7 +4,7 @@ import java.nio.file.*;
 import java.util.*;
 import java.util.stream.*;
 
-public class VB2018_lambda {
+public class VB2018_stream {
 
 	public static void main(String[] args) throws IOException {
 		var helyszinek = Files.lines(Path.of("vb2018.txt"), StandardCharsets.ISO_8859_1)
@@ -46,7 +46,7 @@ public class VB2018_lambda {
 		System.out.println("Varosok szama: " + Arrays.stream(helyszinek).map(k -> k.varos).distinct().count());
 	}
 	
-	static class Helyszin{
+	public static class Helyszin{
 		public final String varos;
 		public final String nev1;
 		public final String nev2;

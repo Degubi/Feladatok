@@ -1,12 +1,10 @@
-import static java.nio.file.StandardOpenOption.*;
-
 import java.io.*;
 import java.nio.file.*;
 import java.time.*;
 import java.util.*;
 import java.util.stream.*;
 
-public class Tarsalgo_lambda {
+public class Tarsalgo_stream {
 
 	public static void main(String[] args) throws IOException {
 		var athaladasok = Files.lines(Path.of("ajto.txt")).map(Athaladas::new).toArray(Athaladas[]::new);
@@ -39,8 +37,7 @@ public class Tarsalgo_lambda {
 	  	  		   						   .map(entry -> entry.getKey() + " " + entry.getValue())
 	  	  		   						   .collect(Collectors.joining("\n"));
 		
-		//Régi java-ba Files.write(Paths.get("athaladas.txt"), athaladasAdat.getBytes(), ...
-		Files.writeString(Path.of("athaladas.txt"), athaladasString, CREATE, WRITE, TRUNCATE_EXISTING);
+		Files.writeString(Path.of("athaladas.txt"), athaladasString);
 		
 		try(var input = new Scanner(System.in)){
 			System.out.println("6.Feladat\nÍrj be 1 ID-t");
@@ -68,13 +65,13 @@ public class Tarsalgo_lambda {
 		}
 	}
 	
-	static class Athaladas{
-		static int bentlevoSzamlalo = 0;
+	public static class Athaladas{
+		private static int bentlevoSzamlalo = 0;
 		
-		LocalTime idopont;
-		int szemelyID;
-		boolean belepes;
-		int bentlevok;
+		public final LocalTime idopont;
+		public final int szemelyID;
+		public final boolean belepes;
+		public final int bentlevok;
 		
 		public Athaladas(String sor) {
 			var split = sor.split(" ");

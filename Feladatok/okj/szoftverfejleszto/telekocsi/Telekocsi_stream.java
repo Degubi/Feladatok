@@ -1,5 +1,3 @@
-import static java.nio.file.StandardOpenOption.*;
-
 import java.io.*;
 import java.nio.charset.*;
 import java.nio.file.*;
@@ -7,7 +5,7 @@ import java.util.*;
 import java.util.Map.*;
 import java.util.stream.*;
 
-public class Telekocsi_lambda {
+public class Telekocsi_stream {
 
 	public static void main(String[] args) throws IOException {
 		var autok = Files.lines(Path.of("autok.csv"), StandardCharsets.ISO_8859_1)
@@ -37,16 +35,16 @@ public class Telekocsi_lambda {
 						   .toArray(Igeny[]::new);
 		
 		Arrays.stream(igenyek)
-			  .forEach(igeny -> Telekocsi.autotKeresIgenyre(igeny, autok)
-					  					 .ifPresent(k -> System.out.println(igeny.azonosito + " -> " + k.rendszam)));
+			  .forEach(igeny -> Telekocsi_stream.autotKeresIgenyre(igeny, autok)
+			  .ifPresent(k -> System.out.println(igeny.azonosito + " -> " + k.rendszam)));
 		
 		var fileba = Arrays.stream(igenyek)
-						   .map(igeny -> Telekocsi.autotKeresIgenyre(igeny, autok)
-								  				  .map(k -> igeny.azonosito + ": Rendszam: " + k.rendszam + ", Telefonszam: " + k.telefonszam)
-								  				  .orElse(igeny.azonosito + ": " + "Sajnos nem sikerült autót találni"))
+						   .map(igeny -> Telekocsi_stream.autotKeresIgenyre(igeny, autok)
+									  				     .map(k -> igeny.azonosito + ": Rendszam: " + k.rendszam + ", Telefonszam: " + k.telefonszam)
+									  				     .orElse(igeny.azonosito + ": " + "Sajnos nem sikerült autót találni"))
 						   .collect(Collectors.joining("\n"));
 		
-		Files.writeString(Path.of("utazasuzenetek.txt"), fileba, WRITE, CREATE, TRUNCATE_EXISTING);
+		Files.writeString(Path.of("utazasuzenetek.txt"), fileba);
 	}
 	
 	static Optional<Auto> autotKeresIgenyre(Igeny igeny, Auto[] autok){
@@ -57,12 +55,12 @@ public class Telekocsi_lambda {
 				     .findFirst();
 	}
 	
-	static class Auto{
-		String indulas;
-		String cel;
-		String rendszam;
-		String telefonszam;
-		int ferohely;
+	public static class Auto{
+		public final String indulas;
+		public final String cel;
+		public final String rendszam;
+		public final String telefonszam;
+		public final int ferohely;
 		
 		public Auto(String sor) {
 			var split = sor.split(";");
@@ -75,11 +73,11 @@ public class Telekocsi_lambda {
 		}
 	}
 	
-	static class Igeny{
-		String azonosito;
-		String indulas;
-		String cel;
-		int szemelyek;
+	public static class Igeny{
+		public final String azonosito;
+		public final String indulas;
+		public final String cel;
+		public final int szemelyek;
 		
 		public Igeny(String sor) {
 			var split = sor.split(";");

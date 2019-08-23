@@ -4,7 +4,7 @@ import java.time.*;
 import java.util.*;
 import java.util.stream.*;
 
-public class Telefon_lambda {
+public class Telefon_stream {
 
 	public static void main(String[] args) throws IOException {
 		var hivasok = Files.lines(Path.of("hivas.txt")).map(Hivas::new).toArray(Hivas[]::new);
@@ -50,12 +50,12 @@ public class Telefon_lambda {
 		return mp + (perc * 60) + (ora * 3600);
 	}
 	
-	static class Hivas{
-		static int sorszamSzamlalo = 0;
+	public static class Hivas{
+		private static int sorszamSzamlalo = 0;
 		
-		LocalTime kezdet;
-		LocalTime veg;
-		int sorszam;
+		public final LocalTime kezdet;
+		public final LocalTime veg;
+		public final int sorszam;
 		
 		public Hivas(String sor) {
 			var split = sor.split(" ");

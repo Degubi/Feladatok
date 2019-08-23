@@ -1,5 +1,3 @@
-import static java.nio.file.StandardOpenOption.*;
-
 import java.io.*;
 import java.nio.charset.*;
 import java.nio.file.*;
@@ -7,7 +5,7 @@ import java.util.*;
 import java.util.Map.*;
 import java.util.stream.*;
 
-public class Morze_lambda {
+public class Morze_stream {
 
 	public static void main(String[] args) throws IOException {
 		var betuToMorze = Files.lines(Path.of("morzeabc.txt"), StandardCharsets.ISO_8859_1)
@@ -50,7 +48,7 @@ public class Morze_lambda {
 						  .map(k -> k.szerzo + ':' + k.uzenet)
 						  .collect(Collectors.joining("\n"));
 		
-		Files.writeString(Path.of("forditas.txt"), fileba, WRITE, CREATE, TRUNCATE_EXISTING);
+		Files.writeString(Path.of("forditas.txt"), fileba);
 	}
 	
 	static String morze2Szoveg(String uzenet, Map<String, String> abc) {
@@ -67,9 +65,9 @@ public class Morze_lambda {
 		return forditott.deleteCharAt(forditott.length() - 1).toString();
 	}
 	
-	static class Idezet{
-		String szerzo;
-		String uzenet;
+	public static class Idezet{
+		public final String szerzo;
+		public final String uzenet;
 		
 		public Idezet(String sor, Map<String, String> abc) {
 			var split = sor.split(";");

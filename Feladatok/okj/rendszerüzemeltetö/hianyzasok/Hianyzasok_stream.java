@@ -1,11 +1,9 @@
-import static java.nio.file.StandardOpenOption.*;
-
 import java.io.*;
 import java.nio.file.*;
 import java.util.*;
 import java.util.stream.*;
 
-public class Hianyzasok_lambda {
+public class Hianyzasok_stream {
 
 	public static void main(String[] args) throws IOException {
 		var hianyzasok = Files.lines(Path.of("szeptember.csv"))
@@ -46,15 +44,15 @@ public class Hianyzasok_lambda {
 								   .map(k -> k.getKey() + ";" + k.getValue())
 								   .collect(Collectors.joining("\n"));
 		
-		Files.writeString(Path.of("osszesites.csv"), hianyzasokStat, WRITE, CREATE, TRUNCATE_EXISTING);
+		Files.writeString(Path.of("osszesites.csv"), hianyzasokStat);
 	}
 	
-	static class Hianyzas{
-		String nev;
-		String osztaly;
-		int elsoNap;
-		int utolsoNap;
-		int mulasztottOrak;
+	public static class Hianyzas{
+		public final String nev;
+		public final String osztaly;
+		public final int elsoNap;
+		public final int utolsoNap;
+		public final int mulasztottOrak;
 		
 		public Hianyzas(String sor) {
 			var split = sor.split(";");

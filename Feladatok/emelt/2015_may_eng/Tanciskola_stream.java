@@ -4,7 +4,7 @@ import java.util.*;
 import java.util.function.*;
 import java.util.stream.*;
 
-public class Tanciskola_lambda {
+public class Tanciskola_stream {
 	
 	public static void main(String... args) throws IOException {
 		var file = Files.readAllLines(Paths.get("tancrend.txt"));
@@ -73,8 +73,9 @@ public class Tanciskola_lambda {
 							      .map(k -> k.name)
 								  .collect(Collectors.joining(" ")));
 	}
-	static class Tanc{
-		String category, woman, man;
+	
+	public static class Tanc{
+		public final String category, woman, man;
 		
 		public Tanc(String cat, String wom, String ma) {
 			category = cat;
@@ -83,10 +84,11 @@ public class Tanciskola_lambda {
 		}
 	}
 	
-	static class Szereplo{
-		static final Comparator<Szereplo> byAlkalmak = Comparator.<Szereplo>comparingInt(k -> k.alkalmak).reversed();
-		String name;
-		int alkalmak;
+	public static class Szereplo{
+		public static final Comparator<Szereplo> byAlkalmak = Comparator.<Szereplo>comparingInt(k -> k.alkalmak).reversed();
+		
+		public final String name;
+		public final int alkalmak;
 		
 		public Szereplo(String neim, Tanc[] tancok, Predicate<Tanc> filter) {
 			name = neim;

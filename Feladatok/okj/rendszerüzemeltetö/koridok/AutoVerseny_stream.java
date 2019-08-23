@@ -3,7 +3,7 @@ import java.nio.file.*;
 import java.time.*;
 import java.util.*;
 
-public class AutoVerseny_lambda {
+public class AutoVerseny_stream {
 	public static void main(String[] args) throws IOException {
 		var versenyek = Files.lines(Path.of("autoverseny.csv"))
 							 .skip(1)
@@ -31,13 +31,13 @@ public class AutoVerseny_lambda {
 		}
 	}
 	
-	static class Verseny{
-		String csapat;
-		String versenyzo;
-		int eletkor;
-		String palya;
-		LocalTime korido;
-		int kor;
+	public static class Verseny{
+		public final String csapat;
+		public final String versenyzo;
+		public final int eletkor;
+		public final String palya;
+		public final LocalTime korido;
+		public final int kor;
 		
 		public Verseny(String line) {
 			var split = line.split(";");

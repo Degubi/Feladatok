@@ -1,12 +1,10 @@
-import static java.nio.file.StandardOpenOption.*;
-
 import java.io.*;
 import java.nio.file.*;
 import java.time.*;
 import java.util.*;
 import java.util.stream.*;
 
-public class Cegesauto_lambda {
+public class Cegesauto_stream {
 
 	public static void main(String[] args) throws IOException {
 		var autok = Files.lines(Path.of("autok.txt")).map(Auto::new).toArray(Auto[]::new);
@@ -46,17 +44,17 @@ public class Cegesauto_lambda {
 							   .map(Auto::toFileInfo)
 							   .collect(Collectors.joining());
 			
-			Files.writeString(Path.of(beRendszam + "menetlevel.txt"), fileba, WRITE, CREATE, TRUNCATE_EXISTING);
+			Files.writeString(Path.of(beRendszam + "menetlevel.txt"), fileba);
 		}
 	}
 	
-	static class Auto{
-		int nap;
-		LocalTime idopont;
-		String rendszam;
-		int szemelyAzonosito;
-		int km;
-		boolean elvitel;
+	public static class Auto{
+		public final int nap;
+		public final LocalTime idopont;
+		public final String rendszam;
+		public final int szemelyAzonosito;
+		public final int km;
+		public final boolean elvitel;
 		
 		public Auto(String line) {
 			var split = line.split(" ");

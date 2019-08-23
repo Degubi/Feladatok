@@ -4,7 +4,7 @@ import java.nio.file.*;
 import java.util.*;
 import java.util.stream.*;
 
-public class Tesztverseny_lambda {
+public class Tesztverseny_stream {
 	
 	public static void main(String[] args) throws IOException{
 		var lines = Files.readAllLines(Paths.get("valaszok.txt"), StandardCharsets.UTF_8);
@@ -62,10 +62,10 @@ public class Tesztverseny_lambda {
 						  	   				 .forEach(versenyzo -> System.out.println(index + ". díj: " + versenyzo)));
 	}
 	
-	static class Versenyzo{
-		String nev;
-		char[] valaszok;
-		int pontok;
+	public static class Versenyzo{
+		public final String nev;
+		public final char[] valaszok;
+		public final int pontok;
 		
 		public Versenyzo(String data, char[] megoldasok) {
 			String[] split = data.split(" ");

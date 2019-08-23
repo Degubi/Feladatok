@@ -3,14 +3,6 @@ import java.nio.file.*;
 import java.util.*;
 
 public class Csudh {
-	
-	static String domain(int szint, String domain) {
-		var split = domain.split("\\.");
-		var utolsoIndex = split.length - 1;
-		
-		return utolsoIndex < szint ? "nincs" : split[utolsoIndex - szint];
-	}
-	
 	public static void main(String[] args) throws IOException {
 		var lines = Files.readAllLines(Path.of("csudh.txt"));
 		var pairs = new ArrayList<Pair>();
@@ -61,7 +53,14 @@ public class Csudh {
 		}
 	}
 	
-	static class Pair{
+	static String domain(int szint, String domain) {
+		var split = domain.split("\\.");
+		var utolsoIndex = split.length - 1;
+		
+		return utolsoIndex < szint ? "nincs" : split[utolsoIndex - szint];
+	}
+	
+	public static class Pair{
 		public final String domain;
 		public final String ip;
 		

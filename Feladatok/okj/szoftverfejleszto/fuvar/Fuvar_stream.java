@@ -6,7 +6,7 @@ import java.time.*;
 import java.util.*;
 import java.util.stream.*;
 
-public class Fuvar_lambda {
+public class Fuvar_stream {
 	public static void main(String[] args) throws IOException {
 		var fuvarok = Files.lines(Path.of("fuvar.csv"))
 						   .skip(1)
@@ -21,6 +21,7 @@ public class Fuvar_lambda {
 		
 		System.out.println("4. Feladat: " + kivalasztott.length + " db fuvarra: " + Arrays.stream(kivalasztott).mapToDouble(k -> k.dij).sum());
 		System.out.println("5. Feladat:");
+		
 		Arrays.stream(fuvarok)
 			  .collect(Collectors.groupingBy(k -> k.fizetesMod, Collectors.counting()))
 			  .forEach((mod, db) -> System.out.println(mod + ": " + db + " db"));
@@ -28,7 +29,7 @@ public class Fuvar_lambda {
 		System.out.printf("6. Feladat: %.2f km\n", Arrays.stream(fuvarok).mapToDouble(k -> k.tavolsag).sum() * 1.6D);
 		Arrays.stream(fuvarok)
 			  .max(Comparator.comparingInt(k -> k.idotartam))
-			  .ifPresent(k -> System.out.println("7. Feladat: " + k.idotartam + " mp, azonosito: " + k.azonosito + ", távolság: " + k.tavolsag + " km, díj: " + k.dij + "$"));
+			  .ifPresent(k -> System.out.printf("7. Feladat: %d mp, azonosito: %d, távolság: %f km, díj: %f$\n", k.idotartam, k.azonosito, k.tavolsag));
 	
 		var header = "taxi_id;indulas;idotartam;tavolsag;viteldij;borravalo;fizetes_modja\n";
 		var hibasAdatok = Arrays.stream(fuvarok)
@@ -40,14 +41,14 @@ public class Fuvar_lambda {
 		Files.writeString(Path.of("hibak.txt"), header + hibasAdatok, CREATE, WRITE, TRUNCATE_EXISTING);
 	}
 	
-	static class FuvarAdat{
-		int azonosito;
-		LocalDateTime indulas;
-		int idotartam;
-		float tavolsag;
-		float dij;
-		float borravalo;
-		String fizetesMod;
+	public static class FuvarAdat{
+		public final int azonosito;
+		public final LocalDateTime indulas;
+		public final int idotartam;
+		public final float tavolsag;
+		public final float dij;
+		public final float borravalo;
+		public final String fizetesMod;
 		
 		public FuvarAdat(String line) {
 			var split = line.split(";");

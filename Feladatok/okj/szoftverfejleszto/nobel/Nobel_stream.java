@@ -1,11 +1,9 @@
-import static java.nio.file.StandardOpenOption.*;
-
 import java.io.*;
 import java.nio.file.*;
 import java.util.*;
 import java.util.stream.*;
 
-public class Nobel_lambda {
+public class Nobel_stream {
 
 	public static void main(String[] args) throws IOException {
 		var dijak = Files.lines(Path.of("nobel.csv"))
@@ -46,14 +44,14 @@ public class Nobel_lambda {
 						   .map(k -> k.evszam + ":" + k.vezeteknev + " " + k.keresztnev)
 						   .collect(Collectors.joining("\n"));
 		
-		Files.writeString(Path.of("orvosi.txt"), orvosi, WRITE, CREATE, TRUNCATE_EXISTING);
+		Files.writeString(Path.of("orvosi.txt"), orvosi);
 	}
 	
-	static class Dij{
-		int evszam;
-		String tipus;
-		String keresztnev;
-		String vezeteknev;
+	public static class Dij{
+		public final int evszam;
+		public final String tipus;
+		public final String keresztnev;
+		public final String vezeteknev;
 		
 		public Dij(String sor) {
 			var split = sor.split(";");

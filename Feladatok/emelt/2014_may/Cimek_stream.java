@@ -3,7 +3,7 @@ import java.nio.file.*;
 import java.util.*;
 import java.util.stream.*;
 
-public class Cimek_lambda{
+public class Cimek_stream{
 	
 	public static void main(String[] args) throws IOException{
 		var lines = Files.readAllLines(Paths.get("ip.txt"));

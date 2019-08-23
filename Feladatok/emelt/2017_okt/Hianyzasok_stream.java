@@ -3,7 +3,7 @@ import java.nio.file.*;
 import java.util.*;
 import java.util.stream.*;
 
-public class Hianyzasok_lambda {
+public class Hianyzasok_stream {
 
 	public static void main(String[] args) throws IOException {
 		var honapNapSzamlalok = new int[2];
@@ -81,11 +81,11 @@ public class Hianyzasok_lambda {
 		return napnev[napsorszam];
 	}
 	
-	static class Hianyzas{
-		int honap;
-		int nap;
-		String nev;
-		String orak;
+	public static class Hianyzas{
+		public final int honap;
+		public final int nap;
+		public final String nev;
+		public final String orak;
 		
 		public Hianyzas(String nev, String orak, int honap, int nap) {
 			this.nev = nev;

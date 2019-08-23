@@ -1,12 +1,10 @@
-import static java.nio.file.StandardOpenOption.*;
-
 import java.io.*;
 import java.nio.charset.*;
 import java.nio.file.*;
 import java.util.*;
 import java.util.stream.*;
 
-public class Nyelvvvizsga_lambda {
+public class Nyelvvizsga_stream {
 	
 	//Hiba: PDF-ben 2009-2017 van, txt- be 2009-2018
 	public static void main(String[] args) throws IOException {
@@ -27,7 +25,7 @@ public class Nyelvvvizsga_lambda {
 			var beEv = input.nextInt();
 			
 			if(beEv < 2009 || beEv > 2018) {
-				return;
+				return;   //Program vége
 			}
 			
 			System.out.println("4. Feladat");
@@ -52,13 +50,13 @@ public class Nyelvvvizsga_lambda {
 						 .map(k -> String.format("%s;%d;%.2f", k.nyelv, k.vizsgaOsszead(), k.getTeljesBukasAtlag()))
 						 .collect(Collectors.joining("\n"));
 		
-		Files.writeString(Path.of("osszesites.csv"), stat, WRITE, CREATE, TRUNCATE_EXISTING);
+		Files.writeString(Path.of("osszesites.csv"), stat);
 	}
 	
-	static class Nyelvvizsga{
-		String nyelv;
-		Map<Integer, Integer> sikeresVizsgak;
-		Map<Integer, Integer> sikertelenVizsgak;
+	public static class Nyelvvizsga{
+		public final String nyelv;
+		public final Map<Integer, Integer> sikeresVizsgak;
+		public final Map<Integer, Integer> sikertelenVizsgak;
 		
 		public Nyelvvizsga(String sikeresSor, String sikertelenSor) {
 			var sikerSplit = sikeresSor.split(";");

@@ -1,12 +1,10 @@
-import static java.nio.file.StandardOpenOption.*;
-
 import java.io.*;
 import java.nio.file.*;
 import java.util.*;
 import java.util.Map.*;
 import java.util.stream.*;
 
-public class Helsinki2017_lambda {
+public class Helsinki2017_stream {
 
 	public static void main(String[] args) throws IOException {
 		var versenyzok = Files.lines(Path.of("rovidprogram.csv")).skip(1).map(Versenyzo::new).toArray(Versenyzo[]::new);
@@ -49,7 +47,7 @@ public class Helsinki2017_lambda {
 							  .mapToObj(k -> (k + 1) + raw[k])
 							  .collect(Collectors.joining());
 			
-		Files.writeString(Path.of("vegeredmeny.csv"), fileba, WRITE, CREATE, TRUNCATE_EXISTING);
+		Files.writeString(Path.of("vegeredmeny.csv"), fileba);
 	}
 	
 	public static double osszPontszam(String nev, Versenyzo[] versenyzok, Versenyzo[] dontosok) {
@@ -59,12 +57,12 @@ public class Helsinki2017_lambda {
 		return versenyPont + dontosPont;
 	}
 	
-	static class Versenyzo{
-		public String nev;
-		public String orszag;
-		public double techPont;
-		public double kompPont;
-		public int hibaPont;
+	public static class Versenyzo{
+		public final String nev;
+		public final String orszag;
+		public final double techPont;
+		public final double kompPont;
+		public final int hibaPont;
 		
 		public Versenyzo(String line) {
 			var split = line.split(";");
