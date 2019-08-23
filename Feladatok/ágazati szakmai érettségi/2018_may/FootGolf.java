@@ -15,15 +15,15 @@ public class FootGolf {
     	System.out.println("3.Feladat: Versenyzõk száma: " + versenyzok.size());
     	
     	int noiVersenyzok = 0;
-    	for(Versenyzo versenyzo : versenyzok) {
+    	for(var versenyzo : versenyzok) {
     		if(versenyzo.kategoria.contains("Noi")) {
     			++noiVersenyzok;
     		}
     	}
-    	System.out.println("4.Feladat: Nõi versenyzõk aránya: " + String.format("%.2f", noiVersenyzok / (float)versenyzok.size() * 100) + "%");
+    	System.out.printf("4.Feladat: Nõi versenyzõk aránya: %.2f%%\n", noiVersenyzok / (float)versenyzok.size() * 100);
     	
-    	Versenyzo legtobbNoi = versenyzok.get(0);
-    	for(Versenyzo vers : versenyzok) {
+    	var legtobbNoi = versenyzok.get(0);
+    	for(var vers : versenyzok) {
     		if(vers.kategoria.contains("Noi") && vers.osszPont() > legtobbNoi.osszPont()) {
     			legtobbNoi = vers;
     		}
@@ -31,8 +31,8 @@ public class FootGolf {
     	System.out.println("6.Feladat: Nõi versenyzõ: " + "Név: " + legtobbNoi.nev + ", Egyesület: " 
     						+ legtobbNoi.versenyEgyesulet + ", pontok: " + legtobbNoi.osszPont());
     	
-    	try(PrintWriter output = new PrintWriter("osszpontFF.txt")){
-    		for(Versenyzo vers : versenyzok) {
+    	try(var output = new PrintWriter("osszpontFF.txt")){
+    		for(var vers : versenyzok) {
     			output.println(vers);
     		}
     	}
@@ -40,9 +40,9 @@ public class FootGolf {
     	var stat = new HashMap<String, Integer>();
     	for(var vers : versenyzok) {
     		if(!vers.versenyEgyesulet.equals("n.a.")) {
-    			int jelenes = 0;
+    			var jelenes = 0;
     			
-    			for(Versenyzo ver : versenyzok) {
+    			for(var ver : versenyzok) {
     				if(ver.versenyEgyesulet.equals(vers.versenyEgyesulet)) {
     					++jelenes;
     				}
@@ -56,9 +56,9 @@ public class FootGolf {
     	System.out.println("8.Feladat: " + stat);
     }
     
-    static class Versenyzo{
-    	String nev, kategoria, versenyEgyesulet;
-    	int[] pontok = new int[8];
+    public static class Versenyzo{
+    	public final String nev, kategoria, versenyEgyesulet;
+    	public final int[] pontok = new int[8];
     	
     	public Versenyzo(String line) {
     		var split = line.split(";");

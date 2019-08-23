@@ -4,7 +4,7 @@ using System.Linq;
 using System.IO;
  
 namespace Txt2Str_2017_emelt{
-    class Txt2Srt{
+    class Txt2Srt_linq{
         static void Main(string[] args){
             var feliratok = new List<IdozitettFelirat>();
             var adatok = File.ReadAllLines("feliratok.txt");

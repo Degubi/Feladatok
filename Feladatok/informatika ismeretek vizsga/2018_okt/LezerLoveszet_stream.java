@@ -3,7 +3,7 @@ import java.nio.file.*;
 import java.util.*;
 import java.util.stream.*;
 
-public class LezerLoveszet {
+public class LezerLoveszet_stream {
 	private static int szamlalo = 1;
 	
 	public static void main(String[] args) throws IOException {
@@ -37,6 +37,7 @@ public class LezerLoveszet {
 		System.out.println("Játékosok száma: " + Arrays.stream(jatekosok).map(k -> k.jatekosNeve).distinct().count());
 		
 		System.out.println("11. Feladat");
+		
 		Arrays.stream(jatekosok)
 			  .collect(Collectors.groupingBy(k -> k.jatekosNeve, Collectors.counting()))
 			  .forEach((nev, szam) -> System.out.println("Név: " + nev + ", lovesek szama: " + szam));
@@ -52,10 +53,10 @@ public class LezerLoveszet {
 			  .ifPresent(jatekos -> System.out.println("A nyertes: " + jatekos.jatekosNeve));
 	}
 	
-	static class JatekosLovese{
-		String jatekosNeve;
-		float lovesX, lovesY;
-		int lovesSorszam;
+	public static class JatekosLovese{
+		public final String jatekosNeve;
+		public final float lovesX, lovesY;
+		public final int lovesSorszam;
 
 		public JatekosLovese(String sor, int sorszam) {
 			var split = sor.split(";");

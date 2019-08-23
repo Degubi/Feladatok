@@ -5,7 +5,7 @@ import java.time.format.*;
 import java.util.*;
 import java.util.stream.*;
 
-public class Txt2Srt{
+public class Txt2Srt_stream{
 	
 	public static void main(String[] args) throws IOException{
 		var file = Files.readAllLines(Path.of("feliratok.txt"));
@@ -22,12 +22,12 @@ public class Txt2Srt{
 							  .mapToObj(i -> (i + 1) + "\n" + feliratok[i].strIdozites() + "\n" + feliratok[i].felirat)
 							  .collect(Collectors.joining("\n\n"));
 		
-		Files.writeString(Path.of("felirat.srt"), toFile, StandardOpenOption.WRITE, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
+		Files.writeString(Path.of("felirat.srt"), toFile);
 	}
 	
-    static class IdozitettFelirat{
-        String idozites;
-        String felirat;
+    public static class IdozitettFelirat{
+        public final String idozites;
+        public final String felirat;
 
         public IdozitettFelirat(String idoz, String felir){
             idozites = idoz;

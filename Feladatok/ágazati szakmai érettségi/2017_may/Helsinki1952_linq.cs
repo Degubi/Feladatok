@@ -3,7 +3,7 @@ using System.Linq;
 using System.IO;
  
 namespace ConsoleApplication1{
-    class Helsinki1952 {
+    class Helsinki1952_linq {
 
         public static void Main(String[] args) {
             var helyezesek = File.ReadLines("helsinki.txt")
@@ -18,7 +18,7 @@ namespace ConsoleApplication1{
 
             Console.WriteLine("4.Feladat\nAranyak: " + aranyak + ", ezustok: " + ezustok + ", bronzok: " + bronzok + ", összesen: " + (aranyak + ezustok + bronzok));
             Console.WriteLine("5.Feladat\nPontok száma: " + helyezesek.Select(k => k.PontCalc()).Sum());
-    	
+    	    
     	    var uszas = helyezesek.Where(k => k.helyezes <= 3)
                                   .Where(k => k.sportag == "uszas")
                                   .Count();
@@ -29,8 +29,11 @@ namespace ConsoleApplication1{
 
             Console.WriteLine("6.Feladat");
             Console.WriteLine(uszas == torna? "Egyenlőek" : (torna > uszas) ? "Torna több" : "Úszás több");
-    	    File.WriteAllLines("helsinki2.txt", helyezesek.Select(k => k.helyezes + " " + k.PontCalc() + " " + k.sportag.Replace("kajakkenu", "kajak-kenu")).ToArray());
+
+            var fileba = helyezesek.Select(k => k.helyezes + " " + k.sportolokSzama + " " + k.PontCalc() + " " + k.sportag.Replace("kajakkenu", "kajak-kenu") + k.versenyszam).ToArray();
+    	    File.WriteAllLines("helsinki2.txt", fileba);
     
+            Console.WriteLine("8. Feladat");
             var max = helyezesek.OrderByDescending(k => k.sportolokSzama).First();
             Console.WriteLine("Helyezés: " + max.helyezes + ", sportág: " + max.sportag + ", szám: " + max.versenyszam + ", sportolók: " + max.sportolokSzama);
             Console.Read();
