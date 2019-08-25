@@ -1,5 +1,3 @@
-import static java.nio.file.StandardOpenOption.*;
-
 import java.io.*;
 import java.nio.file.*;
 import java.time.*;
@@ -15,11 +13,11 @@ public class Fuvar_stream {
 		
 		System.out.println("3. Feladat: Fuvarok száma: " + fuvarok.length);
 		
-		var kivalasztott = Arrays.stream(fuvarok)
-								 .filter(k -> k.azonosito == 6185)
-								 .toArray(FuvarAdat[]::new);
+		var szurt = Arrays.stream(fuvarok)
+						  .filter(k -> k.azonosito == 6185)
+						  .toArray(FuvarAdat[]::new);
 		
-		System.out.println("4. Feladat: " + kivalasztott.length + " db fuvarra: " + Arrays.stream(kivalasztott).mapToDouble(k -> k.dij).sum());
+		System.out.println("4. Feladat: " + szurt.length + " db fuvarra: " + Arrays.stream(szurt).mapToDouble(k -> k.dij).sum());
 		System.out.println("5. Feladat:");
 		
 		Arrays.stream(fuvarok)
@@ -29,7 +27,7 @@ public class Fuvar_stream {
 		System.out.printf("6. Feladat: %.2f km\n", Arrays.stream(fuvarok).mapToDouble(k -> k.tavolsag).sum() * 1.6D);
 		Arrays.stream(fuvarok)
 			  .max(Comparator.comparingInt(k -> k.idotartam))
-			  .ifPresent(k -> System.out.printf("7. Feladat: %d mp, azonosito: %d, távolság: %f km, díj: %f$\n", k.idotartam, k.azonosito, k.tavolsag));
+			  .ifPresent(k -> System.out.printf("7. Feladat: %d mp, azonosito: %d, távolság: %.2f km, díj: %.2f$\n", k.idotartam, k.azonosito, k.tavolsag, k.dij));
 	
 		var header = "taxi_id;indulas;idotartam;tavolsag;viteldij;borravalo;fizetes_modja\n";
 		var hibasAdatok = Arrays.stream(fuvarok)
@@ -38,7 +36,7 @@ public class Fuvar_stream {
 								.map(k -> k.azonosito + ";" + k.indulas + ";" + k.idotartam + ";" + k.tavolsag + ";" + k.dij + ";" + k.borravalo + ";" + k.fizetesMod)
 								.collect(Collectors.joining("\n"));
 		
-		Files.writeString(Path.of("hibak.txt"), header + hibasAdatok, CREATE, WRITE, TRUNCATE_EXISTING);
+		Files.writeString(Path.of("hibak.txt"), header + hibasAdatok);
 	}
 	
 	public static class FuvarAdat{
