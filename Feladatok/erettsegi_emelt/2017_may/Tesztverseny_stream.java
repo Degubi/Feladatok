@@ -19,11 +19,11 @@ public class Tesztverseny_stream {
 		System.out.println("2. feladat: A vetélkedõn " + versenyzok.size() + " versenyzõ indult.\nÍrj be 1 ID-t!");
 		
 		try(var input = new Scanner(System.in)){
-			String readID = input.nextLine();
-			Versenyzo kivalasztott = versenyzok.stream()
-											   .filter(k -> k.nev.equals(readID))
-											   .findFirst()
-											   .get();
+			var readID = input.nextLine();
+			var kivalasztott = versenyzok.stream()
+										 .filter(k -> k.nev.equals(readID))
+										 .findFirst()
+										 .orElseThrow();
 			
 			System.out.println("3. feladat: A versenyzõ azonosítója = " + readID + "\n" + String.valueOf(kivalasztott.valaszok) + " (a versenyzõ válaszai)");
 			System.out.println("4. feladat:\n" + String.valueOf(megoldasok) + " (a helyes megoldás)");
@@ -34,8 +34,8 @@ public class Tesztverseny_stream {
 			
 			System.out.println(" (a versenyzõ helyes válaszai)\nÍrd be 1 feladat sorszámát!");
 	
-			int readIndex = input.nextInt() - 1;
-			int good = versenyzok.stream()
+			var readIndex = input.nextInt() - 1;
+			var good = versenyzok.stream()
 								 .filter(k -> k.valaszok[readIndex] == megoldasok[readIndex])
 								 .mapToInt(k -> 1)
 								 .sum();
@@ -68,7 +68,7 @@ public class Tesztverseny_stream {
 		public final int pontok;
 		
 		public Versenyzo(String data, char[] megoldasok) {
-			String[] split = data.split(" ");
+			var split = data.split(" ");
 			nev = split[0];
 			valaszok = split[1].toCharArray();
 			
@@ -80,8 +80,8 @@ public class Tesztverseny_stream {
 		
 		private static int sumPoint(int index) {
 			if(index <= 4) return 3;
-			else if(index >= 5 && index <= 9) return 4;
-			else if(index >= 10 && index <= 12) return 5;
+			if(index >= 5 && index <= 9) return 4;
+			if(index >= 10 && index <= 12) return 5;
 			return 6;
 		}
 		

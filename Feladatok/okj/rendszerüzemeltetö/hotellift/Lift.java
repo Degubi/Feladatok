@@ -3,38 +3,61 @@ import java.nio.file.*;
 import java.time.*;
 import java.time.format.*;
 import java.util.*;
-import java.util.stream.*;
 
-public class Lift_stream {
+public class Lift {
 	public static void main(String[] args) throws IOException {
-		var hasznalatok = Files.lines(Path.of("lift.txt")).map(Hasznalat::new).toArray(Hasznalat[]::new);
+		var hasznalatok = new ArrayList<Hasznalat>();
+		var lines = Files.readAllLines(Path.of("lift.txt"));
 		
-		System.out.println("3. Feladat: Lift alkalmak száma: " + hasznalatok.length);
-		System.out.println("4. Feladat: A korszak " + hasznalatok[0].idopont + " tõl " + hasznalatok[hasznalatok.length - 1].idopont + "-ig tartott");
+		for(var line : lines) {
+			hasznalatok.add(new Hasznalat(line));
+		}
 		
-		Arrays.stream(hasznalatok)
-			  .max(Comparator.comparingInt(k -> k.celSzint))
-			  .ifPresent(k -> System.out.println("5. Feladat: Max célszint: " + k.celSzint));
+		System.out.println("3. Feladat: Lift alkalmak száma: " + hasznalatok.size());
+		System.out.println("4. Feladat: A korszak " + hasznalatok.get(0).idopont + " tõl " + hasznalatok.get(hasznalatok.size() - 1).idopont + "-ig tartott");
+		
+		var maxSzint = -1;
+		for(var e : hasznalatok) {
+			if(e.celSzint > maxSzint) {
+				maxSzint = e.celSzint;
+			}
+		}
+		
+		System.out.println("5. Feladat: Max célszint: " + maxSzint);
 		
 		System.out.println("6. Feladat: Írj be egy kártyaszámot és egy célszintet");
 		try(var input = new Scanner(System.in)){
 			var beKartya = parseOrDefault(input.nextLine(), 5);
 			var beCelszint = parseOrDefault(input.nextLine(), 5);
 			
-			var kieg = Arrays.stream(hasznalatok)
-						     .filter(k -> k.kartyaSorszam == beKartya)
-						     .filter(k -> k.celSzint == beCelszint)
-						     .findFirst()
-						     .map(k -> "")
-						     .orElse("nem");
+			var kieg = "nem";
+			
+			for(var e : hasznalatok) {
+				if(e.kartyaSorszam == beKartya && e.celSzint == beCelszint) {
+					kieg = "";
+					break;
+				}
+			}
 			
 			System.out.println("7. Feladat: A " + beKartya + " kártyával " + kieg + " utaztak a " + beCelszint + ". emeletre");
 		}
 		
 		System.out.println("8. Feladat");
-		Arrays.stream(hasznalatok)
-			  .collect(Collectors.groupingBy(k -> k.idopont, Collectors.counting()))
-			  .forEach((ido, db) -> System.out.println(ido + " - " + db + "x"));
+		
+		var hasznalatStat = new HashMap<LocalDate, Integer>();
+		for(var e : hasznalatok) {
+			var idopont = e.idopont;
+			
+			if(hasznalatStat.containsKey(idopont)) {
+				hasznalatStat.replace(idopont, hasznalatStat.get(idopont) + 1);
+			}else{
+				hasznalatStat.put(idopont, 1);
+			}
+		}
+		
+		for(var stat : hasznalatStat.entrySet()) {
+			System.out.println(stat.getKey() + " - " + stat.getValue() + "x");
+		}
 	}
 	
 	static int parseOrDefault(String num, int defaultVal) {

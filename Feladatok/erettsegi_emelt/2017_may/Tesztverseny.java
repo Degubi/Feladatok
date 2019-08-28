@@ -6,24 +6,24 @@ import java.util.*;
 public class Tesztverseny {
 	
 	public static void main(String[] args) throws IOException{
-		Scanner input = new Scanner(System.in);
+		var input = new Scanner(System.in);
 		var lines = Files.readAllLines(Paths.get("valaszok.txt"));
 		
-		char[] megoldasok = lines.get(0).toCharArray();
-		ArrayList<Versenyzo> versenyzok = new ArrayList<>();
-		for(int k = 1; k < lines.size(); ++k) {
+		var megoldasok = lines.get(0).toCharArray();
+		var versenyzok = new ArrayList<Versenyzo>();
+		for(var k = 1; k < lines.size(); ++k) {
 			versenyzok.add(new Versenyzo(lines.get(k)));
 		}
 		
 		System.out.println("2. feladat: A vetélkedõn " + versenyzok.size() + " versenyzõ indult.\nÍrj be 1 ID-t!");
 		
-		String readID = input.nextLine();
-		for(Versenyzo mindenki : versenyzok){
+		var readID = input.nextLine();
+		for(var mindenki : versenyzok){
 			if(mindenki.nev.equals(readID)){
 				System.out.println("3. feladat: A versenyzõ azonosítója = " + readID + "\n" + String.valueOf(mindenki.valaszok) + " (a versenyzõ válaszai)");
 				System.out.println("4. feladat:\n" + String.valueOf(megoldasok) + " (a helyes megoldás)");
 				
-				for(int k = 0; k < megoldasok.length; ++k) {
+				for(var k = 0; k < megoldasok.length; ++k) {
 					if(mindenki.valaszok[k] == megoldasok[k]) {
 						System.out.print("+");
 					}else{
@@ -37,7 +37,8 @@ public class Tesztverseny {
 		System.out.println("Írd be 1 feladat sorszámát!");
 		int readIndex = input.nextInt() - 1;
 		int good = 0;
-		for(Versenyzo mindenki : versenyzok) {
+		
+		for(var mindenki : versenyzok) {
 			if(mindenki.valaszok[readIndex] == megoldasok[readIndex]) {
 				++good;
 			}
@@ -48,8 +49,8 @@ public class Tesztverseny {
 		String percent = String.valueOf(((float)good * 100 / versenyzok.size())).substring(0, 5);
 		System.out.println("A feladatra " + good + " fõ, a versenyzõk " + percent + "%-a adott helyes választ.");
 		
-		try(PrintWriter output = new PrintWriter("pontok.txt")){
-			for(Versenyzo mindenki : versenyzok) {
+		try(var output = new PrintWriter("pontok.txt")){
+			for(var mindenki : versenyzok) {
 				int points = 0;
 				for(int k = 0; k < megoldasok.length; ++k) {
 					if(mindenki.valaszok[k] == megoldasok[k]) {
@@ -72,7 +73,7 @@ public class Tesztverseny {
 		
 		System.out.println("7. feladat: A verseny legjobbjai:");
 		for(int k = 1, index = 0; k < 4; ++k, ++index) {
-			Versenyzo versenyzo = versenyzok.get(index);
+			var versenyzo = versenyzok.get(index);
 			System.out.println(k + ". díj " + versenyzo);
 			
 			for(int v = index + 1; versenyzok.get(v).pontok == versenyzo.pontok; ++v) {

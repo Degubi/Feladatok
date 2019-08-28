@@ -95,10 +95,10 @@ public class Utca {
 		}
 	}
 	
-	static class Telek{
-		boolean parosE;
-		int szelesseg, hazszam;
-		char keritesSzine;
+	public static class Telek{
+		public final boolean parosE;
+		public final int szelesseg, hazszam;
+		public final char keritesSzine;
 		
 		public Telek(boolean parosE, int hazszam, int szelesseg, char keritesSzine) {
 			this.parosE = parosE;

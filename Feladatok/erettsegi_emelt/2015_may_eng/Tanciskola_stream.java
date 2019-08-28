@@ -26,7 +26,7 @@ public class Tanciskola_stream {
 							.collect(Collectors.toList()));
 		
 		System.out.println("Írj be 1 kategóriát!");
-		try(Scanner input = new Scanner(System.in)){
+		try(var input = new Scanner(System.in)){
 			String readCat = input.nextLine();
 		
 			Stream.of(tancok)
@@ -51,7 +51,7 @@ public class Tanciskola_stream {
 				   		 .sorted(Szereplo.byAlkalmak)
 				   		 .toArray(Szereplo[]::new);
 		
-		try(PrintWriter output = new PrintWriter("szereplok.txt")){
+		try(var output = new PrintWriter("szereplok.txt")){
 			output.print("Lányok: ");
 			output.print(Stream.of(lanyok)
 							   .map(k -> k.name)

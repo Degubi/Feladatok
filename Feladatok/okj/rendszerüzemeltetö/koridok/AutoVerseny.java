@@ -40,13 +40,13 @@ public class AutoVerseny {
 		}
 	}
 	
-	static class Verseny{
-		String csapat;
-		String versenyzo;
-		int eletkor;
-		String palya;
-		LocalTime korido;
-		int kor;
+	public static class Verseny{
+		public final String csapat;
+		public final String versenyzo;
+		public final int eletkor;
+		public final String palya;
+		public final LocalTime korido;
+		public final int kor;
 		
 		public Verseny(String line) {
 			var split = line.split(";");

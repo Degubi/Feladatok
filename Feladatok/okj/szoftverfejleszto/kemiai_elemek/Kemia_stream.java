@@ -13,11 +13,12 @@ public class Kemia_stream {
 		
 		System.out.println("3. Feladat: Elemek száma: " + elemek.length);
 		System.out.println("4. Feladat: Ókori elemek száma: " + Arrays.stream(elemek).filter(k -> k.okor).count());
-		System.out.println("5. Feladat:");
+		System.out.println("5. Feladat:\nÍrj be egy vegyjelet! (1-2 karakter)");
 		
 		try(var input = new Scanner(System.in)){
-			var bekert = Stream.generate(() -> getNextConsoleLine(input))
-							   .filter(Kemia_stream::filterConsoleInput)
+			var bekert = Stream.generate(input::nextLine)
+							   .peek(k -> System.out.println("Írj be egy vegyjelet! (1-2 karakter)"))
+							   .dropWhile(Kemia_stream::filterConsoleInput)
 							   .findFirst()
 							   .orElseThrow();
 			
@@ -44,14 +45,9 @@ public class Kemia_stream {
 			  .forEach(e -> System.out.println(e.getKey() + ": " + e.getValue() + " db"));
 	}
 	
-	private static String getNextConsoleLine(Scanner input) {
-		System.out.println("Írj be egy vegyjelet! (1-2 karakter)");
-		return input.nextLine();
-	}
-	
 	private static boolean filterConsoleInput(String text) {
 		 var len = text.length();
-		 return (len == 1 && Character.isLetter(text.charAt(0))) || (len == 2 && Character.isLetter(text.charAt(0)) && Character.isLetter(text.charAt(1)));
+		 return !(len == 1 && Character.isLetter(text.charAt(0))) || (len == 2 && Character.isLetter(text.charAt(0)) && Character.isLetter(text.charAt(1)));
 	}
 	
 	public static class Elem{

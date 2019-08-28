@@ -103,13 +103,13 @@ public class Cegesauto {
 		}
 	}
 	
-	static class Auto{
-		int nap;
-		LocalTime idopont;
-		String rendszam;
-		int szemelyAzonosito;
-		int km;
-		boolean elvitel;
+	public static class Auto{
+		public final int nap;
+		public final LocalTime idopont;
+		public final String rendszam;
+		public final int szemelyAzonosito;
+		public final int km;
+		public final boolean elvitel;
 		
 		public Auto(String line) {
 			var split = line.split(" ");
