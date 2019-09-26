@@ -6,7 +6,7 @@ public class Radio {
 	
 	public static void main(String[] args) throws IOException {
 		var file = Files.readAllLines(Paths.get("veetel.txt"));
-		var feljegyzesek = new ArrayList<>(Feljegyzes);
+		var feljegyzesek = new ArrayList<Feljegyzes>();
 		
 		for(int k = 0; k < file.size(); k += 2) {
 			feljegyzesek.add(new Feljegyzes(file.get(k).split(" "), file.get(k + 1)));
@@ -34,18 +34,19 @@ public class Radio {
 		}
 		
 		try(var output = new PrintWriter("adaas.txt")){
-			for(int k = 1; k < 12; ++k) {
+			for(var k = 1; k < 12; ++k) {
 				char[] felj = null;
+				
 				for(var feljegyzes : feljegyzesek) {
 					if(feljegyzes.nap == k) {
 						if(felj == null) {
 							felj = feljegyzes.adat.toCharArray();
 						}else {
-							char[] nextData = feljegyzes.adat.toCharArray();
-							
 							for(int charIndex = 0; charIndex < felj.length; ++charIndex) {
-								if(felj[charIndex] == '#' && Character.isLetter(nextData[charIndex])) {
-									felj[charIndex] = nextData[charIndex];
+								var jelenlegiChar = feljegyzes.adat.charAt(charIndex);
+								
+								if(felj[charIndex] == '#' && Character.isLetter(jelenlegiChar)) {
+									felj[charIndex] = jelenlegiChar;
 								}
 							}
 						}
@@ -57,9 +58,11 @@ public class Radio {
 		
 		System.out.println("7.Feladat\nÍrj be 1 napot (1-11) és 1 megfigyelõ sorszámát!");
 		try(var input = new Scanner(System.in)){
-			int readNap = input.nextInt(), readMegfigyelo = input.nextInt(), egyedszam = 0;
+			var readNap = input.nextInt();
+			var readMegfigyelo = input.nextInt();
+			var egyedszam = 0;
+			var voltIlyen = false;
 			
-			boolean voltIlyen = false;
 			for(var feljegyzes : feljegyzesek) {
 				if(feljegyzes.nap == readNap && feljegyzes.radioAmator == readMegfigyelo) {
 					voltIlyen = true;
@@ -73,39 +76,47 @@ public class Radio {
 					System.out.println("Nem határozható meg");
 				}else {
 					System.out.println(egyedszam);
-			}}else {
+				}
+			}else {
 				System.out.println("Nem volt ilyen feljegyzés");
 			}
 		}
 	}
 	
-	private static boolean szame(char[] szo) {
-		var valasz = true;
+	public static boolean szame(String szo) {
+		var aze = true;
 		
-		for(int i = 1; i < szo.length; ++i) {
-			if(szo[i] < '0' || szo[i] > '9') {
-				valasz = false;
+		for(int i = 1; i < szo.length(); ++i) {
+			var jelenlegi = szo.charAt(i);
+			
+			if(jelenlegi < '0' || jelenlegi > '9') {
+				aze = false;
 			}
 		}
 		
-		return valasz;
+		return aze;
 	}
 	
-	static class Feljegyzes{
-		int nap, radioAmator, szulokSzama, gyerekekSzama;
-		String adat;
+	public static class Feljegyzes{
+		public final int nap;
+		public final int radioAmator;
+		public int szulokSzama;
+		public int gyerekekSzama;
+		public final String adat;
 		
 		public Feljegyzes(String[] data1, String data2) {
 			nap = Integer.parseInt(data1[0]);
 			radioAmator = Integer.parseInt(data1[1]);
 			
 			if(data2.contains("/")){
-				char first = data2.charAt(0), second = data2.charAt(2);
+				var first = data2.charAt(0);
+				var second = data2.charAt(2);
+				
 				if(first != '#') {
 					szulokSzama = Character.getNumericValue(first);
 				}
 				if(second != '#') {
-					Character.getNumericValue(second);
+					Character.getNumericValue(second);  //TODO: Erre nem teljesen emlékszem... nemhiszem hogy jó
 				}
 				
 				adat = data2.substring(3);
