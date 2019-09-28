@@ -29,17 +29,18 @@ public class HegyekMo_stream {
 				  .filter(k -> k.hegyseg.equals("Börzsöny"))
 				  .filter(k -> k.magassag > beMagassag)
 				  .findFirst()
-				  .ifPresentOrElse(k -> System.out.println("Van magasabb hegység 940m-nél a Börzsönyben"), 
-						  		  () -> System.out.println("Nincs magasabb hegység 940m-nél a Börzsönyben"));
+				  .ifPresentOrElse(k -> System.out.println("Van magasabb hegység ennél a Börzsönyben"),
+						  		  () -> System.out.println("Nincs magasabb hegység ennél a Börzsönyben"));
 		}
 		
-		var magasakSzama = Arrays.stream(hegyek).filter(k -> (k.magassag * 3.280839895D) > 3000D).count();
+		var konvertaltLab3000 = 3000D / 3.280839895D;
+		var magasakSzama = Arrays.stream(hegyek).filter(k -> k.magassag > konvertaltLab3000).count();
 		System.out.println("7. Feladat: 3000 lábnál magasabbak száma: " + magasakSzama);
 		System.out.println("8. Feladat: Hegység stat");
 		
 		Arrays.stream(hegyek)
 			  .collect(Collectors.groupingBy(k -> k.hegyseg, Collectors.counting()))
-			  .forEach((hegyseg, db) -> System.out.println(hegyseg + " - " + db));
+			  .forEach((hegyseg, db) -> System.out.println(hegyseg + ": " + db));
 		
 		var fileAdat = Arrays.stream(hegyek)
 							 .filter(k -> k.hegyseg.equals("Bükk-vidék"))
