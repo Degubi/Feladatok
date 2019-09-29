@@ -1,23 +1,18 @@
 import java.io.*;
 import java.nio.file.*;
-import java.util.*;
+import java.util.stream.*;
 
-public class Csudh {
+public class Csudh_stream {
 	public static void main(String[] args) throws IOException {
-		var lines = Files.readAllLines(Path.of("csudh.txt"));
-		var pairs = new ArrayList<Pair>();
+		var pairs = Files.lines(Path.of("csudh.txt"))
+						 .skip(1)
+						 .map(Pair::new)
+						 .toArray(Pair[]::new);
 		
-		for(var i = 1; i < lines.size(); ++i) {
-			pairs.add(new Pair(lines.get(i)));
-		}
-		
-		System.out.println("3. Feladat: Párok száma: " + pairs.size());
+		System.out.println("3. Feladat: Párok száma: " + pairs.length);
 		System.out.println("5. Feladat");
 		
-		var elsoDomain = pairs.get(0).domain;
-		for(var i = 0; i < 5; ++i) {
-			System.out.println((i + 1) + ". szint: " + domain(i, elsoDomain));
-		}
+		IntStream.range(0, 5).forEach(i -> System.out.println((i + 1) + ". szint: " + domain(i, pairs[0].domain)));
 		
 		var header = "<table>\n" +
 					 "<tr>\n" +
@@ -31,26 +26,23 @@ public class Csudh {
 					 "<th style='text-align: left'>5. szint</th>\n" +
 					 "</tr>";
 		
-		try(var table = new PrintWriter("table.html")){
-			table.println(header);
-			
-			for(var sorszam = 0; sorszam < pairs.size(); ++sorszam) {
-				var pair = pairs.get(sorszam);
-				
-				table.println("<tr>");
-				table.println("<th style='text-align: left'>" + (sorszam + 1) + ".</th>");
-				table.println("<td>" + pair.domain + "</td>");
-				table.println("<td>" + pair.ip + "</td>");
-				
-				for(var k = 0; k < 5; ++k) {
-					table.println("<td>" + domain(k, pair.domain) + "</td>");
-				}
-				
-				table.println("</tr>");
-			}
-			
-			table.println("</table>");
-		}
+		var formattedPairs = IntStream.range(0, pairs.length)
+									  .mapToObj(i -> formatPair(i, pairs))
+									  .collect(Collectors.joining("</tr>\n"));
+		
+		Files.writeString(Path.of("table.html"), header + formattedPairs + "</table>");
+	}
+	
+	public static String formatPair(int index, Pair[] pairs) {
+		var pair = pairs[index];
+		
+		return "<tr>\n" +
+			   "<th style='text-align: left'>" + (index + 1) + ".</th>\n" +
+			   "<td>" + pair.domain + "</td>\n" +
+			   "<td>" + pair.ip + "</td>\n" +
+			   IntStream.range(0, 5)
+			   			.mapToObj(i -> "<td>" + domain(i, pair.domain) + "</td>")
+			   			.collect(Collectors.joining("\n")) + "\n";
 	}
 	
 	public static String domain(int szint, String domain) {
