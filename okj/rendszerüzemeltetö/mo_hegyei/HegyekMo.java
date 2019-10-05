@@ -22,7 +22,7 @@ public class HegyekMo {
 		
 		Hegy legmagasabbHegy = null;
 		var legnagyobbMagassag = 0;
-		for (int i = 0; i < hegyek.size(); i++) {
+		for(int i = 0; i < hegyek.size(); i++) {
 			var hegy = hegyek.get(i);
 			
 			if(hegy.magassag > legnagyobbMagassag) {
@@ -65,11 +65,8 @@ public class HegyekMo {
 		System.out.println("8. Feladat: Hegység stat");
 		
 		var hegysegStat = new HashMap<String, Integer>();
-		
 		for(var hegy : hegyek) {
-			var regi = hegysegStat.get(hegy.hegyseg);
-			
-			hegysegStat.put(hegy.hegyseg, regi == null ? 1 : regi + 1);
+			hegysegStat.put(hegy.hegyseg, hegysegStat.getOrDefault(hegy.hegyseg, 0) + 1);
 		}
 		
 		for(var entry : hegysegStat.entrySet()) {

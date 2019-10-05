@@ -33,22 +33,20 @@ public class Morze_stream {
 						 .toArray(Idezet[]::new);
 		
 		System.out.println("7. Feladat: Elsõ idézet szerzõje: " + morze[0].szerzo);
-		
 		Arrays.stream(morze)
 			  .max(Comparator.comparingInt(k -> k.uzenet.length()))
 			  .ifPresent(k -> System.out.println("8. Feladat: Leghosszab idézet: " + k.szerzo + ": " + k.uzenet));
 		
 		System.out.println("8. Feladat: Arisztotelés idézetei: ");
-		
 		Arrays.stream(morze)
 			  .filter(k -> k.szerzo.equalsIgnoreCase("Arisztotelész"))
 			  .forEach(k -> System.out.println('-' + k.uzenet));
 		
 		var fileba = Arrays.stream(morze)
 						  .map(k -> k.szerzo + ':' + k.uzenet)
-						  .collect(Collectors.joining("\n"));
+						  .collect(Collectors.toList());
 		
-		Files.writeString(Path.of("forditas.txt"), fileba);
+		Files.write(Path.of("forditas.txt"), fileba);
 	}
 	
 	static String morze2Szoveg(String uzenet, Map<String, String> abc) {

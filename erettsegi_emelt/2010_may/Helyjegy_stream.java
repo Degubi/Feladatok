@@ -6,7 +6,7 @@ import java.util.stream.*;
 public class Helyjegy_stream {
 	
 	public static void main(String[] args) throws IOException {
-		var file = Files.readAllLines(Paths.get("eladott.txt"));
+		var file = Files.readAllLines(Path.of("eladott.txt"));
 		var firstSplit = file.get(0).split(" ");
 		
 		var eladottJegyek = Integer.parseInt(firstSplit[0]);

@@ -33,11 +33,11 @@ public class Tarsalgo_stream {
 			  .max(Comparator.comparingInt(athaladas -> athaladas.bentlevok))
 			  .ifPresent(athaladas -> System.out.println("Ekkor voltak bent a legtöbben: " + athaladas.idopont));
 		
-		var athaladasString = athaladasAdat.entrySet().stream()
-	  	  		   						   .map(entry -> entry.getKey() + " " + entry.getValue())
-	  	  		   						   .collect(Collectors.joining("\n"));
+		var fileba = athaladasAdat.entrySet().stream()
+	  	  		   				  .map(entry -> entry.getKey() + " " + entry.getValue())
+	  	  		   				  .collect(Collectors.toList());
 		
-		Files.writeString(Path.of("athaladas.txt"), athaladasString);
+		Files.write(Path.of("athaladas.txt"), fileba);
 		
 		try(var input = new Scanner(System.in)){
 			System.out.println("6.Feladat\nÍrj be 1 ID-t");

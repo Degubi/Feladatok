@@ -5,7 +5,7 @@ import java.util.*;
 public class Helyjegy {
 	
 	public static void main(String[] args) throws IOException {
-		var file = Files.readAllLines(Paths.get("eladott.txt"));
+		var file = Files.readAllLines(Path.of("eladott.txt"));
 		var firstSplit = file.get(0).split(" ");
 		
 		int eladottJegyek = Integer.parseInt(firstSplit[0]);

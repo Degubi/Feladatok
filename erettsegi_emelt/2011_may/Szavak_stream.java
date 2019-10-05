@@ -16,10 +16,9 @@ public class Szavak_stream {
 			System.out.println("Nincs benne magánhangzó");
 		}
 		
-		String longest = Files.lines(Path.of("szoveg.txt"))
-							  .max(Comparator.comparingInt(String::length)).get();
-		
-		System.out.println("A leghoszabb szó: " + longest + ", hossza: " + longest.length());
+		Files.lines(Path.of("szoveg.txt"))
+			 .max(Comparator.comparingInt(String::length))
+			 .ifPresent(longest -> System.out.println("A leghoszabb szó: " + longest + ", hossza: " + longest.length()));
 		
 		var lineCount = Files.lines(Path.of("szoveg.txt")).count();
 		System.out.println("Összes szó: " + lineCount);

@@ -42,9 +42,9 @@ public class Hianyzasok_stream {
 								   .collect(Collectors.groupingBy(k -> k.osztaly, Collectors.summingInt(k -> k.mulasztottOrak)))
 								   .entrySet().stream()
 								   .map(k -> k.getKey() + ";" + k.getValue())
-								   .collect(Collectors.joining("\n"));
+								   .collect(Collectors.toList());
 		
-		Files.writeString(Path.of("osszesites.csv"), hianyzasokStat);
+		Files.write(Path.of("osszesites.csv"), hianyzasokStat);
 	}
 	
 	public static class Hianyzas{
