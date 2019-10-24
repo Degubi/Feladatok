@@ -5,7 +5,6 @@ import java.time.*;
 import java.util.*;
 
 public class EU {
-
 	public static void main(String[] args) throws IOException {
 		var csatlakozasok = new ArrayList<Csatlakozas>();
 		var lines = Files.readAllLines(Path.of("EUcsatlakozas.txt"), StandardCharsets.ISO_8859_1);
@@ -15,22 +14,24 @@ public class EU {
 		}
 		
 		var ketezertizennyolc = LocalDate.of(2018, 1, 1);
-		var tagallamok2018 = 0;
+		var tagallamok2018ig = 0;
 		
 		for(var csati : csatlakozasok) {
 			if(csati.csatlakozas.isBefore(ketezertizennyolc)) {
-				++tagallamok2018;
+				++tagallamok2018ig;
 			}
 		}
-		System.out.println("3. Feladat: EU tagállamainak száma: " + tagallamok2018);
 		
-		var csatlakozott2007 = 0;
+		System.out.println("3. Feladat: 2018-ig csatlakozott országok száma: " + tagallamok2018ig);
+		
+		var tagallamok2007ben = 0;
 		for(var csati : csatlakozasok) {
 			if(csati.csatlakozas.getYear() == 2007) {
-				++csatlakozott2007;
+				++tagallamok2007ben;
 			}
 		}
-		System.out.println("4. Feladat: 2007-ben " + csatlakozott2007 + " ország csatlakozott");
+		
+		System.out.println("4. Feladat: 2007-ben csatlakozott országok száma: " + tagallamok2007ben);
 		
 		LocalDate magyarorszag = null;
 		for(var csati : csatlakozasok) {
@@ -39,7 +40,7 @@ public class EU {
 				break;
 			}
 		}
-		System.out.println("5. Feladat: M.o. csatlakozása: " + magyarorszag);
+		System.out.println("5. Feladat: Magyarország csatlakozása: " + magyarorszag);
 		
 		var voltEMajusban = false;
 		for(var csati : csatlakozasok) {
@@ -48,6 +49,7 @@ public class EU {
 				break;
 			}
 		}
+		
 		if(voltEMajusban) {
 			System.out.println("6. Feladat: Volt májusban csatlakozás");
 		}else{
@@ -71,7 +73,7 @@ public class EU {
 		}
 		
 		for(var entry : stat.entrySet()) {
-			System.out.println(entry.getKey() + " - " + entry.getValue() + " ország");
+			System.out.println(entry.getKey() + " - " + entry.getValue() + " db ország");
 		}
 	}
 	
