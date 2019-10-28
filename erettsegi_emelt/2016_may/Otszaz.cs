@@ -18,7 +18,7 @@ namespace Prog{
                     toAdd.Add(sor);
                 }
             }
-		
+        
             Console.WriteLine("Vásárlások száma: " + vasarlasok.Count);
             Console.WriteLine("Elsö vásárlásnál vett dolgok száma: " + vasarlasok[0].dolgok.Count);
        
@@ -41,20 +41,20 @@ namespace Prog{
                     }
                 }
             }
-			
+            
             Console.WriteLine("Utoljára a " + ++utolso + ". vásárlásnál vettek " + aru + "-t");
             Console.WriteLine("Összesen " + amount + "-szor vettek " + aru + "-t");
             Console.WriteLine(dbszam + " db esetén a fizetendő: " + ertek(dbszam));
             Console.WriteLine("A " + sorszam + ". vásárláskor vásárolt dolgok: " + vasarlasok[sorszam - 1].dolgok.ToString());
-			
+            
             using(var output = new StreamWriter("osszeg.txt")){
-	            for(int k = 0; k < vasarlasok.Count; ++k) {
-	                int printMount = 0;
-	                foreach(var entries in vasarlasok[k].dolgok.Values) {
-	                    printMount += ertek(entries);
-	                }
-	                output.WriteLine((k + 1).ToString() + ":" + printMount);
-	            }
+                for(int k = 0; k < vasarlasok.Count; ++k) {
+                    int printMount = 0;
+                    foreach(var entries in vasarlasok[k].dolgok.Values) {
+                        printMount += ertek(entries);
+                    }
+                    output.WriteLine((k + 1).ToString() + ":" + printMount);
+                }
             }
             Console.Read();
         }

@@ -16,10 +16,10 @@ public class Otszaz {
                 toAdd.add(sor);
             }
         }
-		
+        
         System.out.println("Vásárlások száma: " + vasarlasok.size());
         System.out.println("Elsö vásárlásnál vett dolgok száma: " + vasarlasok.get(0).size());
-		
+        
         var input = new Scanner(System.in);
         System.out.println("Írj be 1 sorszámot");
         int beSorszam = input.nextInt();
@@ -50,19 +50,19 @@ public class Otszaz {
         System.out.println("A " + beSorszam + ". vásárláskor vásárolt dolgok: ");
         
         for(var statok : stat(vasarlasok.get(beSorszam - 1)).entrySet()) {
-        	System.out.println(statok.getKey() + "-bõl: " + statok.getValue() + " db");
+            System.out.println(statok.getKey() + "-bõl: " + statok.getValue() + " db");
         }
        
         try(var output = new PrintWriter("osszeg.txt")){
-	        for(int k = 0; k < vasarlasok.size(); ++k) {
-	            int irasDarab = 0;
-	            var statisztika = stat(vasarlasok.get(k));
-	            
-	            for(var entries : statisztika.entrySet()) {
-	                irasDarab += ertek(entries.getValue());
-	            }
-	            output.println((k + 1) + ": " + irasDarab);
-	        }
+            for(int k = 0; k < vasarlasok.size(); ++k) {
+                int irasDarab = 0;
+                var statisztika = stat(vasarlasok.get(k));
+                
+                for(var entries : statisztika.entrySet()) {
+                    irasDarab += ertek(entries.getValue());
+                }
+                output.println((k + 1) + ": " + irasDarab);
+            }
         }
     }
     
@@ -78,14 +78,14 @@ public class Otszaz {
     }
     
     static Map<String, Integer> stat(List<String> vasarlas){
-    	var freqMap = new HashMap<String, Integer>();
-    	
-    	for(var cucc : vasarlas) {
-    		if(!freqMap.containsKey(cucc)) {
-    			freqMap.put(cucc, Collections.frequency(vasarlas, cucc));
-    		}
-    	}
-    	
-    	return freqMap;
+        var freqMap = new HashMap<String, Integer>();
+        
+        for(var cucc : vasarlas) {
+            if(!freqMap.containsKey(cucc)) {
+                freqMap.put(cucc, Collections.frequency(vasarlas, cucc));
+            }
+        }
+        
+        return freqMap;
     }
 }

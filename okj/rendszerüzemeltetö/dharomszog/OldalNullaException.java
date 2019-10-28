@@ -1,5 +1,5 @@
 public class OldalNullaException extends Exception {
-	public OldalNullaException(String msg) {
-		super(msg);
-	}
+    public OldalNullaException(String msg) {
+        super(msg);
+    }
 }
