@@ -13,16 +13,7 @@ public class EU {
 			csatlakozasok.add(new Csatlakozas(line));
 		}
 		
-		var ketezertizennyolc = LocalDate.of(2018, 1, 1);
-		var tagallamok2018ig = 0;
-		
-		for(var csati : csatlakozasok) {
-			if(csati.csatlakozas.isBefore(ketezertizennyolc)) {
-				++tagallamok2018ig;
-			}
-		}
-		
-		System.out.println("3. Feladat: 2018-ig csatlakozott országok száma: " + tagallamok2018ig);
+		System.out.println("3. Feladat: 2018-ig csatlakozott országok száma: " + csatlakozasok.size());
 		
 		var tagallamok2007ben = 0;
 		for(var csati : csatlakozasok) {

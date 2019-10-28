@@ -12,12 +12,7 @@ public class EU_stream {
 								 .map(k -> k.split(";"))
 								 .collect(Collectors.toMap(k -> k[0], k -> LocalDate.parse(k[1].replace('.', '-'))));
 		
-		var ketezertizennyolc = LocalDate.of(2018, 1, 1);
-		var tagallamok2018 = csatlakozasok.values().stream()
-										  .filter(k -> k.isBefore(ketezertizennyolc))
-										  .count();
-		
-		System.out.println("3. Feladat: 2018-ig EU államok száma: " + tagallamok2018);
+		System.out.println("3. Feladat: 2018-ig EU államok száma: " + csatlakozasok.size());
 		
 		var csatlakozott2007 = csatlakozasok.values().stream()
 											.filter(k -> k.getYear() == 2007)
