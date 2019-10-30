@@ -24,14 +24,12 @@ public class EU {
         
         System.out.println("4. Feladat: 2007-ben csatlakozott országok száma: " + tagallamok2007ben);
         
-        LocalDate magyarorszag = null;
         for(var csati : csatlakozasok) {
             if(csati.orszag.equals("Magyarország")) {
-                magyarorszag = csati.csatlakozas;
+                System.out.println("5. Feladat: Magyarország csatlakozása: " + magyarorszag);
                 break;
             }
         }
-        System.out.println("5. Feladat: Magyarország csatlakozása: " + magyarorszag);
         
         var voltEMajusban = false;
         for(var csati : csatlakozasok) {
