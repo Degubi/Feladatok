@@ -2,7 +2,6 @@ import java.io.*;
 import java.nio.charset.*;
 import java.nio.file.*;
 import java.time.*;
-import java.util.*;
 import java.util.Map.*;
 import java.util.stream.*;
 
@@ -32,7 +31,7 @@ public class EU_stream {
         }
         
         csatlakozasok.entrySet().stream()
-                     .max(Comparator.comparing(Entry::getValue))
+                     .max(Entry.comparingByValue())
                      .ifPresent(k -> System.out.println("7. Feladat: Utoljára csatlakozott: " + k.getKey()));
         
         System.out.println("8. Feladat:");
