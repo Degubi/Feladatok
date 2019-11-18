@@ -18,11 +18,7 @@ public class EU_stream {
                                             .count();
         
         System.out.println("4. Feladat: 2007-ben csatlakozott országok száma: " + csatlakozott2007);
-        
-        csatlakozasok.entrySet().stream()
-                     .filter(k -> k.getKey().equals("Magyarország"))
-                     .findFirst()
-                     .ifPresent(k -> System.out.println("5. Feladat: Magyarország csatlakozása: " + k.getValue()));
+        System.out.println("5. Feladat: Magyarország csatlakozása: " + csatlakozasok.get("Magyarország"));
         
         if(csatlakozasok.values().stream().anyMatch(k -> k.getMonth() == Month.MAY)) {
             System.out.println("6. Feladat: Volt májusban csatlakozás");

@@ -1,34 +1,16 @@
 # -*- coding: UTF-8 -*-
-import dateutil.parser as dateparser
+from dateutil.parser import parse as parsedate
 
 def csatlakozassa(line):
     split = line.split(";")
-    return (split[0], dateparser.parse(split[1]))
-
-def findvalue(testfunction, data):
-    for key, value in data.items():
-        if(testfunction(key, value)):
-            return value
-
-def countif(testfunction, data):
-    count = 0;
-    for key, value in data.items():
-        if(testfunction(key, value)):
-            count = count + 1;
-    
-    return count
+    return (split[0], parsedate(split[1]))
 
 def groupbycount(extractor, data):
     returndata = {}
     
     for key, value in data.items():
         extracted = extractor(key, value)
-        
-        if extracted in returndata:
-            returndata[extracted] = returndata[extracted] + 1
-        else:
-            returndata[extracted] = 1
-    
+        returndata[extracted] = returndata.get(extracted, 0) + 1
     return returndata
 
 
@@ -37,13 +19,11 @@ csatlakozasok = dict(map(csatlakozassa, lines))
 
 print(f"3. Feladat: 2018-ig EU államok száma: {len(csatlakozasok)}");
 
-ketezerhetben = countif(lambda orszag, datum: datum.year == 2007, csatlakozasok)
+ketezerhetben = sum(1 for _ in filter(lambda datum: datum.year == 2007, csatlakozasok.values()))
 print(f"4. Feladat: 2007-ben csatlakozott országok száma: {ketezerhetben}")
+print(f'5. Feladat: Magyarország csatlakozása: {csatlakozasok["Magyarország"].date()}')
 
-magyarorszag = findvalue(lambda orszag, datum: orszag == "Magyarország", csatlakozasok)
-print(f"5. Feladat: Magyarország csatlakozása: {magyarorszag.date()}")
-
-if countif(lambda orszag, datum: datum.month == 5, csatlakozasok) > 0:
+if sum(1 for _ in filter(lambda datum: datum.month == 5, csatlakozasok.values())) > 0:
     print("6. Feladat: Volt májusban csatlakozás")
 else:
     print("6. Feladat: Nem volt májusban csatlakozás")
