@@ -26,7 +26,7 @@ public class EU {
         
         for(var csati : csatlakozasok) {
             if(csati.orszag.equals("Magyarország")) {
-                System.out.println("5. Feladat: Magyarország csatlakozása: " + magyarorszag);
+                System.out.println("5. Feladat: Magyarország csatlakozása: " + csati.csatlakozas);
                 break;
             }
         }
