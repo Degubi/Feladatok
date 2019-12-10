@@ -8,11 +8,11 @@ public class FootGolf {
         var sorok = Files.readAllLines(Paths.get("fob2016.txt"));
         var versenyzok = new ArrayList<Versenyzo>();
         
-        for(String sor : sorok) {
+        for(var sor : sorok) {
             versenyzok.add(new Versenyzo(sor));
         }
         
-        System.out.println("3.Feladat: Versenyzõk száma: " + versenyzok.size());
+        System.out.println("3.Feladat: Versenyzï¿½k szï¿½ma: " + versenyzok.size());
         
         int noiVersenyzok = 0;
         for(var versenyzo : versenyzok) {
@@ -20,7 +20,7 @@ public class FootGolf {
                 ++noiVersenyzok;
             }
         }
-        System.out.printf("4.Feladat: Nõi versenyzõk aránya: %.2f%%\n", noiVersenyzok / (float)versenyzok.size() * 100);
+        System.out.printf("4.Feladat: Nï¿½i versenyzï¿½k arï¿½nya: %.2f%%\n", noiVersenyzok / (float)versenyzok.size() * 100);
         
         var legtobbNoi = versenyzok.get(0);
         for(var vers : versenyzok) {
@@ -28,7 +28,7 @@ public class FootGolf {
                 legtobbNoi = vers;
             }
         }
-        System.out.println("6.Feladat: Nõi versenyzõ: " + "Név: " + legtobbNoi.nev + ", Egyesület: " 
+        System.out.println("6.Feladat: Nï¿½i versenyzï¿½: " + "Nï¿½v: " + legtobbNoi.nev + ", Egyesï¿½let: " 
                             + legtobbNoi.versenyEgyesulet + ", pontok: " + legtobbNoi.osszPont());
         
         try(var output = new PrintWriter("osszpontFF.txt")){
@@ -62,6 +62,7 @@ public class FootGolf {
         
         public Versenyzo(String line) {
             var split = line.split(";");
+            
             nev = split[0];
             kategoria = split[1];
             versenyEgyesulet = split[2];
@@ -73,8 +74,8 @@ public class FootGolf {
         }
         
         public int osszPont() {
-            int pont = 0;
-            for(int k = 2; k < 8; ++k) {
+            var pont = 0;
+            for(var k = 2; k < 8; ++k) {
                 pont += pontok[k];
             }
             return pont + (pontok[0] != 0 ? 10 : 0) + (pontok[1] != 0 ? 10 : 0);

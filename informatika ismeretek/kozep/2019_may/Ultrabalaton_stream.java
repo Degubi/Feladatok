@@ -49,7 +49,7 @@ public class Ultrabalaton_stream {
         Arrays.stream(celbeerkezok)
               .filter(k -> k.kategoria.equals("Ferfi"))
               .min(Comparator.comparingDouble(Versenyzo::idoOraban))
-              .ifPresent(k -> System.out.printf("Nők: %s (%d) - %s\n", k.nev, k.rajtszam, k.ido));
+              .ifPresent(k -> System.out.printf("Férfiak: %s (%d) - %s\n", k.nev, k.rajtszam, k.ido));
     }
     
     public static class Versenyzo {

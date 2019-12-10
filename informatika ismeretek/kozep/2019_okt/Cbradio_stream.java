@@ -29,7 +29,11 @@ public class Cbradio_stream {
                                           .mapToInt(k -> k.adasok)
                                           .sum();
             
-            System.out.println(bekertNev + " " + bekertHasznalatok + "x használta a rádiót");
+            if(bekertHasznalatok > 0) {
+                System.out.println(bekertNev + " " + bekertHasznalatok + "x használta a rádiót");
+            }else{
+                System.out.println("Nincs ilyen nevű sofőr!");
+            }
         }
         
         var fileHeader = "Kezdes;Nev;AdasDb\n";

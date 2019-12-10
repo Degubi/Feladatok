@@ -3,12 +3,13 @@ import java.nio.file.*;
 import java.util.*;
 
 public class EgySzamjatek_stream {
+    
     public static void main(String[] args) throws IOException {
         var menetek = Files.lines(Path.of("egyszamjatek.txt")).map(Menet::new).toArray(Menet[]::new);
         var fordulokSzama = menetek[0].tippek.length;
         
-        System.out.println("3. Feladat: Játékosok száma: " + menetek.length);
-        System.out.println("4. Feladat: Fordulók száma: " + fordulokSzama);
+        System.out.println("3. Feladat: Jï¿½tï¿½kosok szï¿½ma: " + menetek.length);
+        System.out.println("4. Feladat: Fordulï¿½k szï¿½ma: " + fordulokSzama);
         
         var voltEEgyes = Arrays.stream(menetek)
                                .flatMapToInt(k -> Arrays.stream(k.tippek))
@@ -21,10 +22,10 @@ public class EgySzamjatek_stream {
               .max()
               .ifPresent(tipp -> System.out.println("6. Feladat: Legnagyobb tipp: " + tipp));
         
-        try(var input = new Scanner(System.in)){
-            System.out.println("7. Feladat: Írd be egy forduló sorszámát! [1-" + fordulokSzama + "]");
+        try(var console = new Scanner(System.in)){
+            System.out.println("7. Feladat: ï¿½rd be egy fordulï¿½ sorszï¿½mï¿½t! [1-" + fordulokSzama + "]");
             
-            var bekertFordulo = input.nextInt();
+            var bekertFordulo = console.nextInt();
             var kezeltFordulo = bekertFordulo < 1 || bekertFordulo > fordulokSzama ? 0 : bekertFordulo - 1;
             
             var legkisebbTipp = Arrays.stream(menetek)
@@ -38,16 +39,16 @@ public class EgySzamjatek_stream {
             
             if(legkisebbElofordulasa == 1) {
                 System.out.println("8. Feladat: Nyertes tipp: " + legkisebbErtek);
-                System.out.println("9. Feladat: Forduló nyertese: " + legkisebbTipp.nev);
+                System.out.println("9. Feladat: Fordulï¿½ nyertese: " + legkisebbTipp.nev);
                 
-                var stat = "Forduló sorszáma: " + (kezeltFordulo + 1) + "\n" +
+                var stat = "Fordulï¿½ sorszï¿½ma: " + (kezeltFordulo + 1) + "\n" +
                            "Nyertes tipp: " + legkisebbErtek + "\n" +
-                           "Nyertes játékos: " + legkisebbTipp.nev;
+                           "Nyertes jï¿½tï¿½kos: " + legkisebbTipp.nev;
                 
                 Files.writeString(Path.of("nyertes.txt"), stat);
             }else {
-                System.out.println("8. Feladat: Nem volt nyertes a megadott fordulóban");
-                System.out.println("9. Feladat: Nem volt nyertes a megadott fordulóban");
+                System.out.println("8. Feladat: Nem volt nyertes a megadott fordulï¿½ban");
+                System.out.println("9. Feladat: Nem volt nyertes a megadott fordulï¿½ban");
             }
         }
     }

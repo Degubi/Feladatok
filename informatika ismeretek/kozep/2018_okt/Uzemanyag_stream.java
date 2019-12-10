@@ -6,26 +6,27 @@ import java.util.*;
 import java.util.stream.*;
 
 public class Uzemanyag_stream {
+    
     public static void main(String[] args) throws IOException {
         var valtozasok = Files.lines(Path.of("uzemanyag.txt")).map(Arvaltozas::new).toArray(Arvaltozas[]::new);
         
-        System.out.println("3. Feladat: Változások száma: " + valtozasok.length);
+        System.out.println("3. Feladat: Vï¿½ltozï¿½sok szï¿½ma: " + valtozasok.length);
         
         var legkisebbKul = Arrays.stream(valtozasok)
                                  .min(Comparator.comparingInt(k -> Integer.max(k.benzinAr, k.gazolajAr) - Integer.min(k.benzinAr, k.gazolajAr)))
                                  .map(k -> Integer.max(k.benzinAr, k.gazolajAr) - Integer.min(k.benzinAr, k.gazolajAr))
                                  .orElseThrow();
         
-        System.out.println("4. Feladat: Legkisebb különbség: " + legkisebbKul);
+        System.out.println("4. Feladat: Legkisebb kï¿½lï¿½nbsï¿½g: " + legkisebbKul);
         
         var legkisebbDarab = Arrays.stream(valtozasok)
                                    .filter(k -> Integer.max(k.benzinAr, k.gazolajAr) - Integer.min(k.benzinAr, k.gazolajAr) == legkisebbKul)
                                    .count();
         
-        System.out.println("5. Feladat: Elõfordulás: " + legkisebbDarab);
+        System.out.println("5. Feladat: Elï¿½fordulï¿½s: " + legkisebbDarab);
         
         var volteSzokoev = Arrays.stream(valtozasok).anyMatch(k -> k.valtozasDatuma.isLeapYear());
-        System.out.println("6. Feladat: Volt szökõév: " + (volteSzokoev ? "igen" : "nem"));
+        System.out.println("6. Feladat: Volt szï¿½kï¿½ï¿½v: " + (volteSzokoev ? "igen" : "nem"));
         
         var fileba = Arrays.stream(valtozasok)
                            .map(k -> String.format("%s;%.2f;%.2f", k.valtozasDatuma.toString().replace('-', '.'), k.benzinAr / 307.7F, k.gazolajAr / 307.7F))
@@ -34,8 +35,8 @@ public class Uzemanyag_stream {
         Files.writeString(Path.of("euro.txt"), fileba);
         
         System.out.println("8. Feladat:");
-        try(var input = new Scanner(System.in)){
-            var bekertEvszam = IntStream.generate(() -> evszamotBeker(input))
+        try(var console = new Scanner(System.in)){
+            var bekertEvszam = IntStream.generate(() -> evszamotBeker(console))
                                          .dropWhile(k -> k <= 2011 || k >= 2016)
                                          .findFirst()
                                          .orElseThrow();
@@ -47,7 +48,7 @@ public class Uzemanyag_stream {
             IntStream.range(0, bekertEviValtozasok.length - 1)
                      .map(i -> idokulonbseg(bekertEviValtozasok[i], bekertEviValtozasok[i + 1]))
                      .max()
-                     .ifPresent(kul -> System.out.println("10. Feladat: " + bekertEvszam + " leghosszabb idõszaka: " + kul + " nap volt."));
+                     .ifPresent(kul -> System.out.println("10. Feladat: " + bekertEvszam + " leghosszabb idï¿½szaka: " + kul + " nap volt."));
         }
     }
     
@@ -56,7 +57,7 @@ public class Uzemanyag_stream {
     }
     
     public static int evszamotBeker(Scanner input) {
-        System.out.println("Írj be 1 évszámot (2010 < evszam < 2016");
+        System.out.println("ï¿½rj be 1 ï¿½vszï¿½mot (2010 < evszam < 2016");
         return input.nextInt();
     }
     
