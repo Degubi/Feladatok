@@ -12,15 +12,15 @@ public class Cbradio_stream {
                                .map(Bejegyzes::new)
                                .toArray(Bejegyzes[]::new);
         
-        System.out.println("3. Feladat: BejegyzÃ©sek szÃ¡ma: " + bejegyzesek.length);
+        System.out.println("3. Feladat: Bejegyzések száma: " + bejegyzesek.length);
         
         Arrays.stream(bejegyzesek)
               .filter(k -> k.adasok == 4)
               .findFirst()
-              .ifPresentOrElse(k -> System.out.println("4. Feladat: Volt 4 adÃ¡st indÃ­tÃ³ sofÅ‘r"), 
-                              () -> System.out.println("4. Feladat: Nem volt 4 adÃ¡st indÃ­tÃ³ sofÅ‘r"));
+              .ifPresentOrElse(k -> System.out.println("4. Feladat: Volt 4 adást indító sofõr"), 
+                              () -> System.out.println("4. Feladat: Nem volt 4 adást indító sofõr"));
         
-        System.out.println("5. Feladat: Ãrj be egy nevet");
+        System.out.println("5. Feladat: Írj be egy nevet");
         try(var console = new Scanner(System.in)){
             var bekertNev = console.nextLine();
             
@@ -30,9 +30,9 @@ public class Cbradio_stream {
                                           .sum();
             
             if(bekertHasznalatok > 0) {
-                System.out.println(bekertNev + " " + bekertHasznalatok + "x hasznÃ¡lta a rÃ¡diÃ³t");
+                System.out.println(bekertNev + " " + bekertHasznalatok + "x használta a rádiót");
             }else{
-                System.out.println("Nincs ilyen nevÅ± sofÅ‘r!");
+                System.out.println("Nincs ilyen nevû sofõr!");
             }
         }
         
@@ -48,13 +48,13 @@ public class Cbradio_stream {
                                  .distinct()
                                  .count();
         
-        System.out.println("8. Feladat: SofÅ‘rÃ¶k szÃ¡ma: " + soforokSzama);
+        System.out.println("8. Feladat: Sofõrök száma: " + soforokSzama);
         
         Arrays.stream(bejegyzesek)
               .collect(Collectors.groupingBy(k -> k.nev, Collectors.summingInt(k -> k.adasok)))
               .entrySet().stream()
               .max(Entry.comparingByValue())
-              .ifPresent(k -> System.out.printf("9. Feladat: LegtÃ¶bb adÃ¡s sofÅ‘re: %s: %d db\n", k.getKey(), k.getValue()));
+              .ifPresent(k -> System.out.printf("9. Feladat: Legtöbb adás sofõre: %s: %d db\n", k.getKey(), k.getValue()));
     }
     
     public static int atszamolPercre(int ora, int perc) {

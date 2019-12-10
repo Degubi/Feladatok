@@ -12,7 +12,7 @@ public class FootGolf {
             versenyzok.add(new Versenyzo(sor));
         }
         
-        System.out.println("3.Feladat: Versenyz�k sz�ma: " + versenyzok.size());
+        System.out.println("3.Feladat: Versenyz?k sz?ma: " + versenyzok.size());
         
         int noiVersenyzok = 0;
         for(var versenyzo : versenyzok) {
@@ -20,7 +20,7 @@ public class FootGolf {
                 ++noiVersenyzok;
             }
         }
-        System.out.printf("4.Feladat: N�i versenyz�k ar�nya: %.2f%%\n", noiVersenyzok / (float)versenyzok.size() * 100);
+        System.out.printf("4.Feladat: N?i versenyz?k ar?nya: %.2f%%\n", noiVersenyzok / (float)versenyzok.size() * 100);
         
         var legtobbNoi = versenyzok.get(0);
         for(var vers : versenyzok) {
@@ -28,7 +28,7 @@ public class FootGolf {
                 legtobbNoi = vers;
             }
         }
-        System.out.println("6.Feladat: N�i versenyz�: " + "N�v: " + legtobbNoi.nev + ", Egyes�let: " 
+        System.out.println("6.Feladat: N?i versenyz?: " + "N?v: " + legtobbNoi.nev + ", Egyes?let: " 
                             + legtobbNoi.versenyEgyesulet + ", pontok: " + legtobbNoi.osszPont());
         
         try(var output = new PrintWriter("osszpontFF.txt")){

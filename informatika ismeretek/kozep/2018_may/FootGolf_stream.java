@@ -6,15 +6,15 @@ public class FootGolf_stream {
     public static void main(String[] args) throws Exception{
         var versenyzok = Files.lines(Paths.get("fob2016.txt")).map(Versenyzo::new).toArray(Versenyzo[]::new);
         
-        System.out.println("3.Feladat: Versenyz�k sz�ma: " + versenyzok.length);
+        System.out.println("3.Feladat: Versenyz?k sz?ma: " + versenyzok.length);
         
         var arany = Arrays.stream(versenyzok).filter(k -> k.kategoria.contains("Noi")).count() / (float)versenyzok.length * 100;
-        System.out.printf("4.Feladat: N�i versenyz�k ar�nya: %.2f%%\n", arany);
+        System.out.printf("4.Feladat: N?i versenyz?k ar?nya: %.2f%%\n", arany);
         
         Arrays.stream(versenyzok)
               .filter(k -> k.kategoria.contains("Noi"))
               .max(Comparator.comparingInt(Versenyzo::osszPont))
-              .ifPresent(versenyzo -> System.out.printf("6.Feladat: N�i versenyz� neve: %s, egyes�let: %s, pontok: %d\n", versenyzo.nev, versenyzo.versenyEgyesulet, versenyzo.osszPont()));
+              .ifPresent(versenyzo -> System.out.printf("6.Feladat: N?i versenyz? neve: %s, egyes?let: %s, pontok: %d\n", versenyzo.nev, versenyzo.versenyEgyesulet, versenyzo.osszPont()));
         
         Files.write(Path.of("osszpontFF.txt"), Arrays.stream(versenyzok).map(Versenyzo::toString).collect(Collectors.toList()));
         System.out.println("8.Feladat:");

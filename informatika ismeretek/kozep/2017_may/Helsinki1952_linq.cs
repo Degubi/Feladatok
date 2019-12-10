@@ -1,4 +1,4 @@
-Ôªøusing System;
+using System;
 using System.Linq;
 using System.IO;
  
@@ -10,14 +10,14 @@ namespace ConsoleApplication1{
                                  .Select(line => new Helyezes(line))
                                  .ToArray();
         
-            Console.WriteLine("3.Feladat\nPontszerz≈ë helyez√©sek sz√°ma: " + helyezesek.Length);
+            Console.WriteLine("3.Feladat\nPontszerzı helyezÈsek sz·ma: " + helyezesek.Length);
 
             var aranyak = helyezesek.Where(k => k.helyezes == 1).Count();
             var ezustok = helyezesek.Where(k => k.helyezes == 2).Count();
             var bronzok = helyezesek.Where(k => k.helyezes == 3).Count();
 
-            Console.WriteLine("4.Feladat\nAranyak: " + aranyak + ", ezustok: " + ezustok + ", bronzok: " + bronzok + ", √∂sszesen: " + (aranyak + ezustok + bronzok));
-            Console.WriteLine("5.Feladat\nPontok sz√°ma: " + helyezesek.Select(k => k.PontCalc()).Sum());
+            Console.WriteLine("4.Feladat\nAranyak: " + aranyak + ", ezustok: " + ezustok + ", bronzok: " + bronzok + ", ˆsszesen: " + (aranyak + ezustok + bronzok));
+            Console.WriteLine("5.Feladat\nPontok sz·ma: " + helyezesek.Select(k => k.PontCalc()).Sum());
             
             var uszas = helyezesek.Where(k => k.helyezes <= 3)
                                   .Where(k => k.sportag == "uszas")
@@ -28,14 +28,14 @@ namespace ConsoleApplication1{
                                   .Count();
 
             Console.WriteLine("6.Feladat");
-            Console.WriteLine(uszas == torna? "Egyenl≈ëek" : (torna > uszas) ? "Torna t√∂bb" : "√ösz√°s t√∂bb");
+            Console.WriteLine(uszas == torna? "Egyenlıek" : (torna > uszas) ? "Torna tˆbb" : "⁄sz·s tˆbb");
 
             var fileba = helyezesek.Select(k => k.helyezes + " " + k.sportolokSzama + " " + k.PontCalc() + " " + k.sportag.Replace("kajakkenu", "kajak-kenu") + k.versenyszam).ToArray();
             File.WriteAllLines("helsinki2.txt", fileba);
     
             Console.WriteLine("8. Feladat");
             var max = helyezesek.OrderByDescending(k => k.sportolokSzama).First();
-            Console.WriteLine("Helyez√©s: " + max.helyezes + ", sport√°g: " + max.sportag + ", sz√°m: " + max.versenyszam + ", sportol√≥k: " + max.sportolokSzama);
+            Console.WriteLine("HelyezÈs: " + max.helyezes + ", sport·g: " + max.sportag + ", sz·m: " + max.versenyszam + ", sportolÛk: " + max.sportolokSzama);
             Console.Read();
         }
 

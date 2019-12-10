@@ -12,7 +12,7 @@ public class Ultrabalaton {
             versenyzok.add(new Versenyzo(lines.get(i)));
         }
         
-        System.out.println("3. Feladat: Egy√©ni indul√≥k: " + versenyzok.size());
+        System.out.println("3. Feladat: EgyÈni indulÛk: " + versenyzok.size());
         
         var celbaertNoiVersenyzok = 0;
         for(var versenyzo : versenyzok) {
@@ -21,8 +21,8 @@ public class Ultrabalaton {
             }
         }
         
-        System.out.println("4. Feladat: C√©lba√©rt n≈ëi versenyz≈ëk: " + celbaertNoiVersenyzok);
-        System.out.println("5. Feladat: √çrd be egy versenyz≈ë nev√©t!");
+        System.out.println("4. Feladat: CÈlbaÈrt nıi versenyzık: " + celbaertNoiVersenyzok);
+        System.out.println("5. Feladat: Õrd be egy versenyzı nevÈt!");
         
         try(var console = new Scanner(System.in)){
             var bekertNev = console.nextLine();
@@ -38,10 +38,10 @@ public class Ultrabalaton {
             }
             
             if(indultEBekert) {
-                System.out.println("Indult egy√©niben? Igen");
-                System.out.println("Teljes√≠tette a t√°vot? " + (bekertSzazaleka == 100 ? "Igen" : "Nem"));
+                System.out.println("Indult egyÈniben? Igen");
+                System.out.println("TeljesÌtette a t·vot? " + (bekertSzazaleka == 100 ? "Igen" : "Nem"));
             }else {
-                System.out.println("Indult egy√©niben? Nem");
+                System.out.println("Indult egyÈniben? Nem");
             }
         }
         
@@ -55,7 +55,7 @@ public class Ultrabalaton {
             }
         }
         
-        System.out.println("7. Feladat: √Åtlagos id≈ë: " + (ferfiAtlagIdo / ferfiakSzama));
+        System.out.println("7. Feladat: ¡tlagos idı: " + (ferfiAtlagIdo / ferfiakSzama));
         
         var ferfiGyoztes = versenyzok.get(0);
         var noiGyoztes = versenyzok.get(0);
@@ -74,8 +74,8 @@ public class Ultrabalaton {
             }
         }
         
-        System.out.printf("N≈ëk: %s (%d) - %s\n", noiGyoztes.nev, noiGyoztes.rajtszam, noiGyoztes.ido);
-        System.out.printf("F√©rfiak: %s (%d) - %s\n", ferfiGyoztes.nev, ferfiGyoztes.rajtszam, ferfiGyoztes.ido);
+        System.out.printf("Nık: %s (%d) - %s\n", noiGyoztes.nev, noiGyoztes.rajtszam, noiGyoztes.ido);
+        System.out.printf("FÈrfiak: %s (%d) - %s\n", ferfiGyoztes.nev, ferfiGyoztes.rajtszam, ferfiGyoztes.ido);
     }
     
     public static class Versenyzo {

@@ -13,7 +13,7 @@ public class Kektura{
             szakaszok.add(new Szakasz(lines.get(i)));
         }
         
-        System.out.println("3.Feladat: Szakaszok sz√°ma: " + szakaszok.size() + " db");
+        System.out.println("3.Feladat: Szakaszok sz·ma: " + szakaszok.size() + " db");
         
         var teljesHossz = 0D;
         for(var szakasz : szakaszok) {
@@ -29,8 +29,8 @@ public class Kektura{
             }
         }
         
-        System.out.println("5.Feladat: Legr√∂videbb szakasz adatai: " + legrovidebbSzakasz);
-        System.out.println("7.Feladat: Hi√°nyos √°llom√°snevek:");
+        System.out.println("5.Feladat: Legrˆvidebb szakasz adatai: " + legrovidebbSzakasz);
+        System.out.println("7.Feladat: Hi·nyos ·llom·snevek:");
         
         var hianyosok = new ArrayList<Szakasz>();
         for(var szakasz : szakaszok) {
@@ -40,7 +40,7 @@ public class Kektura{
         }
         
         if(hianyosok.size() == 0) {
-            System.out.println("Nincs hi√°nyos √°llom√°sn√©v");
+            System.out.println("Nincs hi·nyos ·llom·snÈv");
         }else{
             for(var hianyos : hianyosok) {
                 System.out.println(hianyos.vegPont);
@@ -54,7 +54,7 @@ public class Kektura{
             }
         }
         
-        System.out.printf("8.Feladat: A t√∫ra legmagasabban pont neve: %s, magass√°ga: %dm\n", legmagasabb.vegPont, legmagasabb.magasraa(szint));
+        System.out.printf("8.Feladat: A t˙ra legmagasabban pont neve: %s, magass·ga: %dm\n", legmagasabb.vegPont, legmagasabb.magasraa(szint));
         
         try(var file = new PrintWriter("kektura2.csv")){
             file.println(szint);
@@ -92,7 +92,7 @@ public class Kektura{
         
         @Override
         public String toString() {
-            return "Kezdet: " + induloPont + ", v√©g: " + vegPont + ", t√°vols√°g: " + hossz + " km";
+            return "Kezdet: " + induloPont + ", vÈg: " + vegPont + ", t·vols·g: " + hossz + " km";
         }
     }
 }

@@ -24,7 +24,7 @@ with open("cb.txt", "r") as file:
     for i in range(1, len(lines)):
         bejegyzesek.append(Bejegyzes(lines[i]))
 
-print(f"3. Feladat: Bejegyz√©sek sz√°ma: {len(bejegyzesek)}")
+print(f"3. Feladat: BejegyzÈsek sz·ma: {len(bejegyzesek)}")
 
 volte4adasos = False
 for bejegyzes in bejegyzesek:
@@ -33,11 +33,11 @@ for bejegyzes in bejegyzesek:
         break
         
 if voltE4Adasos:
-    print("4. Feladat: Volt 4 ad√°st ind√≠t√≥ sof≈ër")
+    print("4. Feladat: Volt 4 ad·st indÌtÛ sofır")
 else:
-    print("4. Feladat: Nem volt 4 ad√°st ind√≠t√≥ sof≈ër")
+    print("4. Feladat: Nem volt 4 ad·st indÌtÛ sofır")
 
-bekertNev = input("5. Feladat: √çrj be egy nevet")
+bekertNev = input("5. Feladat: Õrj be egy nevet")
 bekertHasznalatok = 0
             
 for bejegyzes in bejegyzesek:
@@ -45,9 +45,9 @@ for bejegyzes in bejegyzesek:
         bekertHasznalatok += bejegyzes.adasok
             
 if bekertHasznalatok > 0:
-    print(bekertNev + " " + bekertHasznalatok + "x haszn√°lta a r√°di√≥t")
+    print(bekertNev + " " + bekertHasznalatok + "x haszn·lta a r·diÛt")
 else:
-    print("Nincs ilyen nev≈± sof≈ër!")
+    print("Nincs ilyen nev˚ sofır!")
     
 with open("cb2.txt", "w") as file:
     file.write("Kezdes;Nev;AdasDb\n")
@@ -67,4 +67,4 @@ for bejegyzes in soforokAdasszamokkal.items():
     if bejegyzes[1] > legtobbAdasBejegyzes[1]:
         legtobbAdasBejegyzes = bejegyzes
         
-print("9. Feladat: Legt√∂bb ad√°st ind√≠t√≥ sof≈ër: " + legtobbAdasBejegyzes[0] + ", ad√°sok: " + str(legtobbAdasBejegyzes[1]))
+print("9. Feladat: Legtˆbb ad·st indÌtÛ sofır: " + legtobbAdasBejegyzes[0] + ", ad·sok: " + str(legtobbAdasBejegyzes[1]))
