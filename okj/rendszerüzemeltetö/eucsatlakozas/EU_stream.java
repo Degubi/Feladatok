@@ -11,28 +11,28 @@ public class EU_stream {
                                  .map(k -> k.split(";"))
                                  .collect(Collectors.toMap(k -> k[0], k -> LocalDate.parse(k[1].replace('.', '-'))));
         
-        System.out.println("3. Feladat: 2018-ig EU államok száma: " + csatlakozasok.size());
+        System.out.println("3. Feladat: 2018-ig EU Ã¡llamok szÃ¡ma: " + csatlakozasok.size());
         
         var csatlakozott2007 = csatlakozasok.values().stream()
                                             .filter(k -> k.getYear() == 2007)
                                             .count();
         
-        System.out.println("4. Feladat: 2007-ben csatlakozott országok száma: " + csatlakozott2007);
-        System.out.println("5. Feladat: Magyarország csatlakozása: " + csatlakozasok.get("Magyarország"));
+        System.out.println("4. Feladat: 2007-ben csatlakozott orszÃ¡gok szÃ¡ma: " + csatlakozott2007);
+        System.out.println("5. Feladat: MagyarorszÃ¡g csatlakozÃ¡sa: " + csatlakozasok.get("MagyarorszÃ¡g"));
         
         if(csatlakozasok.values().stream().anyMatch(k -> k.getMonth() == Month.MAY)) {
-            System.out.println("6. Feladat: Volt májusban csatlakozás");
+            System.out.println("6. Feladat: Volt mÃ¡jusban csatlakozÃ¡s");
         }else{
-            System.out.println("6. Feladat: Nem volt májusban csatlakozás");
+            System.out.println("6. Feladat: Nem volt mÃ¡jusban csatlakozÃ¡s");
         }
         
         csatlakozasok.entrySet().stream()
                      .max(Entry.comparingByValue())
-                     .ifPresent(k -> System.out.println("7. Feladat: Utoljára csatlakozott: " + k.getKey()));
+                     .ifPresent(k -> System.out.println("7. Feladat: UtoljÃ¡ra csatlakozott: " + k.getKey()));
         
         System.out.println("8. Feladat:");
         csatlakozasok.values().stream()
                      .collect(Collectors.groupingBy(k -> k.getYear(), Collectors.counting()))
-                     .forEach((ev, db) -> System.out.println(ev + " - " + db + " db ország"));
+                     .forEach((ev, db) -> System.out.println(ev + " - " + db + " db orszÃ¡g"));
     }
 }

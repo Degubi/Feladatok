@@ -7,14 +7,14 @@ public class Fejvagyiras {
     public static void main(String[] args) throws IOException {
         var random = new Random();
         
-        System.out.println("1. Feladat: PÈnzfeldob·s eredmÈnye: " + (random.nextBoolean() ? 'I' : 'F'));
+        System.out.println("1. Feladat: P√©nzfeldob√°s eredm√©nye: " + (random.nextBoolean() ? 'I' : 'F'));
         System.out.println("2. Feladat: Tippelj: F/I");
 
         try(var input = new Scanner(System.in)){
             var userIn = input.next();
             var generalt = random.nextBoolean() ? 'I' : 'F';
             
-            System.out.println(userIn.charAt(0) == generalt ? "Eltal·ltad!" : "Nem tal·lt!");
+            System.out.println(userIn.charAt(0) == generalt ? "Eltal√°ltad!" : "Nem tal√°lt!");
         }
         
         var osszes = 0;
@@ -45,10 +45,10 @@ public class Fejvagyiras {
             }
         }
         
-        System.out.println("3. Feladat: Dob·sok sz·ma: " + osszes);
-        System.out.printf("4. Feladat: Fej relativ gyakoris·ga: %.2f%%\n", ((float) fejek / osszes * 100));
+        System.out.println("3. Feladat: Dob√°sok sz√°ma: " + osszes);
+        System.out.printf("4. Feladat: Fej relativ gyakoris√°ga: %.2f%%\n", ((float) fejek / osszes * 100));
         
-        //TODO: Ez itt nem t˚nik helyesnek (5. Feladat)
+        //TODO: Ez itt nem t≈±nik helyesnek (5. Feladat)
         var ketFejesek = 0;
         try(var file = Files.newBufferedReader(Path.of("kiserlet.txt"))){
             
@@ -62,11 +62,11 @@ public class Fejvagyiras {
             }while(!negyes.contains("null"));
         }
         
-        System.out.println("5. Feladat: Dupla fejes dob·sok: " + ketFejesek);
+        System.out.println("5. Feladat: Dupla fejes dob√°sok: " + ketFejesek);
         System.out.println("6. Feladat: Leghoszabb tisztafejes: " + maxCsupaFejes + ", kezdete: " + csupaFejSorszam);
         
         
-        var generaltTeljes = new StringBuilder(5000); //4000 db IIII + 1000 db szÛkˆz
+        var generaltTeljes = new StringBuilder(5000); //4000 db IIII + 1000 db sz√≥k√∂z
         var FFFF = 0;
         var FFFI = 0;
         

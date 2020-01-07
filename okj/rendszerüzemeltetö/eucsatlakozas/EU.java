@@ -13,7 +13,7 @@ public class EU {
             csatlakozasok.add(new Csatlakozas(line));
         }
         
-        System.out.println("3. Feladat: 2018-ig csatlakozott országok száma: " + csatlakozasok.size());
+        System.out.println("3. Feladat: 2018-ig csatlakozott orszÃ¡gok szÃ¡ma: " + csatlakozasok.size());
         
         var tagallamok2007ben = 0;
         for(var csati : csatlakozasok) {
@@ -22,11 +22,11 @@ public class EU {
             }
         }
         
-        System.out.println("4. Feladat: 2007-ben csatlakozott országok száma: " + tagallamok2007ben);
+        System.out.println("4. Feladat: 2007-ben csatlakozott orszÃ¡gok szÃ¡ma: " + tagallamok2007ben);
         
         for(var csati : csatlakozasok) {
-            if(csati.orszag.equals("Magyarország")) {
-                System.out.println("5. Feladat: Magyarország csatlakozása: " + csati.csatlakozas);
+            if(csati.orszag.equals("MagyarorszÃ¡g")) {
+                System.out.println("5. Feladat: MagyarorszÃ¡g csatlakozÃ¡sa: " + csati.csatlakozas);
                 break;
             }
         }
@@ -40,9 +40,9 @@ public class EU {
         }
         
         if(voltEMajusban) {
-            System.out.println("6. Feladat: Volt májusban csatlakozás");
+            System.out.println("6. Feladat: Volt mÃ¡jusban csatlakozÃ¡s");
         }else{
-            System.out.println("6. Feladat: Nem volt májusban csatlakozás");
+            System.out.println("6. Feladat: Nem volt mÃ¡jusban csatlakozÃ¡s");
         }
         
         var utolso = csatlakozasok.get(0);
@@ -51,7 +51,7 @@ public class EU {
                 utolso = csati;
             }
         }
-        System.out.println("7. Feladat: Utoljára csatlakozott: " + utolso.orszag);
+        System.out.println("7. Feladat: UtoljÃ¡ra csatlakozott: " + utolso.orszag);
         System.out.println("8. Feladat:");
         
         var stat = new HashMap<Integer, Integer>();
@@ -62,7 +62,7 @@ public class EU {
         }
         
         for(var entry : stat.entrySet()) {
-            System.out.println(entry.getKey() + " - " + entry.getValue() + " db ország");
+            System.out.println(entry.getKey() + " - " + entry.getValue() + " db orszÃ¡g");
         }
     }
     

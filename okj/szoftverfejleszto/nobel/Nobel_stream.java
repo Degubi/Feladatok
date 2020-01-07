@@ -14,13 +14,13 @@ public class Nobel_stream {
         Arrays.stream(dijak)
               .filter(k -> k.keresztNev.equals("Arthur B.") && k.vezetekNev.equals("McDonald"))
               .findFirst()
-              .ifPresent(k -> System.out.println("3. Feladat: Arthur " + k.tipus + " dÌjat kapott"));
+              .ifPresent(k -> System.out.println("3. Feladat: Arthur " + k.tipus + " d√≠jat kapott"));
         
         System.out.println("4. Feladat");
         Arrays.stream(dijak)
               .filter(k -> k.evszam == 2017)
               .filter(k -> k.tipus.equals("irodalmi"))
-              .forEach(k -> System.out.println("Irodalmi dÌjat kapott: " + k.keresztNev + " " + k.vezetekNev));
+              .forEach(k -> System.out.println("Irodalmi d√≠jat kapott: " + k.keresztNev + " " + k.vezetekNev));
         
         System.out.println("5. Feladat");
         Arrays.stream(dijak)

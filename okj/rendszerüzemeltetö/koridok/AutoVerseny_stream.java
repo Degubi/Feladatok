@@ -10,24 +10,24 @@ public class AutoVerseny_stream {
                              .map(Verseny::new)
                              .toArray(Verseny[]::new);
         
-        System.out.println("3. Feladat: Adatsorok száma: " + versenyek.length);
+        System.out.println("3. Feladat: Adatsorok szÃ¡ma: " + versenyek.length);
         
         Arrays.stream(versenyek)
-              .filter(k -> k.versenyzo.equals("Fürge Ferenc"))
+              .filter(k -> k.versenyzo.equals("FÃ¼rge Ferenc"))
               .filter(k -> k.palya.equals("Gran Prix Circuit"))
               .filter(k -> k.kor == 3)
               .findFirst()
               .ifPresent(k -> System.out.println("4. Feladat: " + k.korido.toSecondOfDay() + " mp"));
         
         try(var input = new Scanner(System.in)){
-            System.out.println("5. Felatad: Írj be egy nevet!");
+            System.out.println("5. Felatad: Ãrj be egy nevet!");
             var beNev = input.nextLine();
             
             System.out.print("6. Feladat: ");
             Arrays.stream(versenyek)
                   .filter(k -> k.versenyzo.equals(beNev))
                   .min(Comparator.comparing(k -> k.korido))
-                  .ifPresentOrElse(k -> System.out.println(k.korido), () -> System.out.println("Nincs ilyen versenyzõ"));
+                  .ifPresentOrElse(k -> System.out.println(k.korido), () -> System.out.println("Nincs ilyen versenyzÅ‘"));
         }
     }
     

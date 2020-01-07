@@ -10,7 +10,7 @@ public class Helyjegy {
         
         int eladottJegyek = Integer.parseInt(firstSplit[0]);
         int utHossz = Integer.parseInt(firstSplit[1]);
-        int ar = Integer.parseInt(firstSplit[2]);  //10 km-kÈnt
+        int ar = Integer.parseInt(firstSplit[2]);  //10 km-k√©nt
         var utasok = new ArrayList<Utas>();
         
         for(int k = 1; k < file.size(); ++k) {
@@ -18,7 +18,7 @@ public class Helyjegy {
         }
         
         var utolso = utasok.get(utasok.size() - 1);
-        System.out.println("2.Feladat: UtolsÛ utas ¸lÈse: " + utolso.ules + " utazott t·vols·g: " + utolso.getTavolsag());
+        System.out.println("2.Feladat: Utols√≥ utas √ºl√©se: " + utolso.ules + " utazott t√°vols√°g: " + utolso.getTavolsag());
         
         System.out.println("3.Feladat");
         int osszesPenz = 0;
@@ -28,7 +28,7 @@ public class Helyjegy {
                 System.out.print(utas.sorszam + " ");
             }
         }
-        System.out.println("\n4.Feladat: ÷sszes bevÈtel: " + osszesPenz);
+        System.out.println("\n4.Feladat: √ñsszes bev√©tel: " + osszesPenz);
         
         int utolsoMegallo = 0;
         for(Utas utas : utasok) {
@@ -46,17 +46,17 @@ public class Helyjegy {
                 ++leszallok;
             }
         }
-        System.out.println("5.Feladat: UtolsÛ meg·llÛn·l felsz·llÛk: " + felszallok + ", lesz·llÛk: " + leszallok);
+        System.out.println("5.Feladat: Utols√≥ meg√°ll√≥n√°l felsz√°ll√≥k: " + felszallok + ", lesz√°ll√≥k: " + leszallok);
         
         HashSet<Integer> allomasok = new HashSet<>();
         for(Utas utas : utasok) {
             allomasok.add(utas.start);
             allomasok.add(utas.end);
         }
-        System.out.println("6.Feladat: Meg·llÛk sz·ma: " + (allomasok.size() - 2));
+        System.out.println("6.Feladat: Meg√°ll√≥k sz√°ma: " + (allomasok.size() - 2));
         
         try(var output = new PrintWriter("kihol.txt"); Scanner input = new Scanner(System.in)){
-            System.out.println("Õrj be 1 km sz·mot!");
+            System.out.println("√çrj be 1 km sz√°mot!");
             int readTav = input.nextInt();
             
             for(int k = 1; k < 49; ++k) {
@@ -66,7 +66,7 @@ public class Helyjegy {
                         currentUtas = utas;
                     }
                 }
-                output.println(k + ". ¸lÈs: " + (currentUtas == null ? "¸res" : (currentUtas.sorszam + ". utas")));
+                output.println(k + ". √ºl√©s: " + (currentUtas == null ? "√ºres" : (currentUtas.sorszam + ". utas")));
             }
         }
     }

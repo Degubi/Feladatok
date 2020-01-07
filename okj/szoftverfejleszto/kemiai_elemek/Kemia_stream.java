@@ -11,13 +11,13 @@ public class Kemia_stream {
                           .map(Elem::new)
                           .toArray(Elem[]::new);
         
-        System.out.println("3. Feladat: Elemek sz·ma: " + elemek.length);
-        System.out.println("4. Feladat: ”kori elemek sz·ma: " + Arrays.stream(elemek).filter(k -> k.okor).count());
-        System.out.println("5. Feladat:\nÕrj be egy vegyjelet! (1-2 karakter)");
+        System.out.println("3. Feladat: Elemek sz√°ma: " + elemek.length);
+        System.out.println("4. Feladat: √ìkori elemek sz√°ma: " + Arrays.stream(elemek).filter(k -> k.okor).count());
+        System.out.println("5. Feladat:\n√çrj be egy vegyjelet! (1-2 karakter)");
         
         try(var input = new Scanner(System.in)){
             var bekert = Stream.generate(input::nextLine)
-                               .peek(k -> System.out.println("Õrj be egy vegyjelet! (1-2 karakter)"))
+                               .peek(k -> System.out.println("√çrj be egy vegyjelet! (1-2 karakter)"))
                                .dropWhile(Kemia_stream::filterConsoleInput)
                                .findFirst()
                                .orElseThrow();
@@ -26,15 +26,15 @@ public class Kemia_stream {
             Arrays.stream(elemek)
                   .filter(k -> k.vegyjel.equalsIgnoreCase(bekert))
                   .findFirst()
-                  .ifPresentOrElse(k -> System.out.println(k.vegyjel + ": " + k.nev + ", rsz.: " + k.rendszam + ", Èv: " + k.ev + ", felf.: " + k.felfedezo), 
-                                    () -> System.out.println("Nincs ilyen elem elt·rolva!"));
+                  .ifPresentOrElse(k -> System.out.println(k.vegyjel + ": " + k.nev + ", rsz.: " + k.rendszam + ", √©v: " + k.ev + ", felf.: " + k.felfedezo), 
+                                    () -> System.out.println("Nincs ilyen elem elt√°rolva!"));
         }
         
         IntStream.range(0, elemek.length - 1)
                  .filter(i -> elemek[i].ev != 0 && elemek[i + 1].ev != 0)
                  .map(i -> elemek[i + 1].ev - elemek[i].ev)
                  .max()
-                 .ifPresent(k -> System.out.println("7. Feladat: Leghoszabb idı: " + k + " Èv"));
+                 .ifPresent(k -> System.out.println("7. Feladat: Leghoszabb id≈ë: " + k + " √©v"));
         
         System.out.println("8. Feladat");
         Arrays.stream(elemek)

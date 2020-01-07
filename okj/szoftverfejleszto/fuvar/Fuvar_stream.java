@@ -11,7 +11,7 @@ public class Fuvar_stream {
                            .map(FuvarAdat::new)
                            .toArray(FuvarAdat[]::new);
         
-        System.out.println("3. Feladat: Fuvarok sz·ma: " + fuvarok.length);
+        System.out.println("3. Feladat: Fuvarok sz√°ma: " + fuvarok.length);
         
         var szurt = Arrays.stream(fuvarok)
                           .filter(k -> k.azonosito == 6185)
@@ -27,7 +27,7 @@ public class Fuvar_stream {
         System.out.printf("6. Feladat: %.2f km\n", Arrays.stream(fuvarok).mapToDouble(k -> k.tavolsag).sum() * 1.6D);
         Arrays.stream(fuvarok)
               .max(Comparator.comparingInt(k -> k.idotartam))
-              .ifPresent(k -> System.out.printf("7. Feladat: %d mp, azonosito: %d, t·vols·g: %.2f km, dÌj: %.2f$\n", k.idotartam, k.azonosito, k.tavolsag, k.dij));
+              .ifPresent(k -> System.out.printf("7. Feladat: %d mp, azonosito: %d, t√°vols√°g: %.2f km, d√≠j: %.2f$\n", k.idotartam, k.azonosito, k.tavolsag, k.dij));
     
         var header = "taxi_id;indulas;idotartam;tavolsag;viteldij;borravalo;fizetes_modja\n";
         var hibasAdatok = Arrays.stream(fuvarok)

@@ -18,34 +18,34 @@ public class LezerLoveszet_stream {
                              .toArray(JatekosLovese[]::new);
         
         System.out.println("5. Feladat");
-        System.out.println("Lövések száma: " + jatekosok.length);
+        System.out.println("LÃ¶vÃ©sek szÃ¡ma: " + jatekosok.length);
         System.out.println("7. Feladat");
         
         Arrays.stream(jatekosok)
               .min(Comparator.comparingDouble(jatekos -> jatekos.tavolsag(kozeppontX, kozeppontY)))
-              .ifPresent(k -> System.out.println("Legpontosabb lövés: " + k.lovesSorszam + ", neve: " + k.jatekosNeve 
-                                                                          + ", koordináták: x:" + k.lovesX + " y:" + k.lovesY
-                                                                          + ", távolság: " + k.tavolsag(kozeppontX, kozeppontY)));
+              .ifPresent(k -> System.out.println("Legpontosabb lÃ¶vÃ©s: " + k.lovesSorszam + ", neve: " + k.jatekosNeve 
+                                                                          + ", koordinÃ¡tÃ¡k: x:" + k.lovesX + " y:" + k.lovesY
+                                                                          + ", tÃ¡volsÃ¡g: " + k.tavolsag(kozeppontX, kozeppontY)));
         var nullapontosok = Arrays.stream(jatekosok)
                                   .mapToDouble(k -> k.pontszam(kozeppontX, kozeppontY))
                                   .filter(k -> k == 0D)
                                   .count();
         
         System.out.println("9. Feladat");
-        System.out.println("Nulla pontosok száma: " + nullapontosok);
+        System.out.println("Nulla pontosok szÃ¡ma: " + nullapontosok);
         System.out.println("10. Feladat");
-        System.out.println("Játékosok száma: " + Arrays.stream(jatekosok).map(k -> k.jatekosNeve).distinct().count());
+        System.out.println("JÃ¡tÃ©kosok szÃ¡ma: " + Arrays.stream(jatekosok).map(k -> k.jatekosNeve).distinct().count());
         
         System.out.println("11. Feladat");
         
         Arrays.stream(jatekosok)
               .collect(Collectors.groupingBy(k -> k.jatekosNeve, Collectors.counting()))
-              .forEach((nev, szam) -> System.out.println("Név: " + nev + ", lovesek szama: " + szam));
+              .forEach((nev, szam) -> System.out.println("NÃ©v: " + nev + ", lovesek szama: " + szam));
         
         System.out.println("12. Feladat");
         Arrays.stream(jatekosok)
               .collect(Collectors.groupingBy(k -> k.jatekosNeve, Collectors.averagingDouble(k -> k.pontszam(kozeppontX, kozeppontY))))
-              .forEach((nev, atlag) -> System.out.println("Név: " + nev + ", atlag: " + atlag));
+              .forEach((nev, atlag) -> System.out.println("NÃ©v: " + nev + ", atlag: " + atlag));
         
         System.out.println("13. Feladat");
         Arrays.stream(jatekosok)

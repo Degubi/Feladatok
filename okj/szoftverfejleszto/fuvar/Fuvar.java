@@ -12,7 +12,7 @@ public class Fuvar {
             fuvarok.add(new FuvarAdat(lines.get(i)));
         }
         
-        System.out.println("3. Feladat: Fuvarok sz·ma: " + fuvarok.size());
+        System.out.println("3. Feladat: Fuvarok sz√°ma: " + fuvarok.size());
         
         var szurtDb = 0;
         var szurtDij = 0F;
@@ -56,7 +56,7 @@ public class Fuvar {
             }
         }
         
-        System.out.printf("7. Feladat: %d mp, azonosito: %d, t·vols·g: %.2f km, dÌj: %.2f$\n", legnagyobbByIdotartam.idotartam, legnagyobbByIdotartam.azonosito, legnagyobbByIdotartam.tavolsag, legnagyobbByIdotartam.dij);
+        System.out.printf("7. Feladat: %d mp, azonosito: %d, t√°vols√°g: %.2f km, d√≠j: %.2f$\n", legnagyobbByIdotartam.idotartam, legnagyobbByIdotartam.azonosito, legnagyobbByIdotartam.tavolsag, legnagyobbByIdotartam.dij);
     
         var header = "taxi_id;indulas;idotartam;tavolsag;viteldij;borravalo;fizetes_modja";
         var szurtFuvarok = new ArrayList<FuvarAdat>();
@@ -102,14 +102,14 @@ public class Fuvar {
 }
 
 /*
-3. Feladat: Fuvarok sz·ma: 1859
+3. Feladat: Fuvarok sz√°ma: 1859
 4. Feladat: 4 db fuvarra: 33.75
 5. Feladat:
 vitatott: 4 db
 ismeretlen: 2 db
 ingyenes: 10 db
-bankk·rtya: 793 db
-kÈszpÈnz: 1050 db
+bankk√°rtya: 793 db
+k√©szp√©nz: 1050 db
 6. Feladat: 8099,95 km
-7. Feladat: 9120 mp, azonosito: 2559, t·vols·g: 35,099998 km, dÌj: 88,250000$
+7. Feladat: 9120 mp, azonosito: 2559, t√°vols√°g: 35,099998 km, d√≠j: 88,250000$
 */

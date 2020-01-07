@@ -24,15 +24,15 @@ int main(){
     input.close();
     
     const unsigned int resztvevok = versenyzok.size();
-    cout << "Versenyzõk száma: " << resztvevok << endl;
+    cout << "VersenyzÅ‘k szÃ¡ma: " << resztvevok << endl;
     
     string readID;
-    cout << "Írj be 1 ID-t!" << endl;
+    cout << "Ãrj be 1 ID-t!" << endl;
     cin >> readID;
     for(Versenyzo &versenyzo : versenyzok){
         if(versenyzo.id == readID){
-            cout << versenyzo.answers << " (Felhasználó válaszai)"<< endl; 
-            cout << megoldas << " (Helyes megoldások)" << endl;
+            cout << versenyzo.answers << " (FelhasznÃ¡lÃ³ vÃ¡laszai)"<< endl; 
+            cout << megoldas << " (Helyes megoldÃ¡sok)" << endl;
             for(int l = 0; l < 14; ++l){
                 if(versenyzo.answers[l] == megoldas[l]){
                     cout << '+';
@@ -45,7 +45,7 @@ int main(){
     }
     
     int readInt;
-    cout << "Írj be 1 feladat sorszámot!" << endl;
+    cout << "Ãrj be 1 feladat sorszÃ¡mot!" << endl;
     cin >> readInt;
     
     int joMegoldas = 0;
@@ -56,7 +56,7 @@ int main(){
     }
     
     cout.precision(4);
-    cout << "Jó megoldások száma: " << joMegoldas << ". Ez az összesnek a " << 
+    cout << "JÃ³ megoldÃ¡sok szÃ¡ma: " << joMegoldas << ". Ez az Ã¶sszesnek a " << 
             (float)joMegoldas / resztvevok * 100 << "%-a." << endl;
     
     ofstream output("pontok.txt");
@@ -85,9 +85,9 @@ int main(){
     
     cout << "7. feladat: A verseny legjobbjai:" << endl;
     for(int k = 1, index = 0; k < 4; ++k, ++index) {
-        cout << k << ". díj (" << versenyzok[index].points << " pont): " << versenyzok[index].id << endl;
+        cout << k << ". dÃ­j (" << versenyzok[index].points << " pont): " << versenyzok[index].id << endl;
         if(versenyzok[index].points == versenyzok[index + 1].points) {
-            cout << k << ". díj (" << versenyzok[++index].points << " pont): " << versenyzok[index].id << endl;
+            cout << k << ". dÃ­j (" << versenyzok[++index].points << " pont): " << versenyzok[index].id << endl;
         }
     }
     return 0;

@@ -13,8 +13,8 @@ public class Lift {
             hasznalatok.add(new Hasznalat(line));
         }
         
-        System.out.println("3. Feladat: Lift alkalmak sz·ma: " + hasznalatok.size());
-        System.out.println("4. Feladat: A korszak " + hasznalatok.get(0).idopont + " tıl " + hasznalatok.get(hasznalatok.size() - 1).idopont + "-ig tartott");
+        System.out.println("3. Feladat: Lift alkalmak sz√°ma: " + hasznalatok.size());
+        System.out.println("4. Feladat: A korszak " + hasznalatok.get(0).idopont + " t≈ël " + hasznalatok.get(hasznalatok.size() - 1).idopont + "-ig tartott");
         
         var maxSzint = -1;
         for(var e : hasznalatok) {
@@ -23,9 +23,9 @@ public class Lift {
             }
         }
         
-        System.out.println("5. Feladat: Max cÈlszint: " + maxSzint);
+        System.out.println("5. Feladat: Max c√©lszint: " + maxSzint);
         
-        System.out.println("6. Feladat: Õrj be egy k·rtyasz·mot Ès egy cÈlszintet");
+        System.out.println("6. Feladat: √çrj be egy k√°rtyasz√°mot √©s egy c√©lszintet");
         try(var input = new Scanner(System.in)){
             var beKartya = parseOrDefault(input.nextLine(), 5);
             var beCelszint = parseOrDefault(input.nextLine(), 5);
@@ -39,7 +39,7 @@ public class Lift {
                 }
             }
             
-            System.out.println("7. Feladat: A " + beKartya + " k·rty·val " + kieg + " utaztak a " + beCelszint + ". emeletre");
+            System.out.println("7. Feladat: A " + beKartya + " k√°rty√°val " + kieg + " utaztak a " + beCelszint + ". emeletre");
         }
         
         System.out.println("8. Feladat");

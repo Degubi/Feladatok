@@ -13,18 +13,18 @@ public class Kektura_stream{
                              .map(Szakasz::new)
                              .toArray(Szakasz[]::new);
         
-        System.out.println("3.Feladat: Szakaszok sz·ma: " + szakaszok.length + " db");
+        System.out.println("3.Feladat: Szakaszok sz√°ma: " + szakaszok.length + " db");
         System.out.println("4.Feladat: Teljes hossz: " + Arrays.stream(szakaszok).mapToDouble(k -> k.hossz).sum() + " km");
         
         Arrays.stream(szakaszok)
               .min(Comparator.comparingDouble(k -> k.hossz))
-              .ifPresent(k -> System.out.println("5.Feladat: Legrˆvidebb szakasz adatai: " + k));
+              .ifPresent(k -> System.out.println("5.Feladat: Legr√∂videbb szakasz adatai: " + k));
         
-        System.out.println("7.Feladat: Hi·nyos ·llom·snevek:");
+        System.out.println("7.Feladat: Hi√°nyos √°llom√°snevek:");
         var hianyosok = Arrays.stream(szakaszok).filter(Szakasz::hianyosNev).toArray(Szakasz[]::new);
         
         if(hianyosok.length == 0) {
-            System.out.println("Nincs hi·nyos ·llom·snÈv");
+            System.out.println("Nincs hi√°nyos √°llom√°sn√©v");
         }else{
             Arrays.stream(hianyosok)
                   .map(k -> k.vegPont)
@@ -33,7 +33,7 @@ public class Kektura_stream{
         
         Arrays.stream(szakaszok)
               .max(Comparator.comparingInt(k -> k.magasraa(szint)))
-              .ifPresent(k -> System.out.printf("8.Feladat: A t˙ra legmagasabban pont neve: %s, magass·ga: %dm\n", k.vegPont, k.magasraa(szint)));
+              .ifPresent(k -> System.out.printf("8.Feladat: A t√∫ra legmagasabban pont neve: %s, magass√°ga: %dm\n", k.vegPont, k.magasraa(szint)));
         
         var fileba = Arrays.stream(szakaszok)
                            .map(szakasz -> szakasz + (szakasz.hianyosNev() ? " pecsetelohely" : ""))
@@ -69,7 +69,7 @@ public class Kektura_stream{
         
         @Override
         public String toString() {
-            return "Kezdet: " + induloPont + ", vÈg: " + vegPont + ", t·vols·g: " + hossz + " km";
+            return "Kezdet: " + induloPont + ", v√©g: " + vegPont + ", t√°vols√°g: " + hossz + " km";
         }
     }
 }

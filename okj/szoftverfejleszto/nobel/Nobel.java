@@ -15,7 +15,7 @@ public class Nobel {
         
         for(var dij : dijak) {
             if(dij.keresztNev.equals("Arthur B.") && dij.vezetekNev.equals("McDonald")) {
-                System.out.println("3. Feladat: Arthur " + dij.tipus + " díjat kapott");
+                System.out.println("3. Feladat: Arthur " + dij.tipus + " dÃ­jat kapott");
                 break;
             }
         }
@@ -23,7 +23,7 @@ public class Nobel {
         System.out.println("4. Feladat:");
         for(var dij : dijak) {
             if(dij.ev == 2017 && dij.tipus.equals("irodalmi")) {
-                System.out.println("Irodalmi díjat kapott: " + dij.keresztNev + " " + dij.vezetekNev);
+                System.out.println("Irodalmi dÃ­jat kapott: " + dij.keresztNev + " " + dij.vezetekNev);
             }
         }
         

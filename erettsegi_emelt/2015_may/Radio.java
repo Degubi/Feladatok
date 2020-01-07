@@ -12,7 +12,7 @@ public class Radio {
             feljegyzesek.add(new Feljegyzes(file.get(k).split(" "), file.get(k + 1)));
         }
         
-        System.out.println("2.Feladat\nElsı feljegyzı: " + feljegyzesek.get(0).radioAmator + ", utolsÛ: " + feljegyzesek.get(feljegyzesek.size() - 1).radioAmator);
+        System.out.println("2.Feladat\nEls≈ë feljegyz≈ë: " + feljegyzesek.get(0).radioAmator + ", utols√≥: " + feljegyzesek.get(feljegyzesek.size() - 1).radioAmator);
         System.out.println("3.Feladat");
         
         for(var feljegyzes : feljegyzesek) {
@@ -30,7 +30,7 @@ public class Radio {
                     ++napiSzam;
                 }
             }
-            System.out.println(k + ". napon levı feljegyzÈsek sz·ma: " + napiSzam);
+            System.out.println(k + ". napon lev≈ë feljegyz√©sek sz√°ma: " + napiSzam);
         }
         
         try(var output = new PrintWriter("adaas.txt")){
@@ -56,7 +56,7 @@ public class Radio {
             }
         }
         
-        System.out.println("7.Feladat\nÕrj be 1 napot (1-11) Ès 1 megfigyelı sorsz·m·t!");
+        System.out.println("7.Feladat\n√çrj be 1 napot (1-11) √©s 1 megfigyel≈ë sorsz√°m√°t!");
         try(var input = new Scanner(System.in)){
             var readNap = input.nextInt();
             var readMegfigyelo = input.nextInt();
@@ -73,12 +73,12 @@ public class Radio {
             
             if(voltIlyen) {
                 if(egyedszam == 0) {
-                    System.out.println("Nem hat·rozhatÛ meg");
+                    System.out.println("Nem hat√°rozhat√≥ meg");
                 }else {
                     System.out.println(egyedszam);
                 }
             }else {
-                System.out.println("Nem volt ilyen feljegyzÈs");
+                System.out.println("Nem volt ilyen feljegyz√©s");
             }
         }
     }
@@ -116,7 +116,7 @@ public class Radio {
                     szulokSzama = Character.getNumericValue(first);
                 }
                 if(second != '#') {
-                    Character.getNumericValue(second);  //TODO: Erre nem teljesen emlÈkszem... nemhiszem hogy jÛ
+                    Character.getNumericValue(second);  //TODO: Erre nem teljesen eml√©kszem... nemhiszem hogy j√≥
                 }
                 
                 adat = data2.substring(3);

@@ -20,7 +20,7 @@ public class Hianyzasok_stream {
                               .map(split -> new Hianyzas(split[0] + ' ' +  split[1], split[2], honapNapSzamlalok[0], honapNapSzamlalok[1]))
                               .toArray(Hianyzas[]::new);
         
-        System.out.println("2. Feladat: Hi·nyz·sok sz·ma: " + hianyzasok.length);
+        System.out.println("2. Feladat: Hi√°nyz√°sok sz√°ma: " + hianyzasok.length);
         
         var igazoltak = Arrays.stream(hianyzasok)
                               .map(k -> k.orak)
@@ -32,16 +32,16 @@ public class Hianyzasok_stream {
                                        .mapToLong(k -> k.chars().filter(l -> l == 'I').count())
                                        .sum();
         
-        System.out.println("3. Feladat: Igazolt hi·nyz·sok: " + igazoltak + ", igazolatlanok: " + igazolatlanok);
+        System.out.println("3. Feladat: Igazolt hi√°nyz√°sok: " + igazoltak + ", igazolatlanok: " + igazolatlanok);
         
         try(var input = new Scanner(System.in)){
-            System.out.println("5. Feladat: Õrjon be egy hÛnapot Ès egy napot");
+            System.out.println("5. Feladat: √çrjon be egy h√≥napot √©s egy napot");
             
             var beHonap = input.nextInt();
             var beNap = input.nextInt();
             
             System.out.println("Azon a napon: " + hetnapja(beHonap, beNap) + " volt");
-            System.out.println("6. Feladat: Õrja be 1 nap nevÈt Ès 1 Ûrasz·mot");
+            System.out.println("6. Feladat: √çrja be 1 nap nev√©t √©s 1 √≥rasz√°mot");
             
             var beTanNap = input.next();
             var beOraszam = input.nextInt() - 1;
@@ -53,7 +53,7 @@ public class Hianyzasok_stream {
                              .filter(k -> k == 'X' || k == 'I')
                              .count();
             
-            System.out.println("Ekkor " + szam + "-an hi·nyoztak");
+            System.out.println("Ekkor " + szam + "-an hi√°nyoztak");
         }
         
         System.out.println("7. Feladat: ");

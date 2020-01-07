@@ -10,15 +10,15 @@ public class Haromszogek {
 
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        var frame = new JFrame("Derékszögõ háromszögek");
+        var frame = new JFrame("DerÃ©kszÃ¶gÅ‘ hÃ¡romszÃ¶gek");
         var content = new JPanel(null);
         
         var haromszogTarolo = new ArrayList<DHaromszog>();
-        var errorList = newListWithPanel("Hibák a kiválasztott tartományban", 20, 60, 740, 200, content);
-        var selectionList = newListWithPanel("Derékszögû háromszögek", 20, 280, 240, 220, content);
-        var infoList = newListWithPanel("Kiválasztott derékszögõ háromszög adatai", 300, 280, 460, 220, content);
+        var errorList = newListWithPanel("HibÃ¡k a kivÃ¡lasztott tartomÃ¡nyban", 20, 60, 740, 200, content);
+        var selectionList = newListWithPanel("DerÃ©kszÃ¶gÅ± hÃ¡romszÃ¶gek", 20, 280, 240, 220, content);
+        var infoList = newListWithPanel("KivÃ¡lasztott derÃ©kszÃ¶gÅ‘ hÃ¡romszÃ¶g adatai", 300, 280, 460, 220, content);
         
-        var loadButton = newButton("Adatok betöltése", 20, 20, 150, 30, e -> importFromFile(errorList, selectionList, infoList, haromszogTarolo));
+        var loadButton = newButton("Adatok betÃ¶ltÃ©se", 20, 20, 150, 30, e -> importFromFile(errorList, selectionList, infoList, haromszogTarolo));
         
         selectionList.addListSelectionListener(e -> selectionChange(selectionList, infoList, haromszogTarolo));
         
@@ -67,8 +67,8 @@ public class Haromszogek {
         var model = new DefaultListModel<String>();
         var kivalasztott = haromszogTarolo.get(selectionList.getSelectedIndex());
         
-        model.addElement("Kerület: " + kivalasztott.kerulet());
-        model.addElement("Terület: " + kivalasztott.terulet());
+        model.addElement("KerÃ¼let: " + kivalasztott.kerulet());
+        model.addElement("TerÃ¼let: " + kivalasztott.terulet());
         
         infoList.setModel(model);
     }

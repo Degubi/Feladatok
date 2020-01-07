@@ -17,15 +17,15 @@ public class Otszaz {
             }
         }
         
-        System.out.println("V·s·rl·sok sz·ma: " + vasarlasok.size());
-        System.out.println("Elsˆ v·s·rl·sn·l vett dolgok sz·ma: " + vasarlasok.get(0).size());
+        System.out.println("V√°s√°rl√°sok sz√°ma: " + vasarlasok.size());
+        System.out.println("Els√∂ v√°s√°rl√°sn√°l vett dolgok sz√°ma: " + vasarlasok.get(0).size());
         
         var input = new Scanner(System.in);
-        System.out.println("Õrj be 1 sorsz·mot");
+        System.out.println("√çrj be 1 sorsz√°mot");
         int beSorszam = input.nextInt();
-        System.out.println("Õrj be 1 ·rut");
+        System.out.println("√çrj be 1 √°rut");
         String beAru = input.next();
-        System.out.println("Õrj be 1 mennyisÈget");
+        System.out.println("√çrj be 1 mennyis√©get");
         int beDBszam = input.nextInt();
         input.close();
         
@@ -38,19 +38,19 @@ public class Otszaz {
                     utolsoSorszam = k;
                     
                     if(osszesVetel == 1) {
-                        System.out.println("Elıszˆr a " + (k + 1) + ". v·s·rl·sn·l vettek " + beAru + "-t");
+                        System.out.println("El≈ësz√∂r a " + (k + 1) + ". v√°s√°rl√°sn√°l vettek " + beAru + "-t");
                     }
                 }
             }
         }
        
-        System.out.println("Utolj·ra a " + (utolsoSorszam + 1) + ". v·s·rl·sn·l vettek " + beAru + "-t");
-        System.out.println("÷sszesen " + osszesVetel + "-szor vettek " + beAru + "-t");
-        System.out.println(beDBszam + " db esetÈn a fizetendı: " + ertek(beDBszam));
-        System.out.println("A " + beSorszam + ". v·s·rl·skor v·s·rolt dolgok: ");
+        System.out.println("Utolj√°ra a " + (utolsoSorszam + 1) + ". v√°s√°rl√°sn√°l vettek " + beAru + "-t");
+        System.out.println("√ñsszesen " + osszesVetel + "-szor vettek " + beAru + "-t");
+        System.out.println(beDBszam + " db eset√©n a fizetend≈ë: " + ertek(beDBszam));
+        System.out.println("A " + beSorszam + ". v√°s√°rl√°skor v√°s√°rolt dolgok: ");
         
         for(var statok : stat(vasarlasok.get(beSorszam - 1)).entrySet()) {
-            System.out.println(statok.getKey() + "-bıl: " + statok.getValue() + " db");
+            System.out.println(statok.getKey() + "-b≈ël: " + statok.getValue() + " db");
         }
        
         try(var output = new PrintWriter("osszeg.txt")){

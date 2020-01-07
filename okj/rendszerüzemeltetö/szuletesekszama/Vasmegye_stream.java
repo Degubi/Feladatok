@@ -9,27 +9,27 @@ public class Vasmegye_stream {
     public static void main(String[] args) throws IOException {
         var szuletesek = Files.lines(Path.of("vas.txt"))
                               .map(Szuletes::new)
-                              .filter(Szuletes::cdvEll)   //Hibásakat sosem tároljuk el
+                              .filter(Szuletes::cdvEll)   //HibÃ¡sakat sosem tÃ¡roljuk el
                               .toArray(Szuletes[]::new);
         
         System.out.println("5. Feladat");
-        System.out.println("Csecsemõk száma: " + szuletesek.length);
+        System.out.println("CsecsemÅ‘k szÃ¡ma: " + szuletesek.length);
         System.out.println("6. Feladat");
-        System.out.println("Fiú csecsemõk száma: " + Arrays.stream(szuletesek).filter(k -> k.szamjegyek[0] % 2 == 1).count());
+        System.out.println("FiÃº csecsemÅ‘k szÃ¡ma: " + Arrays.stream(szuletesek).filter(k -> k.szamjegyek[0] % 2 == 1).count());
         System.out.println("7. Feladat");
         
         var stat = Arrays.stream(szuletesek).mapToInt(k -> k.datum.getYear()).summaryStatistics();
-        System.out.println("Vizsgált idõszak: Kezdet: " + stat.getMin() + ", vége: " + stat.getMax());
+        System.out.println("VizsgÃ¡lt idÅ‘szak: Kezdet: " + stat.getMin() + ", vÃ©ge: " + stat.getMax());
         
         System.out.println("8. Feladat");
         Arrays.stream(szuletesek)
               .filter(k -> k.datum.getYear() % 4 == 0)
               .findFirst()
-              .ifPresent(k -> System.out.println("Volt baba szökõévben"));
+              .ifPresent(k -> System.out.println("Volt baba szÃ¶kÅ‘Ã©vben"));
         
         System.out.println("9. Feladat");
         Arrays.stream(szuletesek)
-              .collect(Collectors.groupingBy(k -> k.datum.getYear(), LinkedHashMap::new, Collectors.counting())) //LinkedHashMap Supplier, különben az évek random sorrendben lesznek
+              .collect(Collectors.groupingBy(k -> k.datum.getYear(), LinkedHashMap::new, Collectors.counting())) //LinkedHashMap Supplier, kÃ¼lÃ¶nben az Ã©vek random sorrendben lesznek
               .forEach((ev, babak) -> System.out.println(ev + "-ben " + babak + " baba szuletett"));
     }
     
@@ -42,11 +42,11 @@ public class Vasmegye_stream {
             
             szamjegyek = line.chars()
                              .filter(kar -> kar != '-')
-                             .map(Character::getNumericValue)  //Kell, mert a 'chars' stream az karakterkód stream
+                             .map(Character::getNumericValue)  //Kell, mert a 'chars' stream az karakterkÃ³d stream
                              .toArray();
             
-            datum = LocalDate.of(Integer.parseInt((szamjegyek[0] < 3 ? "19" : "20") + split[1].substring(0, 2)), //Év az alapján h 3-nál kisebb v nagyobb e az elsõ szám
-                     Integer.parseInt(split[1].substring(2, 4)), //Hónap
+            datum = LocalDate.of(Integer.parseInt((szamjegyek[0] < 3 ? "19" : "20") + split[1].substring(0, 2)), //Ã‰v az alapjÃ¡n h 3-nÃ¡l kisebb v nagyobb e az elsÅ‘ szÃ¡m
+                     Integer.parseInt(split[1].substring(2, 4)), //HÃ³nap
                      Integer.parseInt(split[1].substring(4, 6)));  //Nap
         }
         

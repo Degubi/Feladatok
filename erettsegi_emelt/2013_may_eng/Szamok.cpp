@@ -26,7 +26,7 @@ int main(){
     }
     input.close();
     
-    cout << "Feladatok száma: " << feladatok.size() << "\n";
+    cout << "Feladatok szÃ¡ma: " << feladatok.size() << "\n";
     
     //[0]: matek, [1]: 1 pont, [2]: 2 pont, [3]: 3 pont, [4]: min, [5]: max
     int counters[] {0, 0, 0, 0, feladatok[0].answer, feladatok[0].answer};
@@ -53,10 +53,10 @@ int main(){
         }
     }
     
-    cout << "Matek feladatok száma: " << counters[0] << ", 1 pontos feladatok: " << counters[1]
+    cout << "Matek feladatok szÃ¡ma: " << counters[0] << ", 1 pontos feladatok: " << counters[1]
          << ", 2 pontos feladatok: " << counters[2] << ", 3 pontosak: " << counters[3] << "\n";
     
-    cout << "Legkisebb feladat megoldás: " << counters[4] << ", legnagyobb: " << counters[5] << "\n";
+    cout << "Legkisebb feladat megoldÃ¡s: " << counters[4] << ", legnagyobb: " << counters[5] << "\n";
     
     for(auto& print : categories){
         cout << print << ' ';
@@ -65,7 +65,7 @@ int main(){
     
     string temakor;
     int valasz;
-    cout << "Írj be 1 témakört!" << "\n";
+    cout << "Ãrj be 1 tÃ©makÃ¶rt!" << "\n";
     cin >> temakor;
     
     auto fel = feladatok[rand() % feladatok.size()];
@@ -75,9 +75,9 @@ int main(){
     cin >> valasz;
     
     if(valasz == fel.answer){
-        cout << "Ügyi vagy! Itt 1 keksz és " << fel.answer << " pont!" << "\n"; 
+        cout << "Ãœgyi vagy! Itt 1 keksz Ã©s " << fel.answer << " pont!" << "\n"; 
     }else{
-        cout << "Rossz válasz! 0 pont, helyes válasz: " << fel.answer << "\n";
+        cout << "Rossz vÃ¡lasz! 0 pont, helyes vÃ¡lasz: " << fel.answer << "\n";
     }
     
     set<int> generalt;

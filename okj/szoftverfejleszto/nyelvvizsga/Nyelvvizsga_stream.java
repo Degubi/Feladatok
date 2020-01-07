@@ -14,24 +14,24 @@ public class Nyelvvizsga_stream {
                                     .mapToObj(i -> new Nyelvvizsga(sikeresFile.get(i), sikertelenFile.get(i)))
                                     .toArray(Nyelvvizsga[]::new);
         
-        System.out.println("2. Feladat: LegnÈpszer˚bb nyelvek");
+        System.out.println("2. Feladat: Legn√©pszer≈±bb nyelvek");
         Arrays.stream(nyelvvizsgak)
               .sorted(Comparator.comparingInt(Nyelvvizsga::vizsgaOsszead).reversed())
               .limit(3)
               .forEach(k -> System.out.println(k.nyelv));
         
-        System.out.println("3. Feladat: Õrj be egy Èvet 2009-2018-ig!");
+        System.out.println("3. Feladat: √çrj be egy √©vet 2009-2018-ig!");
         try(var input = new Scanner(System.in)){
             var beEv = input.nextInt();
             
             if(beEv < 2009 || beEv > 2018) {
-                return;   //Program vÈge
+                return;   //Program v√©ge
             }
             
             System.out.println("4. Feladat");
             Arrays.stream(nyelvvizsgak)
                   .max(Comparator.comparingDouble(k -> k.getBukasAtlag(beEv)))
-                  .ifPresent(k -> System.out.printf(beEv + "-ben " + k.nyelv + "-bıl volt a legnagyobb buk·si ar·ny: %.2f%%\n", k.getBukasAtlag(beEv)));
+                  .ifPresent(k -> System.out.printf(beEv + "-ben " + k.nyelv + "-b≈ël volt a legnagyobb buk√°si ar√°ny: %.2f%%\n", k.getBukasAtlag(beEv)));
             
             System.out.println("5. Feladat");
             var nincsVizsgazo = Arrays.stream(nyelvvizsgak)
@@ -40,7 +40,7 @@ public class Nyelvvizsga_stream {
                                       .toArray(String[]::new);
             
             if(nincsVizsgazo.length == 0) {
-                System.out.println("Minden nyelvbıl volt vizsg·zÛ");
+                System.out.println("Minden nyelvb≈ël volt vizsg√°z√≥");
             }else{
                 Arrays.stream(nincsVizsgazo).forEach(System.out::println);
             }
@@ -76,7 +76,7 @@ public class Nyelvvizsga_stream {
             double siker = sikeresVizsgak.get(beEv);
             
             if(bukott + siker == 0) {
-                return 0D;  //Null·val valÛ oszt·s miatt kell
+                return 0D;  //Null√°val val√≥ oszt√°s miatt kell
             }
             return bukott / (bukott + siker) * 100D;
         }
@@ -86,7 +86,7 @@ public class Nyelvvizsga_stream {
             double osszesSiker = sikeresVizsgak.values().stream().mapToInt(k -> k).sum();
             
             if(osszesBukott + osszesSiker == 0) {
-                return 0D;  //Null·val valÛ oszt·s miatt kell
+                return 0D;  //Null√°val val√≥ oszt√°s miatt kell
             }
             return osszesBukott / (osszesBukott + osszesSiker) * 100D;
         }

@@ -11,25 +11,25 @@ import java.util.stream.*;
 
 public class Kutyak_stream {
 
-    //A KutyaFajtak.csv 388. sorában hibás adat van
+    //A KutyaFajtak.csv 388. sorÃ¡ban hibÃ¡s adat van
     public static void main(String[] args) throws IOException {
         var nevek = readFile("KutyaNevek.csv", KutyaNev::new, KutyaNev[]::new);
         var fajtak = readFile("KutyaFajtak.csv", KutyaFajta::new, KutyaFajta[]::new);
         var kutyik = readFile("Kutyak.csv", Kutya::new, Kutya[]::new);
         
-        System.out.println("3. Feladat: Kutyanevek száma: " + nevek.length);
-        System.out.print("6. Feladat: Átlag életkor: ");
+        System.out.println("3. Feladat: Kutyanevek szÃ¡ma: " + nevek.length);
+        System.out.print("6. Feladat: Ãtlag Ã©letkor: ");
         
         Arrays.stream(kutyik)
               .mapToInt(k -> k.eletkor)
               .average()
-              .ifPresent(atlag -> System.out.printf("%.2f év\n", atlag));
+              .ifPresent(atlag -> System.out.printf("%.2f Ã©v\n", atlag));
         
         var legidosebb = Arrays.stream(kutyik).max(comparingInt(k -> k.eletkor)).orElseThrow();
-        System.out.print("7. Feladat: Legidõsebb kutya neve & fajtája: ");
+        System.out.print("7. Feladat: LegidÅ‘sebb kutya neve & fajtÃ¡ja: ");
         System.out.println(KutyaNev.getNevByID(nevek, legidosebb.nevId) + ", " + KutyaFajta.getFajtaByID(fajtak, legidosebb.fajtaId));
         
-        System.out.println("8. Feladat: 2018 január 10-én vizsgált kutyik:");
+        System.out.println("8. Feladat: 2018 januÃ¡r 10-Ã©n vizsgÃ¡lt kutyik:");
         Arrays.stream(kutyik)
               .filter(k -> k.ellenorzes.getYear() == 2018)
               .filter(k -> k.ellenorzes.getMonth() == Month.JANUARY)

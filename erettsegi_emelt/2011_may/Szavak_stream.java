@@ -7,21 +7,21 @@ public class Szavak_stream {
     
     public static void main(String[] args) throws IOException{
         var conPut = new Scanner(System.in);
-        System.out.println("Õrj be 1 szÛt");
+        System.out.println("√çrj be 1 sz√≥t");
         
         var bekert = conPut.next().toLowerCase();
         if(bekert.contains("a") || bekert.contains("e") || bekert.contains("i") || bekert.contains("o") || bekert.contains("u")) {
-            System.out.println("Van benne mag·nhangzÛ");
+            System.out.println("Van benne mag√°nhangz√≥");
         }else{
-            System.out.println("Nincs benne mag·nhangzÛ");
+            System.out.println("Nincs benne mag√°nhangz√≥");
         }
         
         Files.lines(Path.of("szoveg.txt"))
              .max(Comparator.comparingInt(String::length))
-             .ifPresent(longest -> System.out.println("A leghoszabb szÛ: " + longest + ", hossza: " + longest.length()));
+             .ifPresent(longest -> System.out.println("A leghoszabb sz√≥: " + longest + ", hossza: " + longest.length()));
         
         var lineCount = Files.lines(Path.of("szoveg.txt")).count();
-        System.out.println("÷sszes szÛ: " + lineCount);
+        System.out.println("√ñsszes sz√≥: " + lineCount);
         
         var mghWordCount = Files.lines(Path.of("szoveg.txt"))
                                 .filter(k -> k.contains("a") || k.contains("e"))
@@ -35,14 +35,14 @@ public class Szavak_stream {
                                 .filter(k -> k.contains("u"))
                                 .collect(Collectors.joining(" ")));
         
-        System.out.println("Mgh-s szavak sz·ma: " + mghWordCount);
-        System.out.printf(mghWordCount + "/" + lineCount + ", ez sz·zalÈkban %.2f\n", (float)mghWordCount / lineCount * 100);
+        System.out.println("Mgh-s szavak sz√°ma: " + mghWordCount);
+        System.out.printf(mghWordCount + "/" + lineCount + ", ez sz√°zal√©kban %.2f\n", (float)mghWordCount / lineCount * 100);
         
         var otbetus = Files.lines(Path.of("szoveg.txt"))
                            .filter(k -> k.length() == 5)
                            .toArray(String[]::new);
         
-        System.out.println("Õrj be 1 szÛrÈszletet");
+        System.out.println("√çrj be 1 sz√≥r√©szletet");
         var meh = conPut.next();
         
         System.out.println(Arrays.stream(otbetus)

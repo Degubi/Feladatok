@@ -10,7 +10,7 @@ public class Ultrabalaton_stream {
                               .map(Versenyzo::new)
                               .toArray(Versenyzo[]::new);
         
-        System.out.println("3. Feladat: Egyéni indulók: " + versenyzok.length);
+        System.out.println("3. Feladat: EgyÃ©ni indulÃ³k: " + versenyzok.length);
         
         var celbeerkezok = Arrays.stream(versenyzok)
                                  .filter(k -> k.befejezesSzazalek == 100)
@@ -20,8 +20,8 @@ public class Ultrabalaton_stream {
                                        .filter(k -> k.kategoria.equals("Noi"))
                                        .count();
         
-        System.out.println("4. Feladat: Célbaért nõi indulók: " + celbaertNoiIndulok);
-        System.out.println("5. Feladat: Írd be egy versenyzõ nevét!");
+        System.out.println("4. Feladat: CÃ©lbaÃ©rt nÅ‘i indulÃ³k: " + celbaertNoiIndulok);
+        System.out.println("5. Feladat: Ãrd be egy versenyzÅ‘ nevÃ©t!");
         
         try(var console = new Scanner(System.in)){
             var bekertNev = console.nextLine();
@@ -30,26 +30,26 @@ public class Ultrabalaton_stream {
                   .filter(k -> k.nev.equals(bekertNev))
                   .findFirst()
                   .ifPresentOrElse(bekert -> {
-                      System.out.println("Indult egyéniben? Igen");
-                      System.out.println("Teljesítette a távot? " + (bekert.befejezesSzazalek == 100 ? "Igen" : "Nem"));
-                  }, () -> System.out.println("Indult egyéniben? Nem"));
+                      System.out.println("Indult egyÃ©niben? Igen");
+                      System.out.println("TeljesÃ­tette a tÃ¡vot? " + (bekert.befejezesSzazalek == 100 ? "Igen" : "Nem"));
+                  }, () -> System.out.println("Indult egyÃ©niben? Nem"));
         }
         
         Arrays.stream(celbeerkezok)
               .filter(k -> k.kategoria.equals("Ferfi"))
               .mapToDouble(Versenyzo::idoOraban)
               .average()
-              .ifPresent(atlag -> System.out.println("7. Feladat: Átlagos idõ: " + atlag + " óra"));
+              .ifPresent(atlag -> System.out.println("7. Feladat: Ãtlagos idÅ‘: " + atlag + " Ã³ra"));
         
         Arrays.stream(celbeerkezok)
               .filter(k -> k.kategoria.equals("Noi"))
               .min(Comparator.comparingDouble(Versenyzo::idoOraban))
-              .ifPresent(k -> System.out.printf("Nõk: %s (%d) - %s\n", k.nev, k.rajtszam, k.ido));
+              .ifPresent(k -> System.out.printf("NÅ‘k: %s (%d) - %s\n", k.nev, k.rajtszam, k.ido));
         
         Arrays.stream(celbeerkezok)
               .filter(k -> k.kategoria.equals("Ferfi"))
               .min(Comparator.comparingDouble(Versenyzo::idoOraban))
-              .ifPresent(k -> System.out.printf("Férfiak: %s (%d) - %s\n", k.nev, k.rajtszam, k.ido));
+              .ifPresent(k -> System.out.printf("FÃ©rfiak: %s (%d) - %s\n", k.nev, k.rajtszam, k.ido));
     }
     
     public static class Versenyzo {

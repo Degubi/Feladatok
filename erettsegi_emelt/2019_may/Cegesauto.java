@@ -17,13 +17,13 @@ public class Cegesauto {
             var jelenlegi = autok.get(i);
             
             if(jelenlegi.elvitel) {
-                System.out.println("2. Feladat: Utolj·ra elvitt autÛ: " + jelenlegi.nap + ". nap, rendszam: " + jelenlegi.rendszam);
+                System.out.println("2. Feladat: Utolj√°ra elvitt aut√≥: " + jelenlegi.nap + ". nap, rendszam: " + jelenlegi.rendszam);
                 break;
             }
         }
         
         autok.sort(Comparator.comparing(k -> k.rendszam));
-        System.out.println("3. Feladat: Õrj be egy napot!");
+        System.out.println("3. Feladat: √çrj be egy napot!");
         
         try(var input = new Scanner(System.in)){
             var beNap = input.nextInt();
@@ -39,7 +39,7 @@ public class Cegesauto {
                 }
             }
             
-            System.out.println("4. Feladat: Nem visszahozott autÛk sz·ma: " + (autok.size() - visszahozottAutokSzama * 2));
+            System.out.println("4. Feladat: Nem visszahozott aut√≥k sz√°ma: " + (autok.size() - visszahozottAutokSzama * 2));
             System.out.println("5. Feladat");
             
             var rendszamok = new TreeSet<String>();
@@ -85,8 +85,8 @@ public class Cegesauto {
                 }
             }
             
-            System.out.println("6. Feladat: Leghosszabb ˙t: " + maxTav + " km, szemÈly: " + maxAuto.szemelyAzonosito);
-            System.out.println("7. Feladat: Õrj be egy rendsz·mot!");
+            System.out.println("6. Feladat: Leghosszabb √∫t: " + maxTav + " km, szem√©ly: " + maxAuto.szemelyAzonosito);
+            System.out.println("7. Feladat: √çrj be egy rendsz√°mot!");
             var beRendszam = input.next();
             
             try(var file = new PrintWriter(beRendszam + "_menetlevel.txt")){

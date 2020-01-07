@@ -18,7 +18,7 @@ public class Telefon_stream {
         System.out.println("4. Feladat");
         Arrays.stream(hivasok)
               .max(Comparator.comparing(k -> Duration.between(k.kezdet, k.veg)))
-              .ifPresent(k -> System.out.println("Leghosszabb hÌv·s sorsz·ma: " + k.sorszam + ", hossza: " + Duration.between(k.kezdet, k.veg).toSeconds() + " mp"));
+              .ifPresent(k -> System.out.println("Leghosszabb h√≠v√°s sorsz√°ma: " + k.sorszam + ", hossza: " + Duration.between(k.kezdet, k.veg).toSeconds() + " mp"));
         
         try(var input = new Scanner(System.in)){
             System.out.println("5. Feladat: Adjon meg egy idopontot");
@@ -29,9 +29,9 @@ public class Telefon_stream {
                                       .toArray(Hivas[]::new);
             
             if(koztesHivasok.length == 0) {
-                System.out.println("Nem volt beszÈlı");
+                System.out.println("Nem volt besz√©l≈ë");
             }else{
-                System.out.println("V·rakozÛk sz·ma: " + (koztesHivasok.length - 1) + ", a beszÈlı sorsz·ma: " + koztesHivasok[0].sorszam);
+                System.out.println("V√°rakoz√≥k sz√°ma: " + (koztesHivasok.length - 1) + ", a besz√©l≈ë sorsz√°ma: " + koztesHivasok[0].sorszam);
             }
         }
         
@@ -41,7 +41,7 @@ public class Telefon_stream {
         Arrays.stream(hivasok)
               .filter(k -> k.kezdet.isBefore(del))
               .reduce((l, r) -> r)
-              .ifPresent(k -> System.out.println("UtolsÛ beszÈlı sorsz·ma: " + k.sorszam + ", ideje: " + Duration.between(k.kezdet, k.veg).toSeconds() + " mp"));
+              .ifPresent(k -> System.out.println("Utols√≥ besz√©l≈ë sorsz√°ma: " + k.sorszam + ", ideje: " + Duration.between(k.kezdet, k.veg).toSeconds() + " mp"));
         
         //TODO 8-as feladat
     }

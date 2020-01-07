@@ -10,21 +10,21 @@ public class Helsinki2017_stream {
         var versenyzok = Files.lines(Path.of("rovidprogram.csv")).skip(1).map(Versenyzo::new).toArray(Versenyzo[]::new);
         var dontosok = Files.lines(Path.of("donto.csv")).skip(1).map(Versenyzo::new).toArray(Versenyzo[]::new);
         
-        System.out.println("2. Feladat: Versenyzõk száma: " + versenyzok.length);
+        System.out.println("2. Feladat: VersenyzÅ‘k szÃ¡ma: " + versenyzok.length);
         System.out.print("3. Feladat: ");
         
         Arrays.stream(dontosok)
               .filter(k -> k.orszag.equals("HUN"))
               .findFirst()
-              .ifPresentOrElse(k -> System.out.println("A magyar versenyzõ bejutott"), 
-                                 () -> System.out.println("A magyar versenyzõ nem jutott be"));
+              .ifPresentOrElse(k -> System.out.println("A magyar versenyzÅ‘ bejutott"), 
+                                 () -> System.out.println("A magyar versenyzÅ‘ nem jutott be"));
         
         try(var input = new Scanner(System.in)){
-            System.out.println("5. Feladat: Kérem 1 versenyzõ nevét!");
+            System.out.println("5. Feladat: KÃ©rem 1 versenyzÅ‘ nevÃ©t!");
             
             var bekertNev = input.nextLine();
             
-            System.out.println("6. Feladat: " + bekertNev + " pontszáma: " + osszPontszam(bekertNev, versenyzok, dontosok));
+            System.out.println("6. Feladat: " + bekertNev + " pontszÃ¡ma: " + osszPontszam(bekertNev, versenyzok, dontosok));
         }
         
         System.out.println("7. Feladat");
@@ -32,10 +32,10 @@ public class Helsinki2017_stream {
               .collect(Collectors.groupingBy(k -> k.orszag, Collectors.counting()))
               .entrySet().stream()
               .filter(k -> k.getValue() > 1)
-              .forEach(k -> System.out.println(k.getKey() + ": " + k.getValue() + " db versenyzõ"));
+              .forEach(k -> System.out.println(k.getKey() + ": " + k.getValue() + " db versenyzÅ‘"));
         
         
-        //TODO: Ebbe bele kell még számolni a versenyzok tömb pontjait
+        //TODO: Ebbe bele kell mÃ©g szÃ¡molni a versenyzok tÃ¶mb pontjait
         var raw = Arrays.stream(dontosok)
                            .collect(Collectors.toMap(k -> k, Versenyzo::sumPont))
                            .entrySet().stream()

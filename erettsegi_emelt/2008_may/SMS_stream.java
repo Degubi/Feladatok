@@ -16,21 +16,21 @@ public class SMS_stream{
                             .mapToObj(k -> new Uzenet(file.get(k).split(" "), file.get(k + 1)))
                             .toArray(Uzenet[]::new);
         
-        System.out.println("2.Feladat: Utolsó sms szövege: " + smss[smss.length - 1].message);
+        System.out.println("2.Feladat: UtolsÃ³ sms szÃ¶vege: " + smss[smss.length - 1].message);
         System.out.println("3.Feladat");
-        Arrays.stream(smss).max(comparingInt(k -> k.message.length())).ifPresent(k -> System.out.println("Leghosszabb üzenet: " + k));
-        Arrays.stream(smss).min(comparingInt(k -> k.message.length())).ifPresent(k -> System.out.println("Legrövidebb üzenet: " + k));
+        Arrays.stream(smss).max(comparingInt(k -> k.message.length())).ifPresent(k -> System.out.println("Leghosszabb Ã¼zenet: " + k));
+        Arrays.stream(smss).min(comparingInt(k -> k.message.length())).ifPresent(k -> System.out.println("LegrÃ¶videbb Ã¼zenet: " + k));
         System.out.println("4.Feladat");
-        System.out.println("1-20 karakteres üzenetek: " + sumIf(smss, k -> k.message.length() <= 20, k -> true));
-        System.out.println("21-40 karakteres üzenetek: " + sumIf(smss, k -> k.message.length() > 20, k -> k.message.length() <= 40));
-        System.out.println("41-60 karakteres üzenetek: " + sumIf(smss, k -> k.message.length() > 40, k -> k.message.length() <= 60));
-        System.out.println("61-80 karakteres üzenetek: " + sumIf(smss, k -> k.message.length() > 60, k -> k.message.length() <= 80));
-        System.out.println("81-100 karakteres üzenetek: " + sumIf(smss, k -> k.message.length() > 80, k -> k.message.length() <= 100));
+        System.out.println("1-20 karakteres Ã¼zenetek: " + sumIf(smss, k -> k.message.length() <= 20, k -> true));
+        System.out.println("21-40 karakteres Ã¼zenetek: " + sumIf(smss, k -> k.message.length() > 20, k -> k.message.length() <= 40));
+        System.out.println("41-60 karakteres Ã¼zenetek: " + sumIf(smss, k -> k.message.length() > 40, k -> k.message.length() <= 60));
+        System.out.println("61-80 karakteres Ã¼zenetek: " + sumIf(smss, k -> k.message.length() > 60, k -> k.message.length() <= 80));
+        System.out.println("81-100 karakteres Ã¼zenetek: " + sumIf(smss, k -> k.message.length() > 80, k -> k.message.length() <= 100));
         
-        //5. Feladat több mint valószínû hogy rossz, még a kérdést se értettem meg teljesen...
-        System.out.println("5.Feladat: Kihagyott üzenetek: " + Stream.of(smss).filter(k -> k.time.getMinute() == 0).count());
+        //5. Feladat tÃ¶bb mint valÃ³szÃ­nÅ± hogy rossz, mÃ©g a kÃ©rdÃ©st se Ã©rtettem meg teljesen...
+        System.out.println("5.Feladat: Kihagyott Ã¼zenetek: " + Stream.of(smss).filter(k -> k.time.getMinute() == 0).count());
         
-        System.out.print("6. Feladat: Leghosszabb idõ: ");
+        System.out.print("6. Feladat: Leghosszabb idÅ‘: ");
         System.out.println(IntStream.iterate(0, k -> k < smss.length, k -> k + 2)
                                      .filter(k -> smss[k].number == 123456789)
                                      .mapToObj(k -> Duration.between(smss[k].time, smss[k + 1].time))
@@ -38,7 +38,7 @@ public class SMS_stream{
                                      .get()
                                      .toMinutes());
         
-        System.out.println("Írd be a hiányzó üzenetet! (Óra perc szám üzenet)");
+        System.out.println("Ãrd be a hiÃ¡nyzÃ³ Ã¼zenetet! (Ã“ra perc szÃ¡m Ã¼zenet)");
         
         try(var output = new PrintWriter("smski.txt"); 
             var input = new Scanner(System.in)){
@@ -71,7 +71,7 @@ public class SMS_stream{
         
         @Override
         public String toString() {
-            return "Idõ: " + time.getHour() + " " + time.getMinute() + ", telefonszám: " + number + ", üzenet: " + message;
+            return "IdÅ‘: " + time.getHour() + " " + time.getMinute() + ", telefonszÃ¡m: " + number + ", Ã¼zenet: " + message;
         }
     }
 }

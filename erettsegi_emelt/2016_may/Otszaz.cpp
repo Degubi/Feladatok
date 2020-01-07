@@ -40,9 +40,9 @@ int main(){
     input.close();
     const int vasarlasSize = vasarlasok.size();
     
-    cout << "Fizetések száma: " << vasarlasSize << endl;
-    cout << "Elsõ vásárló által vásárolt dolgok száma: " << vasarlasok[0].cuccok.size() << endl;
-    cout << "Elsõ vásárló által vásárolt dolgok: " << endl;
+    cout << "FizetÃ©sek szÃ¡ma: " << vasarlasSize << endl;
+    cout << "ElsÅ‘ vÃ¡sÃ¡rlÃ³ Ã¡ltal vÃ¡sÃ¡rolt dolgok szÃ¡ma: " << vasarlasok[0].cuccok.size() << endl;
+    cout << "ElsÅ‘ vÃ¡sÃ¡rlÃ³ Ã¡ltal vÃ¡sÃ¡rolt dolgok: " << endl;
     
     for(string& print : vasarlasok[0].cuccok){
         cout << print << ", ";
@@ -50,7 +50,7 @@ int main(){
     cout << endl;
     int sorszam, dbszam;
     string cikknev;
-    cout << "Írj be 1 sorszámot, 1 cikknevet és 1 dbszámot!" << endl;
+    cout << "Ãrj be 1 sorszÃ¡mot, 1 cikknevet Ã©s 1 dbszÃ¡mot!" << endl;
     cin >> sorszam >> cikknev >> dbszam;
     
     int first = 0, last = 0, cikkCounter = 0;
@@ -67,10 +67,10 @@ int main(){
         }
     }
     
-    cout << "Elõször ekkor vettek " << cikknev << "-t: " << first << ". vásárlás" << endl;
-    cout << "Utoljára ekkor vettek " << cikknev << "-t: " << last << ". vásárlás" << endl;
-    cout << "Összesen ennyiszer vettek " << cikknev << "-t: " << cikkCounter << endl;
-    cout << dbszam << "db termék esetén a fizetendõ: " << ertek(dbszam) << endl;
+    cout << "ElÅ‘szÃ¶r ekkor vettek " << cikknev << "-t: " << first << ". vÃ¡sÃ¡rlÃ¡s" << endl;
+    cout << "UtoljÃ¡ra ekkor vettek " << cikknev << "-t: " << last << ". vÃ¡sÃ¡rlÃ¡s" << endl;
+    cout << "Ã–sszesen ennyiszer vettek " << cikknev << "-t: " << cikkCounter << endl;
+    cout << dbszam << "db termÃ©k esetÃ©n a fizetendÅ‘: " << ertek(dbszam) << endl;
     cout << vasarlasok[1].cuccok.size() << endl;
     
     for(string& print : vasarlasok[1].cuccok){

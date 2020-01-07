@@ -8,8 +8,8 @@ public class Futar_stream{
     public static void main(String[] args) throws IOException{
         var fuvarLista = Files.lines(Paths.get("tavok.txt")).map(Fuvar::new).toArray(Fuvar[]::new);
         
-        System.out.println("2. Feladat: A hét legelsõ útja km-ben: " + fuvarLista[0].tavolsag + " km");
-        System.out.println("3. Feladat: A hét utolsó útja km-ben: " + fuvarLista[fuvarLista.length - 1].tavolsag + " km");
+        System.out.println("2. Feladat: A hÃ©t legelsÅ‘ Ãºtja km-ben: " + fuvarLista[0].tavolsag + " km");
+        System.out.println("3. Feladat: A hÃ©t utolsÃ³ Ãºtja km-ben: " + fuvarLista[fuvarLista.length - 1].tavolsag + " km");
     
         IntStream.rangeClosed(1, 7)
                  .filter(day -> Arrays.stream(fuvarLista)
@@ -18,28 +18,28 @@ public class Futar_stream{
                                       .noneMatch(k -> k == day))
                  .forEach(day -> System.out.println("A " + day + ". nap szabadnap volt"));
         
-        System.out.println("5. Feladat: Legtöbb fuvarú nap: " + Arrays.stream(fuvarLista)
+        System.out.println("5. Feladat: LegtÃ¶bb fuvarÃº nap: " + Arrays.stream(fuvarLista)
                                       .max(Comparator.comparingInt(k -> k.tavolsag))
                                       .get().nap);
         
         System.out.println("6. Feladat");
         IntStream.rangeClosed(1, 7)
-                 .forEach(day -> System.out.println("A " + day + ". nap távja: " + 
+                 .forEach(day -> System.out.println("A " + day + ". nap tÃ¡vja: " + 
                           Arrays.stream(fuvarLista)
                                  .filter(k -> k.nap == day)
                                  .mapToInt(k -> k.tavolsag)
                                  .sum()));
         
         try(var input = new Scanner(System.in)){
-            System.out.println("7.Feladat: Írj be 1 távolságot!");
+            System.out.println("7.Feladat: Ãrj be 1 tÃ¡volsÃ¡got!");
             int readKm = input.nextInt();
-            System.out.println(readKm + " km esetén fizetendõ: " + calcPrice(readKm));
+            System.out.println(readKm + " km esetÃ©n fizetendÅ‘: " + calcPrice(readKm));
         }
         
         try(var output = new PrintWriter("dijazas.txt")){
             Arrays.stream(fuvarLista).forEach(fuvar -> output.println(fuvar.nap + ". nap " + fuvar.sorszam + ". fuvar: " + calcPrice(fuvar.tavolsag) + "FT"));
         }
-        System.out.println("9. Feladat: Az egész heti fizetés: " + Arrays.stream(fuvarLista).mapToInt(k -> calcPrice(k.tavolsag)).sum());
+        System.out.println("9. Feladat: Az egÃ©sz heti fizetÃ©s: " + Arrays.stream(fuvarLista).mapToInt(k -> calcPrice(k.tavolsag)).sum());
     }
     
     public static int calcPrice(int distance) {

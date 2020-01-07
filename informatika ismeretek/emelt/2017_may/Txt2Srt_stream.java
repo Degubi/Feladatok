@@ -13,10 +13,10 @@ public class Txt2Srt_stream{
                                  .mapToObj(i -> new IdozitettFelirat(file.get(i), file.get(i + 1)))
                                  .toArray(IdozitettFelirat[]::new);
 
-        System.out.println("5. feladat: A feliratok száma: " + feliratok.length);
+        System.out.println("5. feladat: A feliratok szÃ¡ma: " + feliratok.length);
         Arrays.stream(feliratok)
               .max(Comparator.comparingInt(k -> k.szavakSzama()))
-              .ifPresent(talalt -> System.out.println("7. feladat: A legtöbb szóból álló felirat: " + talalt.felirat));
+              .ifPresent(talalt -> System.out.println("7. feladat: A legtÃ¶bb szÃ³bÃ³l Ã¡llÃ³ felirat: " + talalt.felirat));
         
         var toFile = IntStream.range(0, feliratok.length)
                               .mapToObj(i -> (i + 1) + "\n" + feliratok[i].strIdozites() + "\n" + feliratok[i].felirat)

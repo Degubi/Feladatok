@@ -13,19 +13,19 @@ public class Tanciskola_stream {
                               .mapToObj(k -> new Tanc(file.get(k), file.get(k + 1), file.get(k + 2)))
                               .toArray(Tanc[]::new);
         
-        System.out.println("Elsõ tánc neve: " + tancok[0].category + ", az utolsóé: " + tancok[tancok.length - 1].category);
+        System.out.println("ElsÅ‘ tÃ¡nc neve: " + tancok[0].category + ", az utolsÃ³Ã©: " + tancok[tancok.length - 1].category);
         
-        System.out.println("Összesen " + Stream.of(tancok)
+        System.out.println("Ã–sszesen " + Stream.of(tancok)
                                                .filter(k -> k.category.equals("samba"))
-                                               .count() + "-an szambásztak");
+                                               .count() + "-an szambÃ¡sztak");
         
-        System.out.println("Vilma által táncolt kategóriák: " + Stream.of(tancok)
+        System.out.println("Vilma Ã¡ltal tÃ¡ncolt kategÃ³riÃ¡k: " + Stream.of(tancok)
                             .filter(k -> k.woman.equals("Vilma"))
                             .map(k -> k.category)
                             .distinct()
                             .collect(Collectors.toList()));
         
-        System.out.println("Írj be 1 kategóriát!");
+        System.out.println("Ãrj be 1 kategÃ³riÃ¡t!");
         try(var input = new Scanner(System.in)){
             String readCat = input.nextLine();
         
@@ -33,8 +33,8 @@ public class Tanciskola_stream {
                   .filter(k -> k.woman.equals("Vilma"))
                   .filter(k -> k.category.equals(readCat))
                   .findFirst()
-                  .ifPresentOrElse(k -> System.out.println("Vilma vele táncolt " + readCat + "-t: " + k.man + "-val"),
-                          () -> System.out.println("Vilma senkivel sem táncolt " + readCat + "-t"));
+                  .ifPresentOrElse(k -> System.out.println("Vilma vele tÃ¡ncolt " + readCat + "-t: " + k.man + "-val"),
+                          () -> System.out.println("Vilma senkivel sem tÃ¡ncolt " + readCat + "-t"));
         }
         
         var lanyok = Stream.of(tancok)
@@ -52,23 +52,23 @@ public class Tanciskola_stream {
                             .toArray(Szereplo[]::new);
         
         try(var output = new PrintWriter("szereplok.txt")){
-            output.print("Lányok: ");
+            output.print("LÃ¡nyok: ");
             output.print(Stream.of(lanyok)
                                .map(k -> k.name)
                                .collect(Collectors.joining(", ")));
             
-            output.print("\nFiúk: ");
+            output.print("\nFiÃºk: ");
             output.print(Stream.of(fiuk)
                                .map(k -> k.name)
                                .collect(Collectors.joining(", ")));
         }
-        System.out.print("A legtöbbet táncolt lányok: " + Stream.of(lanyok)
+        System.out.print("A legtÃ¶bbet tÃ¡ncolt lÃ¡nyok: " + Stream.of(lanyok)
                                     .filter(k -> k.alkalmak == lanyok[0].alkalmak)
                                     .map(k -> k.name)
                                     .collect(Collectors.joining(" ")));
         
         System.out.println();
-        System.out.print("A legtöbbet táncolt fiúk: " + Stream.of(fiuk)
+        System.out.print("A legtÃ¶bbet tÃ¡ncolt fiÃºk: " + Stream.of(fiuk)
                                   .filter(k -> k.alkalmak == fiuk[0].alkalmak)
                                   .map(k -> k.name)
                                   .collect(Collectors.joining(" ")));

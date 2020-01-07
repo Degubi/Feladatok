@@ -15,16 +15,16 @@ public class Morze_stream {
         
         var morzeToBetu = betuToMorze.entrySet().stream().collect(Collectors.toMap(Entry::getValue, Entry::getKey));
         
-        System.out.println("3. Feladat: Karakterek száma: " + betuToMorze.size());
-        System.out.println("4. Feladat: Írjon be 1 karaktert!");
+        System.out.println("3. Feladat: Karakterek szÃ¡ma: " + betuToMorze.size());
+        System.out.println("4. Feladat: Ãrjon be 1 karaktert!");
         
         try(var input = new Scanner(System.in)){
             var bekert = input.nextLine();
             
             if(betuToMorze.containsKey(bekert)) {
-                System.out.println("A " + bekert + " karakter kódja: " + betuToMorze.get(bekert));
+                System.out.println("A " + bekert + " karakter kÃ³dja: " + betuToMorze.get(bekert));
             }else {
-                System.out.println("Nem található a kódtárban ilyen karakter!");
+                System.out.println("Nem talÃ¡lhatÃ³ a kÃ³dtÃ¡rban ilyen karakter!");
             }
         }
         
@@ -32,14 +32,14 @@ public class Morze_stream {
                          .map(k -> new Idezet(k, morzeToBetu))
                          .toArray(Idezet[]::new);
         
-        System.out.println("7. Feladat: Elsõ idézet szerzõje: " + morze[0].szerzo);
+        System.out.println("7. Feladat: ElsÅ‘ idÃ©zet szerzÅ‘je: " + morze[0].szerzo);
         Arrays.stream(morze)
               .max(Comparator.comparingInt(k -> k.uzenet.length()))
-              .ifPresent(k -> System.out.println("8. Feladat: Leghosszab idézet: " + k.szerzo + ": " + k.uzenet));
+              .ifPresent(k -> System.out.println("8. Feladat: Leghosszab idÃ©zet: " + k.szerzo + ": " + k.uzenet));
         
-        System.out.println("8. Feladat: Arisztotelés idézetei: ");
+        System.out.println("8. Feladat: ArisztotelÃ©s idÃ©zetei: ");
         Arrays.stream(morze)
-              .filter(k -> k.szerzo.equalsIgnoreCase("Arisztotelész"))
+              .filter(k -> k.szerzo.equalsIgnoreCase("ArisztotelÃ©sz"))
               .forEach(k -> System.out.println('-' + k.uzenet));
         
         var fileba = Arrays.stream(morze)

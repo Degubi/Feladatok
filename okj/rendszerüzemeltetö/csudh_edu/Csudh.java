@@ -11,7 +11,7 @@ public class Csudh {
             pairs.add(new Pair(lines.get(i)));
         }
         
-        System.out.println("3. Feladat: P·rok sz·ma: " + pairs.size());
+        System.out.println("3. Feladat: P√°rok sz√°ma: " + pairs.size());
         System.out.println("5. Feladat");
         
         var elsoDomain = pairs.get(0).domain;
@@ -23,7 +23,7 @@ public class Csudh {
                      "<tr>\n" +
                      "<th style='text-align: left'>Sorszam</th>\n" +
                      "<th style='text-align: left'>Host domain neve</th>\n" +
-                     "<th style='text-align: left'>Host IP cÌme</th>\n" +
+                     "<th style='text-align: left'>Host IP c√≠me</th>\n" +
                      "<th style='text-align: left'>1. szint</th>\n" +
                      "<th style='text-align: left'>2. szint</th>\n" +
                      "<th style='text-align: left'>3. szint</th>\n" +

@@ -11,14 +11,14 @@ public class HegyekMo {
             hegyek.add(new Hegy(sorok.get(i)));
         }
         
-        System.out.println("3. Feladat: Hegyek száma: " + hegyek.size() + " db");
+        System.out.println("3. Feladat: Hegyek szÃ¡ma: " + hegyek.size() + " db");
         
         var osszMagassag = 0D;
         for(var hegy : hegyek) {
             osszMagassag += hegy.magassag;
         }
         
-        System.out.println("4. Feladat: Átlagmagasság: " + (osszMagassag / hegyek.size()) + " m");
+        System.out.println("4. Feladat: ÃtlagmagassÃ¡g: " + (osszMagassag / hegyek.size()) + " m");
         
         Hegy legmagasabbHegy = null;
         var legnagyobbMagassag = 0;
@@ -31,24 +31,24 @@ public class HegyekMo {
             }
         }
         
-        System.out.println("5. Feladat: Legmagasabb hegy: " + legmagasabbHegy.hegyseg + "-ben a " + legmagasabbHegy.nev + ", magassága: " + legmagasabbHegy.magassag + " m");
+        System.out.println("5. Feladat: Legmagasabb hegy: " + legmagasabbHegy.hegyseg + "-ben a " + legmagasabbHegy.nev + ", magassÃ¡ga: " + legmagasabbHegy.magassag + " m");
         
         try(var input = new Scanner(System.in)){
-            System.out.println("6. Feladat: Írj be egy magasságot!");
+            System.out.println("6. Feladat: Ãrj be egy magassÃ¡got!");
             var beMagassag = input.nextInt();
             
             var vanMagasabb = false;
             for(var hegy : hegyek) {
-                if(hegy.hegyseg.equals("Börzsöny") && hegy.magassag > beMagassag) {
+                if(hegy.hegyseg.equals("BÃ¶rzsÃ¶ny") && hegy.magassag > beMagassag) {
                     vanMagasabb = true;
                     break;
                 }
             }
             
             if(vanMagasabb) {
-                System.out.println("Van magasabb hegység ennél a Börzsönyben");
+                System.out.println("Van magasabb hegysÃ©g ennÃ©l a BÃ¶rzsÃ¶nyben");
             }else {
-                System.out.println("Nincs magasabb hegység ennél a Börzsönyben");
+                System.out.println("Nincs magasabb hegysÃ©g ennÃ©l a BÃ¶rzsÃ¶nyben");
             }
         }
         
@@ -61,8 +61,8 @@ public class HegyekMo {
             }
         }
         
-        System.out.println("7. Feladat: 3000 lábnál magasabbak száma: " + magasakSzama);
-        System.out.println("8. Feladat: Hegység stat");
+        System.out.println("7. Feladat: 3000 lÃ¡bnÃ¡l magasabbak szÃ¡ma: " + magasakSzama);
+        System.out.println("8. Feladat: HegysÃ©g stat");
         
         var hegysegStat = new HashMap<String, Integer>();
         for(var hegy : hegyek) {
@@ -74,10 +74,10 @@ public class HegyekMo {
         }
         
         try(var output = new PrintWriter("bukk-videk.txt")){
-            output.println("Hegycsúcs neve;Magasság láb");
+            output.println("HegycsÃºcs neve;MagassÃ¡g lÃ¡b");
             
             for(var hegy : hegyek) {
-                if(hegy.hegyseg.equals("Bükk-vidék")) {
+                if(hegy.hegyseg.equals("BÃ¼kk-vidÃ©k")) {
                     var formazott = String.format("%s;%.2f", hegy.nev, hegy.magassag * 3.280839895D)
                                           .replace(',', '.');
                     

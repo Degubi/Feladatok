@@ -12,7 +12,7 @@ public class Tanciskola {
             tancok.add(new Tanc(file.get(k), file.get(k + 1), file.get(k + 2)));
         }
         
-        System.out.println("Elsı t·nc neve: " + tancok.get(0).category + ", az utolsÛÈ: " + tancok.get(tancok.size() - 1).category);
+        System.out.println("Els≈ë t√°nc neve: " + tancok.get(0).category + ", az utols√≥√©: " + tancok.get(tancok.size() - 1).category);
         
         int szambaCounter = 0;
         for(Tanc dansz : tancok) {
@@ -20,7 +20,7 @@ public class Tanciskola {
                 ++szambaCounter;
             }
         }
-        System.out.println("÷sszesen " + szambaCounter + "-an szamb·sztak");
+        System.out.println("√ñsszesen " + szambaCounter + "-an szamb√°sztak");
         
         ArrayList<String> viliCat = new ArrayList<>();
         for(Tanc dansz : tancok) {
@@ -28,20 +28,20 @@ public class Tanciskola {
                 viliCat.add(dansz.category);
             }
         }
-        System.out.println("Vilma ·ltal t·ncolt kategÛri·k: " + viliCat);
-        System.out.println("Õrj be 1 kategÛri·t!");
+        System.out.println("Vilma √°ltal t√°ncolt kateg√≥ri√°k: " + viliCat);
+        System.out.println("√çrj be 1 kateg√≥ri√°t!");
         
         try(Scanner input = new Scanner(System.in)){
             String readCat = input.nextLine();
             boolean hasPrinted = false;
             for(Tanc dansz : tancok) {
                 if(dansz.woman.equals("Vilma") && dansz.category.equals(readCat)) {
-                    System.out.println("Vilma a " + readCat + " kategÛri·ban " + dansz.man + "-val t·ncolt");
+                    System.out.println("Vilma a " + readCat + " kateg√≥ri√°ban " + dansz.man + "-val t√°ncolt");
                     hasPrinted = true;
                 }
             }
             if(!hasPrinted) {
-                System.out.println("Vilma a " + readCat + " kategÛri·ban nem t·ncolt");
+                System.out.println("Vilma a " + readCat + " kateg√≥ri√°ban nem t√°ncolt");
             }
         }
         HashSet<String> csajok = new HashSet<>();
@@ -60,7 +60,7 @@ public class Tanciskola {
         for(String fik : skacok) {
             fiuk.add(new Szereplo(fik));
         }
-        output.print("L·nyok: ");
+        output.print("L√°nyok: ");
         
         for(int k = 0; k < lanyok.size(); ++k) {
             if(k != lanyok.size() - 1) {
@@ -70,7 +70,7 @@ public class Tanciskola {
             }
         }
         output.println();
-        output.print("Fi˙k: ");
+        output.print("Fi√∫k: ");
         for(int k = 0; k < fiuk.size(); ++k) {
             if(k != fiuk.size() - 1) {
                 output.print(fiuk.get(k) + ", ");
@@ -98,14 +98,14 @@ public class Tanciskola {
         int lanyMax = lanyok.get(0).alkalmak;
         int fiuMax = fiuk.get(0).alkalmak;
         
-        System.out.print("A legtˆbbet t·ncolt l·nyok: ");
+        System.out.print("A legt√∂bbet t√°ncolt l√°nyok: ");
         for(Szereplo la : lanyok) {
             if(la.alkalmak == lanyMax) {
                 System.out.print(la.name + " ");
             }
         }
         System.out.println();
-        System.out.print("A legtˆbbet t·ncolt fi˙k: ");
+        System.out.print("A legt√∂bbet t√°ncolt fi√∫k: ");
         for(Szereplo fi : fiuk) {
             if(fi.alkalmak == fiuMax) {
                 System.out.print(fi.name + " ");

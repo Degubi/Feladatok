@@ -14,12 +14,12 @@ public class Tarsalgo_stream {
         Arrays.stream(athaladasok)
               .filter(athaladas -> athaladas.belepes)
               .findFirst()
-              .ifPresent(athaladas -> System.out.println("Elsı belÈpı: " + athaladas.szemelyID));
+              .ifPresent(athaladas -> System.out.println("Els≈ë bel√©p≈ë: " + athaladas.szemelyID));
         
         Arrays.stream(athaladasok)
               .filter(athaladas -> !athaladas.belepes)
               .reduce((l, r) -> r)
-              .ifPresent(athaladas -> System.out.println("UtolsÛ kilÈpı: " + athaladas.szemelyID));
+              .ifPresent(athaladas -> System.out.println("Utols√≥ kil√©p≈ë: " + athaladas.szemelyID));
         
         var athaladasAdat = Arrays.stream(athaladasok).collect(Collectors.groupingBy(athaladas -> athaladas.szemelyID, Collectors.counting()));
         
@@ -31,7 +31,7 @@ public class Tarsalgo_stream {
         System.out.println("5. Feladat");
         Arrays.stream(athaladasok)
               .max(Comparator.comparingInt(athaladas -> athaladas.bentlevok))
-              .ifPresent(athaladas -> System.out.println("Ekkor voltak bent a legtˆbben: " + athaladas.idopont));
+              .ifPresent(athaladas -> System.out.println("Ekkor voltak bent a legt√∂bben: " + athaladas.idopont));
         
         var fileba = athaladasAdat.entrySet().stream()
                                          .map(entry -> entry.getKey() + " " + entry.getValue())
@@ -40,7 +40,7 @@ public class Tarsalgo_stream {
         Files.write(Path.of("athaladas.txt"), fileba);
         
         try(var input = new Scanner(System.in)){
-            System.out.println("6.Feladat\nÕrj be 1 ID-t");
+            System.out.println("6.Feladat\n√çrj be 1 ID-t");
             
             var beID = input.nextInt();
             var beAthaladasai = Arrays.stream(athaladasok)
@@ -61,7 +61,7 @@ public class Tarsalgo_stream {
             if(beAthaladasai.length % 2 == 1) bentPercek += Duration.between(beAthaladasai[beAthaladasai.length - 1].idopont, LocalTime.of(15, 00)).toMinutes();
             
             System.out.println("8. Feladat");
-            System.out.println("A " + beID + " sz·m˙ szemÈly " + bentPercek + " percet volt bent, a figyelÈs vÈgÈn " + (beAthaladasai.length % 2 == 1 ? "bent" : "kint") + " volt.");
+            System.out.println("A " + beID + " sz√°m√∫ szem√©ly " + bentPercek + " percet volt bent, a figyel√©s v√©g√©n " + (beAthaladasai.length % 2 == 1 ? "bent" : "kint") + " volt.");
         }
     }
     

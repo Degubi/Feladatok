@@ -8,8 +8,8 @@ public class Cimek {
         var lines = Files.readAllLines(Paths.get("ip.txt"));
         lines.sort(Comparator.naturalOrder());
         
-        System.out.println("Adatsorok száma: " + lines.size());
-        System.out.println("Legkisebb ip cím: " + lines.get(0));
+        System.out.println("Adatsorok szÃ¡ma: " + lines.size());
+        System.out.println("Legkisebb ip cÃ­m: " + lines.get(0));
         
         var counters = new int[3];
         for(String ip : lines) {
@@ -22,9 +22,9 @@ public class Cimek {
             }
         }
         
-        System.out.println("Dokumentációs címek: " + counters[0]);
-        System.out.println("Globális címek: " + counters[1]);
-        System.out.println("Helyi egyedi címek: " + counters[2]);
+        System.out.println("DokumentÃ¡ciÃ³s cÃ­mek: " + counters[0]);
+        System.out.println("GlobÃ¡lis cÃ­mek: " + counters[1]);
+        System.out.println("Helyi egyedi cÃ­mek: " + counters[2]);
         
         try(var output = new PrintWriter("sok.txt")){
             for(String ip : lines) {
@@ -40,12 +40,12 @@ public class Cimek {
             }
         }
         
-        System.out.println("Írj be 1 sorszámot!");
+        System.out.println("Ãrj be 1 sorszÃ¡mot!");
         try(var input = new Scanner(System.in)){
             int index = input.nextInt() - 1;
             System.out.println(lines.get(index) + " (Eredeti)");
             String roviditett = rov1(lines.get(index));
-            System.out.println(roviditett + " (1. Rövidítés)");
+            System.out.println(roviditett + " (1. RÃ¶vidÃ­tÃ©s)");
             System.out.println(rov2(roviditett));
         }
     }
@@ -56,6 +56,6 @@ public class Cimek {
     
     public static String rov2(String toRov) {
         String formatted = toRov.replace(":0:0:0:", "::").replace(":0:0:", "::");
-        return toRov.equals(formatted) ? "Nem lehet egyszerûsíteni" : formatted + " (2. Rövidítés)";
+        return toRov.equals(formatted) ? "Nem lehet egyszerÅ±sÃ­teni" : formatted + " (2. RÃ¶vidÃ­tÃ©s)";
     }
 }

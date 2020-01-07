@@ -25,13 +25,13 @@ public class Utca {
         }
         
         System.out.println("2.Feladat");
-        System.out.println("Eladott telkek sz·ma: " + telkek.size());
+        System.out.println("Eladott telkek sz√°ma: " + telkek.size());
         
         var utolsoTelek = telkek.get(telkek.size() - 1);
         
         System.out.println("3.Feladat");
-        System.out.println("Az utolsÛ telek: " + (utolsoTelek.parosE ? "P·ros" : "P·ratlan"));
-        System.out.println("Az utolsÛ telek h·zsz·ma: " + utolsoTelek.hazszam);
+        System.out.println("Az utols√≥ telek: " + (utolsoTelek.parosE ? "P√°ros" : "P√°ratlan"));
+        System.out.println("Az utols√≥ telek h√°zsz√°ma: " + utolsoTelek.hazszam);
         System.out.println("4.Feladat");
         
         for(var i = 0; i < telkek.size(); ++i){
@@ -39,13 +39,13 @@ public class Utca {
             var kovetkezo = telkek.get(i + 1);
             
             if(!telek.parosE && telek.keritesSzine != ':' && telek.keritesSzine != '#' && !kovetkezo.parosE && kovetkezo.keritesSzine == telek.keritesSzine) {
-                System.out.println("Tal·lt h·zsz·m: " + telek.hazszam);
+                System.out.println("Tal√°lt h√°zsz√°m: " + telek.hazszam);
                 break;
             }
         }
         
         System.out.println("5. Feladat");
-        System.out.println("Õrd be 1 telek sz·m·t!");
+        System.out.println("√çrd be 1 telek sz√°m√°t!");
         
         try(var input = new Scanner(System.in)){
             var beolvasottTelekSzam = input.nextInt();
@@ -54,14 +54,14 @@ public class Utca {
                 var jelenlegiTelek = telkek.get(i);
                 
                 if(jelenlegiTelek.hazszam == beolvasottTelekSzam) {
-                    System.out.println("KerÌtÈs szÌne: " + (jelenlegiTelek.keritesSzine == ':' ? "Nem kÈsz¸lt el" : jelenlegiTelek.keritesSzine == '#' ? "Festetlen" : jelenlegiTelek.keritesSzine));
+                    System.out.println("Ker√≠t√©s sz√≠ne: " + (jelenlegiTelek.keritesSzine == ':' ? "Nem k√©sz√ºlt el" : jelenlegiTelek.keritesSzine == '#' ? "Festetlen" : jelenlegiTelek.keritesSzine));
                     
                     var balSzomszed = telkek.get(i - 1);
                     var jobbSzomszed = telkek.get(i + 1);
                     
                     for(char generalt = 'A'; ; ++generalt) {
                         if(balSzomszed.keritesSzine != generalt && jobbSzomszed.keritesSzine != generalt && jelenlegiTelek.keritesSzine != generalt) {
-                            System.out.println("Az ˙j szÌn lehet: " + generalt);
+                            System.out.println("Az √∫j sz√≠n lehet: " + generalt);
                             break;
                         }
                     }

@@ -9,14 +9,14 @@ public class Lift_stream {
     public static void main(String[] args) throws IOException {
         var hasznalatok = Files.lines(Path.of("lift.txt")).map(Hasznalat::new).toArray(Hasznalat[]::new);
         
-        System.out.println("3. Feladat: Lift alkalmak sz·ma: " + hasznalatok.length);
-        System.out.println("4. Feladat: A korszak " + hasznalatok[0].idopont + " tıl " + hasznalatok[hasznalatok.length - 1].idopont + "-ig tartott");
+        System.out.println("3. Feladat: Lift alkalmak sz√°ma: " + hasznalatok.length);
+        System.out.println("4. Feladat: A korszak " + hasznalatok[0].idopont + " t≈ël " + hasznalatok[hasznalatok.length - 1].idopont + "-ig tartott");
         
         Arrays.stream(hasznalatok)
               .max(Comparator.comparingInt(k -> k.celSzint))
-              .ifPresent(k -> System.out.println("5. Feladat: Max cÈlszint: " + k.celSzint));
+              .ifPresent(k -> System.out.println("5. Feladat: Max c√©lszint: " + k.celSzint));
         
-        System.out.println("6. Feladat: Õrj be egy k·rtyasz·mot Ès egy cÈlszintet");
+        System.out.println("6. Feladat: √çrj be egy k√°rtyasz√°mot √©s egy c√©lszintet");
         try(var input = new Scanner(System.in)){
             var beKartya = parseOrDefault(input.nextLine(), 5);
             var beCelszint = parseOrDefault(input.nextLine(), 5);
@@ -28,7 +28,7 @@ public class Lift_stream {
                              .map(k -> "")
                              .orElse("nem");
             
-            System.out.println("7. Feladat: A " + beKartya + " k·rty·val " + kieg + " utaztak a " + beCelszint + ". emeletre");
+            System.out.println("7. Feladat: A " + beKartya + " k√°rty√°val " + kieg + " utaztak a " + beCelszint + ". emeletre");
         }
         
         System.out.println("8. Feladat");

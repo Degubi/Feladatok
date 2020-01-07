@@ -17,7 +17,7 @@ int main(){
     input.close();
     const unsigned int ipCount = ipk.size();
     
-    cout << "Adatsorok száma " << ipCount << endl;
+    cout << "Adatsorok szÃ¡ma " << ipCount << endl;
     
     sort(ipk.begin(), ipk.end(), [](string& s1, string& s2){
         return s1 < s2;
@@ -35,7 +35,7 @@ int main(){
             ++counters[2];
         }
     }
-    cout << "Dokumentációs címek: " << counters[0] << ", globális címek: " << counters[1] << ", helyi egyedi: " << counters[2] << endl;
+    cout << "DokumentÃ¡ciÃ³s cÃ­mek: " << counters[0] << ", globÃ¡lis cÃ­mek: " << counters[1] << ", helyi egyedi: " << counters[2] << endl;
     
     ofstream output("sok.txt");
     for(unsigned int k = 0; k < ipCount; ++k){
@@ -51,10 +51,10 @@ int main(){
     }
     
     int readInt;
-    cout << "Írj be 1 sorszámot!" << endl;
+    cout << "Ãrj be 1 sorszÃ¡mot!" << endl;
     cin >> readInt;
     
-    //TODO formázós részt nemtom :/
+    //TODO formÃ¡zÃ³s rÃ©szt nemtom :/
     
     output.close();
     return 0;

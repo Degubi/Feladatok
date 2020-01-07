@@ -5,13 +5,13 @@ public class Szavak {
     
     public static void main(String[] args) throws IOException{
         var conPut = new Scanner(System.in);
-        System.out.println("Õrj be 1 szÛt");
+        System.out.println("√çrj be 1 sz√≥t");
         String read = conPut.next().toLowerCase();
         
         if(read.contains("a") || read.contains("e") || read.contains("i") || read.contains("o") || read.contains("u")) {
-            System.out.println("Van benne mag·nhangzÛ");
+            System.out.println("Van benne mag√°nhangz√≥");
         }else {
-            System.out.println("Nincs benne mag·nhangzÛ");
+            System.out.println("Nincs benne mag√°nhangz√≥");
         }
         
         ArrayList<String> otbetus = new ArrayList();
@@ -42,12 +42,12 @@ public class Szavak {
         }
         
         System.out.println();
-        System.out.println("A leghoszabb szÛ: " + longest + ", hossza: " + longest.length());
-        System.out.println("Mgh-s szavak sz·ma: " + wordCounter);
-        System.out.println("÷sszes szÛ: " + lineCounter);
-        System.out.printf(wordCounter + "/" + lineCounter + ", ez sz·zalÈkban %.2f\n", (float)wordCounter / lineCounter * 100);
+        System.out.println("A leghoszabb sz√≥: " + longest + ", hossza: " + longest.length());
+        System.out.println("Mgh-s szavak sz√°ma: " + wordCounter);
+        System.out.println("√ñsszes sz√≥: " + lineCounter);
+        System.out.printf(wordCounter + "/" + lineCounter + ", ez sz√°zal√©kban %.2f\n", (float)wordCounter / lineCounter * 100);
         
-        System.out.println("Õrj be 1 szÛrÈszletet");
+        System.out.println("√çrj be 1 sz√≥r√©szletet");
         String meh = conPut.next();
         for(String check : otbetus) {
             if(check.contains(meh)) {

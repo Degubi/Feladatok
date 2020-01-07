@@ -13,7 +13,7 @@ public class VB2018_stream {
                               .toArray(Helyszin[]::new);
         
         System.out.println("3. Feladat");
-        System.out.println("Stadionok száma: " + helyszinek.length);
+        System.out.println("Stadionok szÃ¡ma: " + helyszinek.length);
         System.out.println("4. Feladat");
         Arrays.stream(helyszinek).min(Comparator.comparingInt(k -> k.ferohely)).ifPresent(System.out::println);
         
@@ -25,11 +25,11 @@ public class VB2018_stream {
         
         System.out.println("6. Feladat");
         System.out.println("Alternativ neves stadionok: " + Arrays.stream(helyszinek).filter(k -> !k.nev2.equals("n.a.")).count());
-        System.out.println("7. Feladat\nKérem 1 város nevét!");
+        System.out.println("7. Feladat\nKÃ©rem 1 vÃ¡ros nevÃ©t!");
         
         try(var input = new Scanner(System.in)){
             var olvasottNev = Stream.generate(input::nextLine)
-                                    .peek(line -> System.out.println("Kérem 1 város nevét!"))
+                                    .peek(line -> System.out.println("KÃ©rem 1 vÃ¡ros nevÃ©t!"))
                                     .dropWhile(k -> k.length() < 3)
                                     .findFirst()
                                     .get();

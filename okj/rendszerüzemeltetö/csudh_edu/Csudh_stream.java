@@ -9,7 +9,7 @@ public class Csudh_stream {
                          .map(Pair::new)
                          .toArray(Pair[]::new);
         
-        System.out.println("3. Feladat: Párok száma: " + pairs.length);
+        System.out.println("3. Feladat: PÃ¡rok szÃ¡ma: " + pairs.length);
         System.out.println("5. Feladat");
         
         IntStream.range(0, 5).forEach(i -> System.out.println((i + 1) + ". szint: " + domain(i, pairs[0].domain)));
@@ -18,7 +18,7 @@ public class Csudh_stream {
                      "<tr>\n" +
                      "<th style='text-align: left'>Sorszam</th>\n" +
                      "<th style='text-align: left'>Host domain neve</th>\n" +
-                     "<th style='text-align: left'>Host IP címe</th>\n" +
+                     "<th style='text-align: left'>Host IP cÃ­me</th>\n" +
                      "<th style='text-align: left'>1. szint</th>\n" +
                      "<th style='text-align: left'>2. szint</th>\n" +
                      "<th style='text-align: left'>3. szint</th>\n" +

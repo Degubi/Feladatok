@@ -74,7 +74,7 @@ public class DHaromszog{
         if(aOldal > 0D) {
             this.aOldal = aOldal;
         }else{
-            throw new OldalNullaException("Az \"a\" oldal nem lehet nulla vagy negatív!");
+            throw new OldalNullaException("Az \"a\" oldal nem lehet nulla vagy negatÃ­v!");
         }
     }
     
@@ -82,7 +82,7 @@ public class DHaromszog{
         if(aOldal > 0D) {
             this.bOldal = bOldal;
         }else {
-            throw new OldalNullaException("A \"b\" oldal nem lehet nulla vagy negatív!");
+            throw new OldalNullaException("A \"b\" oldal nem lehet nulla vagy negatÃ­v!");
         }
     }
     
@@ -90,7 +90,7 @@ public class DHaromszog{
         if(aOldal > 0D) {
             this.cOldal = cOldal;
         }else {
-            throw new OldalNullaException("A \"c\" oldal nem lehet nulla vagy negatív!");
+            throw new OldalNullaException("A \"c\" oldal nem lehet nulla vagy negatÃ­v!");
         }
     }
 }

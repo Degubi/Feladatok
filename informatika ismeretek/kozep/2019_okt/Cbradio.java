@@ -12,7 +12,7 @@ public class Cbradio {
             bejegyzesek.add(new Bejegyzes(lines.get(i)));
         }
         
-        System.out.println("3. Feladat: BejegyzÈsek sz·ma: " + bejegyzesek.size());
+        System.out.println("3. Feladat: Bejegyz√©sek sz√°ma: " + bejegyzesek.size());
         
         var voltE4Adasos = false;
         for(var bejegyzes : bejegyzesek) {
@@ -23,12 +23,12 @@ public class Cbradio {
         }
         
         if(voltE4Adasos) {
-            System.out.println("4. Feladat: Volt 4 ad·st indÌtÛ sofır");
+            System.out.println("4. Feladat: Volt 4 ad√°st ind√≠t√≥ sof≈ër");
         }else {
-            System.out.println("4. Feladat: Nem volt 4 ad·st indÌtÛ sofır");
+            System.out.println("4. Feladat: Nem volt 4 ad√°st ind√≠t√≥ sof≈ër");
         }
         
-        System.out.println("5. Feladat: Õrj be egy nevet");
+        System.out.println("5. Feladat: √çrj be egy nevet");
         try(var console = new Scanner(System.in)){
             var bekertNev = console.nextLine();
             var bekertHasznalatok = 0;
@@ -40,9 +40,9 @@ public class Cbradio {
             }
             
             if(bekertHasznalatok > 0) {
-                System.out.println(bekertNev + " " + bekertHasznalatok + "x haszn·lta a r·diÛt");
+                System.out.println(bekertNev + " " + bekertHasznalatok + "x haszn√°lta a r√°di√≥t");
             }else{
-                System.out.println("Nincs ilyen nev˚ sofır!");
+                System.out.println("Nincs ilyen nev≈± sof≈ër!");
             }
         }
         
@@ -59,7 +59,7 @@ public class Cbradio {
             egyediSoforok.add(bejegyzes.nev);
         }
         
-        System.out.println("8. Feladat: Sofırˆk sz·ma: " + egyediSoforok.size());
+        System.out.println("8. Feladat: Sof≈ër√∂k sz√°ma: " + egyediSoforok.size());
         
         var soforokAdasszamokkal = new HashMap<String, Integer>();
         for(var bejegyzes : bejegyzesek) {
@@ -68,7 +68,7 @@ public class Cbradio {
             soforokAdasszamokkal.put(soforNeve, soforokAdasszamokkal.getOrDefault(soforNeve, 0) + bejegyzes.adasok);
         }
         
-        //ElÈg ronda mÛdszer az elsı elem lekÈrÈsÈre, de kell valami amihez kÈpest ˆsszehasonlÌtani tudunk. :/
+        //El√©g ronda m√≥dszer az els≈ë elem lek√©r√©s√©re, de kell valami amihez k√©pest √∂sszehasonl√≠tani tudunk. :/
         var legtobbAdasBejegyzes = soforokAdasszamokkal.entrySet().iterator().next();
         for(var bejegyzes : soforokAdasszamokkal.entrySet()) {
             if(bejegyzes.getValue() > legtobbAdasBejegyzes.getValue()) {
@@ -76,7 +76,7 @@ public class Cbradio {
             }
         }
         
-        System.out.println("9. Feladat: Legtˆbb ad·st indÌtÛ sofır: " + legtobbAdasBejegyzes.getKey() + ", ad·sok: " + legtobbAdasBejegyzes.getValue());
+        System.out.println("9. Feladat: Legt√∂bb ad√°st ind√≠t√≥ sof≈ër: " + legtobbAdasBejegyzes.getKey() + ", ad√°sok: " + legtobbAdasBejegyzes.getValue());
     }
     
     public static int atszamolPercre(int ora, int perc) {

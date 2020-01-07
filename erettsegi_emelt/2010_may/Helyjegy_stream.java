@@ -11,17 +11,17 @@ public class Helyjegy_stream {
         
         var eladottJegyek = Integer.parseInt(firstSplit[0]);
         var utHossz = Integer.parseInt(firstSplit[1]);
-        var ar = Integer.parseInt(firstSplit[2]);  //10 km-ként
+        var ar = Integer.parseInt(firstSplit[2]);  //10 km-kÃ©nt
         var utasok = IntStream.range(0, file.size())
                               .mapToObj(i -> new Utas(file.get(i), i))
                               .toArray(Utas[]::new);
         
         var utolso = utasok[utasok.length - 1];
-        System.out.println("2.Feladat: Utolsó utas ülése: " + utolso.ules + " utazott távolság: " + utolso.getTavolsag());
+        System.out.println("2.Feladat: UtolsÃ³ utas Ã¼lÃ©se: " + utolso.ules + " utazott tÃ¡volsÃ¡g: " + utolso.getTavolsag());
         System.out.println("3.Feladat");
         Arrays.stream(utasok).filter(k -> k.getTavolsag() == utHossz).forEach(k -> System.out.print(k.sorszam + " "));
         System.out.println("\n4.Feladat");
-        System.out.println("Összes bevétel: " + Arrays.stream(utasok).mapToInt(k -> k.getTavolsag()).sum());
+        System.out.println("Ã–sszes bevÃ©tel: " + Arrays.stream(utasok).mapToInt(k -> k.getTavolsag()).sum());
         
         var uccso = Arrays.stream(utasok)
                           .mapToInt(k -> k.end)
@@ -32,29 +32,29 @@ public class Helyjegy_stream {
         var felszallok = Arrays.stream(utasok).filter(k -> k.start == uccso).count();
         var leszallok = Arrays.stream(utasok).filter(k -> k.end == uccso).count();
 
-        System.out.println("5.Feladat: Utolsó megállónál felszállók: " + felszallok + ", leszállók: " + leszallok);
+        System.out.println("5.Feladat: UtolsÃ³ megÃ¡llÃ³nÃ¡l felszÃ¡llÃ³k: " + felszallok + ", leszÃ¡llÃ³k: " + leszallok);
         
         var allomasok = IntStream.concat(Arrays.stream(utasok).mapToInt(k -> k.end).distinct(), 
                                          Arrays.stream(utasok).mapToInt(k -> k.start).distinct())
                                   .distinct()
                                   .toArray();
         
-        System.out.println("6.Feladat: Megállók száma: " + (allomasok.length - 2));
+        System.out.println("6.Feladat: MegÃ¡llÃ³k szÃ¡ma: " + (allomasok.length - 2));
         
         try(var output = new PrintWriter("kihol.txt"); 
             var input = new Scanner(System.in)){
             
-            System.out.println("Írj be 1 km számot!");
+            System.out.println("Ãrj be 1 km szÃ¡mot!");
             int readTav = input.nextInt();
             
             IntStream.rangeClosed(1, 48).forEach(index -> {
-                         System.out.println(index + ". ülés");
+                         System.out.println(index + ". Ã¼lÃ©s");
                          Arrays.stream(utasok)
                                .filter(k -> k.ules == index)
                                .filter(k -> k.start == readTav || k.end == readTav)
                                .findFirst()
                                .ifPresentOrElse(utas -> System.out.println(utas.sorszam + ". utas"), 
-                                                  () -> System.out.println("üres"));
+                                                  () -> System.out.println("Ã¼res"));
                          });
         }
     }

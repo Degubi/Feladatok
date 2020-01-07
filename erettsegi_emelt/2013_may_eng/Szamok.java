@@ -6,7 +6,7 @@ import java.util.*;
 public class Szamok {
     
     public static void main(String[] args) throws IOException {
-        //Beolvas·s + t·rol·s
+        //Beolvas√°s + t√°rol√°s
         Random rand = new Random();
         ArrayList<Feladat> feladatok = new ArrayList<>();
         List<String> minden = Files.readAllLines(Paths.get("felszam.txt"), StandardCharsets.ISO_8859_1);
@@ -16,7 +16,7 @@ public class Szamok {
         }
         
         //2. Feladat
-        System.out.println(feladatok.size() + " Feladat van a f·jlban!");
+        System.out.println(feladatok.size() + " Feladat van a f√°jlban!");
         
         ArrayList<String> temakorok = new ArrayList<>();
         int[] matekCounters = new int[4];
@@ -35,7 +35,7 @@ public class Szamok {
             }
         }
         
-        //3. Feladat kiÌrat·s, ez felett a sz·ml·l·s
+        //3. Feladat ki√≠rat√°s, ez felett a sz√°ml√°l√°s
         System.out.println("Az adatfajlban " + matekCounters[0] + " matematika feladat van,\n1 pontot er: " + matekCounters[1] + ""
                 + " feladat, 2 pontot er " + matekCounters[2] + " feladat, 3 pontot er " + matekCounters[3] + " feladat. ");
         
@@ -46,35 +46,35 @@ public class Szamok {
             }
         });
         
-        //4. Feladat kiÌrat·s, felette sorbarendezÈs
-        System.out.println("A legkisebb v·lasz˙ feladat: " + feladatok.get(0).valasz + ", a legnagyobb: " + feladatok.get(feladatok.size() - 1).valasz);
+        //4. Feladat ki√≠rat√°s, felette sorbarendez√©s
+        System.out.println("A legkisebb v√°lasz√∫ feladat: " + feladatok.get(0).valasz + ", a legnagyobb: " + feladatok.get(feladatok.size() - 1).valasz);
         
-        //5. Feladat kiÌrat·s, a meghat·roz·s a 2. feladat feletti list·ba t·rol·ssal van
-        System.out.println("ElıfordulÛ tÈmakˆrˆk: " + temakorok);
+        //5. Feladat ki√≠rat√°s, a meghat√°roz√°s a 2. feladat feletti list√°ba t√°rol√°ssal van
+        System.out.println("El≈ëfordul√≥ t√©mak√∂r√∂k: " + temakorok);
         
         Scanner input = new Scanner(System.in);
-        System.out.println("Õrj be 1 tÈmakˆrt!");
+        System.out.println("√çrj be 1 t√©mak√∂rt!");
         String readCat = input.nextLine();
-        ArrayList<Feladat> categoriz·lt = new ArrayList<>();
+        ArrayList<Feladat> categoriz√°lt = new ArrayList<>();
         
         for(Feladat all : feladatok)
             if(all.temakor.equals(readCat))
-                categoriz·lt.add(all);
+                categoriz√°lt.add(all);
         
-        Feladat chosen = categoriz·lt.get(rand.nextInt(categoriz·lt.size()));
+        Feladat chosen = categoriz√°lt.get(rand.nextInt(categoriz√°lt.size()));
         
-        //6. feladat kiÌrat·s, fent a random kiv·laszt·s logika, elt·roljuk h·tha kell mÈg kÈsıbb a random feladat
+        //6. feladat ki√≠rat√°s, fent a random kiv√°laszt√°s logika, elt√°roljuk h√°tha kell m√©g k√©s≈ëbb a random feladat
         System.out.println(chosen.kerdes);
         
-        //6. feladat 2. rÈsze, kÈrdÈs ellenırzÈs, pontoz·s
+        //6. feladat 2. r√©sze, k√©rd√©s ellen≈ërz√©s, pontoz√°s
         if(input.nextInt() == chosen.valasz) {
-            System.out.println("Kapott pontsz·m: " + chosen.pont);
+            System.out.println("Kapott pontsz√°m: " + chosen.pont);
         }else{
-            System.out.println("Rossz v·lasz, 0 pont...\nA helyes v·lasz: " + chosen.valasz);
+            System.out.println("Rossz v√°lasz, 0 pont...\nA helyes v√°lasz: " + chosen.valasz);
         }
         input.close();
         
-        //7. feladat, 10 k¸lˆnbˆzı random feladat gener·l·s
+        //7. feladat, 10 k√ºl√∂nb√∂z≈ë random feladat gener√°l√°s
         ArrayList<Feladat> generalt = new ArrayList<>();
         for(int k = 0; k < 10; ++k) {
             Feladat randomFeladat = feladatok.get(rand.nextInt(feladatok.size()));
@@ -85,7 +85,7 @@ public class Szamok {
             }
         }
         
-        //7. Feladat, ˆsszpont kisz·mol·s Ès a kÈrdÈsek file-ba Ìr·sa
+        //7. Feladat, √∂sszpont kisz√°mol√°s √©s a k√©rd√©sek file-ba √≠r√°sa
         int osszpont = 0;
         try(PrintWriter output = new PrintWriter("tesztfel.txt")){
             for(Feladat toPrint : generalt) {

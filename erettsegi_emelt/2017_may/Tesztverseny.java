@@ -15,13 +15,13 @@ public class Tesztverseny {
             versenyzok.add(new Versenyzo(lines.get(k)));
         }
         
-        System.out.println("2. feladat: A vetÈlkedın " + versenyzok.size() + " versenyzı indult.\nÕrj be 1 ID-t!");
+        System.out.println("2. feladat: A vet√©lked≈ën " + versenyzok.size() + " versenyz≈ë indult.\n√çrj be 1 ID-t!");
         
         var readID = input.nextLine();
         for(var mindenki : versenyzok){
             if(mindenki.nev.equals(readID)){
-                System.out.println("3. feladat: A versenyzı azonosÌtÛja = " + readID + "\n" + String.valueOf(mindenki.valaszok) + " (a versenyzı v·laszai)");
-                System.out.println("4. feladat:\n" + String.valueOf(megoldasok) + " (a helyes megold·s)");
+                System.out.println("3. feladat: A versenyz≈ë azonos√≠t√≥ja = " + readID + "\n" + String.valueOf(mindenki.valaszok) + " (a versenyz≈ë v√°laszai)");
+                System.out.println("4. feladat:\n" + String.valueOf(megoldasok) + " (a helyes megold√°s)");
                 
                 for(var k = 0; k < megoldasok.length; ++k) {
                     if(mindenki.valaszok[k] == megoldasok[k]) {
@@ -30,11 +30,11 @@ public class Tesztverseny {
                         System.out.print(" ");
                     }
                 }
-                System.out.println(" (a versenyzı helyes v·laszai)");
+                System.out.println(" (a versenyz≈ë helyes v√°laszai)");
             }
         }
         
-        System.out.println("Õrd be 1 feladat sorsz·m·t!");
+        System.out.println("√çrd be 1 feladat sorsz√°m√°t!");
         int readIndex = input.nextInt() - 1;
         int good = 0;
         
@@ -45,9 +45,9 @@ public class Tesztverseny {
         }
         input.close();
         
-        System.out.println("5. feladat: A feladat sorsz·ma = " + (readIndex + 1));
+        System.out.println("5. feladat: A feladat sorsz√°ma = " + (readIndex + 1));
         String percent = String.valueOf(((float)good * 100 / versenyzok.size())).substring(0, 5);
-        System.out.println("A feladatra " + good + " fı, a versenyzık " + percent + "%-a adott helyes v·laszt.");
+        System.out.println("A feladatra " + good + " f≈ë, a versenyz≈ëk " + percent + "%-a adott helyes v√°laszt.");
         
         try(var output = new PrintWriter("pontok.txt")){
             for(var mindenki : versenyzok) {
@@ -74,10 +74,10 @@ public class Tesztverseny {
         System.out.println("7. feladat: A verseny legjobbjai:");
         for(int k = 1, index = 0; k < 4; ++k, ++index) {
             var versenyzo = versenyzok.get(index);
-            System.out.println(k + ". dÌj " + versenyzo);
+            System.out.println(k + ". d√≠j " + versenyzo);
             
             for(int v = index + 1; versenyzok.get(v).pontok == versenyzo.pontok; ++v) {
-                System.out.println(k + ". dÌj "+ versenyzok.get(index));
+                System.out.println(k + ". d√≠j "+ versenyzok.get(index));
                 ++index;
             }
         }

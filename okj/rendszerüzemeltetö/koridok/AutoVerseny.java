@@ -12,17 +12,17 @@ public class AutoVerseny {
             versenyek.add(new Verseny(lines.get(i)));
         }
         
-        System.out.println("3. Feladat: Adatsorok sz·ma: " + versenyek.size());
+        System.out.println("3. Feladat: Adatsorok sz√°ma: " + versenyek.size());
         
         for(var verseny : versenyek) {
-            if(verseny.versenyzo.equals("F¸rge Ferenc") && verseny.palya.equals("Gran Prix Circuit") && verseny.kor == 3) {
+            if(verseny.versenyzo.equals("F√ºrge Ferenc") && verseny.palya.equals("Gran Prix Circuit") && verseny.kor == 3) {
                 System.out.println("4. Feladat: " + verseny.korido.toSecondOfDay() + " mp");
                 break;
             }
         }
         
         try(var input = new Scanner(System.in)){
-            System.out.println("5. Felatad: Õrj be egy nevet!");
+            System.out.println("5. Felatad: √çrj be egy nevet!");
             var beNev = input.nextLine();
             var legrovidebb = LocalTime.of(23, 59);
 
@@ -36,7 +36,7 @@ public class AutoVerseny {
                 }
             }
             
-            System.out.println(legrovidebb.getHour() == 23 ? "Nincs ilyen versenyzı" : legrovidebb);
+            System.out.println(legrovidebb.getHour() == 23 ? "Nincs ilyen versenyz≈ë" : legrovidebb);
         }
     }
     

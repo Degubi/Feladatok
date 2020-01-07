@@ -12,10 +12,10 @@ public class Cegesauto_stream {
         Arrays.stream(autok)
               .filter(k -> k.elvitel)
               .reduce((l, r) -> r)
-              .ifPresent(k -> System.out.println("2. Feladat: Utoljára elvitt autó: " + k.nap + ". nap, rendszam: " + k.rendszam));
+              .ifPresent(k -> System.out.println("2. Feladat: UtoljÃ¡ra elvitt autÃ³: " + k.nap + ". nap, rendszam: " + k.rendszam));
         
         Arrays.sort(autok, Comparator.comparing(k -> k.rendszam));
-        System.out.println("3. Feladat: Írj be egy napot!");
+        System.out.println("3. Feladat: Ãrj be egy napot!");
         
         try(var input = new Scanner(System.in)){
             var beNap = input.nextInt();
@@ -25,7 +25,7 @@ public class Cegesauto_stream {
                   .forEach(k -> System.out.println(k.idopont + " " + k.rendszam + " " + k.szemelyAzonosito + (k.elvitel ? " ki" : " be")));
             
             var visszahozottAutokSzama = Arrays.stream(autok).filter(k -> !k.elvitel).count();
-            System.out.println("4. Feladat: Nem visszahozott autók száma: " + (autok.length - visszahozottAutokSzama * 2));
+            System.out.println("4. Feladat: Nem visszahozott autÃ³k szÃ¡ma: " + (autok.length - visszahozottAutokSzama * 2));
             System.out.println("5. Feladat");
             
             Arrays.stream(autok)
@@ -35,9 +35,9 @@ public class Cegesauto_stream {
             IntStream.range(1, autok.length).boxed()
                      .filter(i -> autok[i].rendszam.equals(autok[i - 1].rendszam) && !autok[i].elvitel)
                      .max(Comparator.comparingInt(k -> autok[k].km - autok[k - 1].km))
-                     .ifPresent(i -> System.out.println("6. Feladat: Leghosszabb út: " + (autok[i].km - autok[i - 1].km) + " km, személy: " + autok[i].szemelyAzonosito));
+                     .ifPresent(i -> System.out.println("6. Feladat: Leghosszabb Ãºt: " + (autok[i].km - autok[i - 1].km) + " km, szemÃ©ly: " + autok[i].szemelyAzonosito));
             
-            System.out.println("7. Feladat: Írj be egy rendszámot!");
+            System.out.println("7. Feladat: Ãrj be egy rendszÃ¡mot!");
             var beRendszam = input.next();
             var fileba = Arrays.stream(autok)
                                .filter(k -> k.rendszam.equals(beRendszam))

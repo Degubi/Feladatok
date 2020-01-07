@@ -16,38 +16,38 @@ public class Szamok_stream {
             feladatok.add(new Feladat(file.get(k), Integer.parseInt(split[0]), Integer.parseInt(split[1]), split[2]));
         });
         
-        System.out.println(feladatok.size() + " Feladat van a f·jlban!");
+        System.out.println(feladatok.size() + " Feladat van a f√°jlban!");
         
-        System.out.println("Matekfeladatok sz·ma: " + feladatok.stream()
+        System.out.println("Matekfeladatok sz√°ma: " + feladatok.stream()
                   .filter(k -> k.temakor.equals("matematika"))
                   .count());
         
-        System.out.println("1 pontot Èrı feladatok sz·ma: " + feladatok.stream()
+        System.out.println("1 pontot √©r≈ë feladatok sz√°ma: " + feladatok.stream()
                   .filter(k -> k.temakor.equals("matematika"))
                   .filter(k -> k.pont == 1)
                   .count());
         
-        System.out.println("2 pontot Èrı feladatok sz·ma: " + feladatok.stream()
+        System.out.println("2 pontot √©r≈ë feladatok sz√°ma: " + feladatok.stream()
               .filter(k -> k.temakor.equals("matematika"))
               .filter(k -> k.pont == 2)
               .count());
         
-        System.out.println("3 pontot Èrı feladatok sz·ma: " + feladatok.stream()
+        System.out.println("3 pontot √©r≈ë feladatok sz√°ma: " + feladatok.stream()
               .filter(k -> k.temakor.equals("matematika"))
               .filter(k -> k.pont == 3)
               .count());
         
-        System.out.println("A legkisebb v·lasz˙ feladat: " + 
+        System.out.println("A legkisebb v√°lasz√∫ feladat: " + 
                 feladatok.stream().min(Comparator.comparingInt(k -> k.valasz)).get().valasz + ", a legnagyobb: " + 
                 feladatok.stream().max(Comparator.comparingInt(k -> k.valasz)).get().valasz);
         
-        System.out.println("ElıfordulÛ tÈmakˆrˆk: " + feladatok.stream()
+        System.out.println("El≈ëfordul√≥ t√©mak√∂r√∂k: " + feladatok.stream()
                                         .map(k -> k.temakor)
                                         .distinct()
                                         .collect(Collectors.joining(", ")));
         
         try(var input = new Scanner(System.in)){
-            System.out.println("Õrj be 1 tÈmakˆrt!");
+            System.out.println("√çrj be 1 t√©mak√∂rt!");
             String readKor = input.nextLine();
             
             var categorizalt = feladatok.stream()
@@ -58,9 +58,9 @@ public class Szamok_stream {
             System.out.println(chosen.kerdes);
             
             if(input.nextInt() == chosen.valasz) {
-                System.out.println("Kapott pontsz·m: " + chosen.pont);
+                System.out.println("Kapott pontsz√°m: " + chosen.pont);
             }else{
-                System.out.println("Rossz v·lasz, 0 pont...\nA helyes v·lasz: " + chosen.valasz);
+                System.out.println("Rossz v√°lasz, 0 pont...\nA helyes v√°lasz: " + chosen.valasz);
             }
         }
         

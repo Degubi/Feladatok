@@ -18,7 +18,7 @@ public class Hianyzasok {
         }
         
         System.out.println("2. Feladat: Hianyzott orak: " + orakSum);
-        System.out.println("3. Feladat: Õrj be egy napot(1-30) Ès egy nevet!");
+        System.out.println("3. Feladat: √çrj be egy napot(1-30) √©s egy nevet!");
         
         try(var input = new Scanner(System.in)){
             var bekertNap = input.nextInt();
@@ -47,7 +47,7 @@ public class Hianyzasok {
             }
             
             if(azonANaponHianyoztak.size() == 0) {
-                System.out.println("Nem volt hi·nyzÛ");
+                System.out.println("Nem volt hi√°nyz√≥");
             }else {
                 for(var hiany : azonANaponHianyoztak) {
                     System.out.println(hiany.nev + " " + hiany.osztaly);

@@ -13,19 +13,19 @@ public class EUtazas_stream {
     public static void main(String[] args) throws IOException {
         var utazasok = Files.lines(Path.of("utasadat.txt")).map(Utazas::new).toArray(Utazas[]::new);
         
-        System.out.println("2. Feladat: " + utazasok.length + " db utas akart felszállni");
+        System.out.println("2. Feladat: " + utazasok.length + " db utas akart felszÃ¡llni");
         
         var ervenytelenek = Arrays.stream(utazasok)
                                   .filter(Utazas::ervenytelenE)
                                   .count();
         
-        System.out.println("3. Feladat: " + ervenytelenek + " utas nem szállhatott fel");
+        System.out.println("3. Feladat: " + ervenytelenek + " utas nem szÃ¡llhatott fel");
         
         Arrays.stream(utazasok)
               .collect(Collectors.groupingBy(k -> k.megalloSorszama, Collectors.counting()))
               .entrySet().stream()
               .max(Comparator.comparing(Entry::getValue))
-              .ifPresent(k -> System.out.println("4. Feladat: legtöbb utas (" + k.getValue() + " fõ) a " + k.getKey() + "-as megállóban próbált felszállni"));
+              .ifPresent(k -> System.out.println("4. Feladat: legtÃ¶bb utas (" + k.getValue() + " fÅ‘) a " + k.getKey() + "-as megÃ¡llÃ³ban prÃ³bÃ¡lt felszÃ¡llni"));
         
         var tipusStat = Arrays.stream(utazasok)
                               .filter(Utazas::ervenyesE)
@@ -33,7 +33,7 @@ public class EUtazas_stream {
         
         System.out.println("5. Feladat");
         System.out.println("Ingyenes utasok: " + (tipusStat.get("NYP") + tipusStat.get("RVS") + tipusStat.get("GYK")));
-        System.out.println("Kedvezményes utasok: " + (tipusStat.get("TAB") + tipusStat.get("NYB")));
+        System.out.println("KedvezmÃ©nyes utasok: " + (tipusStat.get("TAB") + tipusStat.get("NYB")));
         
         var haromnaposok = Arrays.stream(utazasok)
                                  .filter(k -> k.ervenyesseg != null)

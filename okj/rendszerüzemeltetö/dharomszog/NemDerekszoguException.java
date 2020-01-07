@@ -1,5 +1,5 @@
 public class NemDerekszoguException extends Exception {
     public NemDerekszoguException() {
-        super("A háromszög nem derékszögû!");
+        super("A hÃ¡romszÃ¶g nem derÃ©kszÃ¶gÅ±!");
     }
 }

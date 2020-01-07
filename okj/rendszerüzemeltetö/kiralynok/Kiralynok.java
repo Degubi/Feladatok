@@ -8,14 +8,14 @@ public class Kiralynok {
     public static void main(String[] args) throws IOException {
         var tabla = new Tabla('#');
         
-        System.out.println("4. Feladat: Az üres tábla");
+        System.out.println("4. Feladat: Az Ã¼res tÃ¡bla");
         tabla.megjelenit(System.out);
         
-        System.out.println("6. Feladat: A feltöltött tábla");
+        System.out.println("6. Feladat: A feltÃ¶ltÃ¶tt tÃ¡bla");
         tabla.elhelyez(8);
         tabla.megjelenit(System.out);
         
-        System.out.println("9. Feladat: Üres sorok és oszlopok száma");
+        System.out.println("9. Feladat: Ãœres sorok Ã©s oszlopok szÃ¡ma");
         System.out.println("Oszlopok: " + tabla.uresOszlopokSzama());
         System.out.println("Sorok: " + tabla.uresSorokSzama());
         

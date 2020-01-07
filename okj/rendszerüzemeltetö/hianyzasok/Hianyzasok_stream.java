@@ -12,7 +12,7 @@ public class Hianyzasok_stream {
                               .toArray(Hianyzas[]::new);
         
         System.out.println("2. Feladat: Hianyzott orak: " + Arrays.stream(hianyzasok).mapToInt(k -> k.mulasztottOrak).sum());
-        System.out.println("3. Feladat: Írj be egy napot(1-30) és egy nevet!");
+        System.out.println("3. Feladat: Ãrj be egy napot(1-30) Ã©s egy nevet!");
         
         try(var input = new Scanner(System.in)){
             var bekertNap = input.nextInt();
@@ -24,7 +24,7 @@ public class Hianyzasok_stream {
                   .filter(k -> k.nev.equals(bekertNev))
                   .findFirst()
                   .ifPresentOrElse(k -> System.out.println(bekertNev + " hianyzott"), 
-                                    () -> System.out.println(bekertNev + " nem hiányzott"));
+                                    () -> System.out.println(bekertNev + " nem hiÃ¡nyzott"));
             
             System.out.println("5. Feladat");
             var azonANaponHianyoztak = Arrays.stream(hianyzasok)
@@ -32,7 +32,7 @@ public class Hianyzasok_stream {
                                              .toArray(Hianyzas[]::new);
             
             if(azonANaponHianyoztak.length == 0) {
-                System.out.println("Nem volt hiányzó");
+                System.out.println("Nem volt hiÃ¡nyzÃ³");
             }else {
                 Arrays.stream(azonANaponHianyoztak).forEach(hiany -> System.out.println(hiany.nev + " " + hiany.osztaly));
             }
