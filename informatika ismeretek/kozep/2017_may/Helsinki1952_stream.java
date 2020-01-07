@@ -11,7 +11,7 @@ public class Helsinki1952_stream {
                               .map(Helyezes::new)
                               .toArray(Helyezes[]::new);
         
-        System.out.println("3.Feladat: Pontszerz? helyez?sek sz?ma: " + helyezesek.length);
+        System.out.println("3.Feladat: Pontszerző helyezések száma: " + helyezesek.length);
         
         var helyezesCsoportok = Arrays.stream(helyezesek)
                                       .collect(Collectors.groupingBy(k -> k.helyezes, Collectors.counting()));
@@ -20,8 +20,8 @@ public class Helsinki1952_stream {
         var ezustok = helyezesCsoportok.get(2);
         var bronzok = helyezesCsoportok.get(3);
         
-        System.out.printf("4.Feladat: Aranyak: %d, ez?st?k: %d, bronzok: %d, ?sszesen: %d\n", aranyak, ezustok, bronzok, (aranyak + ezustok + bronzok));
-        System.out.println("5.Feladat: Pontok sz?ma: " + Arrays.stream(helyezesek).mapToInt(Helyezes::pontCalc).sum());
+        System.out.printf("4.Feladat: Aranyak: %d, ezüstök: %d, bronzok: %d, összesen: %d\n", aranyak, ezustok, bronzok, (aranyak + ezustok + bronzok));
+        System.out.println("5.Feladat: Pontok száma: " + Arrays.stream(helyezesek).mapToInt(Helyezes::pontCalc).sum());
         
         var sportagCsoportok = Arrays.stream(helyezesek)
                                      .filter(k -> k.helyezes <= 3)
@@ -31,7 +31,7 @@ public class Helsinki1952_stream {
         var torna = sportagCsoportok.get("torna");
         
         System.out.println("6.Feladat");
-        System.out.println(uszas == torna ? "Egyenl?ek" : (torna > uszas) ? "Torna volt t?bb" : "?sz?s volt t?bb");
+        System.out.println(uszas == torna ? "Egyenlőek" : (torna > uszas) ? "Torna volt több" : "úszás volt több");
         
         var fileba = Arrays.stream(helyezesek)
                            .map(k -> k.helyezes + " " + k.sportolokSzama + " " + k.pontCalc() + " " + k.sportag.replace("kajakkenu", "kajak-kenu") + " " + k.versenyszam)
@@ -42,7 +42,7 @@ public class Helsinki1952_stream {
         
         Arrays.stream(helyezesek)
               .max(Comparator.comparingInt(k -> k.sportolokSzama))
-              .ifPresent(k -> System.out.printf("Helyez?s: %d, sport?g: %s, sz?m: %s, sportol?k: %d\n", k.helyezes, k.sportag, k.versenyszam, k.sportolokSzama));
+              .ifPresent(k -> System.out.printf("Helyezés: %d, sportág: %s, szám: %s, sportolók: %d\n", k.helyezes, k.sportag, k.versenyszam, k.sportolokSzama));
     }
     
     public static class Helyezes{
