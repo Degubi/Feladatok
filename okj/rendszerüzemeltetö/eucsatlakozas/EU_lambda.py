@@ -1,4 +1,3 @@
-# -*- coding: UTF-8 -*-
 from dateutil.parser import parse as parsedate
 
 def csatlakozassa(line):
@@ -14,7 +13,7 @@ def groupbycount(extractor, data):
     return returndata
 
 
-with open("EUcsatlakozas.txt") as file: lines = file.read().splitlines()
+with open("EUcsatlakozas.txt") as file: lines = file.readlines()
 csatlakozasok = dict(map(csatlakozassa, lines))
 
 print(f"3. Feladat: 2018-ig EU államok száma: {len(csatlakozasok)}");

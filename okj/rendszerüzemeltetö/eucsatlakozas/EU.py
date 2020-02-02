@@ -1,9 +1,8 @@
-# -*- coding: UTF-8 -*-
 from dateutil.parser import parse as parsedate
 
 csatlakozasok = {}
 with open("EUcsatlakozas.txt") as file:
-    lines = file.read().splitlines()
+    lines = file.readlines()
     
     for line in lines:
         split = line.split(";")
