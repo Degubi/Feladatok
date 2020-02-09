@@ -14,7 +14,7 @@ public class FootGolf {
         
         System.out.println("3.Feladat: Versenyzők száma: " + versenyzok.size());
         
-        int noiVersenyzok = 0;
+        var noiVersenyzok = 0;
         for(var versenyzo : versenyzok) {
             if(versenyzo.kategoria.contains("Noi")) {
                 ++noiVersenyzok;

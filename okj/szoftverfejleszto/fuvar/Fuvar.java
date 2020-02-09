@@ -100,16 +100,3 @@ public class Fuvar {
         }
     }
 }
-
-/*
-3. Feladat: Fuvarok száma: 1859
-4. Feladat: 4 db fuvarra: 33.75
-5. Feladat:
-vitatott: 4 db
-ismeretlen: 2 db
-ingyenes: 10 db
-bankkártya: 793 db
-készpénz: 1050 db
-6. Feladat: 8099,95 km
-7. Feladat: 9120 mp, azonosito: 2559, távolság: 35,099998 km, díj: 88,250000$
-*/

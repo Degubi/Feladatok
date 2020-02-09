@@ -39,7 +39,7 @@ public class VB2018_stream {
                   .filter(k -> k.varos.equalsIgnoreCase(olvasottNev))
                   .findFirst()
                   .ifPresentOrElse(k -> System.out.println("Volt " + olvasottNev + "-ban merkozes"), 
-                                    () -> System.out.println("Nem volt " + olvasottNev + "-ban merkozes"));
+                                  () -> System.out.println("Nem volt " + olvasottNev + "-ban merkozes"));
         }
         
         System.out.println("9. Feladat");

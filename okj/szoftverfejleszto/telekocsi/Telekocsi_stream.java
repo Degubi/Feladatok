@@ -40,8 +40,8 @@ public class Telekocsi_stream {
         
         var fileba = Arrays.stream(igenyek)
                            .map(igeny -> Telekocsi_stream.autotKeresIgenyre(igeny, autok)
-                                                           .map(k -> igeny.azonosito + ": Rendszam: " + k.rendszam + ", Telefonszam: " + k.telefonszam)
-                                                           .orElse(igeny.azonosito + ": " + "Sajnos nem sikerült autót találni"))
+                                                         .map(k -> igeny.azonosito + ": Rendszam: " + k.rendszam + ", Telefonszam: " + k.telefonszam)
+                                                         .orElse(igeny.azonosito + ": " + "Sajnos nem sikerült autót találni"))
                            .collect(Collectors.joining("\n"));
         
         Files.writeString(Path.of("utazasuzenetek.txt"), fileba);

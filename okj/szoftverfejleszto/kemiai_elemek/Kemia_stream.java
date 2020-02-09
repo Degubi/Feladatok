@@ -27,7 +27,7 @@ public class Kemia_stream {
                   .filter(k -> k.vegyjel.equalsIgnoreCase(bekert))
                   .findFirst()
                   .ifPresentOrElse(k -> System.out.println(k.vegyjel + ": " + k.nev + ", rsz.: " + k.rendszam + ", év: " + k.ev + ", felf.: " + k.felfedezo), 
-                                    () -> System.out.println("Nincs ilyen elem eltárolva!"));
+                                  () -> System.out.println("Nincs ilyen elem eltárolva!"));
         }
         
         IntStream.range(0, elemek.length - 1)

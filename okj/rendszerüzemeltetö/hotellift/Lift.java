@@ -29,7 +29,6 @@ public class Lift {
         try(var input = new Scanner(System.in)){
             var beKartya = parseOrDefault(input.nextLine(), 5);
             var beCelszint = parseOrDefault(input.nextLine(), 5);
-            
             var kieg = "nem";
             
             for(var e : hasznalatok) {
