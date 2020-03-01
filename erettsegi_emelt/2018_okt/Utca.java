@@ -24,17 +24,17 @@ public class Utca {
             }
         }
         
-        System.out.println("2.Feladat");
+        System.out.println("2. Feladat:");
         System.out.println("Eladott telkek száma: " + telkek.size());
         
         var utolsoTelek = telkek.get(telkek.size() - 1);
         
-        System.out.println("3.Feladat");
+        System.out.println("3. Feladat:");
         System.out.println("Az utolsó telek: " + (utolsoTelek.parosE ? "Páros" : "Páratlan"));
         System.out.println("Az utolsó telek házszáma: " + utolsoTelek.hazszam);
-        System.out.println("4.Feladat");
+        System.out.println("4. Feladat:");
         
-        for(var i = 0; i < telkek.size(); ++i){
+        for(var i = 0; i < telkek.size() - 1; ++i){
             var telek = telkek.get(i);
             var kovetkezo = telkek.get(i + 1);
             
@@ -44,7 +44,7 @@ public class Utca {
             }
         }
         
-        System.out.println("5. Feladat");
+        System.out.println("5. Feladat:");
         System.out.println("Írd be 1 telek számát!");
         
         try(var input = new Scanner(System.in)){

@@ -50,7 +50,7 @@ public class Morze {
         System.out.println("9. Feladat: Arisztotelés idézetei: ");
         
         for(var idezet : idezetek) {
-            if(idezet.szerzo.equalsIgnoreCase("Arisztotelész")) {
+            if(idezet.szerzo.equals("ARISZTOTELÉSZ")) {
                 System.out.println("\t- " + idezet.uzenet);
             }
         }

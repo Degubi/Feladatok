@@ -37,9 +37,9 @@ public class Uzemanyag_stream {
         System.out.println("8. Feladat:");
         try(var console = new Scanner(System.in)){
             var bekertEvszam = IntStream.generate(() -> evszamotBeker(console))
-                                         .dropWhile(k -> k <= 2011 || k >= 2016)
-                                         .findFirst()
-                                         .orElseThrow();
+                                        .dropWhile(k -> k <= 2011 || k >= 2016)
+                                        .findFirst()
+                                        .orElseThrow();
             
             var bekertEviValtozasok = Arrays.stream(valtozasok)
                                             .filter(k -> k.valtozasDatuma.getYear() == bekertEvszam)

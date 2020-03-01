@@ -25,9 +25,9 @@ public class Tarsalgo_stream {
         
         System.out.println("4.Feladat");
         System.out.println("Bent maradtak: " + athaladasAdat.entrySet().stream()
-                                                             .filter(entry -> entry.getValue() % 2 == 1)
-                                                             .map(entry -> entry.getKey().toString())
-                                                             .collect(Collectors.joining(", ")));
+                                                            .filter(entry -> entry.getValue() % 2 == 1)
+                                                            .map(entry -> entry.getKey().toString())
+                                                            .collect(Collectors.joining(", ")));
         System.out.println("5. Feladat");
         Arrays.stream(athaladasok)
               .max(Comparator.comparingInt(athaladas -> athaladas.bentlevok))
@@ -44,8 +44,8 @@ public class Tarsalgo_stream {
             
             var beID = input.nextInt();
             var beAthaladasai = Arrays.stream(athaladasok)
-                                         .filter(athaladas -> athaladas.szemelyID == beID)
-                                         .toArray(Athaladas[]::new);
+                                      .filter(athaladas -> athaladas.szemelyID == beID)
+                                      toArray(Athaladas[]::new);
             
             System.out.println("7. Feladat");
             System.out.println(Arrays.stream(beAthaladasai)
@@ -54,11 +54,13 @@ public class Tarsalgo_stream {
             
             var vegIndex = beAthaladasai.length % 2 == 0 ? beAthaladasai.length : beAthaladasai.length - 1;
             var bentPercek = IntStream.iterate(0, index -> index < vegIndex, index -> index + 2)
-                                       .mapToObj(index -> Duration.between(beAthaladasai[index].idopont, beAthaladasai[index + 1].idopont))
-                                       .mapToLong(Duration::toMinutes)
-                                       .sum();
+                                      .mapToObj(index -> Duration.between(beAthaladasai[index].idopont, beAthaladasai[index + 1].idopont))
+                                      .mapToLong(Duration::toMinutes)
+                                      .sum();
             
-            if(beAthaladasai.length % 2 == 1) bentPercek += Duration.between(beAthaladasai[beAthaladasai.length - 1].idopont, LocalTime.of(15, 00)).toMinutes();
+            if(beAthaladasai.length % 2 == 1) {
+                bentPercek += Duration.between(beAthaladasai[beAthaladasai.length - 1].idopont, LocalTime.of(15, 00)).toMinutes();
+            }
             
             System.out.println("8. Feladat");
             System.out.println("A " + beID + " számú személy " + bentPercek + " percet volt bent, a figyelés végén " + (beAthaladasai.length % 2 == 1 ? "bent" : "kint") + " volt.");

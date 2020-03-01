@@ -4,8 +4,9 @@ using System.IO;
 using System.Linq;
 
 namespace Prog{
-    class Otszaz{
-        static void Main(string[] args){
+    public class Otszaz {
+		
+        public static void Main(string[] args){
             var lines = File.ReadAllLines("penztar.txt");
             var vasarlasok = new List<Vasarlas>();
        
@@ -23,11 +24,11 @@ namespace Prog{
             Console.WriteLine("Elsö vásárlásnál vett dolgok száma: " + vasarlasok[0].dolgok.Count);
        
             Console.WriteLine("Írj be 1 sorszámot");
-            int sorszam = int.Parse(Console.ReadLine());
+            var sorszam = int.Parse(Console.ReadLine());
             Console.WriteLine("Írj be 1 árut");
             String aru = Console.ReadLine();
             Console.WriteLine("Írj be 1 mennyiséget");
-            int dbszam = int.Parse(Console.ReadLine());
+            var dbszam = int.Parse(Console.ReadLine());
         
             int amount = 0, utolso = 0;
             for(int k = 0; k < vasarlasok.Count; ++k) {
@@ -70,8 +71,9 @@ namespace Prog{
             return 1350 + (500 * (dbSzam - 1));
         }
 
-        class Vasarlas{
+        public class Vasarlas{
             public Dictionary<string, int> dolgok = new Dictionary<string, int>();
+			
             public Vasarlas(List<string> things) {
                 foreach(string th in things) {
                     if(!dolgok.ContainsKey(th)) {

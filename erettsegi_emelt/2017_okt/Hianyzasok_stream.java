@@ -28,9 +28,9 @@ public class Hianyzasok_stream {
                               .sum();
         
         var igazolatlanok = Arrays.stream(hianyzasok)
-                                       .map(k -> k.orak)
-                                       .mapToLong(k -> k.chars().filter(l -> l == 'I').count())
-                                       .sum();
+                                  .map(k -> k.orak)
+                                  .mapToLong(k -> k.chars().filter(l -> l == 'I').count())
+                                  .sum();
         
         System.out.println("3. Feladat: Igazolt hiányzások: " + igazoltak + ", igazolatlanok: " + igazolatlanok);
         

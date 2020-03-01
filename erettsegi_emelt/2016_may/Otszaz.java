@@ -1,7 +1,7 @@
 import java.io.*;
 import java.nio.file.*;
 import java.util.*;
- 
+
 public class Otszaz {
     public static void main(String[] args) throws IOException {
         var lines = Files.readAllLines(Paths.get("penztar.txt"));
@@ -22,16 +22,16 @@ public class Otszaz {
         
         var input = new Scanner(System.in);
         System.out.println("Írj be 1 sorszámot");
-        int beSorszam = input.nextInt();
+        var beSorszam = input.nextInt();
         System.out.println("Írj be 1 árut");
         String beAru = input.next();
         System.out.println("Írj be 1 mennyiséget");
-        int beDBszam = input.nextInt();
+        var beDBszam = input.nextInt();
         input.close();
         
         int osszesVetel = 0, utolsoSorszam = 0;
         
-        for(int k = 0; k < vasarlasok.size(); ++k) {
+        for(var k = 0; k < vasarlasok.size(); ++k) {
             for(var cuccok : vasarlasok.get(k)) {
                 if(cuccok.equals(beAru)) {
                     ++osszesVetel;
@@ -54,8 +54,8 @@ public class Otszaz {
         }
        
         try(var output = new PrintWriter("osszeg.txt")){
-            for(int k = 0; k < vasarlasok.size(); ++k) {
-                int irasDarab = 0;
+            for(var k = 0; k < vasarlasok.size(); ++k) {
+                var irasDarab = 0;
                 var statisztika = stat(vasarlasok.get(k));
                 
                 for(var entries : statisztika.entrySet()) {
@@ -66,18 +66,20 @@ public class Otszaz {
         }
     }
     
-    static int ertek(int dbSzam) {
+    public static int ertek(int dbSzam) {
         if(dbSzam == 1) {
             return 500;
-        }else if(dbSzam == 2) {
+        }
+        if(dbSzam == 2) {
             return 950;
-        }else if(dbSzam == 3) {
+        }
+        if(dbSzam == 3) {
             return 1350;
         }
         return 1350 + (500 * (dbSzam - 1));
     }
     
-    static Map<String, Integer> stat(List<String> vasarlas){
+    public static Map<String, Integer> stat(List<String> vasarlas){
         var freqMap = new HashMap<String, Integer>();
         
         for(var cucc : vasarlas) {

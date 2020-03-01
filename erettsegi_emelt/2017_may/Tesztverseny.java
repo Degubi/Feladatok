@@ -89,7 +89,8 @@ public class Tesztverseny {
         int pontok;
         
         public Versenyzo(String data) {
-            String[] split = data.split(" ");
+            var split = data.split(" ");
+            
             nev = split[0];
             valaszok = split[1].toCharArray();
         }

@@ -7,6 +7,7 @@ using namespace std; //Triggering people here :D
 
 struct Vasarlas{
     vector<string> cuccok;
+    
     Vasarlas(vector<string> process){
         cuccok = process;
     }

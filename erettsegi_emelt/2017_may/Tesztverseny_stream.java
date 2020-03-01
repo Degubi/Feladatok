@@ -69,9 +69,9 @@ public class Tesztverseny_stream {
         
         public Versenyzo(String data, char[] megoldasok) {
             var split = data.split(" ");
+            
             nev = split[0];
             valaszok = split[1].toCharArray();
-            
             pontok = IntStream.range(0, megoldasok.length)
                      .filter(k -> megoldasok[k] == valaszok[k])
                      .map(Versenyzo::sumPoint)

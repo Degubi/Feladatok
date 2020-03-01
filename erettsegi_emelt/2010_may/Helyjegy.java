@@ -8,37 +8,38 @@ public class Helyjegy {
         var file = Files.readAllLines(Path.of("eladott.txt"));
         var firstSplit = file.get(0).split(" ");
         
-        int eladottJegyek = Integer.parseInt(firstSplit[0]);
-        int utHossz = Integer.parseInt(firstSplit[1]);
-        int ar = Integer.parseInt(firstSplit[2]);  //10 km-ként
+        var utHossz = Integer.parseInt(firstSplit[1]);
+        var ar = Integer.parseInt(firstSplit[2]);  //10 km-ként
         var utasok = new ArrayList<Utas>();
         
-        for(int k = 1; k < file.size(); ++k) {
-            utasok.add(new Utas(file.get(k).split(" ")));
+        for(var k = 1; k < file.size(); ++k) {
+            utasok.add(new Utas(file.get(k), k));
         }
         
         var utolso = utasok.get(utasok.size() - 1);
         System.out.println("2.Feladat: Utolsó utas ülése: " + utolso.ules + " utazott távolság: " + utolso.getTavolsag());
-        
         System.out.println("3.Feladat");
-        int osszesPenz = 0;
-        for(Utas utas : utasok) {
+        
+        var osszesPenz = 0;
+        for(var utas : utasok) {
             osszesPenz += utas.getAr(ar);
             if(utas.getTavolsag() == utHossz) {
                 System.out.print(utas.sorszam + " ");
             }
         }
+        
         System.out.println("\n4.Feladat: Összes bevétel: " + osszesPenz);
         
-        int utolsoMegallo = 0;
-        for(Utas utas : utasok) {
+        var utolsoMegallo = 0;
+        for(var utas : utasok) {
             if(utas.end > utolsoMegallo && utas.end != utHossz) {
                 utolsoMegallo = utas.end;
             }
         }
         
-        int felszallok = 0, leszallok = 0;
-        for(Utas utas : utasok) {
+        var felszallok = 0;
+        var leszallok = 0;
+        for(var utas : utasok) {
             if(utas.start == utolsoMegallo) {
                 ++felszallok;
             }
@@ -46,22 +47,25 @@ public class Helyjegy {
                 ++leszallok;
             }
         }
+        
         System.out.println("5.Feladat: Utolsó megállónál felszállók: " + felszallok + ", leszállók: " + leszallok);
         
-        HashSet<Integer> allomasok = new HashSet<>();
-        for(Utas utas : utasok) {
+        var allomasok = new HashSet<Integer>();
+        for(var utas : utasok) {
             allomasok.add(utas.start);
             allomasok.add(utas.end);
         }
+        
         System.out.println("6.Feladat: Megállók száma: " + (allomasok.size() - 2));
         
         try(var output = new PrintWriter("kihol.txt"); Scanner input = new Scanner(System.in)){
             System.out.println("Írj be 1 km számot!");
-            int readTav = input.nextInt();
+            var readTav = input.nextInt();
             
             for(int k = 1; k < 49; ++k) {
                 Utas currentUtas = null;
-                for(Utas utas : utasok) {
+                
+                for(var utas : utasok) {
                     if(utas.ules == k && (utas.start == readTav || utas.end == readTav)) {
                         currentUtas = utas;
                     }
@@ -71,15 +75,16 @@ public class Helyjegy {
         }
     }
     
-    static class Utas{
-        int ules, start, end, sorszam;
-        static int index = 0;
+    public static class Utas{
+        public final int ules, start, end, sorszam;
         
-        public Utas(String[] data) {
-            sorszam = ++index;
-            ules = Integer.parseInt(data[0]);
-            start = Integer.parseInt(data[1]);
-            end = Integer.parseInt(data[2]);
+        public Utas(String line, int index) {
+            var split = line.split(" ");
+            
+            sorszam = index;
+            ules = Integer.parseInt(split[0]);
+            start = Integer.parseInt(split[1]);
+            end = Integer.parseInt(split[2]);
         }
         
         public int getTavolsag() {

@@ -26,17 +26,17 @@ namespace ConsoleApplication1{
                 }
             }
 
-            Console.WriteLine("2.Feladat");
+            Console.WriteLine("2. Feladat:");
             Console.WriteLine($"Eladott telkek száma: {telkek.Count}");
 
             var utolsoTelek = telkek[telkek.Count - 1];
 
-            Console.WriteLine("3.Feladat");
+            Console.WriteLine("3. Feladat:");
             Console.WriteLine($"Az utolsó telek: {(utolsoTelek.parosE ? "Páros" : "Páratlan")}");
             Console.WriteLine($"Az utolsó telek házszáma: {utolsoTelek.hazszam}");
-            Console.WriteLine("4.Feladat");
+            Console.WriteLine("4. Feladat:");
 
-            for (var i = 0; i < telkek.Count; ++i) {
+            for (var i = 0; i < telkek.Count - 1; ++i) {
                 var telek = telkek[i];
                 var kovetkezo = telkek[i + 1];
 
@@ -46,7 +46,7 @@ namespace ConsoleApplication1{
                 }
             }
 
-            Console.WriteLine("5. Feladat");
+            Console.WriteLine("5. Feladat:");
             Console.WriteLine("Írd be 1 telek számát!");
             var beolvasottTelekSzam = int.Parse(Console.ReadLine());
 

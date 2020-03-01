@@ -39,7 +39,7 @@ public class Morze_stream {
         
         System.out.println("9. Feladat: Arisztotelés idézetei: ");
         Arrays.stream(idezetek)
-              .filter(k -> k.szerzo.equalsIgnoreCase("Arisztotelész"))
+              .filter(k -> k.szerzo.equals("ARISZTOTELÉSZ"))
               .forEach(k -> System.out.println("\t- " + k.uzenet));
         
         var fileba = Arrays.stream(idezetek)
