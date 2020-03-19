@@ -1,4 +1,5 @@
 public class Versenyzo {
+    
     public final String nev;
     public final int rajtszam;
     public final String kategoria;

@@ -1,4 +1,5 @@
 public class Bejegyzes{
+    
     public final int ora;
     public final int perc;
     public final int adasok;

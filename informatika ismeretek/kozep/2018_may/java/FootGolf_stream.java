@@ -30,6 +30,7 @@ public class FootGolf_stream {
     }
     
     public static class Versenyzo{
+        
         public final String nev, kategoria, versenyEgyesulet;
         public final int[] pontok;
         

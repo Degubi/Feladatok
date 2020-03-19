@@ -1,4 +1,5 @@
 public class Szakasz{
+    
     public final String induloPont, vegPont;
     public final int emelkedesek, lejtesek;
     public final double hossz;

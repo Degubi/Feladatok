@@ -1,4 +1,5 @@
 public class Keres {
+    
     public final String cim;
     public final String datumIdo;
     public final String keres;

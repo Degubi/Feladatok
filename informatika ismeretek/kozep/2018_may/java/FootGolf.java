@@ -57,6 +57,7 @@ public class FootGolf {
     }
     
     public static class Versenyzo{
+        
         public final String nev, kategoria, versenyEgyesulet;
         public final int[] pontok = new int[8];
         
