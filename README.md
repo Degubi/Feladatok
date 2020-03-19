@@ -1,5 +1,6 @@
 Érettségi, OKJ és informatikai ismeretek vizsga Programozás megoldások.
 
+- A Java megoldások általában a legmodernebbek, más nyelvek kicsit elavultabbak lehetnek stílus ügyileg
 - Ha valaki hibát talál/bővíteni szeretné nyugodtan lehet issue-kat vagy pull requesteket küldeni.
 - Java, C# és Python nyelveken általában 2 fajta megoldás van: Normál imperatív módon ciklusokkal, illetve funkcionális módszerrel.
 - Nem minden feladatból van megoldás az összes nyelven, a legelső megoldás mindig Java-ban készül el, azokból van a legtöbb.
