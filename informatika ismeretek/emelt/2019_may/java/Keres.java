@@ -7,14 +7,14 @@ public class Keres {
     public final String meret;
     
     public Keres(String line) {
-        var firstSplit = line.split("\\*");
-        var utolsoSzokozIndex = firstSplit[3].indexOf(' ');
+        var split = line.split("\\*");
+        var utolsoSzokozIndex = split[3].indexOf(' ');
         
-        cim = firstSplit[0];
-        datumIdo = firstSplit[1];
-        keres = firstSplit[2];
-        httpKod = firstSplit[3].substring(0, utolsoSzokozIndex);
-        meret = firstSplit[3].substring(utolsoSzokozIndex + 1);
+        cim = split[0];
+        datumIdo = split[1];
+        keres = split[2];
+        httpKod = split[3].substring(0, utolsoSzokozIndex);
+        meret = split[3].substring(utolsoSzokozIndex + 1);
     }
     
     public int byteMeret() {
