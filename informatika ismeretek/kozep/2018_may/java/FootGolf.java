@@ -75,9 +75,11 @@ public class FootGolf {
         
         public int osszPont() {
             var pont = 0;
+            
             for(var k = 2; k < 8; ++k) {
                 pont += pontok[k];
             }
+            
             return pont + (pontok[0] != 0 ? 10 : 0) + (pontok[1] != 0 ? 10 : 0);
         }
         
