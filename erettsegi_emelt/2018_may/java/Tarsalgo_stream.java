@@ -34,8 +34,8 @@ public class Tarsalgo_stream {
               .ifPresent(athaladas -> System.out.println("Ekkor voltak bent a legtöbben: " + athaladas.idopont));
         
         var fileba = athaladasAdat.entrySet().stream()
-                                         .map(entry -> entry.getKey() + " " + entry.getValue())
-                                         .collect(Collectors.toList());
+                                  .map(entry -> entry.getKey() + " " + entry.getValue())
+                                  .collect(Collectors.toList());
         
         Files.write(Path.of("athaladas.txt"), fileba);
         
@@ -45,7 +45,7 @@ public class Tarsalgo_stream {
             var beID = input.nextInt();
             var beAthaladasai = Arrays.stream(athaladasok)
                                       .filter(athaladas -> athaladas.szemelyID == beID)
-                                      toArray(Athaladas[]::new);
+                                      .toArray(Athaladas[]::new);
             
             System.out.println("7. Feladat");
             System.out.println(Arrays.stream(beAthaladasai)
