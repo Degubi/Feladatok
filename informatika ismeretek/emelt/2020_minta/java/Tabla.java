@@ -28,7 +28,7 @@ public class Tabla extends JPanel {
                     var sor = x;
                     var oszlop = y;
                     
-                    butt.addActionListener(e -> frame.setTitle(frame.getTitle() + (szabalyosLepes(jelenlegiCella, sor, oszlop) ? " > SZABÁLYOS" : " > SZABÁLYTALAN")));
+                    butt.addActionListener(e -> handleEmptyCellClick(frame, jelenlegiCella, sor, oszlop));
                 }else {
                     butt.addActionListener(e -> frame.setTitle("ReversiGUI - " + (jelenlegiCella == 'K' ? "KÉK" : "FEHÉR")));
                 }
@@ -39,6 +39,12 @@ public class Tabla extends JPanel {
         }
     }
 
+    private void handleEmptyCellClick(JFrame frame, char jelenlegiCella, int sor, int oszlop) {
+        if(!frame.getTitle().equals("ReversiGUI")) {
+            frame.setTitle(frame.getTitle() + (szabalyosLepes(jelenlegiCella, sor, oszlop) ? " > SZABÁLYOS" : " > SZABÁLYTALAN"));
+        }
+    }
+
     public void megjelenit() {
         setVisible(true);
     }
@@ -46,13 +52,9 @@ public class Tabla extends JPanel {
     public boolean vanForditas(char jatekos, int sor, int oszlop, int iranySor, int iranyOszlop) {
         var aktSor = sor + iranySor;
         var aktOszlop = oszlop + iranyOszlop;
-        var ellenfel = 'K';
-        
-        if(jatekos == 'K') {
-            ellenfel = 'F';
-        }
-        
+        var ellenfel = jatekos == 'K' ? 'F' : 'K';
         var nincsEllenfel = true;
+        
         while(aktSor > 0 && aktSor < 8 && aktOszlop > 0 && aktOszlop < 8 && allas[aktSor][aktOszlop] == ellenfel) {
             aktSor += iranySor;
             aktOszlop += iranyOszlop;
@@ -73,14 +75,13 @@ public class Tabla extends JPanel {
     @Override
     protected void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
-        var allas = this.allas;
         
         for(var x = 0; x < 8; ++x) {
             for(var y = 0; y < 8; ++y) {
                 var currentCell = allas[x][y];
-                var cellColor = currentCell == 'K' ? Color.BLUE : currentCell == 'F' ? Color.WHITE : Color.GRAY;
+                var ovalColor = currentCell == 'K' ? Color.BLUE : currentCell == 'F' ? Color.WHITE : Color.GRAY;
                 
-                graphics.setColor(cellColor);
+                graphics.setColor(ovalColor);
                 graphics.fillOval(x * 72 + 5, y * 72 + 5, 64, 64);
             }
         }
