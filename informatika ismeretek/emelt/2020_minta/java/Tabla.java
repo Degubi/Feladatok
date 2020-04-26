@@ -21,14 +21,14 @@ public class Tabla extends JPanel {
                 butt.setOpaque(false);
                 butt.setContentAreaFilled(false);
                 butt.setBorderPainted(false);
-                butt.setBounds(x * 72 + 5, y * 72 + 5, 64, 64);
+                butt.setBounds(y * 72 + 5, x * 72 + 5, 64, 64);
                 
                 var jelenlegiCella = jelenlegiSor.charAt(y);
                 if(jelenlegiCella == '#') {
                     var sor = x;
                     var oszlop = y;
                     
-                    butt.addActionListener(e -> handleEmptyCellClick(frame, jelenlegiCella, sor, oszlop));
+                    butt.addActionListener(e -> handleEmptyCellClick(frame, sor, oszlop));
                 }else {
                     butt.addActionListener(e -> frame.setTitle("ReversiGUI - " + (jelenlegiCella == 'K' ? "KÉK" : "FEHÉR")));
                 }
@@ -39,8 +39,12 @@ public class Tabla extends JPanel {
         }
     }
 
-    private void handleEmptyCellClick(JFrame frame, char jelenlegiCella, int sor, int oszlop) {
-        if(!frame.getTitle().equals("ReversiGUI")) {
+    private void handleEmptyCellClick(JFrame frame, int sor, int oszlop) {
+        var title = frame.getTitle();
+        
+        if(!title.equals("ReversiGUI")) {
+            var jelenlegiCella = title.contains("KÉK") ? 'K' : 'F';
+            
             frame.setTitle(frame.getTitle() + (szabalyosLepes(jelenlegiCella, sor, oszlop) ? " > SZABÁLYOS" : " > SZABÁLYTALAN"));
         }
     }
@@ -66,7 +70,7 @@ public class Tabla extends JPanel {
     }
     
     public boolean szabalyosLepes(char jatekos, int sor, int oszlop) {
-        return allas[sor][oszlop] == '#' && 
+        return allas[sor][oszlop] == '#' &&
               (vanForditas(jatekos, sor, oszlop, -1, -1) || vanForditas(jatekos, sor, oszlop, -1, 0) || vanForditas(jatekos, sor, oszlop, -1, 1) ||
                vanForditas(jatekos, sor, oszlop,  0, -1) || vanForditas(jatekos, sor, oszlop,  0, 1) ||
                vanForditas(jatekos, sor, oszlop,  1, -1) || vanForditas(jatekos, sor, oszlop,  1, 0) || vanForditas(jatekos, sor, oszlop,  1, 1));
@@ -82,7 +86,7 @@ public class Tabla extends JPanel {
                 var ovalColor = currentCell == 'K' ? Color.BLUE : currentCell == 'F' ? Color.WHITE : Color.GRAY;
                 
                 graphics.setColor(ovalColor);
-                graphics.fillOval(x * 72 + 5, y * 72 + 5, 64, 64);
+                graphics.fillOval(y * 72 + 5, x * 72 + 5, 64, 64);
             }
         }
     }
