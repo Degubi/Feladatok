@@ -1,5 +1,4 @@
 import java.io.*;
-import java.nio.charset.*;
 import java.nio.file.*;
 import java.util.*;
 
@@ -35,8 +34,8 @@ public class Tesztverseny {
         }
         
         System.out.println("Írd be 1 feladat sorszámát!");
-        int readIndex = input.nextInt() - 1;
-        int good = 0;
+        var readIndex = input.nextInt() - 1;
+        var good = 0;
         
         for(var mindenki : versenyzok) {
             if(mindenki.valaszok[readIndex] == megoldasok[readIndex]) {
@@ -51,8 +50,9 @@ public class Tesztverseny {
         
         try(var output = new PrintWriter("pontok.txt")){
             for(var mindenki : versenyzok) {
-                int points = 0;
-                for(int k = 0; k < megoldasok.length; ++k) {
+                var points = 0;
+                
+                for(var k = 0; k < megoldasok.length; ++k) {
                     if(mindenki.valaszok[k] == megoldasok[k]) {
                         if(k <= 4) {
                             points += 3;
@@ -72,14 +72,26 @@ public class Tesztverseny {
         versenyzok.sort(Comparator.comparingInt((Versenyzo k) -> k.pontok).reversed());
         
         System.out.println("7. feladat: A verseny legjobbjai:");
-        for(int k = 1, index = 0; k < 4; ++k, ++index) {
-            var versenyzo = versenyzok.get(index);
-            System.out.println(k + ". díj " + versenyzo);
-            
-            for(int v = index + 1; versenyzok.get(v).pontok == versenyzo.pontok; ++v) {
-                System.out.println(k + ". díj "+ versenyzok.get(index));
-                ++index;
+        
+        var haromLegtobbPontszam = new ArrayList<Integer>();
+        for(var versenyzo : versenyzok) {
+            if(!haromLegtobbPontszam.contains(versenyzo.pontok)) {
+                haromLegtobbPontszam.add(versenyzo.pontok);
             }
+            
+            if(haromLegtobbPontszam.size() == 3) {
+                break;
+            }
+        }
+        
+        for(var versenyzo : versenyzok) {
+            var pontIndex = haromLegtobbPontszam.indexOf(versenyzo.pontok);
+            
+            if(pontIndex == -1) {
+                break;
+            }
+            
+            System.out.println((pontIndex + 1) + ". díj " + versenyzo);
         }
     }
     
