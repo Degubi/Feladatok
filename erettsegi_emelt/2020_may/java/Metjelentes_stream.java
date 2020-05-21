@@ -10,7 +10,7 @@ public class Metjelentes_stream {
                           .map(IdojarasAdat::new)
                           .toArray(IdojarasAdat[]::new);
         
-        System.out.println("2. Feladat: Írj be 1 városkódot!");
+        System.out.println("2. Feladat: Írj be egy városkódot!");
         try(var console = new Scanner(System.in)) {
             var bekertKod = console.nextLine();
             
@@ -25,11 +25,11 @@ public class Metjelentes_stream {
         
         Arrays.stream(adatok)
               .min(homersekletComparator)
-              .ifPresent(k -> System.out.println("Legkisebb hőmérséklet: " + k.telepules + " " + k.ido + " " + k.homerseklet + " fok"));
+              .ifPresent(k -> System.out.println("Legalacsonyabb hőmérséklet: " + k.telepules + " " + k.ido + " " + k.homerseklet + " fok"));
         
         Arrays.stream(adatok)
               .max(homersekletComparator)
-              .ifPresent(k -> System.out.println("Legnagyobb hőmérséklet: " + k.telepules + " " + k.ido + " " + k.homerseklet + " fok"));
+              .ifPresent(k -> System.out.println("Legmagasabb hőmérséklet: " + k.telepules + " " + k.ido + " " + k.homerseklet + " fok"));
         
         System.out.println("4. Feladat:");
         var szelcsendek = Arrays.stream(adatok)
@@ -45,47 +45,40 @@ public class Metjelentes_stream {
         
         System.out.println("5. Feladat:");
         
-        var orankentiHomersekletGyujto = Collectors.groupingBy((IdojarasAdat k) -> k.ido.getHour(),
-                                                               Collectors.mapping((IdojarasAdat k) -> (double) k.homerseklet, Collectors.toList()));
+        var adatokVarosonket = Arrays.stream(adatok)
+                                     .collect(Collectors.groupingBy(k -> k.telepules));
         
-        var telepulesenkentiOrakhozTartozoHomersekletek = Arrays.stream(adatok)
-                                                                .collect(Collectors.groupingBy(k -> k.telepules, orankentiHomersekletGyujto));
+        adatokVarosonket.entrySet().stream()
+                        .map(k -> telepuleshezTartozoKiiratandoHomersekletAdat(k.getKey(), k.getValue()))
+                        .forEach(System.out::println);
         
-        telepulesenkentiOrakhozTartozoHomersekletek.entrySet().stream()
-                                                   .map(k -> telepuleshezKiiratandohomersekletAdat(k.getKey(), k.getValue()))
-                                                   .forEach(System.out::println);
-        System.out.println("6. Feladat:");
-        Arrays.stream(adatok)
-              .collect(Collectors.groupingBy(k -> k.telepules))
-              .forEach(Metjelentes_stream::telepulesAdataiFajlba);
-    }
-
-    public static String telepuleshezKiiratandohomersekletAdat(String telepules, Map<Integer, List<Double>> orankentiHomersekletek) {
-        var ingadozashozStat = orankentiHomersekletek.values().stream()
-                                                     .flatMap(List::stream)
-                                                     .mapToDouble(Double::doubleValue)
-                                                     .summaryStatistics();
-        
-        var ingadozas = ingadozashozStat.getMax() - ingadozashozStat.getMin();
-        
-        if(orankentiHomersekletek.size() < 24) {
-            return telepules + ": NA; Ingadozás: " + (int) ingadozas;
-        }
-        
-        var kerekitettKozep = (int) Math.ceil(ingadozashozStat.getAverage());
-        
-        return telepules + ": Középhőmérséklet: " + kerekitettKozep + "; Ingadozás: " + (int) ingadozas;
+        adatokVarosonket.forEach(Metjelentes_stream::telepulesAdataiFajlba);
     }
     
-    public static void telepulesAdataiFajlba(String telepules, List<IdojarasAdat> adat) {
-        var adatSorok = adat.stream()
-                            .map(k -> k.ido + " " + ("#".repeat(k.szelErosseg)))
-                            .collect(Collectors.joining("\n"));
+    public static String telepuleshezTartozoKiiratandoHomersekletAdat(String telepules, List<IdojarasAdat> adatok) {
+        var homersekletStat = adatok.stream()
+                                    .mapToDouble(k -> k.homerseklet)
+                                    .summaryStatistics();
         
-        var filebaIrando = telepules + '\n' + adatSorok;
+        var ingadozas = homersekletStat.getMax() - homersekletStat.getMin();
+        var mindenOraraVanAdat = adatok.stream()
+                                       .mapToInt(k -> k.ido.getHour())
+                                       .distinct()
+                                       .count() == 24;
+        if(mindenOraraVanAdat) {
+            var kerekitettKozep = (int) Math.ceil(homersekletStat.getAverage());
+            return telepules + ": Középhőmérséklet: " + kerekitettKozep + "; Ingadozás: " + (int) ingadozas;
+        }
         
+        return telepules + ": NA; Ingadozás: " + (int) ingadozas;
+    }
+    
+    public static void telepulesAdataiFajlba(String telepules, List<IdojarasAdat> adatok) {
+        var adatSorok = adatok.stream()
+                              .map(k -> k.ido + " " + ("#".repeat(k.szelErosseg)))
+                              .collect(Collectors.joining("\n"));
         try {
-            Files.writeString(Path.of(telepules + ".txt"), filebaIrando);
+            Files.writeString(Path.of(telepules + ".txt"), telepules + '\n' + adatSorok);
         } catch (IOException e) {}
     }
 }

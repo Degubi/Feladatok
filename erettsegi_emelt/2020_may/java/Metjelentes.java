@@ -10,7 +10,7 @@ public class Metjelentes {
             adatok.add(new IdojarasAdat(line));
         }
         
-        System.out.println("2. Feladat: Írj be 1 városkódot!");
+        System.out.println("2. Feladat: Írj be egy városkódot!");
         try(var console = new Scanner(System.in)) {
             var bekertKod = console.nextLine();
             
@@ -38,8 +38,8 @@ public class Metjelentes {
             }
         }
         
-        System.out.println("Legkisebb hőmérséklet: "  + minHomersekletes.telepules + " " + minHomersekletes.ido + " " + minHomersekletes.homerseklet + " fok");
-        System.out.println("Legnagyobb hőmérséklet: " + maxHomersekletes.telepules + " " + maxHomersekletes.ido + " " + maxHomersekletes.homerseklet + " fok");
+        System.out.println("Legalacsonyabb hőmérséklet: "  + minHomersekletes.telepules + " " + minHomersekletes.ido + " " + minHomersekletes.homerseklet + " fok");
+        System.out.println("Legmagasabb hőmérséklet: " + maxHomersekletes.telepules + " " + maxHomersekletes.ido + " " + maxHomersekletes.homerseklet + " fok");
         System.out.println("4. Feladat:");
         
         var szelcsendek = new ArrayList<IdojarasAdat>();
@@ -59,65 +59,6 @@ public class Metjelentes {
         
         System.out.println("5. Feladat:");
         
-        var telepulesenkentiOrakhozTartozoHomersekletek = new HashMap<String, HashMap<Integer, ArrayList<Integer>>>();
-        for(var adat : adatok) {
-            var telepules = adat.telepules;
-            var telepuleshezTartozoStat = telepulesenkentiOrakhozTartozoHomersekletek.get(telepules);
-            
-            if(telepuleshezTartozoStat == null) {
-                telepuleshezTartozoStat = new HashMap<>();
-                telepulesenkentiOrakhozTartozoHomersekletek.put(telepules, telepuleshezTartozoStat);
-            }
-            
-            var ora = adat.ido.getHour();
-            var orahozTartozoStat = telepuleshezTartozoStat.get(ora);
-            
-            if(orahozTartozoStat == null) {
-                orahozTartozoStat = new ArrayList<>();
-                telepuleshezTartozoStat.put(ora, orahozTartozoStat);
-            }
-            
-            orahozTartozoStat.add(adat.homerseklet);
-        }
-        
-        for(var nagyonEpicStat : telepulesenkentiOrakhozTartozoHomersekletek.entrySet()) {
-            var telepules = nagyonEpicStat.getKey();
-            var orankentiHomersekletek = nagyonEpicStat.getValue();
-            
-            var legkisebbHomerseklet = 2000;
-            var legnagyobbHomerseklet = -2000;
-            var osszHomerseklet = 0;
-            var homersekletekSzama = 0;
-            
-            for(var orankentiHomerseklet : orankentiHomersekletek.values()) {
-                for(var homerseklet : orankentiHomerseklet) {
-                    if(homerseklet < legkisebbHomerseklet) {
-                        legkisebbHomerseklet = homerseklet;
-                    }
-                    
-                    if(homerseklet > legnagyobbHomerseklet) {
-                        legnagyobbHomerseklet = homerseklet;
-                    }
-                    
-                    osszHomerseklet += homerseklet;
-                    ++homersekletekSzama;
-                }
-            }
-            
-            var ingadozas = legnagyobbHomerseklet - legkisebbHomerseklet;
-            
-            if(orankentiHomersekletek.size() < 24) {
-                System.out.println(telepules + ": NA; Ingadozás: " + ingadozas);
-            }else{
-                var kozep = ((double) osszHomerseklet) / homersekletekSzama;
-                var kerekitettKozep = (int) Math.ceil(kozep);
-                
-                System.out.println(telepules + ": Középhőmérséklet: " + kerekitettKozep + "; Ingadozás: " + ingadozas);
-            }
-        }
-        
-        System.out.println("6. Feladat:");
-        
         var adatokTelepulesenkent = new HashMap<String, ArrayList<IdojarasAdat>>();
         for(var adat : adatok) {
             var telepules = adat.telepules;
@@ -130,6 +71,45 @@ public class Metjelentes {
             
             telepulesAdatai.add(adat);
         }
+        
+        for(var epicStat : adatokTelepulesenkent.entrySet()) {
+            var telepules = epicStat.getKey();
+            var telepuleshezTartozoAdatok = epicStat.getValue();
+            var egyediAdattalRendelkezoOrak = new HashSet<Integer>();
+            var legkisebbHomerseklet = 2000;
+            var legnagyobbHomerseklet = -2000;
+            var osszHomerseklet = 0;
+            var homersekletekSzama = 0;
+            
+            for(var adat : telepuleshezTartozoAdatok) {
+                var homerseklet = adat.homerseklet;
+                
+                if(homerseklet < legkisebbHomerseklet) {
+                    legkisebbHomerseklet = homerseklet;
+                }
+                    
+                if(homerseklet > legnagyobbHomerseklet) {
+                    legnagyobbHomerseklet = homerseklet;
+                }
+                
+                osszHomerseklet += homerseklet;
+                ++homersekletekSzama;
+                egyediAdattalRendelkezoOrak.add(adat.ido.getHour());
+            }
+            
+            var ingadozas = legnagyobbHomerseklet - legkisebbHomerseklet;
+            
+            if(egyediAdattalRendelkezoOrak.size() == 24) {
+                var kozep = ((double) osszHomerseklet) / homersekletekSzama;
+                var kerekitettKozep = (int) Math.ceil(kozep);
+                
+                System.out.println(telepules + ": Középhőmérséklet: " + kerekitettKozep + "; Ingadozás: " + ingadozas);
+            }else{
+                System.out.println(telepules + ": NA; Ingadozás: " + ingadozas);
+            }
+        }
+        
+        System.out.println("6. Feladat:");
         
         for(var epicStat : adatokTelepulesenkent.entrySet()) {
             var telepules = epicStat.getKey();
