@@ -61,14 +61,7 @@ namespace Prog{
         }
 
         public static int ertek(int dbSzam) {
-            if(dbSzam == 1) {
-                return 500;
-            }else if(dbSzam == 2) {
-                return 950;
-            }else if(dbSzam == 3) {
-                return 1350;
-            }
-            return 1350 + (500 * (dbSzam - 1));
+            return dbSzam == 1 ? 500 : dbSzam == 2 ? 950 : 1350 + (400 * (dbSzam - 3));
         }
 
         public class Vasarlas{

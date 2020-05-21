@@ -67,16 +67,7 @@ public class Otszaz {
     }
     
     public static int ertek(int dbSzam) {
-        if(dbSzam == 1) {
-            return 500;
-        }
-        if(dbSzam == 2) {
-            return 950;
-        }
-        if(dbSzam == 3) {
-            return 1350;
-        }
-        return 1350 + (500 * (dbSzam - 1));
+        return dbSzam == 1 ? 500 : dbSzam == 2 ? 950 : 1350 + (400 * (dbSzam - 3));
     }
     
     public static Map<String, Integer> stat(List<String> vasarlas){
