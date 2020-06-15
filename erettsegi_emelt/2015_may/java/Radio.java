@@ -101,8 +101,8 @@ public class Radio {
         
         public final int nap;
         public final int radioAmator;
-        public final int szulokSzama;
-        public final int gyerekekSzama;
+        public int szulokSzama;
+        public int gyerekekSzama;
         public final String adat;
         
         public Feljegyzes(String[] data1, String data2) {

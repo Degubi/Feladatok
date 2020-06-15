@@ -1,7 +1,8 @@
 public class Telek{
     
     public final boolean parosE;
-    public final int szelesseg, hazszam;
+    public final int szelesseg;
+    public final int hazszam;
     public final char keritesSzine;
     
     public Telek(boolean parosE, int hazszam, int szelesseg, char keritesSzine) {
