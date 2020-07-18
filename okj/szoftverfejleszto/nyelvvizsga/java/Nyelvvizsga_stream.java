@@ -28,12 +28,12 @@ public class Nyelvvizsga_stream {
                 return;   //Program vége
             }
             
-            System.out.println("4. Feladat");
+            System.out.println("4. Feladat:");
             Arrays.stream(nyelvvizsgak)
                   .max(Comparator.comparingDouble(k -> k.getBukasAtlag(beEv)))
                   .ifPresent(k -> System.out.printf(beEv + "-ben " + k.nyelv + "-ből volt a legnagyobb bukási arány: %.2f%%\n", k.getBukasAtlag(beEv)));
             
-            System.out.println("5. Feladat");
+            System.out.println("5. Feladat:");
             var nincsVizsgazo = Arrays.stream(nyelvvizsgak)
                                       .filter(k -> k.vizsgaOsszeadEvre(beEv) == 0)
                                       .map(k -> k.nyelv)
