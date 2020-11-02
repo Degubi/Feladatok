@@ -40,7 +40,7 @@ public class HegyekMo_stream {
         
         Arrays.stream(hegyek)
               .collect(Collectors.groupingBy(k -> k.hegyseg, Collectors.counting()))
-              .forEach((hegyseg, db) -> System.out.println(hegyseg + ": " + db));
+              .forEach((hegyseg, db) -> System.out.println("    " + hegyseg + ": " + db));
         
         var fileAdat = Arrays.stream(hegyek)
                              .filter(k -> k.hegyseg.equals("Bükk-vidék"))

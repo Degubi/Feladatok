@@ -29,7 +29,8 @@ public class Snooker_stream {
         
         var voltENorveg = Arrays.stream(versenyzok).anyMatch(k -> k.orszag.equals("Norvégia"));
         System.out.println("6. Feladat: " + (voltENorveg ? "Van" : "Nincs") + " norvég játékos");
-        
+        System.out.println("7. Feladat: Statisztika:");
+
         Arrays.stream(versenyzok)
               .map(k -> k.orszag)
               .collect(Collectors.groupingBy(k -> k, Collectors.counting()))

@@ -11,59 +11,48 @@ public class VB2018_stream {
                               .skip(1)
                               .map(Helyszin::new)
                               .toArray(Helyszin[]::new);
-        
-        System.out.println("3. Feladat");
-        System.out.println("Stadionok száma: " + helyszinek.length);
-        System.out.println("4. Feladat");
-        Arrays.stream(helyszinek).min(Comparator.comparingInt(k -> k.ferohely)).ifPresent(System.out::println);
-        
-        System.out.println("5. Feladat");
+
+        System.out.println("3. Feladat: Stadionok száma: " + helyszinek.length);
+
+        Arrays.stream(helyszinek)
+              .min(Comparator.comparingInt(k -> k.ferohely))
+              .ifPresent(k -> System.out.println("4. Feladat: Varos: " + k.varos + ", nev1: " + k.nev1 + ", nev2: " + k.nev2 + ", ferohely: " + k.ferohely));
+
         Arrays.stream(helyszinek)
               .mapToInt(k -> k.ferohely)
               .average()
-              .ifPresent(atlag -> System.out.printf("Ferohelyek atlaga: %.1f\n", atlag));
-        
-        System.out.println("6. Feladat");
-        System.out.println("Alternativ neves stadionok: " + Arrays.stream(helyszinek).filter(k -> !k.nev2.equals("n.a.")).count());
-        System.out.println("7. Feladat\nKérem 1 város nevét!");
-        
+              .ifPresent(atlag -> System.out.printf("5. Feladat: Ferohelyek atlaga: %.1f\n", atlag));
+
+        var nevesStadionDb = Arrays.stream(helyszinek)
+                                   .filter(k -> !k.nev2.equals("n.a."))
+                                   .count();
+
+        System.out.println("6. Feladat: Alternativ neves stadionok: " + nevesStadionDb);
+        System.out.println("7. Feladat:");
+
         try(var input = new Scanner(System.in)){
-            var olvasottNev = Stream.generate(input::nextLine)
-                                    .peek(line -> System.out.println("Kérem 1 város nevét!"))
+            var olvasottNev = Stream.generate(() -> varostBeker(input))
                                     .dropWhile(k -> k.length() < 3)
                                     .findFirst()
-                                    .get();
-            
-            System.out.println("8. Feladat");
+                                    .orElseThrow();
+
             Arrays.stream(helyszinek)
                   .filter(k -> k.varos.equalsIgnoreCase(olvasottNev))
                   .findFirst()
-                  .ifPresentOrElse(k -> System.out.println("Volt " + olvasottNev + "-ban merkozes"), 
-                                  () -> System.out.println("Nem volt " + olvasottNev + "-ban merkozes"));
+                  .ifPresentOrElse(k -> System.out.println("8. Feladat: Volt " + olvasottNev + "-ban merkozes"),
+                                  () -> System.out.println("8. Feladat: Nem volt " + olvasottNev + "-ban merkozes"));
         }
-        
-        System.out.println("9. Feladat");
-        System.out.println("Varosok szama: " + Arrays.stream(helyszinek).map(k -> k.varos).distinct().count());
+
+        var varosokSzama = Arrays.stream(helyszinek)
+                                 .map(k -> k.varos)
+                                 .distinct()
+                                 .count();
+
+        System.out.println("9. Feladat: Varosok szama: " + varosokSzama);
     }
-    
-    public static class Helyszin{
-        public final String varos;
-        public final String nev1;
-        public final String nev2;
-        public final int ferohely;
-        
-        public Helyszin(String line) {
-            var split = line.split(";");
-            
-            this.varos = split[0];
-            this.nev1 = split[1];
-            this.nev2 = split[2];
-            this.ferohely = Integer.parseInt(split[3]);
-        }
-        
-        @Override
-        public String toString() {
-            return "Varos: " + varos + ", nev1: " + nev1 + ", nev2: " + nev2 + ", ferohely: " + ferohely;
-        }
+
+    public static String varostBeker(Scanner input) {
+        System.out.println("Kérem 1 város nevét!");
+        return input.nextLine();
     }
 }
