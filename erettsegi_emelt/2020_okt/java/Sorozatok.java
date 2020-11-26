@@ -2,8 +2,6 @@ import java.io.*;
 import java.nio.file.*;
 import java.time.*;
 import java.util.*;
-import java.util.concurrent.*;
-import java.util.stream.*;
 
 public class Sorozatok {
 
@@ -30,16 +28,11 @@ public class Sorozatok {
             }
         }
 
+        var elpazaroltIdoStat = Duration.ofMinutes(osszesElpazaroltPerc);
+
         System.out.println("2. Feladat: " + ismertDatumuakSzama + " db ismert dátumú epizód van");
         System.out.printf("3. Feladat: Látottak százaléka: %.2f%%\n", ((float) keszitoAltalLatottakSzama / sorozatok.size() * 100));
-
-        var elpazaroltNapok = TimeUnit.MINUTES.toDays(osszesElpazaroltPerc);
-        var elpazaroltNapokPercekben = TimeUnit.DAYS.toMinutes(elpazaroltNapok);
-        var elpazaroltOrak = TimeUnit.MINUTES.toHours(osszesElpazaroltPerc - elpazaroltNapokPercekben);
-        var elpazaroltOrakPercekben = TimeUnit.HOURS.toMinutes(elpazaroltOrak);
-        var elpazaroltPercek = osszesElpazaroltPerc - elpazaroltNapokPercekben - elpazaroltOrakPercekben;
-
-        System.out.printf("4. Feladat: Eltöltött idő: %d nap, %d óra és %d perc\n", elpazaroltNapok, elpazaroltOrak, elpazaroltPercek);
+        System.out.printf("4. Feladat: Eltöltött idő: %d nap, %d óra és %d perc\n", elpazaroltIdoStat.toDaysPart(), elpazaroltIdoStat.toHoursPart(), elpazaroltIdoStat.toMinutesPart());
         System.out.println("5. Feladat: Írj be 1 dátumot! (éééé.hh.nn)");
 
         try(var input = new Scanner(System.in)) {

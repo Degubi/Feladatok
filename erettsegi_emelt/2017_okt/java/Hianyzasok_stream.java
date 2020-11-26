@@ -19,65 +19,66 @@ public class Hianyzasok_stream {
                               })
                               .map(split -> new Hianyzas(split[0] + ' ' +  split[1], split[2], honapNapSzamlalok[0], honapNapSzamlalok[1]))
                               .toArray(Hianyzas[]::new);
-        
+
         System.out.println("2. Feladat: Hiányzások száma: " + hianyzasok.length);
-        
+
         var igazoltak = Arrays.stream(hianyzasok)
                               .map(k -> k.orak)
                               .mapToLong(k -> k.chars().filter(l -> l == 'X').count())
                               .sum();
-        
+
         var igazolatlanok = Arrays.stream(hianyzasok)
                                   .map(k -> k.orak)
                                   .mapToLong(k -> k.chars().filter(l -> l == 'I').count())
                                   .sum();
-        
+
         System.out.println("3. Feladat: Igazolt hiányzások: " + igazoltak + ", igazolatlanok: " + igazolatlanok);
-        
+
         try(var input = new Scanner(System.in)){
             System.out.println("5. Feladat: Írjon be egy hónapot és egy napot");
-            
+
             var beHonap = input.nextInt();
             var beNap = input.nextInt();
-            
+
             System.out.println("Azon a napon: " + hetnapja(beHonap, beNap) + " volt");
             System.out.println("6. Feladat: Írja be 1 nap nevét és 1 óraszámot");
-            
+
             var beTanNap = input.next();
             var beOraszam = input.nextInt() - 1;
-            
+
             var szam = Arrays.stream(hianyzasok)
                              .filter(k -> beTanNap.equals(hetnapja(k.honap, k.nap)))
                              .map(k -> k.orak)
                              .mapToInt(k -> k.charAt(beOraszam))
                              .filter(k -> k == 'X' || k == 'I')
                              .count();
-            
+
             System.out.println("Ekkor " + szam + "-an hiányoztak");
         }
-        
+
         System.out.println("7. Feladat: ");
-        
+
         var hianyzasMap = Arrays.stream(hianyzasok)
-                                .collect(Collectors.groupingBy(k -> k.nev, 
+                                .collect(Collectors.groupingBy(k -> k.nev,
                                          Collectors.summingLong(k -> k.orak.chars().filter(l -> l == 'X' || l == 'I').count())));
-        
-        var legtobbHianyzas = hianyzasMap.values()
-                                         .stream()
+
+        var legtobbHianyzas = hianyzasMap.values().stream()
                                          .mapToLong(k -> k)
                                          .max()
                                          .orElseThrow();
-        
+
         hianyzasMap.entrySet().stream()
                    .filter(k -> k.getValue() == legtobbHianyzas)
                    .forEach(k -> System.out.print(k.getKey() + ' '));
     }
-    
+
+
+    public static final String[] napnev = { "vasarnap", "hetfo", "kedd", "szerda", "csutortok", "pentek", "szombat" };
+    public static final int[] napszam = { 0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 335 };
+
     public static String hetnapja(int honap, int nap) {
-        var napnev = new String[] {"vasarnap", "hetfo", "kedd", "szerda", "csutortok", "pentek", "szombat"};
-        var napszam = new int[] {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 335};
         var napsorszam = (napszam[honap - 1] + nap) % 7;
-        
+
         return napnev[napsorszam];
     }
 }
