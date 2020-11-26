@@ -1,79 +1,65 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 
-namespace Prog{
-    public class Otszaz {
-		
-        public static void Main(string[] args){
-            var lines = File.ReadAllLines("penztar.txt");
-            var vasarlasok = new List<Vasarlas>();
-       
-            var toAdd = new List<string>();
-            foreach(String sor in lines) {
-                if(sor.Equals("F")) {
-                    vasarlasok.Add(new Vasarlas(toAdd));
-                    toAdd.Clear();
-                }else{
-                    toAdd.Add(sor);
+public class Otszaz {
+
+    public static void Main(string[] args){
+        var lines = File.ReadAllLines("penztar.txt");
+        var vasarlasok = new List<Vasarlas>();
+    
+        var toAdd = new List<string>();
+        foreach(String sor in lines) {
+            if(sor.Equals("F")) {
+                vasarlasok.Add(new Vasarlas(toAdd));
+                toAdd.Clear();
+            }else{
+                toAdd.Add(sor);
+            }
+        }
+    
+        Console.WriteLine("Vásárlások száma: " + vasarlasok.Count);
+        Console.WriteLine("Elsö vásárlásnál vett dolgok száma: " + vasarlasok[0].dolgok.Count);
+    
+        Console.WriteLine("Írj be 1 sorszámot");
+        var sorszam = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Írj be 1 árut");
+        var aru = Console.ReadLine();
+
+        Console.WriteLine("Írj be 1 mennyiséget");
+        var dbszam = int.Parse(Console.ReadLine());
+    
+        int amount = 0, utolso = 0;
+        for(var k = 0; k < vasarlasok.Count; ++k) {
+            foreach(var entries in vasarlasok[k].dolgok.Keys){
+                if(entries.Equals(aru)) {
+                    ++amount;
+                    utolso = k;
+
+                    if(amount == 1) {
+                        Console.WriteLine("Először a " + ++k + ". vásárlásnál vettek " + aru + "-t");
+                    }
                 }
             }
+        }
         
-            Console.WriteLine("Vásárlások száma: " + vasarlasok.Count);
-            Console.WriteLine("Elsö vásárlásnál vett dolgok száma: " + vasarlasok[0].dolgok.Count);
-       
-            Console.WriteLine("Írj be 1 sorszámot");
-            var sorszam = int.Parse(Console.ReadLine());
-            Console.WriteLine("Írj be 1 árut");
-            String aru = Console.ReadLine();
-            Console.WriteLine("Írj be 1 mennyiséget");
-            var dbszam = int.Parse(Console.ReadLine());
+        Console.WriteLine("Utoljára a " + ++utolso + ". vásárlásnál vettek " + aru + "-t");
+        Console.WriteLine("Összesen " + amount + "-szor vettek " + aru + "-t");
+        Console.WriteLine(dbszam + " db esetén a fizetendő: " + ertek(dbszam));
+        Console.WriteLine("A " + sorszam + ". vásárláskor vásárolt dolgok: " + vasarlasok[sorszam - 1].dolgok.ToString());
         
-            int amount = 0, utolso = 0;
+        using(var output = new StreamWriter("osszeg.txt")){
             for(int k = 0; k < vasarlasok.Count; ++k) {
-                foreach(var entries in vasarlasok[k].dolgok.Keys){
-                    if(entries.Equals(aru)) {
-                        ++amount;
-                        utolso = k;
-                        if(amount == 1) {
-                            Console.WriteLine("Először a " + ++k + ". vásárlásnál vettek " + aru + "-t");
-                        }
-                    }
-                }
-            }
-            
-            Console.WriteLine("Utoljára a " + ++utolso + ". vásárlásnál vettek " + aru + "-t");
-            Console.WriteLine("Összesen " + amount + "-szor vettek " + aru + "-t");
-            Console.WriteLine(dbszam + " db esetén a fizetendő: " + ertek(dbszam));
-            Console.WriteLine("A " + sorszam + ". vásárláskor vásárolt dolgok: " + vasarlasok[sorszam - 1].dolgok.ToString());
-            
-            using(var output = new StreamWriter("osszeg.txt")){
-                for(int k = 0; k < vasarlasok.Count; ++k) {
-                    int printMount = 0;
-                    foreach(var entries in vasarlasok[k].dolgok.Values) {
-                        printMount += ertek(entries);
-                    }
-                    output.WriteLine((k + 1).ToString() + ":" + printMount);
-                }
-            }
-            Console.Read();
-        }
+                var printMount = 0;
 
-        public static int ertek(int dbSzam) {
-            return dbSzam == 1 ? 500 : dbSzam == 2 ? 950 : 1350 + (400 * (dbSzam - 3));
-        }
-
-        public class Vasarlas{
-            public Dictionary<string, int> dolgok = new Dictionary<string, int>();
-			
-            public Vasarlas(List<string> things) {
-                foreach(string th in things) {
-                    if(!dolgok.ContainsKey(th)) {
-                        dolgok.Add(th, things.Where(k => k.Equals(th)).Count());
-                    }
+                foreach(var entries in vasarlasok[k].dolgok.Values) {
+                    printMount += ertek(entries);
                 }
+                output.WriteLine((k + 1).ToString() + ":" + printMount);
             }
         }
     }
+
+    public static int ertek(int dbSzam) => dbSzam == 1 ? 500 : dbSzam == 2 ? 950 : 1350 + (400 * (dbSzam - 3));
 }

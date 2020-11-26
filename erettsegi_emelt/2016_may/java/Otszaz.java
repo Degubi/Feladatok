@@ -23,8 +23,10 @@ public class Otszaz {
         var input = new Scanner(System.in);
         System.out.println("Írj be 1 sorszámot");
         var beSorszam = input.nextInt();
+
         System.out.println("Írj be 1 árut");
-        String beAru = input.next();
+        var beAru = input.next();
+
         System.out.println("Írj be 1 mennyiséget");
         var beDBszam = input.nextInt();
         input.close();

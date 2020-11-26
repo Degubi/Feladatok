@@ -2,10 +2,10 @@
 
 [<EntryPoint>]
 let main _ =
-    let versenyzotKeszit (k: string) = k.Split ";" |> fun k -> {| Helyezes = int k.[0]; Nev = k.[1]; Orszag = k.[2]; Nyeremeny = int k.[3] |}
-    let versenyzok = File.ReadAllLines("snooker.txt") |> Seq.skip(1)
-                                                      |> Seq.map(versenyzotKeszit)
-                                                      |> Seq.toArray
+    let versenyzotKeszit (k: string[]) = {| Helyezes = int k.[0]; Nev = k.[1]; Orszag = k.[2]; Nyeremeny = int k.[3] |}
+    let versenyzok = File.ReadLines("snooker.txt") |> Seq.skip(1)
+                                                   |> Seq.map(fun k -> k.Split(";") |> versenyzotKeszit)
+                                                   |> Seq.toArray
 
     printfn "3. Feladat: Versenyzők száma: %d" versenyzok.Length
 

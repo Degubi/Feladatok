@@ -26,7 +26,8 @@ public class Cimek_stream{
             var index = input.nextInt() - 1;
             
             System.out.println(lines.get(index) + " (Eredeti)");
-            String roviditett = rov1(lines.get(index));
+            var roviditett = rov1(lines.get(index));
+            
             System.out.println(roviditett + " (1. Rövidítés)");
             System.out.println(rov2(roviditett));
         }

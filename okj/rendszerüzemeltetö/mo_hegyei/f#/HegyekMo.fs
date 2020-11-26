@@ -1,19 +1,17 @@
 ﻿open System
 open System.IO
 
-type Hegy = { Nev: string; Hegyseg: string; Magassag: float }
-
 [<EntryPoint>]
 let main _ =
-    let hegyetKeszit (k: string) = k.Split ";" |> fun k -> { Nev = k.[0]; Hegyseg = k.[1]; Magassag = float k.[2] }
+    let hegyetKeszit (k: string[]) = {| Nev = k.[0]; Hegyseg = k.[1]; Magassag = float k.[2] |}
     let hegyek = File.ReadLines("hegyekMo.txt") |> Seq.skip(1)
-                                                |> Seq.map(hegyetKeszit)
+                                                |> Seq.map(fun k -> k.Split(";") |> hegyetKeszit)
                                                 |> Seq.toArray
 
     printfn "3. Feladat: Hegyek száma: %d db" hegyek.Length
 
     hegyek |> Seq.averageBy(fun k -> k.Magassag)
-           |> fun k -> printfn "4. Feladat: Átlagmagasság: %.2f m" k
+           |> printfn "4. Feladat: Átlagmagasság: %.2f m"
 
     hegyek |> Seq.maxBy(fun k -> k.Magassag)
            |> fun k -> printfn "5. Feladat: Legmagasabb hegy: %s-ben a %s, magassága: %.0f m" k.Hegyseg k.Nev k.Magassag
@@ -28,7 +26,7 @@ let main _ =
 
     hegyek |> Seq.filter(fun k -> k.Magassag > konvertaltLab3000)
            |> Seq.sumBy(fun _ -> 1)
-           |> fun k -> printfn "7. Feladat: 3000 lábnál magasabbak száma: %d" k
+           |> printfn "7. Feladat: 3000 lábnál magasabbak száma: %d"
 
     printfn "8. Feladat: Hegység stat"
 
@@ -36,11 +34,9 @@ let main _ =
            |> Seq.countBy(id)
            |> Seq.iter(fun (k, l) -> printfn "    %s: %d" k l)
 
-    let kimenetteKonvertal (k : Hegy) = sprintf "%s;%.2f" k.Nev (k.Magassag * 3.280839895) |> fun k -> k.Replace(",", ".")
     let fileAdat = hegyek |> Seq.filter(fun k -> k.Hegyseg = "Bükk-vidék")
-                          |> Seq.map(kimenetteKonvertal)
+                          |> Seq.map(fun k -> sprintf "%s;%.2f" k.Nev (k.Magassag * 3.280839895) |> fun k -> k.Replace(",", "."))
                           |> Seq.toArray
-                          |> fun k -> String.Join("\n", k)
 
-    File.WriteAllText("bukk-videk.txt", "Hegycsúcs neve;Magasság láb\n" + fileAdat)
+    File.WriteAllText("bukk-videk.txt", "Hegycsúcs neve;Magasság láb\n" + String.Join("\n", fileAdat))
     0
