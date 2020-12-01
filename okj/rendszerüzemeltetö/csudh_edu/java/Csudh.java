@@ -3,6 +3,7 @@ import java.nio.file.*;
 import java.util.*;
 
 public class Csudh {
+
     public static void main(String[] args) throws IOException {
         var lines = Files.readAllLines(Path.of("csudh.txt"));
         var pairs = new ArrayList<Pair>();

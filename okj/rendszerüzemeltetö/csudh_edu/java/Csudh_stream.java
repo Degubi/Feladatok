@@ -3,6 +3,7 @@ import java.nio.file.*;
 import java.util.stream.*;
 
 public class Csudh_stream {
+
     public static void main(String[] args) throws IOException {
         var pairs = Files.lines(Path.of("csudh.txt"))
                          .skip(1)

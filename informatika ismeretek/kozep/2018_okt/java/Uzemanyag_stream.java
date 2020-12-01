@@ -7,19 +7,21 @@ import java.util.stream.*;
 public class Uzemanyag_stream {
 
     public static void main(String[] args) throws IOException {
-        var valtozasok = Files.lines(Path.of("uzemanyag.txt")).map(Arvaltozas::new).toArray(Arvaltozas[]::new);
+        var valtozasok = Files.lines(Path.of("uzemanyag.txt"))
+                              .map(Arvaltozas::new)
+                              .toArray(Arvaltozas[]::new);
 
         System.out.println("3. Feladat: Változások száma: " + valtozasok.length);
 
         var legkisebbKul = Arrays.stream(valtozasok)
-                                 .min(Comparator.comparingInt(k -> Integer.max(k.benzinAr, k.gazolajAr) - Integer.min(k.benzinAr, k.gazolajAr)))
-                                 .map(k -> Integer.max(k.benzinAr, k.gazolajAr) - Integer.min(k.benzinAr, k.gazolajAr))
+                                 .min(Comparator.comparingInt(k -> Math.max(k.benzinAr, k.gazolajAr) - Math.min(k.benzinAr, k.gazolajAr)))
+                                 .map(k -> Math.max(k.benzinAr, k.gazolajAr) - Math.min(k.benzinAr, k.gazolajAr))
                                  .orElseThrow();
 
         System.out.println("4. Feladat: Legkisebb különbség: " + legkisebbKul);
 
         var legkisebbDarab = Arrays.stream(valtozasok)
-                                   .filter(k -> Integer.max(k.benzinAr, k.gazolajAr) - Integer.min(k.benzinAr, k.gazolajAr) == legkisebbKul)
+                                   .filter(k -> Math.max(k.benzinAr, k.gazolajAr) - Math.min(k.benzinAr, k.gazolajAr) == legkisebbKul)
                                    .count();
 
         System.out.println("5. Feladat: Előfordulás: " + legkisebbDarab);
@@ -34,7 +36,7 @@ public class Uzemanyag_stream {
         Files.writeString(Path.of("euro.txt"), fileba);
 
         System.out.println("8. Feladat:");
-        try(var console = new Scanner(System.in)){
+        try(var console = new Scanner(System.in)) {
             var bekertEvszam = IntStream.generate(() -> evszamotBeker(console))
                                         .dropWhile(k -> k <= 2011 || k >= 2016)
                                         .findFirst()

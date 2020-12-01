@@ -15,26 +15,25 @@ public static class Futar_linq {
         Console.WriteLine("3. Feladat\nA hét utolsó útja km-ben: " + fuvarLista.Last().tavolsag + " km");
 
         Enumerable.Range(1, 7).ForEach(day => {
-            if(!fuvarLista.Select(k => k.nap)
-                            .Distinct()
-                            .Any(k => k == day)) Console.WriteLine("A " + day + ". nap szabadnap volt");});
-    
+            if(!fuvarLista.Select(k => k.nap).Distinct().Any(k => k == day)) {
+                Console.WriteLine("A " + day + ". nap szabadnap volt");
+            }
+        });
+
         Console.WriteLine("5. Feladat\nLegtöbb fuvarú nap: " + fuvarLista.Where(k => k.tavolsag == fuvarLista.Max(l => l.tavolsag)).First().nap);
-    
         Console.WriteLine("6. Feladat");
-        Enumerable.Range(1, 7).ForEach(day => Console.WriteLine("A " + day + ". nap távja: " + 
-                    fuvarLista.Where(k => k.nap == day)
-                                .Select(k => k.tavolsag)
-                                .Sum()));
-    
+        Enumerable.Range(1, 7).ForEach(day => Console.WriteLine("A " + day + ". nap távja: " + fuvarLista.Where(k => k.nap == day)
+                                                                                                         .Select(k => k.tavolsag)
+                                                                                                         .Sum()));
         Console.WriteLine("7.Feladat\nÍrj be 1 távolságot!");
+
         var readKm = int.Parse(Console.ReadLine());
         Console.WriteLine($"{readKm} km esetén fizetendő: {CalcPrice(readKm)}");
-    
-        using(var output = new StreamWriter("dijazas.txt")){
-            Array.ForEach(fuvarLista, fuvar => output.WriteLine($"{fuvar.nap}. nap {fuvar.sorszam}. fuvar: {CalcPrice(fuvar.tavolsag)} FT"));
-        }
-                
+
+        var fileba = fuvarLista.Select(k => $"{k.nap}. nap {k.sorszam}. fuvar: {CalcPrice(k.tavolsag)} FT")
+                               .ToArray();
+        
+        File.WriteAllLines("dijazas.txt", fileba);
         Console.WriteLine("9. Feladat\nAz egész heti fizetés: " + fuvarLista.Select(k => CalcPrice(k.tavolsag)).Sum());
     }
 

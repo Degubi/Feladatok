@@ -1,4 +1,5 @@
 public struct Pair {
+
     public readonly string domain;
     public readonly string ip;
 
