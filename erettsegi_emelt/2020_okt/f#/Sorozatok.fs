@@ -23,50 +23,48 @@ let sorozatotKeszit(lines: string[], index: int) =
         LattaEMarAKeszito = int lines.[index + 4] = 1
     |}
 
-[<EntryPoint>]
-let main _ =
-    let lines = File.ReadAllLines("lista.txt")
-    let sorozatok = seq { 0 .. 5 .. lines.Length - 1 } |> Seq.map(fun i -> sorozatotKeszit(lines, i))
-                                                       |> Seq.toArray
 
-    sorozatok |> Seq.filter(fun k -> k.AdasbaKerulesiDatum <> DateTime.MinValue)
-              |> Seq.length
-              |> printfn "2. Feladat: %d db ismert dátumú epizód van"
+let lines = File.ReadAllLines("lista.txt")
+let sorozatok = seq { 0 .. 5 .. lines.Length - 1 } |> Seq.map(fun i -> sorozatotKeszit(lines, i))
+                                                   |> Seq.toArray
 
-    sorozatok |> Seq.filter(fun k -> k.LattaEMarAKeszito)
-              |> Seq.length
-              |> fun k -> float k / float sorozatok.Length * 100.0
-              |> printfn "3. Feladat: Látottak százaléka: %.2f%%"
+sorozatok |> Seq.filter(fun k -> k.AdasbaKerulesiDatum <> DateTime.MinValue)
+          |> Seq.length
+          |> printfn "2. Feladat: %d db ismert dátumú epizód van"
 
-    sorozatok |> Seq.filter(fun k -> k.LattaEMarAKeszito)
-              |> Seq.sumBy(fun k -> k.EpizodonkentiHossz)
-              |> float
-              |> TimeSpan.FromMinutes
-              |> fun k -> printfn "4. Feladat: Eltöltött idő: %d nap, %d óra és %d perc" k.Days k.Hours k.Minutes
+sorozatok |> Seq.filter(fun k -> k.LattaEMarAKeszito)
+          |> Seq.length
+          |> fun k -> float k / float sorozatok.Length * 100.0
+          |> printfn "3. Feladat: Látottak százaléka: %.2f%%"
 
-    printfn "5. Feladat: Írj be 1 dátumot! (éééé.hh.nn)"
+sorozatok |> Seq.filter(fun k -> k.LattaEMarAKeszito)
+          |> Seq.sumBy(fun k -> k.EpizodonkentiHossz)
+          |> float
+          |> TimeSpan.FromMinutes
+          |> fun k -> printfn "4. Feladat: Eltöltött idő: %d nap, %d óra és %d perc" k.Days k.Hours k.Minutes
 
-    let bekertDatumStr = Console.ReadLine()
-    let bekertDatum = DateTime.ParseExact(bekertDatumStr, "yyyy.MM.dd", CultureInfo.InvariantCulture)
+printfn "5. Feladat: Írj be 1 dátumot! (éééé.hh.nn)"
 
-    sorozatok |> Seq.filter(fun k -> k.AdasbaKerulesiDatum <> DateTime.MinValue && not k.LattaEMarAKeszito)
-              |> Seq.filter(fun k -> k.AdasbaKerulesiDatum < bekertDatum || k.AdasbaKerulesiDatum = bekertDatum)
-              |> Seq.iter(fun k -> printfn "%dx%d\t%s" k.EvadokSzama k.EpizodokSzama k.Cim)
+let bekertDatumStr = Console.ReadLine()
+let bekertDatum = DateTime.ParseExact(bekertDatumStr, "yyyy.MM.dd", CultureInfo.InvariantCulture)
 
-    printfn "7. Feladat: Add meg 1 hét napját! (h, k, sze, cs, p, szo, v)"
+sorozatok |> Seq.filter(fun k -> k.AdasbaKerulesiDatum <> DateTime.MinValue && not k.LattaEMarAKeszito)
+          |> Seq.filter(fun k -> k.AdasbaKerulesiDatum < bekertDatum || k.AdasbaKerulesiDatum = bekertDatum)
+          |> Seq.iter(fun k -> printfn "%dx%d\t%s" k.EvadokSzama k.EpizodokSzama k.Cim)
 
-    let bekertNap = Console.ReadLine()
+printfn "7. Feladat: Add meg 1 hét napját! (h, k, sze, cs, p, szo, v)"
 
-    sorozatok |> Seq.filter(fun k -> k.AdasbaKerulesiDatum <> DateTime.MinValue)
-              |> Seq.filter(fun k -> bekertNap = hetnapja(k.AdasbaKerulesiDatum.Year, k.AdasbaKerulesiDatum.Month, k.AdasbaKerulesiDatum.Day))
-              |> Seq.map(fun k -> k.Cim)
-              |> Seq.distinct
-              |> Seq.toArray
-              |> fun k -> if k.Length = 0 then "Az adott napon nem kerül adásba sorozat." else String.Join("\n", k)
-              |> printfn "%s"
+let bekertNap = Console.ReadLine()
 
-    sorozatok |> Seq.groupBy(fun k -> k.Cim)
-              |> Seq.map(fun (k, v) -> k + " " + string (v |> Seq.sumBy(fun m -> m.EpizodonkentiHossz)) + " " + string (v |> Seq.length))
-              |> Seq.toArray
-              |> fun k -> File.WriteAllLines("summa.txt", k)
-    0
+sorozatok |> Seq.filter(fun k -> k.AdasbaKerulesiDatum <> DateTime.MinValue)
+          |> Seq.filter(fun k -> bekertNap = hetnapja(k.AdasbaKerulesiDatum.Year, k.AdasbaKerulesiDatum.Month, k.AdasbaKerulesiDatum.Day))
+          |> Seq.map(fun k -> k.Cim)
+          |> Seq.distinct
+          |> Seq.toArray
+          |> fun k -> if k.Length = 0 then "Az adott napon nem kerül adásba sorozat." else String.Join("\n", k)
+          |> printfn "%s"
+
+sorozatok |> Seq.groupBy(fun k -> k.Cim)
+          |> Seq.map(fun (k, v) -> k + " " + string (v |> Seq.sumBy(fun m -> m.EpizodonkentiHossz)) + " " + string (v |> Seq.length))
+          |> Seq.toArray
+          |> fun k -> File.WriteAllLines("summa.txt", k)
