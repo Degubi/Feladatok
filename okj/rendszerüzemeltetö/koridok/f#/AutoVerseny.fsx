@@ -2,13 +2,13 @@ open System
 open System.IO
 
 let versenytKeszit(args: string[]) = {|
-        Csapat = args.[0];
-        Versenyzo = args.[1];
-        Eletkor = int args.[2];
-        Palya = args.[3];
-        Korido = TimeSpan.Parse(args.[4]);
-        Kor = int args.[5]
-    |}
+    Csapat = args.[0]
+    Versenyzo = args.[1]
+    Eletkor = int args.[2]
+    Palya = args.[3]
+    Korido = TimeSpan.Parse(args.[4])
+    Kor = int args.[5]
+|}
 
 let versenyek = File.ReadLines("autoverseny.csv") |> Seq.skip(1)
                                                   |> Seq.map(fun k -> k.Split(';') |> versenytKeszit)

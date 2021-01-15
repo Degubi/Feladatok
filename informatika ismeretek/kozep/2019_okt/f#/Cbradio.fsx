@@ -1,7 +1,13 @@
 open System
 open System.IO
 
-let bejegyzestKeszit (k: string[]) = {| Ora = int k.[0]; Perc = int k.[1]; Adasok = int k.[2]; Nev = k.[3]|}
+let bejegyzestKeszit (k: string[]) = {|
+    Ora = int k.[0]
+    Perc = int k.[1]
+    Adasok = int k.[2]
+    Nev = k.[3]
+|}
+
 let bejegyzesek = File.ReadLines("cb.txt") |> Seq.skip(1)
                                            |> Seq.map(fun k -> k.Split(';') |> bejegyzestKeszit)
                                            |> Seq.toArray
@@ -23,7 +29,7 @@ else
     printfn "Nincs ilyen nevű sofőr!"
 
 let atszamolPercre (ora: int, perc: int) = ora * 60 + perc
-let fileContent = bejegyzesek |> Seq.map(fun k -> string(atszamolPercre(k.Ora, k.Perc)) + ";" + k.Nev + ";" + string(k.Adasok))
+let fileContent = bejegyzesek |> Seq.map(fun k -> string(atszamolPercre(k.Ora, k.Perc)) + ";" + k.Nev + ";" + string k.Adasok)
                               |> Seq.toArray
 
 File.WriteAllText("cb2.txt", "Kezdes;Nev;AdasDb\n" + String.Join("\n", fileContent))

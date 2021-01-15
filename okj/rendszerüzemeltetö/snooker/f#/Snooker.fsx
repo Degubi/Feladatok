@@ -1,9 +1,15 @@
 ﻿open System.IO
 
-let versenyzotKeszit (k: string[]) = {| Helyezes = int k.[0]; Nev = k.[1]; Orszag = k.[2]; Nyeremeny = int k.[3] |}
-let versenyzok = File.ReadLines("snooker.txt") |> Seq.skip(1)
-                                               |> Seq.map(fun k -> k.Split(';') |> versenyzotKeszit)
-                                               |> Seq.toArray
+let versenyzotKeszit (k: string[]) = {|
+    Helyezes = int k.[0]
+    Nev = k.[1]
+    Orszag = k.[2]
+    Nyeremeny = int k.[3]
+|}
+
+let versenyzok = File.ReadLines "snooker.txt" |> Seq.skip(1)
+                                              |> Seq.map(fun k -> k.Split ';' |> versenyzotKeszit)
+                                              |> Seq.toArray
 
 printfn "3. Feladat: Versenyzők száma: %d" versenyzok.Length
 

@@ -18,14 +18,12 @@ public class Nobel_stream {
         
         System.out.println("4. Feladat");
         Arrays.stream(dijak)
-              .filter(k -> k.evszam == 2017)
-              .filter(k -> k.tipus.equals("irodalmi"))
+              .filter(k -> k.evszam == 2017 && k.tipus.equals("irodalmi"))
               .forEach(k -> System.out.println("Irodalmi díjat kapott: " + k.keresztNev + " " + k.vezetekNev));
         
         System.out.println("5. Feladat");
         Arrays.stream(dijak)
-              .filter(k -> k.vezetekNev.equals(""))
-              .filter(k -> k.evszam >= 1990)
+              .filter(k -> k.vezetekNev.equals("") && k.evszam >= 1990)
               .forEach(k -> System.out.println(k.evszam + ": " + k.keresztNev));
         
         System.out.println("6. Feladat");

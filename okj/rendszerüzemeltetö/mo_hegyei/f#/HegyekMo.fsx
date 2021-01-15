@@ -1,9 +1,14 @@
 ﻿open System
 open System.IO
 
-let hegyetKeszit (k: string[]) = {| Nev = k.[0]; Hegyseg = k.[1]; Magassag = float k.[2] |}
+let hegyetKeszit (k: string[]) = {|
+    Nev = k.[0]
+    Hegyseg = k.[1]
+    Magassag = float k.[2]
+|}
+
 let hegyek = File.ReadLines("hegyekMo.txt") |> Seq.skip(1)
-                                            |> Seq.map(fun k -> k.Split(';') |> hegyetKeszit)
+                                            |> Seq.map(fun k -> k.Split ';' |> hegyetKeszit)
                                             |> Seq.toArray
 
 printfn "3. Feladat: Hegyek száma: %d db" hegyek.Length

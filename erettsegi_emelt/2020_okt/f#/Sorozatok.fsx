@@ -1,6 +1,5 @@
 open System
 open System.IO
-open System.Globalization
 
 let napok = [| "v"; "h"; "k"; "sz"; "cs"; "p"; "szo" |]
 let honapok = [| 0; 3; 2; 5; 0; 3; 5; 1; 4; 6; 2; 4 |]
@@ -15,7 +14,7 @@ let sorozatotKeszit(lines: string[], index: int) =
     let epizodInfoSplit = lines.[index + 2].Split('x')
 
     {|
-        AdasbaKerulesiDatum = if datumStr = "NI" then DateTime.MinValue else DateTime.ParseExact(datumStr, "yyyy.MM.dd", CultureInfo.InvariantCulture);
+        AdasbaKerulesiDatum = if datumStr = "NI" then DateTime.MinValue else DateTime.ParseExact(datumStr, "yyyy.MM.dd", null);
         Cim = lines.[index + 1];
         EvadokSzama = int epizodInfoSplit.[0];
         EpizodokSzama = int epizodInfoSplit.[1];
@@ -46,7 +45,7 @@ sorozatok |> Seq.filter(fun k -> k.LattaEMarAKeszito)
 printfn "5. Feladat: Írj be 1 dátumot! (éééé.hh.nn)"
 
 let bekertDatumStr = Console.ReadLine()
-let bekertDatum = DateTime.ParseExact(bekertDatumStr, "yyyy.MM.dd", CultureInfo.InvariantCulture)
+let bekertDatum = DateTime.ParseExact(bekertDatumStr, "yyyy.MM.dd", null)
 
 sorozatok |> Seq.filter(fun k -> k.AdasbaKerulesiDatum <> DateTime.MinValue && not k.LattaEMarAKeszito)
           |> Seq.filter(fun k -> k.AdasbaKerulesiDatum < bekertDatum || k.AdasbaKerulesiDatum = bekertDatum)

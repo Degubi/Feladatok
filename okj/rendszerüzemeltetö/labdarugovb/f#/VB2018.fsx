@@ -5,11 +5,17 @@ let varostBeker(_) =
     printfn "Kérek 1 város nevet!"
     Console.ReadLine()
 
+let helyszintKeszit (k: string[]) = {|
+    Varos = k.[0]
+    Nev1 = k.[1]
+    Nev2 = k.[2]
+    Ferohely = int k.[3]
+|}
 
-let helyszintKeszit (k: string[]) = {| Varos = k.[0]; Nev1 = k.[1]; Nev2 = k.[2]; Ferohely = int k.[3] |}
-let helyszinek = File.ReadLines("vb2018.txt") |> Seq.skip(1)
-                                              |> Seq.map(fun k -> k.Split(';') |> helyszintKeszit)
-                                              |> Seq.toArray
+
+let helyszinek = File.ReadLines "vb2018.txt" |> Seq.skip(1)
+                                             |> Seq.map(fun k -> k.Split ';' |> helyszintKeszit)
+                                             |> Seq.toArray
 
 printfn "3. Feladat: Stadionok száma: %d" helyszinek.Length
 

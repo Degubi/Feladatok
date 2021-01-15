@@ -9,12 +9,12 @@ public class Csudh_stream {
                          .skip(1)
                          .map(Pair::new)
                          .toArray(Pair[]::new);
-        
+
         System.out.println("3. Feladat: Párok száma: " + pairs.length);
         System.out.println("5. Feladat");
-        
+
         IntStream.range(0, 5).forEach(i -> System.out.println((i + 1) + ". szint: " + domain(i, pairs[0].domain)));
-        
+
         var header = "<table>\n" +
                      "<tr>\n" +
                      "<th style='text-align: left'>Sorszam</th>\n" +
@@ -26,30 +26,29 @@ public class Csudh_stream {
                      "<th style='text-align: left'>4. szint</th>\n" +
                      "<th style='text-align: left'>5. szint</th>\n" +
                      "</tr>";
-        
+
         var formattedPairs = IntStream.range(0, pairs.length)
                                       .mapToObj(i -> formatPair(i, pairs))
                                       .collect(Collectors.joining("</tr>\n"));
-        
+
         Files.writeString(Path.of("table.html"), header + formattedPairs + "</table>");
     }
-    
+
     public static String formatPair(int index, Pair[] pairs) {
         var pair = pairs[index];
-        
+        var elements = IntStream.range(0, 5)
+                                .mapToObj(i -> "<td>" + domain(i, pair.domain) + "</td>")
+                                .collect(Collectors.joining("\n"));
         return "<tr>\n" +
                "<th style='text-align: left'>" + (index + 1) + ".</th>\n" +
                "<td>" + pair.domain + "</td>\n" +
-               "<td>" + pair.ip + "</td>\n" +
-               IntStream.range(0, 5)
-                           .mapToObj(i -> "<td>" + domain(i, pair.domain) + "</td>")
-                           .collect(Collectors.joining("\n")) + "\n";
+               "<td>" + pair.ip + "</td>\n" + elements + "\n";
     }
-    
+
     public static String domain(int szint, String domain) {
         var split = domain.split("\\.");
         var utolsoIndex = split.length - 1;
-        
+
         return utolsoIndex < szint ? "nincs" : split[utolsoIndex - szint];
     }
 }
