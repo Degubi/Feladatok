@@ -1,3 +1,8 @@
+![Java](https://raw.githubusercontent.com/Degubi/Feladatok/badges/java.svg)
+![C#](https://raw.githubusercontent.com/Degubi/Feladatok/badges/cs.svg)
+![F#](https://raw.githubusercontent.com/Degubi/Feladatok/badges/fs.svg)
+![Python](https://raw.githubusercontent.com/Degubi/Feladatok/badges/py.svg)
+
 # Érettségi, OKJ és informatikai ismeretek vizsga Programozás megoldások.
 
 - Mind a 3 (okj, infism, emelt é.) típusú feladatot tudom ajánlani mindenkinek, nagyon hasonló menetre megy az összes.

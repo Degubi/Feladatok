@@ -1,0 +1,61 @@
+name: Generate Badges
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Make Java Badge
+        uses: shadowmoose/GHA-LoC-Badge@1.0.0
+        with:
+          debug: true
+          directory: ./
+          badge: ./output/java.svg
+          patterns: '**/*.java'
+          badge_label: 'Java Sorok'
+          badge_color: 'orange'
+
+      - name: Make C# Badge
+        uses: shadowmoose/GHA-LoC-Badge@1.0.0
+        with:
+          debug: true
+          directory: ./
+          badge: ./output/cs.svg
+          patterns: '**/*.cs'
+          badge_label: 'C# Sorok'
+          badge_color: 'green'
+
+      - name: Make F# Badge
+        uses: shadowmoose/GHA-LoC-Badge@1.0.0
+        with:
+          debug: true
+          directory: ./
+          badge: ./output/fs.svg
+          patterns: '**/*.fs|**/*.fsx'
+          badge_label: 'F# Sorok'
+          badge_color: 'purple'
+
+      - name: Make Python Badge
+        uses: shadowmoose/GHA-LoC-Badge@1.0.0
+        with:
+          debug: true
+          directory: ./
+          badge: ./output/py.svg
+          patterns: '**/*.py'
+          badge_label: 'Python Sorok'
+          badge_color: 'blue'
+
+      - name: Deploy to image-data branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: ./output
+          publish_branch: badges
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
