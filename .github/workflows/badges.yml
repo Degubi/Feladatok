@@ -1,0 +1,31 @@
+name: Generate Badges
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Make Java Badge
+        uses: shadowmoose/GHA-LoC-Badge@1.0.0
+        with:
+          debug: true
+          directory: ./
+          badge: ./output/java.svg
+          patterns: '*.java'
+          badge_label: 'Java LOC'
+          icon: 'Java'
+
+      - name: Deploy to image-data branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: ./output
+          publish_branch: badges
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com' 
