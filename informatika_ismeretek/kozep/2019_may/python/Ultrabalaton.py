@@ -1,3 +1,5 @@
+from statistics import mean
+
 class Versenyzo:
     def __init__(self, line):
         split = line.split(";")
@@ -13,62 +15,33 @@ class Versenyzo:
         ora = float(daraboltIdo[0])
         perc = float(daraboltIdo[1])
         mp = float(daraboltIdo[2])
-        
+
         return ora + (perc / 60.0) + (mp / 3600.0)
 
-versenyzok = []
 with open("ub2017egyeni.txt", "r") as file:
     lines = file.readlines()
-
-    for i in range(1, len(lines)):
-        versenyzok.append(Versenyzo(lines[i]))
+    versenyzok = [ Versenyzo(lines[i]) for i in range(1, len(lines)) ]
 
 print(f"3. Feladat: Egyéni indulók: {len(versenyzok)}")
 
-celbaertNoiVersenyzok = 0
-for versenyzo in versenyzok:
-    if versenyzo.befejezesSzazalek == 100 and versenyzo.kategoria == "Noi":
-        celbaertNoiVersenyzok += 1
+celbaertNoiVersenyzokSzama = sum(1 for k in versenyzok if k.befejezesSzazalek == 100 and k.kategoria == "Noi")
+print(f"4. Feladat: Célbaért női versenyzők: {celbaertNoiVersenyzokSzama}")
 
-print(f"4. Feladat: Célbaért női versenyzők: {celbaertNoiVersenyzok}")
-bekertNev = input("5. Feladat: Írd be egy versenyző nevét!")
-indultEBekert = False
-belertSzazaleka = -1
+bekertNev = input("5. Feladat: Írd be egy versenyző nevét! ")
+bekertNevuVersenyzo = next((versenyzo for versenyzo in versenyzok if versenyzo.nev == bekertNev), None)
 
-for versenyzo in versenyzok:
-    if versenyzo.nev == bekertNev:
-        indultEBekert = True
-        belertSzazaleka = versenyzo.befejezesSzazalek
-        break
-
-if indultEBekert:
-    print("Indult egyéniben? Igen")
-    teljesitette = "Igen" if belertSzazaleka == 100 else "Nem"
-    print(f"Teljesítette a távot? {teljesitette}")
+if bekertNevuVersenyzo is not None:
+    print("    Indult egyéniben? Igen")
+    teljesitette = "Igen" if bekertNevuVersenyzo.befejezesSzazalek == 100 else "Nem"
+    print(f"    Teljesítette a távot? {teljesitette}")
 else:
-    print("Indult egyéniben? Nem")
+    print("    Indult egyéniben? Nem")
 
-ferfiAtlagIdo = 0.0
-ferfiakSzama = 0
+ferfiAtlagIdo = mean(k.idoOraban() for k in versenyzok if k.befejezesSzazalek == 100 and k.kategoria == "Ferfi")
+print(f"7. Feladat: Átlagos idő: {ferfiAtlagIdo} óra")
 
-for versenyzo in versenyzok:
-    if versenyzo.befejezesSzazalek == 100 and versenyzo.kategoria == "Ferfi":
-        ferfiakSzama += 1
-        ferfiAtlagIdo += versenyzo.idoOraban()
-
-print(f"7. Feladat: Átlagos idő: {ferfiAtlagIdo / ferfiakSzama}")
-
-ferfiGyoztes = versenyzok[0]
-noiGyoztes = versenyzok[0]
-
-for versenyzo in versenyzok:
-    if versenyzo.befejezesSzazalek == 100:
-        if versenyzo.kategoria == "Noi":
-            if versenyzo.idoOraban() < noiGyoztes.idoOraban():
-                noiGyoztes = versenyzo
-        else:
-            if versenyzo.idoOraban() < ferfiGyoztes.idoOraban():
-                ferfiGyoztes = versenyzo
+noiGyoztes =   min((k for k in versenyzok if k.befejezesSzazalek == 100 and k.kategoria == "Noi"),   key = lambda k: k.idoOraban())
+ferfiGyoztes = min((k for k in versenyzok if k.befejezesSzazalek == 100 and k.kategoria == "Ferfi"), key = lambda k: k.idoOraban())
 
 print(f"Nők: {noiGyoztes.nev} ({noiGyoztes.rajtszam}) - {noiGyoztes.ido}")
 print(f"Férfiak: {ferfiGyoztes.nev} ({ferfiGyoztes.rajtszam}) - {ferfiGyoztes.ido}")

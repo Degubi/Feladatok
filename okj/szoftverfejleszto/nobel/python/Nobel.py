@@ -1,3 +1,5 @@
+from collections import Counter
+
 class Dij:
     def __init__(self, line):
         split = line.split(";")
@@ -7,12 +9,9 @@ class Dij:
         self.keresztNev = split[2]
         self.vezetekNev = split[3] if len(split) == 4 else ""
 
-dijak = []
 with open("nobel.csv", encoding = "utf-8", mode = "r") as file:
     lines = file.readlines()
-    
-    for i in range(1, len(lines)):
-        dijak.append(Dij(lines[i].strip()))
+    dijak = [ Dij(lines[i].strip()) for i in range(1, len(lines)) ]
 
 for dij in dijak:
     if dij.keresztNev == "Arthur B." and dij.vezetekNev == "McDonald":
@@ -27,24 +26,22 @@ for dij in dijak:
 print("5. Feladat:")
 for dij in dijak:
     if dij.ev >= 1990 and dij.vezetekNev == "":
-        print(str(dij.ev) + ": " + dij.keresztNev)
+        print(f"{dij.ev}: {dij.keresztNev}")
 
 print("6. Feladat:")
 for dij in dijak:
     if "Curie" in dij.vezetekNev:
-        print(str(dij.ev) + ": " + dij.keresztNev + " " + dij.vezetekNev + ": " + dij.tipus)
+        print(f"{dij.ev}: {dij.keresztNev} {dij.vezetekNev}: {dij.tipus}")
 
 print("7.Feladat:")
-tipusSzamlalok = {}
-for dij in dijak:
-    tipusSzamlalok[dij.tipus] = tipusSzamlalok.get(dij.tipus, 0) + 1
 
+tipusSzamlalok = Counter(k.tipus for k in dijak)
 for tipus, db in tipusSzamlalok.items():
-    print(tipus + ": " + str(db) + " db")
+    print(f"{tipus}: {db} db")
 
-dijak.sort(key = lambda k : k.ev)
+dijak.sort(key = lambda k: k.ev)
 
 with open("orvosi.txt", mode = "w", encoding = "utf-8") as file:
     for dij in dijak:
         if dij.tipus == "orvosi":
-            file.write(str(dij.ev) + ":" + dij.keresztNev + " " + dij.vezetekNev + "\n")
+            file.write(f"{dij.ev}: {dij.keresztNev} {dij.vezetekNev}\n")
