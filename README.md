@@ -11,11 +11,11 @@
 - Nyelvenként szűrni a jobb oldali 'Languages' menüből lehet, rákell kattintani a nyelvre és csak azok a megoldások jelennek meg, amik abban a nyelvben vannak.
 
 # Hiba beküldés:
-- Nyitni kell 1 issue-t, hogy mi a hiba, hol és esetleg hogyan lehetne megjavítani
+- Nyitni kell 1 issue-t, hogy hol és mi a hiba, esetleg hogyan lehetne megjavítani
 - Ha lehet deszkriptív leírásokat írjunk...
 
 # Új megoldás beküldés:
-- Nyitni kell 1 pull requestet, amiben benne van az új megoldás
+- Nyitni kell 1 pull requestet, amiben benne van az új megoldás/hibajavítás
 - Lehetőleg kövessük az eddigi megoldások stílusát, mappa elrendezését stb
 
 # Új java verziókhoz:
@@ -96,4 +96,41 @@ Generate(() => Console.ReadLine())
 public static void ForEach<T>(this IEnumerable<T> source, Action<T> action) {
     foreach (T element in source) action(element);
 }
+```
+
+# Python hasznosságok:
+- groupby
+
+```python
+from itertools import groupby
+
+data = [('c', 1), ('a', 2), ('b', 3), ('b', 4)]
+
+groups = dict((k, list(v)) for k, v in groupby(data, lambda x: x[0]))
+
+print(groups)       # {'c': [('c', 1)], 'a': [('a', 2)], 'b': [('b', 3), ('b', 4)]}
+print(groups['c'])  # [('c', 1)]
+```
+
+- frequency map
+
+```python
+from collections import Counter
+
+data = [('c', 1), ('a', 2), ('b', 3), ('b', 4)]
+
+stat = Counter(k[0] for k in data)
+
+print(stat)         # Counter({'b': 2, 'c': 1, 'a': 1})
+print(stat['b'])    # 2
+```
+
+- dátumok és idő
+
+```python
+from datetime import time, date, datetime
+
+print(time.fromisoformat('23:53'))                # .hour, .minute, .second
+print(date.fromisoformat('2018-01-04'))           # .year, .month, .day
+print(datetime.fromisoformat('2018-01-04 23:53'))
 ```

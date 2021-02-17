@@ -18,7 +18,7 @@ versenyzok |> Seq.averageBy(fun k -> float k.Nyeremeny)
 
 versenyzok |> Seq.filter(fun k -> k.Orszag = "Kína")
            |> Seq.maxBy(fun k -> k.Nyeremeny)
-           |> fun k -> printfn "5. Feladat: Legjobban kereső kínai versenyző:\n\tHelyezés: %d\n\tOrszág: Kína\n\tNyeremény: %d FT" k.Helyezes (k.Nyeremeny * 380)
+           |> fun k -> printfn "5. Feladat: Legjobban kereső kínai versenyző:\n  Helyezés: %d\n  Név: %s\n  Nyeremény: %d FT" k.Helyezes k.Nev (k.Nyeremeny * 380)
 
 versenyzok |> Seq.exists(fun k -> k.Orszag = "Norvégia")
            |> fun k -> printfn "6. Feladat: %s norvég játékos" (if k then "Van" else "Nincs")

@@ -1,16 +1,16 @@
-from dateutil.parser import parse as parsedate
+from datetime import date
 from collections import Counter
 
 with open("EUcsatlakozas.txt") as file:
     lines = file.readlines()
-    splitLines = (k.split(";") for k in lines)
-    csatlakozasok = dict(((k[0], parsedate(k[1])) for k in splitLines))
+    splitLines = (k.strip().split(";") for k in lines)
+    csatlakozasok = dict(((k[0], date.fromisoformat(k[1].replace('.', '-'))) for k in splitLines))
 
 ketezerhetbenCsatlakozottakSzama = sum(1 for k in csatlakozasok.values() if k.year == 2007)
 
 print(f"3. Feladat: 2018-ig csatlakozott országok száma: {len(csatlakozasok)}")
 print(f"4. Feladat: 2007-ben csatlakozott országok száma: {ketezerhetbenCsatlakozottakSzama}")
-print(f'5. Feladat: Magyarország csatlakozása: {csatlakozasok["Magyarország"].date()}')
+print(f'5. Feladat: Magyarország csatlakozása: {csatlakozasok["Magyarország"]}')
 
 voltemajusban = any(k for k in csatlakozasok.values() if k.month == 5)
 if voltemajusban:
