@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -8,53 +7,62 @@ public class Tanciskola_linq {
     public static void Main(string[] args){
         var lines = File.ReadAllLines("tancrend.txt");
         var tancok = Enumerable.Range(0, lines.Length)
-                                .Where(k => k % 3 == 0)
-                                .Select(k => new Tanc(lines[k], lines[k + 1], lines[k + 2]))
-                                .ToArray();
+                               .Where(i => i % 3 == 0)
+                               .Select(i => new Tanc(lines, i))
+                               .ToArray();
 
-        Console.WriteLine("Első tánc neve: " + tancok.First().category + ", az utolsóé: " + tancok.Last().category);
-        Console.WriteLine("Összesen ennyien táncoltak szambát: " + tancok.Where(k => k.category.Equals("samba")).Count());
+        Console.WriteLine($"Első tánc neve: {tancok.First().category}, az utolsóé: {tancok.Last().category}");
 
-        Console.WriteLine("Vilma által táncolt táncok: " + tancok
-                .Where(k => k.woman.Equals("Vilma"))
-                .Select(k => k.category)
-                .Aggregate((k, l) => k + ", " + l));
+        var szambazokSzama = tancok.Where(k => k.category == "samba")
+                                   .Count();
 
+        Console.WriteLine($"Összesen ennyien táncoltak szambát: {szambazokSzama}");
+
+        var vilmaKategoriai = tancok.Where(k => k.woman == "Vilma")
+                                    .Select(k => k.category)
+                                    .Distinct()
+                                    .ToArray();
+
+        Console.WriteLine("Vilma által táncolt táncok: " + string.Join(", ", vilmaKategoriai));
         Console.WriteLine("Írj be 1 kategóriát!");
+
         var tancNev = Console.ReadLine();
+        var kivelTancoltaVilma = tancok.Where(k => k.woman == "Vilma" && k.category == tancNev)
+                                       .Select(k => k.man)
+                                       .DefaultIfEmpty("senkivel sem")
+                                       .FirstOrDefault();
 
-        Console.WriteLine("Vilma a " + tancNev + " táncot " + tancok
-                .Where(k => k.woman.Equals("Vilma"))
-                .Where(k => k.category.Equals(tancNev))
-                .Select(k => k.man)
-                .DefaultIfEmpty("senkivel sem")
-                .FirstOrDefault() + "-vel táncolta");
+        Console.WriteLine($"Vilma a {tancNev} táncot {kivelTancoltaVilma}-vel táncolta");
 
-        var lanyok = tancok.Select(k => k.woman)
-                            .Distinct()
-                            .Select(k => new KeyValuePair<string, int>(k, tancok.Where(a => a.woman.Equals(k)).Count()))
-                            .OrderByDescending(k => k.Value)
-                            .ToArray();
+        var lanyokToTancalkalmak = tancok.GroupBy(k => k.woman)
+                                         .Select(k => new {
+                                             Nev = k.Key,
+                                             Db = k.Count()
+                                         })
+                                         .ToDictionary(k => k.Nev, k => k.Nev);
 
-        var fiuk = tancok.Select(k => k.man)
-                            .Distinct()
-                            .Select(k => new KeyValuePair<string, int>(k, tancok.Where(a => a.man.Equals(k)).Count()))
-                            .OrderByDescending(k => k.Value)
-                            .ToArray();
+        var fiukToTancalkalmak = tancok.GroupBy(k => k.man)
+                                       .Select(k => new {
+                                           Nev = k.Key,
+                                           Db = k.Count()
+                                       })
+                                       .ToDictionary(k => k.Nev, k => k.Nev);
 
-        using(var output = new StreamWriter("szereplok.txt")){
-            output.Write("Lányok: ");
-            output.Write(lanyok.Select(k => k.Key).Aggregate((k, l) => k + ", " + l));
-            output.Write("\nFiúk: ");
-            output.Write(fiuk.Select(k => k.Key).Aggregate((k, l) => k + ", " + l));
-        }
+        File.WriteAllText("szereplok.txt", "Lányok: " + string.Join(", ", lanyokToTancalkalmak.Keys) +
+                                           "\nFiúk: " + string.Join(", ", fiukToTancalkalmak.Keys));
 
-        Console.WriteLine("A legtöbbször táncolt lányok: " + lanyok.Where(k => k.Value == lanyok.First().Value)
-                                                                    .Select(k => k.Key)
-                                                                    .Aggregate((k, l) => k + ", " + l));
+        var grillMax = lanyokToTancalkalmak.Values.Max();
+        var boiMax = fiukToTancalkalmak.Values.Max();
 
-        Console.WriteLine("A legtöbbször táncolt fiúk: " + fiuk.Where(k => k.Value == fiuk.First().Value)
-                                                                .Select(k => k.Key)
-                                                                .Aggregate((k, l) => k + ", " + l));
+        var popularGrills = lanyokToTancalkalmak.Where(k => k.Value == grillMax)
+                                                .Select(k => k.Key)
+                                                .ToArray();
+
+        var popularBois = fiukToTancalkalmak.Where(k => k.Value == boiMax)
+                                            .Select(k => k.Key)
+                                            .ToArray();
+
+        Console.WriteLine("A legtöbbet táncolt lányok: " + string.Join(", ", popularGrills));
+        Console.WriteLine("A legtöbbet táncolt fiúk: " + string.Join(", ", popularBois));
     }
 }

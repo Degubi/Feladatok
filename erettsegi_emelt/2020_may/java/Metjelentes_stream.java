@@ -46,14 +46,14 @@ public class Metjelentes_stream {
 
         System.out.println("5. Feladat:");
 
-        var adatokVarosonkent = Arrays.stream(adatok)
-                                      .collect(Collectors.groupingBy(k -> k.telepules));
+        var adatokTelepulesenkent = Arrays.stream(adatok)
+                                          .collect(Collectors.groupingBy(k -> k.telepules));
 
-        adatokVarosonkent.entrySet().stream()
-                         .map(k -> telepuleshezTartozoKiiratandoHomersekletAdat(k.getKey(), k.getValue()))
-                         .forEach(System.out::println);
+        adatokTelepulesenkent.entrySet().stream()
+                             .map(k -> telepuleshezTartozoKiiratandoHomersekletAdat(k.getKey(), k.getValue()))
+                             .forEach(System.out::println);
 
-        adatokVarosonkent.forEach(Metjelentes_stream::telepulesAdataiFajlba);
+        adatokTelepulesenkent.forEach(Metjelentes_stream::telepulesAdataiFajlba);
     }
 
     public static String telepuleshezTartozoKiiratandoHomersekletAdat(String telepules, List<IdojarasAdat> adatok) {

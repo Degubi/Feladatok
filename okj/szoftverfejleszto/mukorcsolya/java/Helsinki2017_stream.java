@@ -11,13 +11,9 @@ public class Helsinki2017_stream {
         var dontosok = Files.lines(Path.of("donto.csv")).skip(1).map(Versenyzo::new).toArray(Versenyzo[]::new);
 
         System.out.println("2. Feladat: Versenyzők száma: " + versenyzok.length);
-        System.out.print("3. Feladat: ");
 
-        Arrays.stream(dontosok)
-              .filter(k -> k.orszag.equals("HUN"))
-              .findFirst()
-              .ifPresentOrElse(k -> System.out.println("A magyar versenyző bejutott"),
-                                 () -> System.out.println("A magyar versenyző nem jutott be"));
+        var bejutottEMagyar = Arrays.stream(dontosok).anyMatch(k -> k.orszag.equals("HUN"));
+        System.out.print("3. Feladat: A magyar versenyző " + (bejutottEMagyar ? "bejutott" : "nem jutott be"));
 
         try(var input = new Scanner(System.in)){
             System.out.println("5. Feladat: Kérem 1 versenyző nevét!");

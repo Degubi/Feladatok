@@ -106,6 +106,7 @@ from itertools import groupby
 
 data = [('c', 1), ('a', 2), ('b', 3), ('b', 4)]
 
+# groupby használat előtt a bemenetnek sorbarendezettnek kell lennie a kulcs alapján
 groups = dict((k, list(v)) for k, v in groupby(data, lambda x: x[0]))
 
 print(groups)       # {'c': [('c', 1)], 'a': [('a', 2)], 'b': [('b', 3), ('b', 4)]}

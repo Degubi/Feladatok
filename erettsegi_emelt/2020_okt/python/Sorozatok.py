@@ -51,7 +51,7 @@ bekertNapraEsok = set(k.cim for k in sorozatok if k.adasbaKerulesiDatum != date.
 
 print('Az adott napon nem kerül adásba sorozat.' if len(bekertNapraEsok) == 0 else '\n'.join(bekertNapraEsok))
 
-cimenkentiStatolo = lambda sorozatokCimhez: ( sum(k.epizodonkentiHossz for k in sorozatokCimhez), len(sorozatokCimhez) )
+cimenkentiStatolo = lambda sorozatokCimhez: sum(k.epizodonkentiHossz for k in sorozatokCimhez), len(sorozatokCimhez)
 stat = dict((cim, cimenkentiStatolo(list(sorozatokCimhez))) for cim, sorozatokCimhez in groupby(sorozatok, key = lambda k: k.cim))
 
 with open('summa.txt', 'w') as output:
