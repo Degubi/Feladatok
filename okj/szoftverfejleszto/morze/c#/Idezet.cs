@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 
 public class Idezet {
+
     public readonly string szerzo;
     public readonly string uzenet;
     

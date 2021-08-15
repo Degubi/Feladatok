@@ -1,6 +1,7 @@
 using System;
 
 public class Kifejezes {
+
     public readonly int ElsoOperandus;
     public readonly string Operator;
     public readonly int MasodikOperandus;

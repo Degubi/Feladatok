@@ -1,4 +1,4 @@
-public struct Auto {
+public class Auto {
     public readonly int nap;
     public readonly string idopont;
     public readonly string rendszam;
@@ -8,7 +8,7 @@ public struct Auto {
 
     public Auto(string line) {
         var split = line.Split(' ');
-    
+
         nap = int.Parse(split[0]);
         idopont = split[1];
         rendszam = split[2];

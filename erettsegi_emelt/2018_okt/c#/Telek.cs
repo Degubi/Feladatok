@@ -1,4 +1,4 @@
-public struct Telek {
+public class Telek {
     public readonly bool parosE;
     public readonly int szelesseg;
     public readonly int hazszam;

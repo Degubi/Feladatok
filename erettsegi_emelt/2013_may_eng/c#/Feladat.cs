@@ -1,4 +1,5 @@
-public class Feladat{
+public class Feladat {
+
     public readonly string kerdes;
     public readonly string temakor;
     public readonly int pont;

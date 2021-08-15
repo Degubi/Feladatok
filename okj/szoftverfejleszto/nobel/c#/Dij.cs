@@ -1,4 +1,5 @@
 public class Dij {
+
     public readonly int ev;
     public readonly string tipus;
     public readonly string keresztNev;

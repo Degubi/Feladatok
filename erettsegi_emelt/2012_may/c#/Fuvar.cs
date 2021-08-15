@@ -1,4 +1,5 @@
 public class Fuvar {
+
     public readonly int nap;
     public readonly int sorszam;
     public readonly int tavolsag;

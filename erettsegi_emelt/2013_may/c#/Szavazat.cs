@@ -1,4 +1,5 @@
 public class Szavazat {
+
     public readonly int kerSzam;
     public readonly int szavazatok;
     public readonly string nev;

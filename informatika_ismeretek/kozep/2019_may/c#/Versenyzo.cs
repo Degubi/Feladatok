@@ -1,4 +1,5 @@
 public class Versenyzo {
+
     public readonly string nev;
     public readonly int rajtszam;
     public readonly string kategoria;
