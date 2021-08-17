@@ -4,6 +4,7 @@ import java.time.temporal.*;
 import java.util.*;
 
 public class EUtazas {
+
     public static void main(String[] args) throws IOException {
         var lines = Files.readAllLines(Path.of("utasadat.txt"));
         var utazasok = new ArrayList<Utazas>();
@@ -63,7 +64,6 @@ public class EUtazas {
     }
 
     public static int napokszama(int e1, int h1, int n1, int e2, int h2, int n2) {
-        //Normál esetben nem módosítanák soha bemeneti paramétert, de a feladat kérte
         h1 = (h1 + 9) % 12;
         h2 = (h2 + 9) % 12;
         e1 = e1 - h1 / 10;

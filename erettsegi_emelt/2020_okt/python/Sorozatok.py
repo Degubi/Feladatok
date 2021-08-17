@@ -1,4 +1,4 @@
-from datetime import date, time, timedelta
+from datetime import date, timedelta
 from itertools import groupby
 
 class Sorozat:
@@ -13,7 +13,7 @@ class Sorozat:
         self.epizodonkentiHossz = int(lines[index + 3])
         self.lattaEMarAKeszito = int(lines[index + 4]) == 1
 
-napok = [ "v", "h", "k", "sz", "cs", "p", "szo" ]
+napok = [ 'v', 'h', 'k', 'sz', 'cs', 'p', 'szo' ]
 honapok = [ 0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4 ]
 
 def hetnapja(ev, ho, nap):
@@ -51,9 +51,15 @@ bekertNapraEsok = set(k.cim for k in sorozatok if k.adasbaKerulesiDatum != date.
 
 print('Az adott napon nem kerül adásba sorozat.' if len(bekertNapraEsok) == 0 else '\n'.join(bekertNapraEsok))
 
-cimenkentiStatolo = lambda sorozatokCimhez: sum(k.epizodonkentiHossz for k in sorozatokCimhez), len(sorozatokCimhez)
-stat = dict((cim, cimenkentiStatolo(list(sorozatokCimhez))) for cim, sorozatokCimhez in groupby(sorozatok, key = lambda k: k.cim))
+sorozatok.sort(key = lambda k: k.cim)
+
+cimenkent_csoportosito = groupby(sorozatok, key = lambda k: k.cim)
+epizodhossz_szamolo = lambda sorozatokCimhez: sum(k.epizodonkentiHossz for k in sorozatokCimhez)
+epizod_dbszam_szamlalo = lambda sorozatokCimhez: sum(1 for _ in sorozatokCimhez)
+cimenkentiStatolo = lambda k: (epizodhossz_szamolo(k), epizod_dbszam_szamlalo(k))
+
+cimenkent_csoportositott = dict((cim, cimenkentiStatolo(list(sorozatok))) for cim, sorozatok in cimenkent_csoportosito)
 
 with open('summa.txt', 'w') as output:
-    for cim, stat in stat.items():
-        output.write(f'{cim} {stat[0]} {stat[1]}\n')
+    for cim, (total_hossz, total_dbszam) in cimenkent_csoportositott.items():
+        output.write(f'{cim} {total_hossz} {total_dbszam}\n')

@@ -2,6 +2,7 @@ using System;
 using System.Globalization;
 
 public class Utazas {
+
     public readonly int megalloSorszama;
     public readonly DateTime felszallas;
     public readonly string kartyaAzonosito;
