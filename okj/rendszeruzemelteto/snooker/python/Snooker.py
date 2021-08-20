@@ -2,6 +2,7 @@ from statistics import mean
 from collections import Counter
 
 class Versenyzo:
+
     def __init__(self, line):
         split = line.split(';')
 
