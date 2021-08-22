@@ -2,7 +2,6 @@ using System;
 using System.IO;
 using System.Linq;
 
-
 var dolgozok = File.ReadLines("berek2020.txt")
                    .Skip(1)
                    .Select(k => new Dolgozo(k))
@@ -18,7 +17,7 @@ Console.Write("6. Feladat: ");
 var bekertReszleg = Console.ReadLine();
 var bekertReszlegbenDolgozok = dolgozok.Where(k => k.munkaReszleg == bekertReszleg).ToArray();
 var legtobbMunkaber = bekertReszlegbenDolgozok.Length == 0 ? 0 : bekertReszlegbenDolgozok.Max(k => k.munkaBer);
-var legtobbBeresDolgozo = bekertReszlegbenDolgozok.Length == 0 ? null : bekertReszlegbenDolgozok.Where(k => k.munkaBer == legtobbMunkaber).First();
+var legtobbBeresDolgozo = bekertReszlegbenDolgozok.Length == 0 ? null : bekertReszlegbenDolgozok.First(k => k.munkaBer == legtobbMunkaber);
 
 if(legtobbBeresDolgozo == null) {
     Console.WriteLine("A megadott részleg nem létezik a cégnél!");
@@ -29,9 +28,5 @@ if(legtobbBeresDolgozo == null) {
 Console.WriteLine("7. Feladat:");
 
 dolgozok.GroupBy(k => k.munkaReszleg)
-        .Select(k => new {
-            Reszleg = k.Key,
-            DbSzam = k.Count()
-        })
         .ToList()
-        .ForEach(k => Console.WriteLine($"    {k.Reszleg} - {k.DbSzam} fő"));
+        .ForEach(k => Console.WriteLine($"    {k.Key} - {k.Count()} fő"));

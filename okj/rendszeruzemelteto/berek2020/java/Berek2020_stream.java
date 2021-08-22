@@ -34,8 +34,7 @@ public class Berek2020_stream {
 
         Arrays.stream(dolgozok)
               .collect(Collectors.groupingBy(k -> k.munkaReszleg, Collectors.counting()))
-              .entrySet().stream()
-              .forEach(k -> System.out.println("    " + k.getKey() + " - " + k.getValue() + " fő"));
+              .forEach((reszleg, dbSzam) -> System.out.println("    " + reszleg + " - " + dbSzam + " fő"));
     }
 
 

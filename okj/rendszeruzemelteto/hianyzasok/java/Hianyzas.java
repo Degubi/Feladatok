@@ -1,4 +1,4 @@
-public class Hianyzas{
+public class Hianyzas {
 
     public final String nev;
     public final String osztaly;

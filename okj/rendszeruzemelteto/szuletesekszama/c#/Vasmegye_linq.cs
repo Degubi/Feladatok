@@ -10,11 +10,11 @@ var szuletesek = File.ReadLines("vas.txt")
 Console.WriteLine("5. Feladat");
 Console.WriteLine("Csecsemők száma: " + szuletesek.Length);
 Console.WriteLine("6. Feladat");
-Console.WriteLine("Fiú csecsemők száma: " + szuletesek.Where(k => k.szamjegyek[0] % 2 == 1).Count());
+Console.WriteLine("Fiú csecsemők száma: " + szuletesek.Count(k => k.szamjegyek[0] % 2 == 1));
 Console.WriteLine("7. Feladat");
-Console.WriteLine("Vizsgált időszak: Kezdet: " + szuletesek.Select(k => k.datum.Year).Min() + ", vége: " + szuletesek.Select(k => k.datum.Year).Max());
+Console.WriteLine("Vizsgált időszak: Kezdet: " + szuletesek.Min(k => k.datum.Year) + ", vége: " + szuletesek.Max(k => k.datum.Year));
 Console.WriteLine("8. Feladat");
-Console.WriteLine(szuletesek.Where(k => k.datum.Year % 4 == 0).Count() > 0 ? "Volt baba szökőévben" : "");
+Console.WriteLine(szuletesek.Count(k => k.datum.Year % 4 == 0) > 0 ? "Volt baba szökőévben" : "");
 Console.WriteLine("9. Feladat");
 Console.WriteLine(szuletesek.GroupBy(k => k.datum.Year).Select(group => group.Key + "-ben " + group.Count() + " baba született").Aggregate((l, r) => l + "\n" + r));
 

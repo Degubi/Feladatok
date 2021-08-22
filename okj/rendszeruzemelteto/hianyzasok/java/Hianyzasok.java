@@ -20,7 +20,7 @@ public class Hianyzasok {
         System.out.println("2. Feladat: Hianyzott orak: " + orakSum);
         System.out.println("3. Feladat: Írj be egy napot(1-30) és egy nevet!");
 
-        try(var input = new Scanner(System.in)){
+        try(var input = new Scanner(System.in)) {
             var bekertNap = input.nextInt();
             input.nextLine();
             var bekertNev = input.nextLine();
@@ -47,7 +47,7 @@ public class Hianyzasok {
 
             if(azonANaponHianyoztak.size() == 0) {
                 System.out.println("Nem volt hiányzó");
-            }else {
+            }else{
                 for(var hiany : azonANaponHianyoztak) {
                     System.out.println(hiany.nev + " " + hiany.osztaly);
                 }
@@ -60,12 +60,12 @@ public class Hianyzasok {
 
             if(hianyzasokStat.containsKey(osztaly)) {
                 hianyzasokStat.put(osztaly, hianyzasokStat.get(osztaly) + e.mulasztottOrak);
-            }else {
+            }else{
                 hianyzasokStat.put(osztaly, e.mulasztottOrak);
             }
         }
 
-        try(var file = new PrintWriter("osszesites.csv")){
+        try(var file = new PrintWriter("osszesites.csv")) {
             for(var k : hianyzasokStat.entrySet()) {
                 file.println(k.getKey() + ";" + k.getValue());
             }

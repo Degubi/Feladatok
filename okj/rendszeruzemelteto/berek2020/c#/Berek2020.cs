@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-
 var lines = File.ReadAllLines("berek2020.txt");
 var dolgozok = new List<Dolgozo>();
 

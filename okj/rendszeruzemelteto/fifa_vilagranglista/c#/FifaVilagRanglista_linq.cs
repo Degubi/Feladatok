@@ -9,9 +9,7 @@ var eredmenyek = File.ReadLines("fifa.txt")
 
 Console.WriteLine($"3. Feladat: Csapatok száma: {eredmenyek.Length}");
 
-var atlagPontszam = eredmenyek.Select(k => k.pontszam)
-                              .Average();
-
+var atlagPontszam = eredmenyek.Average(k => k.pontszam);
 Console.WriteLine("4. Feladat: Átlagpontszám: " + atlagPontszam.ToString("#.##"));
 
 var legnagyobbValtozas = eredmenyek.Max(k => k.valtozas);

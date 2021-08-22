@@ -34,7 +34,7 @@ public class Hianyzasok_stream {
 
             if(azonANaponHianyoztak.length == 0) {
                 System.out.println("Nem volt hiányzó");
-            }else {
+            }else{
                 Arrays.stream(azonANaponHianyoztak).forEach(hiany -> System.out.println(hiany.nev + " " + hiany.osztaly));
             }
         }

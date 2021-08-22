@@ -30,7 +30,7 @@ public class VB2018_stream {
         System.out.println("6. Feladat: Alternativ neves stadionok: " + nevesStadionDb);
         System.out.println("7. Feladat:");
 
-        try(var input = new Scanner(System.in)){
+        try(var input = new Scanner(System.in)) {
             var olvasottNev = Stream.generate(() -> varostBeker(input))
                                     .dropWhile(k -> k.length() < 3)
                                     .findFirst()

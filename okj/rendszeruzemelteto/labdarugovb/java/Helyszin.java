@@ -1,4 +1,5 @@
 public class Helyszin {
+
     public final String varos;
     public final String nev1;
     public final String nev2;
