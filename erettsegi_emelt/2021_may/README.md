@@ -1,9 +1,7 @@
-# Gödrök
-
 ### 1. Feladat:
 - Beolvasás egyszerű, minden sor 1 db mélységet reprezentál
 - Megoldásban int[]-be van beolvasva
-- Kikell iratni, hogy hány db mélység adat lett beovlasva
+- Ez mellett még ki is kell iratni, hogy hány db mélység adat lett beolvasva
 
 ### 2. Feladat:
 - Bekell kérni egy távolság értéket a felhasználótól

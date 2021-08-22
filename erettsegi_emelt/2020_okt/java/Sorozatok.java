@@ -18,7 +18,7 @@ public class Sorozatok {
         var osszesElpazaroltPerc = 0;
 
         for(var sorozat : sorozatok) {
-            if(sorozat.adasbaKerulesiDatum != null) {
+            if(sorozat.adasbaKerulesiDatum != Sorozat.HIANYZO_DATUM) {
                 ++ismertDatumuakSzama;
             }
 
@@ -39,7 +39,7 @@ public class Sorozatok {
             var bekertDatum = LocalDate.parse(input.nextLine().replace('.', '-'));
 
             for(var sorozat : sorozatok) {
-                if(sorozat.adasbaKerulesiDatum != null && !sorozat.lattaEMarAKeszito) {
+                if(sorozat.adasbaKerulesiDatum != Sorozat.HIANYZO_DATUM && !sorozat.lattaEMarAKeszito) {
                    if(sorozat.adasbaKerulesiDatum.isBefore(bekertDatum) || sorozat.adasbaKerulesiDatum.isEqual(bekertDatum)) {
                         System.out.println(sorozat.evadokSzama + "x" + sorozat.epizodokSzama + "\t" + sorozat.cim);
                     }
@@ -52,7 +52,7 @@ public class Sorozatok {
             var bekertNapraEsok = new ArrayList<String>();
 
             for(var sorozat : sorozatok) {
-                if(sorozat.adasbaKerulesiDatum != null) {
+                if(sorozat.adasbaKerulesiDatum != Sorozat.HIANYZO_DATUM) {
                     var adasbaKerulesNapja = hetnapja(sorozat.adasbaKerulesiDatum.getYear(), sorozat.adasbaKerulesiDatum.getMonthValue(), sorozat.adasbaKerulesiDatum.getDayOfMonth());
 
                     if(bekertNap.equals(adasbaKerulesNapja) && !bekertNapraEsok.contains(sorozat.cim)) {

@@ -18,7 +18,7 @@ var keszitoAltalLatottakSzama = 0;
 var osszesElpazaroltPerc = 0;
 
 foreach(var sorozat in sorozatok) {
-    if(sorozat.adasbaKerulesiDatum != DateTime.MinValue) {
+    if(sorozat.adasbaKerulesiDatum != Sorozat.HIANYZO_DATUM) {
         ++ismertDatumuakSzama;
     }
 
@@ -40,7 +40,7 @@ var bekertDatumStr = Console.ReadLine();
 var bekertDatum = DateTime.ParseExact(bekertDatumStr, "yyyy.MM.dd", CultureInfo.InvariantCulture);
 
 foreach(var sorozat in sorozatok) {
-    if(sorozat.adasbaKerulesiDatum != DateTime.MinValue && !sorozat.lattaEMarAKeszito) {
+    if(sorozat.adasbaKerulesiDatum != Sorozat.HIANYZO_DATUM && !sorozat.lattaEMarAKeszito) {
         if(sorozat.adasbaKerulesiDatum < bekertDatum || sorozat.adasbaKerulesiDatum == bekertDatum) {
             Console.WriteLine($"{sorozat.evadokSzama}x{sorozat.epizodokSzama}\t{sorozat.cim}");
         }
@@ -53,7 +53,7 @@ var bekertNap = Console.ReadLine();
 var bekertNapraEsok = new List<string>();
 
 foreach(var sorozat in sorozatok) {
-    if(sorozat.adasbaKerulesiDatum != DateTime.MinValue) {
+    if(sorozat.adasbaKerulesiDatum != Sorozat.HIANYZO_DATUM) {
         var adasbaKerulesNapja = Hetnapja(sorozat.adasbaKerulesiDatum.Year, sorozat.adasbaKerulesiDatum.Month, sorozat.adasbaKerulesiDatum.Day);
 
         if(bekertNap == adasbaKerulesNapja && !bekertNapraEsok.Contains(sorozat.cim)) {

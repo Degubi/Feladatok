@@ -1,12 +1,14 @@
 from datetime import date, timedelta
 from itertools import groupby
 
+HIANYZO_DATUM = date.min
+
 class Sorozat:
     def __init__(self, lines, index):
         datumStr = lines[index].strip()
         epizodInfoSplit = lines[index + 2].split('x')
 
-        self.adasbaKerulesiDatum = date.min if datumStr == 'NI' else date.fromisoformat(datumStr.replace('.', '-'))
+        self.adasbaKerulesiDatum = HIANYZO_DATUM if datumStr == 'NI' else date.fromisoformat(datumStr.replace('.', '-'))
         self.cim = lines[index + 1].strip()
         self.evadokSzama = int(epizodInfoSplit[0])
         self.epizodokSzama = int(epizodInfoSplit[1])
@@ -26,7 +28,7 @@ with open('lista.txt', 'r') as file:
     lines = file.readlines()
     sorozatok = [ Sorozat(lines, i) for i in range(0, len(lines), 5) ]
 
-ismertDatumuakSzama = sum(1 for k in sorozatok if k.adasbaKerulesiDatum != date.min)
+ismertDatumuakSzama = sum(1 for k in sorozatok if k.adasbaKerulesiDatum != HIANYZO_DATUM)
 keszitoAltalLatottakSzama = sum(1 for k in sorozatok if k.lattaEMarAKeszito)
 
 print(f'2. Feladat: {ismertDatumuakSzama} db ismert dátumú epizód van')
@@ -43,11 +45,11 @@ bekertDatumStr = input('5. Feladat: Írj be 1 dátumot! (éééé.hh.nn) ')
 bekertDatum = date.fromisoformat(bekertDatumStr.replace('.', '-'))
 
 for sorozat in sorozatok:
-    if sorozat.adasbaKerulesiDatum != date.min and sorozat.adasbaKerulesiDatum <= bekertDatum and not sorozat.lattaEMarAKeszito:
+    if sorozat.adasbaKerulesiDatum != HIANYZO_DATUM and sorozat.adasbaKerulesiDatum <= bekertDatum and not sorozat.lattaEMarAKeszito:
         print(f'{sorozat.evadokSzama}x{sorozat.epizodokSzama}\t{sorozat.cim}')
 
 bekertNap = input('7. Feladat: Add meg 1 hét napját! (h, k, sze, cs, p, szo, v)' )
-bekertNapraEsok = set(k.cim for k in sorozatok if k.adasbaKerulesiDatum != date.min and bekertNap == hetnapja(k.adasbaKerulesiDatum.year, k.adasbaKerulesiDatum.month, k.adasbaKerulesiDatum.day))
+bekertNapraEsok = set(k.cim for k in sorozatok if k.adasbaKerulesiDatum != HIANYZO_DATUM and bekertNap == hetnapja(k.adasbaKerulesiDatum.year, k.adasbaKerulesiDatum.month, k.adasbaKerulesiDatum.day))
 
 print('Az adott napon nem kerül adásba sorozat.' if len(bekertNapraEsok) == 0 else '\n'.join(bekertNapraEsok))
 

@@ -12,7 +12,7 @@ var sorozatok = Enumerable.Range(0, lines.Length)
                           .Select(i => new Sorozat(lines, i))
                           .ToArray();
 
-var ismertDatumuakSzama = sorozatok.Where(k => k.adasbaKerulesiDatum != DateTime.MinValue)
+var ismertDatumuakSzama = sorozatok.Where(k => k.adasbaKerulesiDatum != Sorozat.HIANYZO_DATUM)
                                    .Count();
 
 Console.WriteLine($"2. Feladat: {ismertDatumuakSzama} db ismert dátumú epizód van");
@@ -34,7 +34,7 @@ Console.WriteLine("5. Feladat: Írj be 1 dátumot! (éééé.hh.nn)");
 var bekertDatumStr = Console.ReadLine();
 var bekertDatum = DateTime.ParseExact(bekertDatumStr, "yyyy.MM.dd", CultureInfo.InvariantCulture);
 
-sorozatok.Where(k => k.adasbaKerulesiDatum != DateTime.MinValue && !k.lattaEMarAKeszito)
+sorozatok.Where(k => k.adasbaKerulesiDatum != Sorozat.HIANYZO_DATUM && !k.lattaEMarAKeszito)
          .Where(k => k.adasbaKerulesiDatum < bekertDatum || k.adasbaKerulesiDatum == bekertDatum)
          .ToList()
          .ForEach(k => Console.WriteLine($"{k.evadokSzama}x{k.epizodokSzama}\t{k.cim}"));
@@ -42,7 +42,7 @@ sorozatok.Where(k => k.adasbaKerulesiDatum != DateTime.MinValue && !k.lattaEMarA
 Console.WriteLine("7. Feladat: Add meg 1 hét napját! (h, k, sze, cs, p, szo, v)");
 
 var bekertNap = Console.ReadLine();
-var bekertNapraEsok = sorozatok.Where(k => k.adasbaKerulesiDatum != DateTime.MinValue)
+var bekertNapraEsok = sorozatok.Where(k => k.adasbaKerulesiDatum != Sorozat.HIANYZO_DATUM)
                                .Where(k => bekertNap == Hetnapja(k.adasbaKerulesiDatum.Year, k.adasbaKerulesiDatum.Month, k.adasbaKerulesiDatum.Day))
                                .Select(k => k.cim)
                                .Distinct()

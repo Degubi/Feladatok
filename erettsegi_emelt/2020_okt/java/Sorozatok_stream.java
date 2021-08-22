@@ -13,7 +13,7 @@ public class Sorozatok_stream {
                                  .toArray(Sorozat[]::new);
 
         var ismertDatumuakSzama = Arrays.stream(sorozatok)
-                                        .filter(k -> k.adasbaKerulesiDatum != null)
+                                        .filter(k -> k.adasbaKerulesiDatum != Sorozat.HIANYZO_DATUM)
                                         .count();
 
         System.out.println("2. Feladat: " + ismertDatumuakSzama + " db ismert dátumú epizód van");
@@ -38,7 +38,7 @@ public class Sorozatok_stream {
             var bekertDatum = LocalDate.parse(input.nextLine().replace('.', '-'));
 
             Arrays.stream(sorozatok)
-                  .filter(k -> k.adasbaKerulesiDatum != null)
+                  .filter(k -> k.adasbaKerulesiDatum != Sorozat.HIANYZO_DATUM)
                   .filter(k -> k.adasbaKerulesiDatum.isBefore(bekertDatum) || k.adasbaKerulesiDatum.isEqual(bekertDatum))
                   .filter(k -> !k.lattaEMarAKeszito)
                   .forEach(k -> System.out.println(k.evadokSzama + "x" + k.epizodokSzama + "\t" + k.cim));
@@ -47,7 +47,7 @@ public class Sorozatok_stream {
 
             var bekertNap = input.nextLine();
             var bekertNapraEsok = Arrays.stream(sorozatok)
-                                        .filter(k -> k.adasbaKerulesiDatum != null)
+                                        .filter(k -> k.adasbaKerulesiDatum != Sorozat.HIANYZO_DATUM)
                                         .filter(k -> bekertNap.equals(hetnapja(k.adasbaKerulesiDatum.getYear(), k.adasbaKerulesiDatum.getMonthValue(), k.adasbaKerulesiDatum.getDayOfMonth())))
                                         .map(k -> k.cim)
                                         .distinct()

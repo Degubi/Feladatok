@@ -3,6 +3,7 @@ open System.IO
 
 let napok = [| "v"; "h"; "k"; "sz"; "cs"; "p"; "szo" |]
 let honapok = [| 0; 3; 2; 5; 0; 3; 5; 1; 4; 6; 2; 4 |]
+let HIANYZODATUM = DateTime.MinValue
 
 let hetnapja(ev: int, ho: int, nap: int) =
     let ev2 = if ho < 3 then ev - 1 else ev
@@ -14,7 +15,7 @@ let sorozatotKeszit(lines: string[], index: int) =
     let epizodInfoSplit = lines.[index + 2].Split('x')
 
     {|
-        AdasbaKerulesiDatum = if datumStr = "NI" then DateTime.MinValue else DateTime.ParseExact(datumStr, "yyyy.MM.dd", null);
+        AdasbaKerulesiDatum = if datumStr = "NI" then HIANYZODATUM else DateTime.ParseExact(datumStr, "yyyy.MM.dd", null);
         Cim = lines.[index + 1];
         EvadokSzama = int epizodInfoSplit.[0];
         EpizodokSzama = int epizodInfoSplit.[1];
@@ -27,7 +28,7 @@ let lines = File.ReadAllLines("lista.txt")
 let sorozatok = seq { 0 .. 5 .. lines.Length - 1 } |> Seq.map(fun i -> sorozatotKeszit(lines, i))
                                                    |> Seq.toArray
 
-sorozatok |> Seq.filter(fun k -> k.AdasbaKerulesiDatum <> DateTime.MinValue)
+sorozatok |> Seq.filter(fun k -> k.AdasbaKerulesiDatum <> HIANYZODATUM)
           |> Seq.length
           |> printfn "2. Feladat: %d db ismert dátumú epizód van"
 
@@ -47,7 +48,7 @@ printfn "5. Feladat: Írj be 1 dátumot! (éééé.hh.nn)"
 let bekertDatumStr = Console.ReadLine()
 let bekertDatum = DateTime.ParseExact(bekertDatumStr, "yyyy.MM.dd", null)
 
-sorozatok |> Seq.filter(fun k -> k.AdasbaKerulesiDatum <> DateTime.MinValue && not k.LattaEMarAKeszito)
+sorozatok |> Seq.filter(fun k -> k.AdasbaKerulesiDatum <> HIANYZODATUM && not k.LattaEMarAKeszito)
           |> Seq.filter(fun k -> k.AdasbaKerulesiDatum < bekertDatum || k.AdasbaKerulesiDatum = bekertDatum)
           |> Seq.iter(fun k -> printfn "%dx%d\t%s" k.EvadokSzama k.EpizodokSzama k.Cim)
 
@@ -55,7 +56,7 @@ printfn "7. Feladat: Add meg 1 hét napját! (h, k, sze, cs, p, szo, v)"
 
 let bekertNap = Console.ReadLine()
 
-sorozatok |> Seq.filter(fun k -> k.AdasbaKerulesiDatum <> DateTime.MinValue)
+sorozatok |> Seq.filter(fun k -> k.AdasbaKerulesiDatum <> HIANYZODATUM)
           |> Seq.filter(fun k -> bekertNap = hetnapja(k.AdasbaKerulesiDatum.Year, k.AdasbaKerulesiDatum.Month, k.AdasbaKerulesiDatum.Day))
           |> Seq.map(fun k -> k.Cim)
           |> Seq.distinct
