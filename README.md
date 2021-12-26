@@ -18,6 +18,11 @@
 - Nyitni kell 1 pull requestet, amiben benne van az új megoldás/hibajavítás
 - Lehetőleg kövessük az eddigi megoldások stílusát, mappa elrendezését stb
 
+# Feladatok eredeti forrásai:
+- Ebben a repo-ban csak a programozás részhez szükséges fájlokat tárolom. Az eredeti források ezeken a linkeken érhető el:
+- [Érettségi & Informatika Ismeretek](https://www.oktatas.hu/kozneveles/erettsegi/feladatsorok)
+- [OKJ](http://infojegyzet.hu/vizsgafeladatok/)
+
 # Új java verziókhoz:
 - Java 11+:
 
