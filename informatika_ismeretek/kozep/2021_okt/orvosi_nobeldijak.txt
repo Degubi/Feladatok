@@ -1,0 +1,149 @@
+Év;Név;SzületésHalálozás;Országkód
+1932;Adrian, lord Edgar Douglas;1889-1977;GB
+1978;Arber, Werner;1929-;CH
+1970;Axelrod, Julius;1912-;USA
+1975;Baltimore, David;1938-;USA
+1923;Banting, Frederick Grant;1891-1941;CDN
+1914;Bárány Róbert;1876-1936;S
+1958;Beadle, George Wells;1903-;USA
+1901;Behring, Emil Adolf von;1854-1917;D
+1961;Békésy György;1899-1972;USA
+1980;Benacerraf, Baruj;1920-;USA
+1982;Bergström, Sune;1916-;S
+1989;Bishop, Michael J.;1940-;USA
+1988;Black, George;1924-;GB
+1964;Bloch, Konrad Emil;1912-;USA
+1976;Blumberg, Baruch Samuel;1925-;USA
+1919;Bordet, Jules Jean Baptiste Vincent;1870-1961;B
+1957;Bovet, Daniel;1907-;I
+1985;Brown, Michael;1931-;USA
+1960;Burnet, Sir Frank MacFarlane;1899-1985;AUS
+1912;Carrel, Alexis;1873-1944;USA
+1945;Chain, Sir Ernst Boris;1906-1979;GB
+1974;Claude, Albert;1899-1983;USA
+1986;Cohen, Stanley;1922-;USA
+1947;Cori, Carl Ferdinand;1896-1984;USA
+1947;Cori, Gerty Theresa Radnitz;1896-1957;USA
+1979;Cormack, Allan Macleod;1924-;USA
+1956;Cournand, André Frédéric;1895-;USA
+1962;Crick, Francis Harry Compton;1916-;GB
+1936;Dale, Henry Hallett;1875-1968;GB
+1943;Dam, Carl Peter Henrik;1895-1976;DK
+1980;Dausset, Jean France;1916-;F
+1969;Delbrück, Max;1906-1981;USA
+1943;Doisy, Edward Adalbert;1893-;USA
+1939;Domagk, Gerhard;1895-1964;D
+1975;Dulbecco, Renato;1914-;USA
+1974;Duve, Christian Penéde;1917-;B
+1963;Eccles, Sir John Carew;1903-;AUS
+1972;Edelman, Gerald Maurice;1929-;USA
+1908;Ehrlich, Paul;1854-1915;D
+1929;Eijkman, Christiaan;1858-1930;NL
+1924;Einthoven, Willem;1860-1927;NL
+1988;Elion, Gertrude;1918-;USA
+1954;Enders, John Franklin;1897-1985;USA
+1944;Erlanger, Joseph;1874-1965;USA
+1970;Euler, Ulf von;1905-1983;S
+1926;Fibiger, Johannes Andreas Grib;1867-1928;DK
+1903;Finsen, Niels Ryberg;1860-1904;DK
+1945;Fleming, Sir Alexander;1881-1955;GB
+1945;Florey, Sir Howard Walter;1898-;GB
+1956;Forssmann, Werner Theodor Otto;1904-1979;D
+1973;Frisch, Karl von;1886-1982;A
+1976;Gajdusek, Daniel Carleton;1923-;USA
+1944;Gasser, Herbert Spencer;1888-1963;USA
+1985;Goldstein, Joseph;1930-;USA
+1906;Golgi, Camillo;1844-1926;I
+1967;Granit, Ragnar Arthur;1900-;S
+1977;Guillemin, Roger Charles Louis;1924-;USA
+1911;Gullstrand, Allvar;1862-1930;S
+1968;Hartline, Haldan Keffer;1903-1983;USA
+1950;Hench, Philip Showalter;1896-1965;USA
+1969;Hershey, Alfred Day;1908-;USA
+1949;Hess, Walter Rudolf;1881-1973;CH
+1938;Heymans, Comille Jean François;1892-1968;B
+1922;Hill, Archibald Vivian;1886-1977;GB
+1988;Hitchings, George;1905-;USA
+1963;Hodgkin, Alan Lloyd;1914-;GB
+1968;Holley, Robert William;1922-;USA
+1929;Hopkins, Sir Frederick Gowland;1861-1947;GB
+1979;Hounsfield, Godfrey Newbold;1919-;GB
+1947;Houssay, Bernardo Alberto;1887-1971;RA
+1981;Hubel, David Hunter;1926-;USA
+1966;Huggins, Charles Brenton;1901-;USA
+1963;Huxley, Andrew Fielding;1917-;GB
+1965;Jacob, François;1920-;F
+1984;Jerne, Niels;1911-;DK
+1970;Katz, Sir Bernard;1911-;GB
+1950;Kendall, Edward Calvin;1886-1972;USA
+1968;Khorana, Har Gobind;1922-;USA
+1905;Koch, Robert;1843-1910;D
+1909;Kocher, Emil Theodor;1841-1917;CH
+1959;Kornberg, Arthur;1918-;USA
+1910;Kossel, Albrecht;1853-1927;D
+1984;Köhler, Georg;1946-;CH
+1953;Krebs, Hans Adolf;1900-1981;GB
+1920;Krogh, Schack August Steenburger;1874-1949;DK
+1930;Landsteiner, Karl;1868-1943;USA
+1907;Laveran, Charles Louis Alphonse;1845-1922;F
+1958;Lederberg, Joshua;1925-;USA
+1986;Levi-Montalcini, Rita;1909-;I
+1953;Lipmann, Fritz Albert;1899-;USA
+1936;Loewi, Otto;1873-1961;USA
+1973;Lorenz, Konrad;1903-;A
+1969;Luria, Salvador Edward;1912-;USA
+1965;Lwoff, André;1902-;F
+1954;Lynen, Feodor;1911-1979;D
+1923;MacLeod, John James Richard;1876-1935;USA
+1983;McClintock, Barbara;1902-;USA
+1908;Mecsnyikov, Ilja Iljics;1845-1916;SU
+1960;Medawar, Sir Peter Brian;1915-;GB
+1922;Meyerhof, Otto Fritz;1884-1951;USA
+1984;Milstein, César;1927-;GB
+1934;Minot, George Richards;1885-1950;USA
+1949;Moniz, Antonio Caetano De Abren Freire Egas;1874-1955;P
+1965;Monod, Jacques;1910-1976;F
+1933;Morgan, Thomas Hunt;1866-1945;USA
+1946;Muller, Hermann Joseph;1890-1967;USA
+1934;Murphy, William Parry;1892-;USA
+1948;Müller, Paul Hermann;1899-1965;CH
+1978;Nathans, Daniel;1928-;USA
+1928;Nicolle, Charles Jules Henri;1866-1936;F
+1968;Nirenberg, Marshall Warren;1927-;USA
+1959;Ochoa, Severo;1905-;USA
+1974;Palade, George Emil;1912-;USA
+1904;Pavlov, Ivan Petrovics;1849-1936;SU
+1973;Porter, Rodney Robert;1917-;GB
+1906;Ramon y Cajal, Santiago;1852-1934;E
+1950;Reichstein, Tadeus;1897-;CH
+1956;Richards Jr., Dickinson Woodruff;1895-1973;USA
+1913;Richet, Charles Robert;1850-1935;F
+1954;Robbins, Frederick Chapman;1916-;USA
+1902;Ross, Sir Ronald;1857-1932;GB
+1966;Rous, Francis Peyton;1879-1970;USA
+1982;Samuelsson, Bengt;1934-;S
+1977;Schally, Andrew Victor;1926-;GB
+1932;Sherrington, Sir Charles Scott;1857-1952;GB
+1978;Smith, Hamilton;1931-;USA
+1980;Snell, George David;1903-;USA
+1935;Spemann, Hans;1869-1941;D
+1981;Sperry, Roger Wolcott;1913-;USA
+1971;Sutherland, Earl Wilbur;1915-1974;USA
+1937;Szent-Györgyi Albert;1893-1986;H
+1958;Tatum, Edward Lawrie;1909-1975;USA
+1975;Temin, Howard Martin;1934-;USA
+1951;Theier, Max;1899-1972;USA
+1955;Theorell, Axel Hugo Theodor;1903-1982;S
+1973;Tinbergen, Nikolaas;1907-;GB
+1987;Tonegava Szuszumu;1939-;J
+1982;Vane, John;1927-;GB
+1989;Varmus, Harold E.;1933-;USA
+1952;Waksman, Selman Abraham;1888-1973;USA
+1967;Wald, George;1906-;USA
+1931;Warburg, Otto Heinrich;1883-1970;D
+1962;Watson, James Dewey;1928-;USA
+1954;Weller, Thomas Huckle;1915-;USA
+1934;Whipple, George Hoyt;1878-1976;USA
+1981;Wiesel, Torsten Nils;1924-;USA
+1962;Wilkins, Maurice Hugh Frederick;1916-;GB
+1977;Yalow, Sussman Rosalyn;1921-;USA
