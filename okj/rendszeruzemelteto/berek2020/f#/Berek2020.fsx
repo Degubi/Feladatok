@@ -9,9 +9,10 @@ let dolgozotKeszit(data: string[]) = {|
     MunkaBer = int data.[4]
 |}
 
-let dolgozok = File.ReadLines("berek2020.txt") |> Seq.skip(1)
-                                               |> Seq.map(fun k -> k.Split(';') |> dolgozotKeszit)
-                                               |> Seq.toArray
+let dolgozok = "berek2020.txt" |> File.ReadLines
+                               |> Seq.skip 1
+                               |> Seq.map(fun k -> k.Split ';' |> dolgozotKeszit)
+                               |> Seq.toArray
 
 printfn "3. Feladat: Dolgozók száma: %d" dolgozok.Length
 
@@ -34,4 +35,4 @@ else
 printfn "7. Feladat:"
 
 dolgozok |> Seq.countBy(fun k -> k.MunkaReszleg)
-         |> Seq.iter(fun (reszleg, dbSzam) -> printfn "    %s - %d fő" reszleg dbSzam)
+         |> Seq.iter(fun (reszleg, count) -> printfn "    %s - %d fő" reszleg count)

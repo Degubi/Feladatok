@@ -5,12 +5,12 @@ let napok = [| "v"; "h"; "k"; "sz"; "cs"; "p"; "szo" |]
 let honapok = [| 0; 3; 2; 5; 0; 3; 5; 1; 4; 6; 2; 4 |]
 let HIANYZODATUM = DateTime.MinValue
 
-let hetnapja(ev: int, ho: int, nap: int) =
+let hetnapja ev ho nap =
     let ev2 = if ho < 3 then ev - 1 else ev
 
     napok.[(ev2 + ev2 / 4 - ev2 / 100 + ev2 / 400 + honapok.[ho - 1] + nap) % 7]
 
-let sorozatotKeszit(lines: string[], index: int) =
+let sorozatotKeszit(lines: string[]) (index: int) =
     let datumStr = lines.[index]
     let epizodInfoSplit = lines.[index + 2].Split('x')
 
@@ -24,8 +24,8 @@ let sorozatotKeszit(lines: string[], index: int) =
     |}
 
 
-let lines = File.ReadAllLines("lista.txt")
-let sorozatok = seq { 0 .. 5 .. lines.Length - 1 } |> Seq.map(fun i -> sorozatotKeszit(lines, i))
+let lines = File.ReadAllLines "lista.txt"
+let sorozatok = seq { 0 .. 5 .. lines.Length - 1 } |> Seq.map(fun i -> sorozatotKeszit lines i)
                                                    |> Seq.toArray
 
 sorozatok |> Seq.filter(fun k -> k.AdasbaKerulesiDatum <> HIANYZODATUM)
@@ -57,7 +57,7 @@ printfn "7. Feladat: Add meg 1 hét napját! (h, k, sze, cs, p, szo, v)"
 let bekertNap = Console.ReadLine()
 
 sorozatok |> Seq.filter(fun k -> k.AdasbaKerulesiDatum <> HIANYZODATUM)
-          |> Seq.filter(fun k -> bekertNap = hetnapja(k.AdasbaKerulesiDatum.Year, k.AdasbaKerulesiDatum.Month, k.AdasbaKerulesiDatum.Day))
+          |> Seq.filter(fun k -> bekertNap = hetnapja k.AdasbaKerulesiDatum.Year k.AdasbaKerulesiDatum.Month k.AdasbaKerulesiDatum.Day)
           |> Seq.map(fun k -> k.Cim)
           |> Seq.distinct
           |> Seq.toArray
@@ -66,5 +66,4 @@ sorozatok |> Seq.filter(fun k -> k.AdasbaKerulesiDatum <> HIANYZODATUM)
 
 sorozatok |> Seq.groupBy(fun k -> k.Cim)
           |> Seq.map(fun (k, v) -> k + " " + string (v |> Seq.sumBy(fun m -> m.EpizodonkentiHossz)) + " " + string (v |> Seq.length))
-          |> Seq.toArray
           |> fun k -> File.WriteAllLines("summa.txt", k)

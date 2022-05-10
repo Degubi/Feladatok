@@ -11,20 +11,21 @@ let fuvarAdatotKeszit(data: string[]) = {|
     FizetesMod = data.[6]
 |}
 
-let fuvarok = File.ReadLines "fuvar.csv" |> Seq.skip(1)
-                                         |> Seq.map(fun k -> k.Split ';' |> fuvarAdatotKeszit)
-                                         |> Seq.toArray
+let fuvarok = "fuvar.csv" |> File.ReadLines
+                          |> Seq.skip 1
+                          |> Seq.map(fun k -> k.Split ';' |> fuvarAdatotKeszit)
+                          |> Seq.toArray
 
 printfn "3. Feladat: Fuvarok száma: %d" fuvarok.Length
 
-let szurt = fuvarok |> Seq.filter(fun k -> k.Azonosito = 6185)
-                    |> Seq.toArray
+fuvarok |> Seq.filter(fun k -> k.Azonosito = 6185)
+        |> Seq.toArray
+        |> fun k -> printfn "4. Feladat: %d db fuvarra: %.2f$" k.Length (k |> Seq.sumBy(fun k -> k.Dij))
 
-printfn "4. Feladat: %d db fuvarra: %.2f$" szurt.Length (szurt |> Seq.sumBy(fun k -> k.Dij))
 printfn "5. Feladat"
 
-fuvarok |> Seq.groupBy(fun k -> k.FizetesMod)
-        |> Seq.iter(fun (k, e) -> printfn "%s: %d db" k (e |> Seq.length))
+fuvarok |> Seq.countBy(fun k -> k.FizetesMod)
+        |> Seq.iter(fun (mode, db) -> printfn "%s: %d db" mode db)
 
 printfn "6. Feladat: %.2f km" (1.6 * (fuvarok |> Seq.sumBy(fun k -> k.Tavolsag)))
 
@@ -37,6 +38,4 @@ fuvarok |> Seq.filter(fun k -> k.Idotartam > 0 && k.Dij > 0. && k.Tavolsag = 0.)
         |> Seq.sortBy(fun k -> k.Indulas)
         |> Seq.map(fun k -> (string k.Azonosito) + ";" + (string k.Indulas) + ";" + (string k.Idotartam) + ";" +
                             (string k.Tavolsag) + ";" + (string k.Dij) + ";" + (string k.Borravalo) + ";" + k.FizetesMod)
-        |> Seq.toArray
-        |> fun k -> String.Join("\n", k)
-        |> fun k -> File.WriteAllText("hibak.txt", header + k)
+        |> fun k -> File.WriteAllText("hibak.txt", header + String.Join("\n", k))

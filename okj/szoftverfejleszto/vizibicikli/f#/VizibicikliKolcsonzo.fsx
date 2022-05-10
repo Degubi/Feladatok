@@ -47,7 +47,6 @@ kolcsonzesek |> Seq.filter(fun k -> k.jarmuAzonosito = "F")
 
 printfn "10. Feladat:"
 
-kolcsonzesek |> Seq.groupBy(fun k -> k.jarmuAzonosito)
-             |> Seq.map(fun (azonosito, kolcsonzesek) -> (azonosito, kolcsonzesek |> Seq.length))
+kolcsonzesek |> Seq.countBy(fun k -> k.jarmuAzonosito)
              |> Seq.sortBy(fun (azonosito, _) -> azonosito)
              |> Seq.iter(fun (azonosito, dbSzam) -> printfn $"    {azonosito} - {dbSzam}")

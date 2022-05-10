@@ -1,15 +1,16 @@
 ﻿open System
 open System.IO
 
-let hegyetKeszit (k: string[]) = {|
+let hegyetKeszit(k: string[]) = {|
     Nev = k.[0]
     Hegyseg = k.[1]
     Magassag = float k.[2]
 |}
 
-let hegyek = File.ReadLines("hegyekMo.txt") |> Seq.skip(1)
-                                            |> Seq.map(fun k -> k.Split ';' |> hegyetKeszit)
-                                            |> Seq.toArray
+let hegyek = "hegyekMo.txt" |> File.ReadLines
+                            |> Seq.skip 1
+                            |> Seq.map(fun k -> k.Split ';' |> hegyetKeszit)
+                            |> Seq.toArray
 
 printfn "3. Feladat: Hegyek száma: %d db" hegyek.Length
 
@@ -28,17 +29,14 @@ hegyek |> Seq.exists(fun k -> k.Hegyseg = "Börzsöny" && k.Magassag > beMagassa
 let konvertaltLab3000 = 3000.0 / 3.280839895;
 
 hegyek |> Seq.filter(fun k -> k.Magassag > konvertaltLab3000)
-       |> Seq.sumBy(fun _ -> 1)
+       |> Seq.length
        |> printfn "7. Feladat: 3000 lábnál magasabbak száma: %d"
 
 printfn "8. Feladat: Hegység stat"
 
-hegyek |> Seq.map(fun k -> k.Hegyseg)
-       |> Seq.countBy(id)
-       |> Seq.iter(fun (k, l) -> printfn "    %s: %d" k l)
+hegyek |> Seq.countBy(fun k -> k.Hegyseg)
+       |> Seq.iter(fun (hegyseg, count) -> printfn "    %s: %d" hegyseg count)
 
-let fileAdat = hegyek |> Seq.filter(fun k -> k.Hegyseg = "Bükk-vidék")
-                      |> Seq.map(fun k -> sprintf "%s;%.2f" k.Nev (k.Magassag * 3.280839895) |> fun k -> k.Replace(",", "."))
-                      |> Seq.toArray
-
-File.WriteAllText("bukk-videk.txt", "Hegycsúcs neve;Magasság láb\n" + String.Join("\n", fileAdat))
+hegyek |> Seq.filter(fun k -> k.Hegyseg = "Bükk-vidék")
+       |> Seq.map(fun k -> sprintf "%s;%.2f" k.Nev (k.Magassag * 3.280839895) |> fun k -> k.Replace(",", "."))
+       |> fun k -> File.WriteAllText("bukk-videk.txt", "Hegycsúcs neve;Magasság láb\n" + String.Join("\n", k))

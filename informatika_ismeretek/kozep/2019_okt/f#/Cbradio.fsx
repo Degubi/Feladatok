@@ -8,9 +8,10 @@ let bejegyzestKeszit (k: string[]) = {|
     Nev = k.[3]
 |}
 
-let bejegyzesek = File.ReadLines("cb.txt") |> Seq.skip(1)
-                                           |> Seq.map(fun k -> k.Split(';') |> bejegyzestKeszit)
-                                           |> Seq.toArray
+let bejegyzesek = "cb.txt" |> File.ReadLines
+                           |> Seq.skip 1
+                           |> Seq.map(fun k -> k.Split ';' |> bejegyzestKeszit)
+                           |> Seq.toArray
 
 printfn "3. Feladat: Bejegyzések száma: %d" bejegyzesek.Length
 
@@ -22,17 +23,15 @@ printfn "5. Feladat: Írj be egy nevet!"
 let bekertNev = Console.ReadLine()
 let bekertHasznalatok = bejegyzesek |> Seq.filter(fun k -> k.Nev = bekertNev)
                                     |> Seq.sumBy(fun k -> k.Adasok)
-
 if bekertHasznalatok > 0 then
     printfn "%s %dx használta a rádiót" bekertNev bekertHasznalatok
 else
     printfn "Nincs ilyen nevű sofőr!"
 
 let atszamolPercre (ora: int, perc: int) = ora * 60 + perc
-let fileContent = bejegyzesek |> Seq.map(fun k -> string(atszamolPercre(k.Ora, k.Perc)) + ";" + k.Nev + ";" + string k.Adasok)
-                              |> Seq.toArray
 
-File.WriteAllText("cb2.txt", "Kezdes;Nev;AdasDb\n" + String.Join("\n", fileContent))
+bejegyzesek |> Seq.map(fun k -> string(atszamolPercre(k.Ora, k.Perc)) + ";" + k.Nev + ";" + string k.Adasok)
+            |> fun k -> File.WriteAllText("cb2.txt", "Kezdes;Nev;AdasDb\n" + String.Join("\n", k))
 
 bejegyzesek |> Seq.map(fun k -> k.Nev)
             |> Seq.distinct

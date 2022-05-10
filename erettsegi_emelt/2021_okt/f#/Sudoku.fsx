@@ -21,16 +21,21 @@ let inputFileName = Console.ReadLine()
 let inputRowIndex = int(Console.ReadLine()) - 1
 let inputColumnIndex = int(Console.ReadLine()) - 1
 
-let numbersPerLine = File.ReadLines(inputFileName) |> Seq.map(fun k -> k.Split(" ") |> Seq.map(int) |> Seq.toArray) |> Seq.toArray
-let gameState = numbersPerLine.[0 .. 8]
+let numbersPerLine = inputFileName |> File.ReadLines
+                                   |> Seq.map(fun k -> k.Split " " |> Seq.map(int) |> Seq.toArray)
+                                   |> Seq.toArray
 
+let gameState = numbersPerLine.[0 .. 8]
 let valueAtInputSlot = gameState.[inputRowIndex].[inputColumnIndex]
 let tableNumber = 3 * (inputRowIndex / 3) + (inputColumnIndex / 3) + 1
 let valueToPrint = if valueAtInputSlot = 0 then "Az adott helyet még nem töltötték ki!" else ($"Adott helyen szereplő szám: {valueAtInputSlot}")
 
 printfn $"3. Feladat: {valueToPrint}, résztáblázat száma: {tableNumber}"
 
-let unfilledSlotCount = gameState |> Seq.concat |> Seq.filter(fun k -> k = 0) |> Seq.length |> float
+let unfilledSlotCount = gameState |> Seq.concat
+                                  |> Seq.filter(fun k -> k = 0)
+                                  |> Seq.length
+                                  |> float
 
 printfn "4. Feladat: Üres helyek aránya: %.1f%%\n" (unfilledSlotCount / 81.0 * 100.0)
 printfn "5. Feladat:"

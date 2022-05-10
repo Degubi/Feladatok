@@ -2,7 +2,7 @@
 open System.IO
 
 let csatlakozasok = File.ReadLines("EUcsatlakozas.txt", System.Text.Encoding.GetEncoding("ISO-8859-1"))
-                    |> Seq.map(fun k -> k.Split(';'))
+                    |> Seq.map(fun k -> k.Split ';')
                     |> Seq.map(fun m -> {| Orszag = m.[0]; Datum = DateTime.Parse(m.[1]) |})
                     |> Seq.toArray
 
@@ -23,5 +23,5 @@ csatlakozasok |> Seq.maxBy(fun k -> k.Datum)
 
 printfn "8. Feladat:"
 
-csatlakozasok |> Seq.groupBy(fun k -> k.Datum.Year)
-              |> Seq.iter(fun (ev, stream) -> printfn "%d - %d db ország" ev (stream |> Seq.length))
+csatlakozasok |> Seq.countBy(fun k -> k.Datum.Year)
+              |> Seq.iter(fun (ev, db) -> printfn "%d - %d db ország" ev db)

@@ -10,12 +10,12 @@ let versenyKeszit(data: string[]) = {|
     LeggyorsabbKorokSzama = int data.[5]
 |}
 
-let versenyek = File.ReadLines("jackie.txt") |> Seq.skip(1)
-                                             |> Seq.map(fun k -> k.Split('\t') |> versenyKeszit)
-                                             |> Seq.toArray
+let versenyek = "jackie.txt" |> File.ReadLines
+                             |> Seq.skip 1
+                             |> Seq.map(fun k -> k.Split '\t' |> versenyKeszit)
+                             |> Seq.toArray
 
 printfn "3. Feladat: Adatsorok száma: %d" versenyek.Length
-
 
 versenyek |> Seq.maxBy(fun k -> k.IndulasokSzama)
           |> fun k -> printfn "4. Feladat: %d" k.Ev

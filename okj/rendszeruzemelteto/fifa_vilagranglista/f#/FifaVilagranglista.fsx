@@ -8,9 +8,11 @@ let eredmenytKeszit(data: string[]) = {|
     Pontszam = int data.[3]
 |}
 
-let eredmenyek = File.ReadLines("fifa.txt", Encoding.Latin1) |> Seq.skip(1)
-                                                             |> Seq.map(fun k -> k.Split(';') |> eredmenytKeszit)
-                                                             |> Seq.toArray
+let eredmenyek = File.ReadLines("fifa.txt", Encoding.Latin1)
+                 |> Seq.skip 1
+                 |> Seq.map(fun k -> k.Split ';' |> eredmenytKeszit)
+                 |> Seq.toArray
+
 printfn "3. Feladat: Csapatok száma: %d" eredmenyek.Length
 
 eredmenyek |> Seq.averageBy(fun k -> float k.Pontszam)
@@ -24,7 +26,6 @@ eredmenyek |> Seq.exists(fun k -> k.Csapat = "Magyarország")
 
 printfn "7. Feladat"
 
-eredmenyek |> Seq.groupBy(fun k -> k.Valtozas)
-           |> Seq.map(fun (k, e) -> (k, e |> Seq.length))
-           |> Seq.filter(fun (_, c) -> c > 1)
-           |> Seq.iter(fun (k, c) -> printfn "    %d helyet változott: %d csapat" k c)
+eredmenyek |> Seq.countBy(fun k -> k.Valtozas)
+           |> Seq.filter(fun (_, count) -> count > 1)
+           |> Seq.iter(fun (valtozas, count) -> printfn "    %d helyet változott: %d csapat" valtozas count)

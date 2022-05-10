@@ -13,9 +13,10 @@ let helyszintKeszit (k: string[]) = {|
 |}
 
 
-let helyszinek = File.ReadLines "vb2018.txt" |> Seq.skip(1)
-                                             |> Seq.map(fun k -> k.Split ';' |> helyszintKeszit)
-                                             |> Seq.toArray
+let helyszinek = "vb2018.txt" |> File.ReadLines
+                              |> Seq.skip 1
+                              |> Seq.map(fun k -> k.Split ';' |> helyszintKeszit)
+                              |> Seq.toArray
 
 printfn "3. Feladat: Stadionok száma: %d" helyszinek.Length
 
@@ -26,7 +27,7 @@ helyszinek |> Seq.averageBy(fun k -> float k.Ferohely)
            |> printfn "5. Feladat: Férőhelyek átlaga: %.1f"
 
 helyszinek |> Seq.filter(fun k -> k.Nev2 <> "n.a.")
-           |> Seq.sumBy(fun _ -> 1)
+           |> Seq.length
            |> printfn "6. Feladat: Alternativ neves stadionok: %d"
 
 printfn "7. Feladat:"
@@ -38,5 +39,5 @@ helyszinek |> Seq.exists(fun k -> String.Equals(k.Varos, olvasottNev, StringComp
 
 helyszinek |> Seq.map(fun k -> k.Varos)
            |> Seq.distinct
-           |> Seq.sumBy(fun _ -> 1)
+           |> Seq.length
            |> printfn "9. Feladat: Városok száma: %d"

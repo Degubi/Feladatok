@@ -10,9 +10,10 @@ let versenytKeszit(args: string[]) = {|
     Kor = int args.[5]
 |}
 
-let versenyek = File.ReadLines("autoverseny.csv") |> Seq.skip(1)
-                                                  |> Seq.map(fun k -> k.Split(';') |> versenytKeszit)
-                                                  |> Seq.toArray
+let versenyek = "autoverseny.csv" |> File.ReadLines
+                                  |> Seq.skip 1
+                                  |> Seq.map(fun k -> k.Split ';' |> versenytKeszit)
+                                  |> Seq.toArray
 
 printfn "3. Feladat: Adatsorok száma: %d" versenyek.Length
 

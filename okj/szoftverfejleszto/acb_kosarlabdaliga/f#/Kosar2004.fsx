@@ -38,7 +38,6 @@ eredmenyek |> Seq.filter(fun k -> k.idopont = hatosFeladatIdopont)
            |> Seq.iter(fun k -> printfn "    %s - %s (%d:%d)" k.hazaiCsapat k.idegenCsapat k.hazaiPont k.idegenPont)
 
 printfn "7. Feladat:"
-eredmenyek |> Seq.groupBy(fun k -> k.helyszin)
-           |> Seq.map(fun (helyszin, elements) -> (helyszin, elements |> Seq.length))
+eredmenyek |> Seq.countBy(fun k -> k.helyszin)
            |> Seq.filter(fun (_, count) -> count > 20)
            |> Seq.iter(fun (helyszin, count) -> printfn "    %s: %d" helyszin count)

@@ -10,9 +10,10 @@ let versenyzotKeszit(data: string[]) = {|
     Rajtszam = if data.[3] = "" then URESRAJTSZAM else int data.[3]
 |}
 
-let pilotak = File.ReadLines("pilotak.csv") |> Seq.skip(1)
-                                            |> Seq.map(fun k -> k.Split(';') |> versenyzotKeszit)
-                                            |> Seq.toArray
+let pilotak = "pilotak.csv" |> File.ReadLines
+                            |> Seq.skip 1
+                            |> Seq.map(fun k -> k.Split ';' |> versenyzotKeszit)
+                            |> Seq.toArray
 
 printfn "3. Feladat: Adatsorok száma: %d" pilotak.Length
 printfn "4. Feladat: Utolsó pilóta neve: %s" pilotak.[pilotak.Length - 1].Nev

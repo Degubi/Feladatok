@@ -11,7 +11,7 @@ type TelepulesAdat = {
 
 let idojarasAdatotKeszit(args: string[]) =
     let teljesIdo = int args.[1]
-    
+
     {
         Telepules = args.[0]
         Ido = TimeSpan(teljesIdo / 100, teljesIdo % 100, 0)
@@ -20,7 +20,7 @@ let idojarasAdatotKeszit(args: string[]) =
         Homerseklet = int args.[3]
     }
 
-let telepuleshezTartozoKiiratandoHomersekletAdat(telepules: string, adatok: seq<TelepulesAdat>) =
+let telepuleshezTartozoKiiratandoHomersekletAdat telepules adatok =
     let homersekletek = adatok |> Seq.map(fun k -> k.Homerseklet)
                                |> Seq.toArray
 
@@ -35,16 +35,16 @@ let telepuleshezTartozoKiiratandoHomersekletAdat(telepules: string, adatok: seq<
     else
         telepules + ": NA; Ingadozás: " + ingadozas
 
-let telepulesAdataiFajlba(telepules: string, adatok: seq<TelepulesAdat>) =
+let telepulesAdataiFajlba telepules adatok =
     let adatSorok = adatok |> Seq.map(fun k -> string k.Ido + " " + String('#', k.SzelErosseg))
                            |> String.concat("\n")
 
     File.WriteAllText(telepules + ".txt", telepules + "\n" + adatSorok)
 
 
-
-let adatok = File.ReadLines("tavirathu13.txt") |> Seq.map(fun k -> k.Split(' ') |> idojarasAdatotKeszit)
-                                               |> Seq.toArray
+let adatok = "tavirathu13.txt" |> File.ReadLines
+                               |> Seq.map(fun k -> k.Split ' ' |> idojarasAdatotKeszit)
+                               |> Seq.toArray
 
 printfn "2. Feladat: Írj be 1 városkódot!"
 
@@ -78,7 +78,7 @@ printfn "5. Feladat:"
 
 let adatokVarosonkent = adatok |> Seq.groupBy(fun k -> k.Telepules)
 
-adatokVarosonkent |> Seq.map(fun (k, v) -> telepuleshezTartozoKiiratandoHomersekletAdat(k, v))
+adatokVarosonkent |> Seq.map(fun (k, v) -> telepuleshezTartozoKiiratandoHomersekletAdat k v)
                   |> Seq.iter(fun k -> printfn "%s" k)
 
-adatokVarosonkent |> Seq.iter(telepulesAdataiFajlba)
+adatokVarosonkent |> Seq.iter(fun (k, v) -> telepulesAdataiFajlba k v)

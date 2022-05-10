@@ -32,12 +32,13 @@ let kifejezestKiertekel(kif: Kifejezes) =
     with
     | _ -> "Egyéb hiba!"
 
-let kifejezesek = File.ReadLines("kifejezesek.txt", Encoding.Latin1) |> Seq.map(kifejezestKeszit) |> Seq.toArray
+let kifejezesek = File.ReadLines("kifejezesek.txt", Encoding.Latin1)
+                  |> Seq.map(kifejezestKeszit)
+                  |> Seq.toArray
 
 printfn "2. Feladat: Kifejezések száma: %d" kifejezesek.Length
 
-let operatoronkentiDbSzam = kifejezesek |> Seq.groupBy(fun k -> k.Operator)
-                                        |> Seq.map(fun (k, e) -> (k, e |> Seq.length))
+let operatoronkentiDbSzam = kifejezesek |> Seq.countBy(fun k -> k.Operator)
                                         |> dict
 
 printfn "3. Feladat: Maradékos osztások száma: %d" operatoronkentiDbSzam.["mod"]
@@ -57,5 +58,4 @@ Seq.initInfinite(kifejezestBeker) |> Seq.takeWhile(fun k -> k <> "vége")
                                   |> Seq.iter(fun k-> printfn "%s = %s" k (k |> kifejezestKeszit |> kifejezestKiertekel))
 
 kifejezesek |> Seq.map(fun k -> k.TeljesKifejezes + " = " + kifejezestKiertekel k)
-            |> Seq.toArray
             |> fun k -> File.WriteAllLines("eredmenyek.txt", k)

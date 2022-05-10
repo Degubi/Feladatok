@@ -8,9 +8,10 @@ let dijatKeszit(data: string[]) = {|
     VezetekNev = if data.Length = 4 then data.[3] else ""
 |}
 
-let dijak = File.ReadAllLines "nobel.csv" |> Seq.skip(1)
-                                          |> Seq.map(fun k -> k.Split ';' |> dijatKeszit)
-                                          |> Seq.toArray
+let dijak = "nobel.csv" |> File.ReadLines
+                        |> Seq.skip 1
+                        |> Seq.map(fun k -> k.Split ';' |> dijatKeszit)
+                        |> Seq.toArray
 
 dijak |> Seq.filter(fun k -> k.KeresztNev = "Arthur B." && k.VezetekNev = "McDonald")
       |> Seq.head
@@ -33,11 +34,10 @@ dijak |> Seq.filter(fun k -> k.VezetekNev.Contains "Curie")
 
 printfn "7. Feladat"
 
-dijak |> Seq.groupBy(fun k -> k.Tipus)
-      |> Seq.iter(fun (k, e) -> printfn "%s: %d db" k (e |> Seq.length))
+dijak |> Seq.countBy(fun k -> k.Tipus)
+      |> Seq.iter(fun (tipus, db) -> printfn "%s: %d db" tipus db)
 
 dijak |> Seq.filter(fun k -> k.Tipus = "orvosi")
       |> Seq.sortBy(fun k -> k.Evszam)
-      |> Seq.map(fun k -> string k.Evszam + ":" + k.KeresztNev + " " + k.VezetekNev)
-      |> Seq.toArray
+      |> Seq.map(fun k -> $"{k.Evszam}:{k.KeresztNev} {k.VezetekNev}")
       |> fun k -> File.WriteAllLines("orvosi.txt", k)

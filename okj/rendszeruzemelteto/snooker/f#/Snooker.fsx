@@ -7,9 +7,10 @@ let versenyzotKeszit (k: string[]) = {|
     Nyeremeny = int k.[3]
 |}
 
-let versenyzok = File.ReadLines "snooker.txt" |> Seq.skip(1)
-                                              |> Seq.map(fun k -> k.Split ';' |> versenyzotKeszit)
-                                              |> Seq.toArray
+let versenyzok = "snooker.txt" |> File.ReadLines
+                               |> Seq.skip 1
+                               |> Seq.map(fun k -> k.Split ';' |> versenyzotKeszit)
+                               |> Seq.toArray
 
 printfn "3. Feladat: Versenyzők száma: %d" versenyzok.Length
 
@@ -25,7 +26,6 @@ versenyzok |> Seq.exists(fun k -> k.Orszag = "Norvégia")
 
 printfn "7. Feladat:"
 
-versenyzok |> Seq.map(fun k -> k.Orszag)
-           |> Seq.countBy(id)
-           |> Seq.filter(fun (_, v) -> v > 4)
-           |> Seq.iter(fun (k, v) -> printfn "%s: %d fő" k v)
+versenyzok |> Seq.countBy(fun k -> k.Orszag)
+           |> Seq.filter(fun (_, count) -> count > 4)
+           |> Seq.iter(fun (orszag, count) -> printfn "%s: %d fő" orszag count)

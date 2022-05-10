@@ -1,7 +1,9 @@
 ﻿open System
 open System.IO
 
-let melysegek = File.ReadLines("melyseg.txt") |> Seq.map(int) |> Seq.toArray
+let melysegek = "melyseg.txt" |> File.ReadLines
+                              |> Seq.map(int)
+                              |> Seq.toArray
 
 printfn "1. Feladat: %d" melysegek.Length
 printfn "2. Feladat: Írjon be egy távolságértéket!"
