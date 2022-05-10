@@ -1,19 +1,19 @@
-<svg width="92.3" height="20" viewBox="0 0 923 200" xmlns="http://www.w3.org/2000/svg">
+<svg width="103.3" height="20" viewBox="0 0 1033 200" xmlns="http://www.w3.org/2000/svg">
   <linearGradient id="a" x2="0" y2="100%">
     <stop offset="0" stop-opacity=".1" stop-color="#EEE"/>
     <stop offset="1" stop-opacity=".1"/>
   </linearGradient>
-  <mask id="m"><rect width="923" height="200" rx="30" fill="#FFF"/></mask>
+  <mask id="m"><rect width="1033" height="200" rx="30" fill="#FFF"/></mask>
   <g mask="url(#m)">
     <rect width="613" height="200" fill="#555"/>
-    <rect width="310" height="200" fill="#94E" x="613"/>
-    <rect width="923" height="200" fill="url(#a)"/>
+    <rect width="420" height="200" fill="#94E" x="613"/>
+    <rect width="1033" height="200" fill="url(#a)"/>
   </g>
   <g fill="#fff" text-anchor="start" font-family="Verdana,DejaVu Sans,sans-serif" font-size="110">
     <text x="60" y="148" textLength="513" fill="#000" opacity="0.25">F# Sorok</text>
     <text x="50" y="138" textLength="513">F# Sorok</text>
-    <text x="668" y="148" textLength="210" fill="#000" opacity="0.25">904</text>
-    <text x="658" y="138" textLength="210">904</text>
+    <text x="668" y="148" textLength="320" fill="#000" opacity="0.25">1,001</text>
+    <text x="658" y="138" textLength="320">1,001</text>
   </g>
   
 </svg>
