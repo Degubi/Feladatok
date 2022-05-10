@@ -43,8 +43,7 @@ public class Kosar2004_stream {
 
         System.out.println("7. Feladat:");
         Arrays.stream(eredmenyek)
-              .map(k -> k.helyszin)
-              .collect(Collectors.groupingBy(k -> k, Collectors.counting()))
+              .collect(Collectors.groupingBy(k -> k.helyszin, Collectors.counting()))
               .entrySet().stream()
               .filter(k -> k.getValue() > 20)
               .forEach(e -> System.out.println("    " + e.getKey() + ": " + e.getValue()));

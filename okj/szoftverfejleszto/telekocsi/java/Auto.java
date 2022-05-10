@@ -1,4 +1,4 @@
-public class Auto{
+public class Auto {
     public final String indulas;
     public final String cel;
     public final String rendszam;

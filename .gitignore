@@ -1,5 +1,6 @@
 /bin/
 /src/
 /.settings/
+/.ionide/
 .classpath
 .project
