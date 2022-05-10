@@ -6,19 +6,18 @@ import java.util.stream.*;
 public class Hianyzasok_stream {
 
     public static void main(String[] args) throws IOException {
-        var honapNapSzamlalok = new int[2];
-        var hianyzasok = Files.lines(Path.of("naplo.txt"))
+        var splitLines = Files.lines(Path.of("naplo.txt"))
                               .map(k -> k.split(" "))
-                              .filter(split -> {
-                                  if(split[0].equals("#")) {
-                                      honapNapSzamlalok[0] = Integer.parseInt(split[1]);
-                                      honapNapSzamlalok[1] = Integer.parseInt(split[2]);
-                                      return false;
-                                  }
-                                  return true;
-                              })
-                              .map(split -> new Hianyzas(split[0] + ' ' +  split[1], split[2], honapNapSzamlalok[0], honapNapSzamlalok[1]))
-                              .toArray(Hianyzas[]::new);
+                              .toArray(String[][]::new);
+
+        var napSorIndexek = IntStream.range(0, splitLines.length)
+                                     .filter(i -> splitLines[i][0].equals("#"))
+                                     .toArray();
+
+        var hianyzasok = IntStream.range(0, napSorIndexek.length)
+                                  .boxed()
+                                  .flatMap(i -> collectHianyzasokBetweenDays(splitLines, napSorIndexek, i))
+                                  .toArray(Hianyzas[]::new);
 
         System.out.println("2. Feladat: Hiányzások száma: " + hianyzasok.length);
 
@@ -34,7 +33,7 @@ public class Hianyzasok_stream {
 
         System.out.println("3. Feladat: Igazolt hiányzások: " + igazoltak + ", igazolatlanok: " + igazolatlanok);
 
-        try(var input = new Scanner(System.in)){
+        try(var input = new Scanner(System.in)) {
             System.out.println("5. Feladat: Írjon be egy hónapot és egy napot");
 
             var beHonap = input.nextInt();
@@ -46,14 +45,13 @@ public class Hianyzasok_stream {
             var beTanNap = input.next();
             var beOraszam = input.nextInt() - 1;
 
-            var szam = Arrays.stream(hianyzasok)
-                             .filter(k -> beTanNap.equals(hetnapja(k.honap, k.nap)))
-                             .map(k -> k.orak)
-                             .mapToInt(k -> k.charAt(beOraszam))
-                             .filter(k -> k == 'X' || k == 'I')
-                             .count();
+            var hianyzasokSzama = Arrays.stream(hianyzasok)
+                                        .filter(k -> beTanNap.equals(hetnapja(k.honap, k.nap)))
+                                        .map(k -> k.orak.charAt(beOraszam))
+                                        .filter(k -> k == 'X' || k == 'I')
+                                        .count();
 
-            System.out.println("Ekkor " + szam + "-an hiányoztak");
+            System.out.println("Ekkor " + hianyzasokSzama + "-an hiányoztak");
         }
 
         System.out.println("7. Feladat: ");
@@ -66,7 +64,6 @@ public class Hianyzasok_stream {
                                          .mapToLong(k -> k)
                                          .max()
                                          .orElseThrow();
-
         hianyzasMap.entrySet().stream()
                    .filter(k -> k.getValue() == legtobbHianyzas)
                    .forEach(k -> System.out.print(k.getKey() + ' '));
@@ -77,8 +74,18 @@ public class Hianyzasok_stream {
     public static final int[] napszam = { 0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 335 };
 
     public static String hetnapja(int honap, int nap) {
-        var napsorszam = (napszam[honap - 1] + nap) % 7;
+        return napnev[(napszam[honap - 1] + nap) % 7];
+    }
 
-        return napnev[napsorszam];
+    public static Stream<Hianyzas> collectHianyzasokBetweenDays(String[][] splitLines, int[] napSorIndexek, int napSorIndexIndex) {
+        var napKezdetIndex = napSorIndexek[napSorIndexIndex];
+        var nextNapSorIndex = napSorIndexIndex + 1;
+        var napZaroIndex = nextNapSorIndex < napSorIndexek.length ? napSorIndexek[napSorIndexIndex + 1] : splitLines.length;
+        var napAdat = splitLines[napKezdetIndex];
+        var honap = Integer.parseInt(napAdat[1]);
+        var nap = Integer.parseInt(napAdat[2]);
+        return IntStream.range(napKezdetIndex + 1, napZaroIndex)
+                         .mapToObj(k -> splitLines[k])
+                         .map(k -> new Hianyzas(k[0] + ' ' + k[1], k[2], honap, nap));
     }
 }

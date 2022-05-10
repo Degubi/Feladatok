@@ -6,16 +6,17 @@ var napnev = new []{ "vasarnap", "hetfo", "kedd", "szerda", "csutortok", "pentek
 var napszam = new []{ 0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 335 };
 
 var hianyzasok = new List<Hianyzas>();
-var honapNapSzamlalok = new int[2];
+var honap = 0;
+var nap = 0;
 
 foreach(var line in File.ReadAllLines("naplo.txt")) {
     var split = line.Split(' ');
 
     if(split[0] == "#") {
-        honapNapSzamlalok[0] = int.Parse(split[1]);
-        honapNapSzamlalok[1] = int.Parse(split[2]);
+        honap = int.Parse(split[1]);
+        nap = int.Parse(split[2]);
     }else{
-        hianyzasok.Add(new Hianyzas(split[0] + ' ' +  split[1], split[2], honapNapSzamlalok[0], honapNapSzamlalok[1]));
+        hianyzasok.Add(new Hianyzas(split[0] + ' ' +  split[1], split[2], honap, nap));
     }
 }
 

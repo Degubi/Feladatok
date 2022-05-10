@@ -6,16 +6,17 @@ public class Hianyzasok {
 
     public static void main(String[] args) throws IOException {
         var hianyzasok = new ArrayList<Hianyzas>();
-        var honapNapSzamlalok = new int[2];
+        var honap = 0;
+        var nap = 0;
 
         for(var line : Files.readAllLines(Path.of("naplo.txt"))) {
             var split = line.split(" ");
 
             if(split[0].equals("#")) {
-                honapNapSzamlalok[0] = Integer.parseInt(split[1]);
-                honapNapSzamlalok[1] = Integer.parseInt(split[2]);
+                honap = Integer.parseInt(split[1]);
+                nap = Integer.parseInt(split[2]);
             }else{
-                hianyzasok.add(new Hianyzas(split[0] + ' ' +  split[1], split[2], honapNapSzamlalok[0], honapNapSzamlalok[1]));
+                hianyzasok.add(new Hianyzas(split[0] + ' ' +  split[1], split[2], honap, nap));
             }
         }
 
@@ -38,7 +39,7 @@ public class Hianyzasok {
 
         System.out.println("3. Feladat: Igazolt hiányzások: " + igazoltHianyzasok + ", igazolatlanok: " + igazolatlanHianyzasok);
 
-        try(var input = new Scanner(System.in)){
+        try(var input = new Scanner(System.in)) {
             System.out.println("5. Feladat: Írjon be egy hónapot és egy napot");
 
             var beHonap = input.nextInt();
@@ -99,8 +100,6 @@ public class Hianyzasok {
     public static final int[] napszam = { 0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 335 };
 
     public static String hetnapja(int honap, int nap) {
-        var napsorszam = (napszam[honap - 1] + nap) % 7;
-
-        return napnev[napsorszam];
+        return napnev[(napszam[honap - 1] + nap) % 7];
     }
 }
