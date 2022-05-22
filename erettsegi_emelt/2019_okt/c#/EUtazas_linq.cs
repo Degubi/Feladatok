@@ -32,11 +32,10 @@ var haromnaposok = utazasok.Where(k => {
                                 var napKulonbseg = (k.felszallas - k.ervenyesseg).Days;
                                 return napKulonbseg >= 0 && napKulonbseg <= 3;
                            })
-                           .Select(k => k.kartyaAzonosito + " " + k.ervenyesseg)
-                           .ToArray();
+                           .Select(k => k.kartyaAzonosito + " " + k.ervenyesseg);
 
 File.WriteAllLines("figyelmeztetes.txt", haromnaposok);
-    
+
 
 int Napokszama(int e1, int h1, int n1, int e2, int h2, int n2) {
     h1 = (h1 + 9) % 12;

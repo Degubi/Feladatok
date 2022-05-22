@@ -40,17 +40,9 @@ public class Sudoku_stream {
     }
 
     private static String getStepAttemptResultMessage(int value, int rowIndex, int columnIndex, int[][] gameState) {
-        if(gameState[rowIndex][columnIndex] != 0) {
-            return "A helyet már kitöltötték";
-        }
-
-        if(Arrays.stream(gameState[rowIndex]).anyMatch(k -> k == value)) {
-            return "Az adott sorban már szerepel a szám";
-        }
-
-        if(Arrays.stream(gameState).anyMatch(k -> k[columnIndex] == value)) {
-            return "Az adott oszlopban már szerepel a szám";
-        }
+        if(gameState[rowIndex][columnIndex] != 0) return "A helyet már kitöltötték";
+        if(Arrays.stream(gameState[rowIndex]).anyMatch(k -> k == value)) return "Az adott sorban már szerepel a szám";
+        if(Arrays.stream(gameState).anyMatch(k -> k[columnIndex] == value)) return "Az adott oszlopban már szerepel a szám";
 
         var beginRow = (rowIndex / 3) * 3;
         var endRow = beginRow + 3;

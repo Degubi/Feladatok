@@ -51,8 +51,7 @@ var bekertNapraEsok = sorozatok.Where(k => k.adasbaKerulesiDatum != Sorozat.HIAN
 Console.WriteLine(bekertNapraEsok.Length == 0 ? "Az adott napon nem kerül adásba sorozat." : string.Join("\n", bekertNapraEsok));
 
 var fileba = sorozatok.GroupBy(k => k.cim)
-                      .Select(k => k.Key + " " + k.Select(l => l.epizodonkentiHossz).Sum() + " " + k.Count())
-                      .ToArray();
+                      .Select(k => k.Key + " " + k.Select(l => l.epizodonkentiHossz).Sum() + " " + k.Count());
 
 File.WriteAllLines("summa.txt", fileba);
 

@@ -2,18 +2,18 @@ open System
 open System.IO
 
 let getStepAttemptResultMessage(value: int, rowIndex: int, columnIndex: int, gameState: int[][]) =
-    match gameState with
-    | _ when gameState.[rowIndex].[columnIndex] <> 0 -> "A helyet már kitöltötték"
-    | _ when gameState.[rowIndex] |> Seq.exists(fun k -> k = value) -> "Az adott sorban már szerepel a szám"
-    | _ when gameState |> Seq.exists(fun k -> k.[columnIndex] = value) -> "Az adott oszlopban már szerepel a szám"
-    | _ when
+    if gameState.[rowIndex].[columnIndex] <> 0 then "A helyet már kitöltötték"
+    elif gameState.[rowIndex] |> Seq.exists(fun k -> k = value) then "Az adott sorban már szerepel a szám"
+    elif gameState |> Seq.exists(fun k -> k.[columnIndex] = value) then "Az adott oszlopban már szerepel a szám"
+    else
         let beginRow = (rowIndex / 3) * 3
         let endRow = beginRow + 3
         let beginColumn = (columnIndex / 3) * 3
         let endColumn = beginColumn + 3
 
-        gameState.[beginRow .. endRow - 1] |> Seq.exists(fun k -> k.[beginColumn .. endColumn - 1] |> Seq.exists(fun m -> m = value)) -> "Az adott résztáblában már szerepel a szám"
-    | _ -> "A lépés megtehető"
+        if gameState.[beginRow .. endRow - 1] |> Seq.exists(fun k -> k.[beginColumn .. endColumn - 1] |> Seq.exists(fun m -> m = value))
+        then "Az adott résztáblában már szerepel a szám"
+        else "A lépés megtehető"
 
 printfn "1. Feladat: Írd be 1 bemeneti fájl nevét, 1 sor és 1 oszlop számát!"
 
