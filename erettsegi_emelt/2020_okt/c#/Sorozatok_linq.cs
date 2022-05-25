@@ -21,8 +21,7 @@ var keszitoAltalLatottakSzama = sorozatok.Where(k => k.lattaEMarAKeszito)
                                          .Count();
 
 var osszesElpazaroltPerc = sorozatok.Where(k => k.lattaEMarAKeszito)
-                                    .Select(k => k.epizodonkentiHossz)
-                                    .Sum();
+                                    .Sum(k => k.epizodonkentiHossz);
 
 var latottakSzazalek = ((float) keszitoAltalLatottakSzama / sorozatok.Length * 100);
 var elpazaroltIdoStat = TimeSpan.FromMinutes(osszesElpazaroltPerc);

@@ -38,13 +38,13 @@ File.WriteAllLines("pontok.txt", versenyzok.Select(k => k.pontok + ": " + k.nev)
 Console.WriteLine("7. feladat: A verseny legjobbjai:");
 
 var pontok = versenyzok.Select(k => k.pontok)
-                        .Distinct()
-                        .OrderByDescending(k => k)
-                        .ToArray();
+                       .Distinct()
+                       .OrderByDescending(k => k)
+                       .ToArray();
 
 Enumerable.Range(1, 3).ToList()
-            .ForEach(index => versenyzok.Where(k => k.pontok == pontok[index - 1]).ToList()
-                                        .ForEach(versenyzo => Console.WriteLine(index + ". díj: " + versenyzo)));
+          .ForEach(index => versenyzok.Where(k => k.pontok == pontok[index - 1]).ToList()
+                                      .ForEach(versenyzo => Console.WriteLine(index + ". díj: " + versenyzo)));
 
 
 class Versenyzo {
@@ -59,8 +59,7 @@ class Versenyzo {
         valaszok = split[1];
         pontok = Enumerable.Range(0, megoldasok.Length)
                            .Where(k => megoldasok[k] == valaszok[k])
-                           .Select(SumPoint)
-                           .Sum();
+                           .Sum(SumPoint);
     }
 
     private static int SumPoint(int index) => index <= 4 ? 3 :

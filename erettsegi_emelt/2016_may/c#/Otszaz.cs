@@ -3,57 +3,71 @@ using System.Collections.Generic;
 using System.IO;
 
 var lines = File.ReadAllLines("penztar.txt");
-var vasarlasok = new List<Vasarlas>();
-var toAdd = new List<string>();
+var vasarlasok = new List<Dictionary<string, int>>();
+var itemBuffer = new List<string>();
 
-foreach(var sor in lines) {
-    if(sor == "F") {
-        vasarlasok.Add(new Vasarlas(toAdd));
-        toAdd.Clear();
+foreach(var line in lines) {
+    if(line == "F") {
+        var itemFreqMap = new Dictionary<string, int>();
+
+        foreach(var item in itemBuffer) {
+            itemFreqMap.Add(item, itemFreqMap.GetValueOrDefault(item, 0) + 1);
+        }
+
+        vasarlasok.Add(itemFreqMap);
+        itemBuffer.Clear();
     }else{
-        toAdd.Add(sor);
+        itemBuffer.Add(line);
     }
 }
 
-Console.WriteLine("Vásárlások száma: " + vasarlasok.Count);
-Console.WriteLine("Elsö vásárlásnál vett dolgok száma: " + vasarlasok[0].dolgok.Count);
+Console.WriteLine($"2. Feladat: Vásárlások száma: {vasarlasok.Count}");
+Console.WriteLine($"3. Feladat: Elsö vásárlásnál vett dolgok száma: {vasarlasok[0].Count}");
 
+Console.WriteLine("4. Feladat:");
 Console.WriteLine("Írj be 1 sorszámot");
-var sorszam = int.Parse(Console.ReadLine());
+var bekertSorszam = int.Parse(Console.ReadLine());
 
 Console.WriteLine("Írj be 1 árut");
-var aru = Console.ReadLine();
+var bekertAru = Console.ReadLine();
 
 Console.WriteLine("Írj be 1 mennyiséget");
-var dbszam = int.Parse(Console.ReadLine());
+var bekertDbszam = int.Parse(Console.ReadLine());
 
-var amount = 0;
-var utolso = 0;
+Console.WriteLine("5. Feladat:");
+
+var bekertAruOsszDbSzam = 0;
+var bekertAruUtolsoVasarlasIndex = 0;
+
 for(var k = 0; k < vasarlasok.Count; ++k) {
-    foreach(var entries in vasarlasok[k].dolgok.Keys){
-        if(entries == aru) {
-            ++amount;
-            utolso = k;
+    foreach(var item in vasarlasok[k].Keys) {
+        if(item == bekertAru) {
+            ++bekertAruOsszDbSzam;
+            bekertAruUtolsoVasarlasIndex = k;
 
-            if(amount == 1) {
-                Console.WriteLine("Először a " + ++k + ". vásárlásnál vettek " + aru + "-t");
+            if(bekertAruOsszDbSzam == 1) {
+                Console.WriteLine("Először a " + (k + 1) + ". vásárlásnál vettek " + bekertAru + "-t");
             }
         }
     }
 }
 
-Console.WriteLine("Utoljára a " + ++utolso + ". vásárlásnál vettek " + aru + "-t");
-Console.WriteLine("Összesen " + amount + "-szor vettek " + aru + "-t");
-Console.WriteLine(dbszam + " db esetén a fizetendő: " + ertek(dbszam));
-Console.WriteLine("A " + sorszam + ". vásárláskor vásárolt dolgok: " + vasarlasok[sorszam - 1].dolgok.ToString());
+Console.WriteLine($"Utoljára a {bekertAruUtolsoVasarlasIndex + 1}. vásárlásnál vettek {bekertAru}-t");
+Console.WriteLine($"Összesen {bekertAruOsszDbSzam}-szor vettek {bekertAru}-t");
+Console.WriteLine($"6. Feladat: {bekertDbszam} db esetén a fizetendő: {ertek(bekertDbszam)}");
+Console.WriteLine($"7. Feladat: A {bekertSorszam}. vásárláskor vásárolt dolgok:");
+
+foreach(var (item, db) in vasarlasok[bekertSorszam - 1]) {
+    Console.WriteLine($"{item}-ből: {db} db");
+}
 
 using var output = new StreamWriter("osszeg.txt");
 
 for(int k = 0; k < vasarlasok.Count; ++k) {
     var printMount = 0;
 
-    foreach(var entries in vasarlasok[k].dolgok.Values) {
-        printMount += ertek(entries);
+    foreach(var dbSzam in vasarlasok[k].Values) {
+        printMount += ertek(dbSzam);
     }
     output.WriteLine((k + 1).ToString() + ":" + printMount);
 }

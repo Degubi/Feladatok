@@ -32,18 +32,10 @@ var kivelTancoltaVilma = tancok.Where(k => k.woman == "Vilma" && k.category == t
 Console.WriteLine($"Vilma a {tancNev} táncot {kivelTancoltaVilma}-vel táncolta");
 
 var lanyokToTancalkalmak = tancok.GroupBy(k => k.woman)
-                                 .Select(k => new {
-                                     Nev = k.Key,
-                                     Db = k.Count()
-                                 })
-                                 .ToDictionary(k => k.Nev, k => k.Nev);
+                                 .ToDictionary(k => k.Key, k => k.Count());
 
 var fiukToTancalkalmak = tancok.GroupBy(k => k.man)
-                               .Select(k => new {
-                                   Nev = k.Key,
-                                   Db = k.Count()
-                               })
-                               .ToDictionary(k => k.Nev, k => k.Nev);
+                               .ToDictionary(k => k.Key, k => k.Count());
 
 File.WriteAllText("szereplok.txt", "Lányok: " + string.Join(", ", lanyokToTancalkalmak.Keys) +
                                    "\nFiúk: " + string.Join(", ", fiukToTancalkalmak.Keys));

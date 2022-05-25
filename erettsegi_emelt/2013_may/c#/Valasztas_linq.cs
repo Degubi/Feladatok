@@ -14,7 +14,7 @@ var miEmberunk = jeloltek.Where(k => k.nev == bekertNev).FirstOrDefault();
 
 Console.WriteLine(miEmberunk == null ? "Nem indult ilyen jelölt" : $"Szavazatok száma: {miEmberunk.szavazatok}");
 
-var osszSzavazat = jeloltek.Select(k => k.szavazatok).Sum();
+var osszSzavazat = jeloltek.Sum(k => k.szavazatok);
 var arany = (float) osszSzavazat / 12345 * 100;
 
 Console.WriteLine("4. Feladat");
@@ -24,8 +24,7 @@ Console.WriteLine("5. Feladat");
 jeloltek.Select(k => k.part)
         .Distinct()
         .GroupBy(k => jeloltek.Where(l => l.part == k)
-                                .Select(l => l.szavazatok)
-                                .Sum() / (float) osszSzavazat * 100)
+                              .Sum(l => l.szavazatok) / (float) osszSzavazat * 100)
         .ToList()
         .ForEach(k => Console.WriteLine(k.Key.ToString("#.##") + "% " + k.Aggregate((m, a) => m + " " + a)));
 
