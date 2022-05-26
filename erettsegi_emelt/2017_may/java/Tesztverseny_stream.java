@@ -7,7 +7,7 @@ import java.util.stream.*;
 public class Tesztverseny_stream {
 
     public static void main(String[] args) throws IOException{
-        var lines = Files.readAllLines(Paths.get("valaszok.txt"), StandardCharsets.UTF_8);
+        var lines = Files.readAllLines(Path.of("valaszok.txt"), StandardCharsets.UTF_8);
 
         var megoldasok = lines.get(0).toCharArray();
         var versenyzok = lines.stream()
@@ -18,8 +18,8 @@ public class Tesztverseny_stream {
 
         System.out.println("2. feladat: A vetélkedőn " + versenyzok.size() + " versenyző indult.\nÍrj be 1 ID-t!");
 
-        try(var input = new Scanner(System.in)){
-            var readID = input.nextLine();
+        try(var console = new Scanner(System.in)) {
+            var readID = console.nextLine();
             var kivalasztott = versenyzok.stream()
                                          .filter(k -> k.nev.equals(readID))
                                          .findFirst()
@@ -34,7 +34,7 @@ public class Tesztverseny_stream {
 
             System.out.println(" (a versenyző helyes válaszai)\nÍrd be 1 feladat sorszámát!");
 
-            var readIndex = input.nextInt() - 1;
+            var readIndex = console.nextInt() - 1;
             var good = versenyzok.stream()
                                  .filter(k -> k.valaszok[readIndex] == megoldasok[readIndex])
                                  .mapToInt(k -> 1)
@@ -46,7 +46,7 @@ public class Tesztverseny_stream {
             System.out.println("A feladatra " + good + " fő, a versenyzők " + percent + "%-a adott helyes választ.");
         }
 
-        Files.write(Paths.get("pontok.txt"), versenyzok.stream().map(Versenyzo::toString).collect(Collectors.toList()));
+        Files.write(Path.of("pontok.txt"), versenyzok.stream().map(Versenyzo::toString).collect(Collectors.toList()));
         System.out.println("7. feladat: A verseny legjobbjai:");
 
         var pontok = versenyzok.stream()
@@ -74,15 +74,14 @@ public class Tesztverseny_stream {
             valaszok = split[1].toCharArray();
             pontok = IntStream.range(0, megoldasok.length)
                               .filter(k -> megoldasok[k] == valaszok[k])
-                              .map(Versenyzo::sumPoint)
+                              .map(Versenyzo::calcPoint)
                               .sum();
         }
 
-        private static int sumPoint(int index) {
-            if(index <= 4) return 3;
-            if(index >= 5 && index <= 9) return 4;
-            if(index >= 10 && index <= 12) return 5;
-            return 6;
+        private static int calcPoint(int index) {
+            return index <= 4 ? 3 :
+                   index <= 9 ? 4 :
+                   index <= 12 ? 5 : 6;
         }
 
         @Override

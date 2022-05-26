@@ -1,4 +1,5 @@
 public class Helyezes {
+
     public final int helyezes;
     public final int sportolokSzama;
     public final String sportag;

@@ -6,13 +6,13 @@ import java.util.stream.*;
 public class Helyjegy_stream {
 
     public static void main(String[] args) throws IOException {
-        var file = Files.readAllLines(Path.of("eladott.txt"));
-        var firstSplit = file.get(0).split(" ");
+        var lines = Files.readAllLines(Path.of("eladott.txt"));
+        var firstSplit = lines.get(0).split(" ");
 
         var utHossz = Integer.parseInt(firstSplit[1]);
         var ar = Integer.parseInt(firstSplit[2]);  //10 km-ként
-        var utasok = IntStream.range(1, file.size())
-                              .mapToObj(i -> new Utas(file.get(i), i))
+        var utasok = IntStream.range(1, lines.size())
+                              .mapToObj(i -> new Utas(lines.get(i), i))
                               .toArray(Utas[]::new);
 
         var utolso = utasok[utasok.length - 1];
@@ -43,10 +43,10 @@ public class Helyjegy_stream {
 
         System.out.println("6.Feladat: Megállók száma: " + (allomasok.length - 2));
 
-        try(var input = new Scanner(System.in)) {
+        try(var console = new Scanner(System.in)) {
             System.out.println("Írj be 1 km számot!");
 
-            var bekertKm = input.nextInt();
+            var bekertKm = console.nextInt();
             var fileba = IntStream.rangeClosed(1, 48)
                                   .mapToObj(i -> getUlesStatus(i, bekertKm, utasok))
                                   .collect(Collectors.toList());

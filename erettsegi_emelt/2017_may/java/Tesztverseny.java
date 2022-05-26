@@ -5,8 +5,8 @@ import java.util.*;
 public class Tesztverseny {
 
     public static void main(String[] args) throws IOException{
-        var input = new Scanner(System.in);
-        var lines = Files.readAllLines(Paths.get("valaszok.txt"));
+        var console = new Scanner(System.in);
+        var lines = Files.readAllLines(Path.of("valaszok.txt"));
 
         var megoldasok = lines.get(0).toCharArray();
         var versenyzok = new ArrayList<Versenyzo>();
@@ -16,7 +16,7 @@ public class Tesztverseny {
 
         System.out.println("2. feladat: A vetélkedőn " + versenyzok.size() + " versenyző indult.\nÍrj be 1 ID-t!");
 
-        var readID = input.nextLine();
+        var readID = console.nextLine();
         for(var mindenki : versenyzok){
             if(mindenki.nev.equals(readID)){
                 System.out.println("3. feladat: A versenyző azonosítója = " + readID + "\n" + String.valueOf(mindenki.valaszok) + " (a versenyző válaszai)");
@@ -29,12 +29,13 @@ public class Tesztverseny {
                         System.out.print(" ");
                     }
                 }
+
                 System.out.println(" (a versenyző helyes válaszai)");
             }
         }
 
         System.out.println("Írd be 1 feladat sorszámát!");
-        var readIndex = input.nextInt() - 1;
+        var readIndex = console.nextInt() - 1;
         var good = 0;
 
         for(var mindenki : versenyzok) {
@@ -42,7 +43,7 @@ public class Tesztverseny {
                 ++good;
             }
         }
-        input.close();
+        console.close();
 
         System.out.println("5. feladat: A feladat sorszáma = " + (readIndex + 1));
         String percent = String.valueOf(((float)good * 100 / versenyzok.size())).substring(0, 5);

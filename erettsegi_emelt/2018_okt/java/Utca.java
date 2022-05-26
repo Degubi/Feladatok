@@ -5,21 +5,21 @@ import java.util.*;
 public class Utca {
 
     public static void main(String[] args) throws IOException {
-        var sorok = Files.readAllLines(Paths.get("kerites.txt"));
+        var lines = Files.readAllLines(Path.of("kerites.txt"));
         var telkek = new ArrayList<Telek>();
 
         var parosHazszam = 2;
         var paratlanHazszam = 1;
 
-        for(var sor : sorok) {
-            var split = sor.split(" ");
+        for(var line : lines) {
+            var split = line.split(" ");
             var parose = Integer.parseInt(split[0]) == 0;
 
             if(parose) {
-                telkek.add(new Telek(true, parosHazszam, Integer.parseInt(split[1]), split[2].charAt(0)));
+                telkek.add(new Telek(parosHazszam, Integer.parseInt(split[1]), split[2].charAt(0)));
                 parosHazszam += 2;
             }else{
-                telkek.add(new Telek(false, paratlanHazszam, Integer.parseInt(split[1]), split[2].charAt(0)));
+                telkek.add(new Telek(paratlanHazszam, Integer.parseInt(split[1]), split[2].charAt(0)));
                 paratlanHazszam += 2;
             }
         }
@@ -47,8 +47,8 @@ public class Utca {
         System.out.println("5. Feladat:");
         System.out.println("Írd be 1 telek számát!");
 
-        try(var input = new Scanner(System.in)){
-            var beolvasottTelekSzam = input.nextInt();
+        try(var console = new Scanner(System.in)) {
+            var beolvasottTelekSzam = console.nextInt();
 
             for(var i = 0; i < telkek.size(); ++i){
                 var jelenlegiTelek = telkek.get(i);

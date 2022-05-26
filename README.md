@@ -91,7 +91,7 @@ public static IEnumerable<T> Generate<T>(Func<T> generator) {
 }
 
 // Használat:
-Generate(() => Console.ReadLine())
+Generate(Console.ReadLine)
 ```
 
 - IEnumerable ForEach extension

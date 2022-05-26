@@ -5,7 +5,7 @@ import java.util.*;
 public class Cimek {
     
     public static void main(String[] args) throws IOException {
-        var lines = Files.readAllLines(Paths.get("ip.txt"));
+        var lines = Files.readAllLines(Path.of("ip.txt"));
         lines.sort(Comparator.naturalOrder());
         
         System.out.println("Adatsorok száma: " + lines.size());
@@ -43,8 +43,8 @@ public class Cimek {
         }
         
         System.out.println("Írj be 1 sorszámot!");
-        try(var input = new Scanner(System.in)){
-            var index = input.nextInt() - 1;
+        try(var console = new Scanner(System.in)){
+            var index = console.nextInt() - 1;
             
             System.out.println(lines.get(index) + " (Eredeti)");
             var roviditett = rov1(lines.get(index));

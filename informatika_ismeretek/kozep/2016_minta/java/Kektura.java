@@ -5,7 +5,7 @@ import java.util.*;
 public class Kektura{
     
     public static void main(String[] args) throws IOException{
-        var lines = Files.readAllLines(Paths.get("kektura.csv"));
+        var lines = Files.readAllLines(Path.of("kektura.csv"));
         var szint = Integer.parseInt(lines.get(0));
         var szakaszok = new ArrayList<Szakasz>();
         

@@ -10,7 +10,7 @@ var feladvanyok = File.ReadLines("feladvanyok.txt")
 Console.WriteLine($"3. Feladat: Feladványok száma: {feladvanyok.Length}");
 Console.WriteLine("4. Feladat:");
 
-var bekertMeret = Generate(() => MeretetBeker())
+var bekertMeret = Generate(MeretetBeker)
                  .Where(k => k >= 4 && k <= 9)
                  .First();
 

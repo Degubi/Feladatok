@@ -6,16 +6,17 @@ import java.util.stream.*;
 public class Valasztas_stream {
 
     public static void main(String[] args) throws IOException{
-        var szavazatok = Files.lines(Paths.get("szavazatok.txt")).map(Szavazat::new).toArray(Szavazat[]::new);
+        var szavazatok = Files.lines(Path.of("szavazatok.txt")).map(Szavazat::new).toArray(Szavazat[]::new);
         var kepviselokSzama = Arrays.stream(szavazatok).map(k -> k.nev).distinct().count();
 
         System.out.println("2.Feladat: Választáson indult képviselők száma: " + kepviselokSzama);
 
-        try(var input = new Scanner(System.in)){
+        try(var console = new Scanner(System.in)) {
             System.out.println("3.Feladat: Írd be 1 képviselő Első nevét");
-            String firstName = input.nextLine();
+            var firstName = console.nextLine();
+
             System.out.println("Írd be 1 képviselő Második nevét");
-            String lastName = input.nextLine();
+            var lastName = console.nextLine();
 
             Arrays.stream(szavazatok)
                   .filter(k -> k.nev.equals(firstName + " " + lastName))
@@ -38,17 +39,17 @@ public class Valasztas_stream {
                                     .max(Comparator.comparingInt(k -> k.szavazottSzam))
                                     .orElseThrow()
                                     .szavazottSzam;
-
         Arrays.stream(szavazatok)
               .filter(k -> k.szavazottSzam == legtobbSzavazat)
               .forEach(k -> System.out.println(k.nev + ", támogató párt neve: " + k.part));
 
-        try(var output = new PrintWriter("kepviselok.txt")){
-            Arrays.stream(szavazatok)
-                  .collect(Collectors.groupingBy(k -> k.part, Collectors.maxBy(Comparator.comparingInt(l -> l.szavazottSzam))))
-                  .entrySet().stream()
-                  .sorted(Comparator.comparingInt(l -> l.getValue().get().kerSzam))
-                  .forEach(entry -> output.println(entry.getValue().get().kerSzam + " " + entry.getValue().get().nev + " " + entry.getKey()));
-        }
+        var fileba = Arrays.stream(szavazatok)
+                           .collect(Collectors.groupingBy(k -> k.part, Collectors.maxBy(Comparator.comparingInt(l -> l.szavazottSzam))))
+                           .entrySet().stream()
+                           .sorted(Comparator.comparingInt(l -> l.getValue().get().kerSzam))
+                           .map(entry -> entry.getValue().get().kerSzam + " " + entry.getValue().get().nev + " " + entry.getKey())
+                           .collect(Collectors.toList());
+
+        Files.write(Path.of("kepviselok.txt"), fileba);
     }
 }

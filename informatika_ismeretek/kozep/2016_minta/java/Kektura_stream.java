@@ -6,7 +6,7 @@ import java.util.stream.*;
 public class Kektura_stream{
     
     public static void main(String[] args) throws IOException{
-        var lines = Files.readAllLines(Paths.get("kektura.csv"));
+        var lines = Files.readAllLines(Path.of("kektura.csv"));
         var szint = Integer.parseInt(lines.get(0));
         var szakaszok = lines.stream()
                              .skip(1)

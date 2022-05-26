@@ -7,7 +7,7 @@ import java.util.stream.*;
 public class Helsinki1952_stream {
 
     public static void main(String[] args) throws Exception {
-        var helyezesek = Files.lines(Paths.get("helsinki.txt"), ISO_8859_1)
+        var helyezesek = Files.lines(Path.of("helsinki.txt"), ISO_8859_1)
                               .map(Helyezes::new)
                               .toArray(Helyezes[]::new);
 

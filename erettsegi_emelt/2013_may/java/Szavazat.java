@@ -1,4 +1,5 @@
 public class Szavazat {
+
     public final int kerSzam, szavazottSzam;
     public final String nev, part;
 

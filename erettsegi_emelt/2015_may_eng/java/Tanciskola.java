@@ -5,7 +5,7 @@ import java.util.*;
 public class Tanciskola {
 
     public static void main(String[] args) throws IOException {
-        var lines = Files.readAllLines(Paths.get("tancrend.txt"));
+        var lines = Files.readAllLines(Path.of("tancrend.txt"));
         var tancok = new ArrayList<Tanc>();
 
         for(var i = 0; i < lines.size(); i += 3) {
@@ -33,8 +33,8 @@ public class Tanciskola {
         System.out.println("Vilma által táncolt kategóriák: " + String.join(", ", viliCat));
         System.out.println("Írj be 1 kategóriát!");
 
-        try(var input = new Scanner(System.in)){
-            var readCat = input.nextLine();
+        try(var console = new Scanner(System.in)) {
+            var readCat = console.nextLine();
             var hasPrinted = false;
 
             for(var dansz : tancok) {

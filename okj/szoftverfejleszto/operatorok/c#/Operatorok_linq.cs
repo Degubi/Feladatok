@@ -26,7 +26,7 @@ Console.WriteLine("5. Feladat: \n" +
                   "      '*' -> " + operatoronkentiDbSzam["*"] + " db\n" +
                   "      '+' -> " + operatoronkentiDbSzam["+"] + " db");
 
-Generate(() => kifejezestBeker())
+Generate(kifejezestBeker)
 .TakeWhile(k => k != "vége")
 .ToList()
 .ForEach(k => Console.WriteLine($"{k} = {new Kifejezes(k).kiertekel()}"));

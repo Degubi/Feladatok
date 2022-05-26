@@ -7,7 +7,7 @@ import java.util.stream.*;
 public class Tanciskola_stream {
 
     public static void main(String[] args) throws IOException {
-        var lines = Files.readAllLines(Paths.get("tancrend.txt"));
+        var lines = Files.readAllLines(Path.of("tancrend.txt"));
         var tancok = IntStream.iterate(0, k -> k + 3)
                               .limit(lines.size() / 3)
                               .mapToObj(i -> new Tanc(lines, i))
@@ -30,8 +30,8 @@ public class Tanciskola_stream {
         System.out.println("Vilma által táncolt kategóriák: " + vilmaKategoriai);
         System.out.println("Írj be 1 kategóriát!");
 
-        try(var input = new Scanner(System.in)){
-            var readCat = input.nextLine();
+        try(var console = new Scanner(System.in)) {
+            var readCat = console.nextLine();
 
             Arrays.stream(tancok)
                   .filter(k -> k.woman.equals("Vilma") && k.category.equals(readCat))

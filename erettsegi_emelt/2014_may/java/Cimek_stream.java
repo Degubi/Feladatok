@@ -6,7 +6,7 @@ import java.util.stream.*;
 public class Cimek_stream{
     
     public static void main(String[] args) throws IOException{
-        var lines = Files.readAllLines(Paths.get("ip.txt"));
+        var lines = Files.readAllLines(Path.of("ip.txt"));
         
         System.out.println("Adatsorok száma: " + lines.size());
         System.out.println("Legkisebb ip cím: " + lines.stream().min(Comparator.naturalOrder()).get());
@@ -19,11 +19,11 @@ public class Cimek_stream{
                           .map(k -> lines.indexOf(k) + 1 + " " + k)
                           .collect(Collectors.toList());
                 
-        Files.write(Paths.get("sok.txt"), fileba);
+        Files.write(Path.of("sok.txt"), fileba);
         
         System.out.println("Írj be 1 sorszámot!");
-        try(var input = new Scanner(System.in)){
-            var index = input.nextInt() - 1;
+        try(var console = new Scanner(System.in)){
+            var index = console.nextInt() - 1;
             
             System.out.println(lines.get(index) + " (Eredeti)");
             var roviditett = rov1(lines.get(index));
