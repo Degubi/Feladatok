@@ -10,7 +10,9 @@ let telketKeszit(data: string[]) = {|
 |}
 
 let ado adosav terulet (fizetendoAdokSavonkent: Map<string, int>) =
-    fizetendoAdokSavonkent.[adosav] * terulet;
+    let mennyiseg = fizetendoAdokSavonkent.[adosav] * terulet
+
+    if mennyiseg < 10000 then 0 else mennyiseg
 
 
 let lines = File.ReadAllLines "utca.txt"

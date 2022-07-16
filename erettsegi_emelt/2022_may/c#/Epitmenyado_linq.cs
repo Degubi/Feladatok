@@ -41,5 +41,7 @@ File.WriteAllLines("fizetendo.txt", fileba);
 
 
 static int ado(Telek telek, Dictionary<string, int> fizetendoAdokSavonkent) {
-    return fizetendoAdokSavonkent[telek.adosav] * telek.terulet;
+    var mennyiseg = fizetendoAdokSavonkent[telek.adosav] * telek.terulet;
+
+    return mennyiseg < 10000 ? 0 : mennyiseg;
 }

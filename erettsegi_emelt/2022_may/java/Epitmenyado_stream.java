@@ -35,9 +35,8 @@ public class Epitmenyado_stream {
 
         Arrays.stream(telkek)
               .collect(Collectors.groupingBy(k -> k.adosav))
-              .entrySet().stream()
-              .forEach(k -> System.out.println(k.getKey() + " sáv: " + k.getValue().size() + " telek, " +
-                                               "adó: " + k.getValue().stream().mapToInt(m -> ado(m, fizetendoAdokSavonkent)).sum()));
+              .forEach((sav, telkekSavhoz) -> System.out.println(sav + " sáv: " + telkekSavhoz.size() + " telek, " +
+                                                                 "adó: " + telkekSavhoz.stream().mapToInt(m -> ado(m, fizetendoAdokSavonkent)).sum()));
 
         System.out.println("6. Feladat: Több sávba sorolt utcák:");
 
@@ -57,6 +56,8 @@ public class Epitmenyado_stream {
     }
 
     static int ado(Telek telek, Map<String, Integer> fizetendoAdokSavonkent) {
-        return fizetendoAdokSavonkent.get(telek.adosav) * telek.terulet;
+        var mennyiseg = (int) fizetendoAdokSavonkent.get(telek.adosav) * telek.terulet;
+
+        return mennyiseg < 10000 ? 0 : mennyiseg;
     }
 }
