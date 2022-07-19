@@ -14,7 +14,6 @@ jobs:
       - name: Make Java Badge
         uses: shadowmoose/GHA-LoC-Badge@1.0.0
         with:
-          debug: true
           directory: ./
           badge: ./output/java.svg
           patterns: '**/*.java'
@@ -24,7 +23,6 @@ jobs:
       - name: Make C# Badge
         uses: shadowmoose/GHA-LoC-Badge@1.0.0
         with:
-          debug: true
           directory: ./
           badge: ./output/cs.svg
           patterns: '**/*.cs'
@@ -34,7 +32,6 @@ jobs:
       - name: Make F# Badge
         uses: shadowmoose/GHA-LoC-Badge@1.0.0
         with:
-          debug: true
           directory: ./
           badge: ./output/fs.svg
           patterns: '**/*.fs|**/*.fsx'
@@ -44,12 +41,20 @@ jobs:
       - name: Make Python Badge
         uses: shadowmoose/GHA-LoC-Badge@1.0.0
         with:
-          debug: true
           directory: ./
           badge: ./output/py.svg
           patterns: '**/*.py'
           badge_label: 'Python Sorok'
           badge_color: 'blue'
+
+      - name: Make Rust Badge
+        uses: shadowmoose/GHA-LoC-Badge@1.0.0
+        with:
+          directory: ./
+          badge: ./output/rs.svg
+          patterns: '**/*.rs'
+          badge_label: 'Rust Sorok'
+          badge_color: 'grey'
 
       - name: Deploy to image-data branch
         uses: peaceiris/actions-gh-pages@v3

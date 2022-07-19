@@ -12,12 +12,12 @@ public class Hianyzasok {
             hianyzasok.add(new Hianyzas(lines.get(i)));
         }
 
-        var orakSum = 0;
+        var totalHianyzottOrak = 0;
         for(var e : hianyzasok) {
-            orakSum += e.mulasztottOrak;
+            totalHianyzottOrak += e.mulasztottOrak;
         }
 
-        System.out.println("2. Feladat: Hianyzott orak: " + orakSum);
+        System.out.println("2. Feladat: Hiányzott órák: " + totalHianyzottOrak);
         System.out.println("3. Feladat: Írj be egy napot(1-30) és egy nevet!");
 
         try(var input = new Scanner(System.in)) {
@@ -28,8 +28,8 @@ public class Hianyzasok {
             System.out.println("4. Feladat");
 
             var hianyzottE = false;
-            for(var e : hianyzasok) {
-                if(e.nev.equals(bekertNev)) {
+            for(var hianyzas : hianyzasok) {
+                if(hianyzas.nev.equals(bekertNev)) {
                     hianyzottE = true;
                     break;
                 }
@@ -39,9 +39,9 @@ public class Hianyzasok {
             System.out.println("5. Feladat");
 
             var azonANaponHianyoztak = new ArrayList<Hianyzas>();
-            for(var e : hianyzasok) {
-                if(bekertNap >= e.elsoNap && bekertNap <= e.utolsoNap) {
-                    azonANaponHianyoztak.add(e);
+            for(var hianyzas : hianyzasok) {
+                if(bekertNap >= hianyzas.elsoNap && bekertNap <= hianyzas.utolsoNap) {
+                    azonANaponHianyoztak.add(hianyzas);
                 }
             }
 
@@ -55,14 +55,8 @@ public class Hianyzasok {
         }
 
         var hianyzasokStat = new HashMap<String, Integer>();
-        for(var e : hianyzasok) {
-            var osztaly = e.osztaly;
-
-            if(hianyzasokStat.containsKey(osztaly)) {
-                hianyzasokStat.put(osztaly, hianyzasokStat.get(osztaly) + e.mulasztottOrak);
-            }else{
-                hianyzasokStat.put(osztaly, e.mulasztottOrak);
-            }
+        for(var hianyzas : hianyzasok) {
+            hianyzasokStat.put(hianyzas.osztaly, hianyzasokStat.getOrDefault(hianyzas.osztaly, 0) + hianyzas.mulasztottOrak);
         }
 
         try(var file = new PrintWriter("osszesites.csv")) {

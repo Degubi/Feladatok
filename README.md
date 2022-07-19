@@ -2,6 +2,7 @@
 [![C#](https://raw.githubusercontent.com/Degubi/Feladatok/badges/cs.svg)](https://github.com/Degubi/Feladatok/search?l=C%23)
 [![F#](https://raw.githubusercontent.com/Degubi/Feladatok/badges/fs.svg)](https://github.com/Degubi/Feladatok/search?l=F%23)
 [![Python](https://raw.githubusercontent.com/Degubi/Feladatok/badges/py.svg)](https://github.com/Degubi/Feladatok/search?l=Python)
+[![Rust](https://raw.githubusercontent.com/Degubi/Feladatok/badges/rs.svg)](https://github.com/Degubi/Feladatok/search?l=Rust)
 
 # Érettségi, OKJ és informatikai ismeretek vizsga Programozás megoldások.
 

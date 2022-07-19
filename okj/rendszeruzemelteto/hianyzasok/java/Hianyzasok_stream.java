@@ -15,7 +15,7 @@ public class Hianyzasok_stream {
                                        .mapToInt(k -> k.mulasztottOrak)
                                        .sum();
 
-        System.out.println("2. Feladat: Hianyzott orak: " + totalHianyzottOrak);
+        System.out.println("2. Feladat: Hiányzott órák: " + totalHianyzottOrak);
         System.out.println("3. Feladat: Írj be egy napot(1-30) és egy nevet!");
 
         try(var input = new Scanner(System.in)) {
@@ -35,7 +35,7 @@ public class Hianyzasok_stream {
             if(azonANaponHianyoztak.length == 0) {
                 System.out.println("Nem volt hiányzó");
             }else{
-                Arrays.stream(azonANaponHianyoztak).forEach(hiany -> System.out.println(hiany.nev + " " + hiany.osztaly));
+                Arrays.stream(azonANaponHianyoztak).forEach(k -> System.out.println(k.nev + " " + k.osztaly));
             }
         }
 
