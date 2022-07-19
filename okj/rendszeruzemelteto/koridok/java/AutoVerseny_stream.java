@@ -19,15 +19,15 @@ public class AutoVerseny_stream {
               .findFirst()
               .ifPresent(k -> System.out.println("4. Feladat: " + k.korido.toSecondOfDay() + " mp"));
 
-        try(var input = new Scanner(System.in)){
-            System.out.println("5. Felatad: Írj be egy nevet!");
+        System.out.println("5. Felatad: Írj be egy nevet!");
+
+        try(var input = new Scanner(System.in)) {
             var beNev = input.nextLine();
 
-            System.out.print("6. Feladat: ");
             Arrays.stream(versenyek)
                   .filter(k -> k.versenyzo.equals(beNev))
                   .min(Comparator.comparing(k -> k.korido))
-                  .ifPresentOrElse(k -> System.out.println(k.korido), () -> System.out.println("Nincs ilyen versenyző"));
+                  .ifPresentOrElse(k -> System.out.println("6. Feladat: " + k.korido), () -> System.out.println("6. Feladat: Nincs ilyen versenyző"));
         }
     }
 }

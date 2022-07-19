@@ -12,22 +12,23 @@ struct Eredmeny {
     pontszam: i32
 }
 
+fn create_eredmeny(line: &String) -> Eredmeny {
+    let split = line.split(';').collect::<Vec<&str>>();
+
+    Eredmeny {
+        csapat: split[0].to_string(),
+        helyezes: split[1].parse::<i32>().unwrap(),
+        valtozas: split[2].parse::<i32>().unwrap(),
+        pontszam: split[3].parse::<i32>().unwrap()
+    }
+}
+
 fn main() {
     let input_file = File::open("fifa.txt").unwrap();
     let eredmenyek = BufReader::new(DecodeReaderBytesBuilder::new().encoding(Some(WINDOWS_1252)).build(input_file))
                               .lines()
                               .skip(1)
-                              .map(|k| {
-                                let line = k.unwrap();
-                                let split = line.split(';').collect::<Vec<&str>>();
-
-                                Eredmeny {
-                                    csapat: split[0].to_string(),
-                                    helyezes: split[1].parse::<i32>().unwrap(),
-                                    valtozas: split[2].parse::<i32>().unwrap(),
-                                    pontszam: split[3].parse::<i32>().unwrap()
-                                  }
-                              })
+                              .map(|k| create_eredmeny(&k.unwrap()))
                               .collect::<Vec<Eredmeny>>();
 
     println!("3. Feladat: Csapatok száma: {}", eredmenyek.len());

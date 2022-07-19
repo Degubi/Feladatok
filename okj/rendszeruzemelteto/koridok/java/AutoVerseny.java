@@ -22,12 +22,11 @@ public class AutoVerseny {
             }
         }
 
+        System.out.println("5. Felatad: Írj be egy nevet!");
+
         try(var input = new Scanner(System.in)){
-            System.out.println("5. Felatad: Írj be egy nevet!");
             var beNev = input.nextLine();
             var legrovidebb = LocalTime.of(23, 59);
-
-            System.out.print("6. Feladat: ");
 
             for(var verseny : versenyek) {
                 if(verseny.versenyzo.equals(beNev)) {
@@ -37,7 +36,7 @@ public class AutoVerseny {
                 }
             }
 
-            System.out.println(legrovidebb.getHour() == 23 ? "Nincs ilyen versenyző" : legrovidebb);
+            System.out.println("6. Feladat: " + (legrovidebb.getHour() == 23 ? "Nincs ilyen versenyző" : legrovidebb));
         }
     }
 }

@@ -11,23 +11,24 @@ struct Hianyzas {
     mulasztott_orak: i32
 }
 
+fn create_hianyzas(line: &String) -> Hianyzas {
+    let split = line.split(';').collect::<Vec<&str>>();
+
+    Hianyzas {
+        nev: split[0].to_string(),
+        osztaly: split[1].to_string(),
+        elso_nap: split[2].parse::<i32>().unwrap(),
+        utolso_nap: split[3].parse::<i32>().unwrap(),
+        mulasztott_orak: split[4].parse::<i32>().unwrap()
+    }
+}
+
 fn main() {
     let input_file = File::open("szeptember.csv").unwrap();
     let hianyzasok = BufReader::new(input_file)
                               .lines()
                               .skip(1)
-                              .map(|k| {
-                                let line = k.unwrap();
-                                let split = line.split(';').collect::<Vec<&str>>();
-
-                                Hianyzas {
-                                    nev: split[0].to_string(),
-                                    osztaly: split[1].to_string(),
-                                    elso_nap: split[2].parse::<i32>().unwrap(),
-                                    utolso_nap: split[3].parse::<i32>().unwrap(),
-                                    mulasztott_orak: split[4].parse::<i32>().unwrap()
-                                  }
-                              })
+                              .map(|k| create_hianyzas(&k.unwrap()))
                               .collect::<Vec<Hianyzas>>();
 
     let total_hianyzott_orak = hianyzasok.iter()
