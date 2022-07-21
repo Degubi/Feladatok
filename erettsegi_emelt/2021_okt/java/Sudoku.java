@@ -17,7 +17,7 @@ public class Sudoku {
         var lines = Files.readAllLines(Path.of(inputFileName));
 
         var numbersPerLine = new int[lines.size()][];
-        for(var j = 0; j < lines.size(); j++) {
+        for(var j = 0; j < lines.size(); ++j) {
             var line = lines.get(j);
             var split = line.split(" ");
             var values = new int[split.length];

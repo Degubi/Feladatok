@@ -35,8 +35,7 @@ public class Sudoku_stream {
         System.out.println("5. Feladat:");
 
         Arrays.stream(numbersPerLine, 9, numbersPerLine.length)
-              .map(k -> "Sor: " + k[1] + ", oszlop: " + k[2] + ", érték: " + k[0] + ": " + getStepAttemptResultMessage(k[0], k[1] - 1, k[2] - 1, gameState))
-              .forEach(System.out::println);
+              .forEach(k -> System.out.println("Sor: " + k[1] + ", oszlop: " + k[2] + ", érték: " + k[0] + ": " + getStepAttemptResultMessage(k[0], k[1] - 1, k[2] - 1, gameState)));
     }
 
     private static String getStepAttemptResultMessage(int value, int rowIndex, int columnIndex, int[][] gameState) {

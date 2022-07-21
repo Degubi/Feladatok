@@ -41,5 +41,4 @@ printfn "4. Feladat: Üres helyek aránya: %.1f%%\n" (unfilledSlotCount / 81.0 *
 printfn "5. Feladat:"
 
 numbersPerLine.[9 .. numbersPerLine.Length - 1]
-|> Seq.map(fun k -> $"Sor: {k.[1]}, oszlop: {k.[2]}, érték: {k.[0]}: " + getStepAttemptResultMessage(k.[0], k.[1] - 1, k.[2] - 1, gameState))
-|> Seq.iter(Console.WriteLine)
+|> Seq.iter(fun k -> printfn "Sor: %d, oszlop: %d, érték: %d: %s" k.[1] k.[2] k.[0] (getStepAttemptResultMessage(k.[0], k.[1] - 1, k.[2] - 1, gameState)))
