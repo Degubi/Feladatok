@@ -61,8 +61,6 @@ public class Godrok_stream {
                                                .orElseThrow()
                                                .intValue();
 
-            var legnagyobbMelyseg = aGodor[legmelyebbPontIndex];
-
             var balSzeltolLegnagyobbigNo = IntStream.range(0, legmelyebbPontIndex - 1)
                                                     .allMatch(i -> aGodor[i] <= aGodor[i + 1]);
 
@@ -70,7 +68,7 @@ public class Godrok_stream {
                                                           .allMatch(i -> aGodor[i] >= aGodor[i + 1]);
 
             System.out.println("    b) " + (balSzeltolLegnagyobbigNo && legnagyobbtolJobbSzeligCsokken ? "Folyamatosan Mélyül" : "Nem mélyül folyamatosan"));
-            System.out.println("    c) Legnagyobb méység: " + legnagyobbMelyseg + "m");
+            System.out.println("    c) Legnagyobb méység: " + aGodor[legmelyebbPontIndex] + "m");
 
             var terfogat = Arrays.stream(aGodor).sum() * 10;
             var vizmennyiseg = terfogat - 10 * (bekertHelyZaroGodorTavolsag - bekertHelyKezdoGodorTavolsag + 1);

@@ -42,13 +42,12 @@ else
 
     let aGodor = godrok.[bekertGodorIndex]
     let legmelyebbPontIndex = seq { 0 .. aGodor.Length - 1 } |> Seq.maxBy(fun i -> aGodor.[i])
-    let legnagyobbMelyseg = aGodor.[legmelyebbPontIndex]
 
     let balSzeltolLegnagyobbigNo = seq { 0 .. legmelyebbPontIndex - 2 } |> Seq.forall(fun i -> aGodor.[i] <= aGodor.[i + 1])
     let legnagyobbtolJobbSzeligCsokken = seq { legmelyebbPontIndex + 1 .. aGodor.Length - 2 } |> Seq.forall(fun i -> aGodor.[i] >= aGodor.[i + 1])
 
     printfn "    b) %s" (if balSzeltolLegnagyobbigNo && legnagyobbtolJobbSzeligCsokken then "Folyamatosan Mélyül" else "Nem mélyül folyamatosan")
-    printfn "    c) Legnagyobb mélység: %dm" legnagyobbMelyseg
+    printfn "    c) Legnagyobb mélység: %dm" aGodor.[legmelyebbPontIndex]
 
     let terfogat = (aGodor |> Seq.sum) * 10
     let vizmennyiseg = terfogat - 10 * (bekertHelyZaroGodorTavolsag - bekertHelyKezdoGodorTavolsag + 1)

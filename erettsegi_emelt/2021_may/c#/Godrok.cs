@@ -77,8 +77,6 @@ if(melysegABekertHelyen == 0) {
         }
     }
 
-    var legnagyobbMelyseg = aGodor[legmelyebbPontIndex];
-
     var balSzeltolLegnagyobbigNo = true;
     for(var i = 0; i < legmelyebbPontIndex - 1; ++i) {
         if(aGodor[i] > aGodor[i + 1]) {
@@ -96,7 +94,7 @@ if(melysegABekertHelyen == 0) {
     }
 
     Console.WriteLine("    b) " + (balSzeltolLegnagyobbigNo && legnagyobbtolJobbSzeligCsokken ? "Folyamatosan Mélyül" : "Nem mélyül folyamatosan"));
-    Console.WriteLine($"    c) Legnagyobb méység: {legnagyobbMelyseg}m");
+    Console.WriteLine($"    c) Legnagyobb méység: {aGodor[legmelyebbPontIndex]}m");
 
     var godorMelysegekSum = 0;
     foreach(var melyseg in aGodor) {

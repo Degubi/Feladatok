@@ -80,8 +80,6 @@ public class Godrok {
                 }
             }
 
-            var legnagyobbMelyseg = aGodor[legmelyebbPontIndex];
-
             var balSzeltolLegnagyobbigNo = true;
             for(var i = 0; i < legmelyebbPontIndex - 1; ++i) {
                 if(aGodor[i] > aGodor[i + 1]) {
@@ -99,7 +97,7 @@ public class Godrok {
             }
 
             System.out.println("    b) " + (balSzeltolLegnagyobbigNo && legnagyobbtolJobbSzeligCsokken ? "Folyamatosan Mélyül" : "Nem mélyül folyamatosan"));
-            System.out.println("    c) Legnagyobb méység: " + legnagyobbMelyseg + "m");
+            System.out.println("    c) Legnagyobb méység: " + aGodor[legmelyebbPontIndex] + "m");
 
             var godorMelysegekSum = 0;
             for(var melyseg : aGodor) {

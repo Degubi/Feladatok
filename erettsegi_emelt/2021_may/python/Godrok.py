@@ -32,12 +32,11 @@ else:
 
     a_godor = godrok[bekert_godor_index]
     legmelyebb_pont_index = max((i for i in range(0, len(a_godor))), key = lambda i: a_godor[i])
-    legnagyobb_melyseg = a_godor[legmelyebb_pont_index]
     bal_szeltol_legnagyobbig_no = all(a_godor[i] >= a_godor[i + 1] for i in range(0, legmelyebb_pont_index - 1))
     legnagyobbtol_jobb_szelig_csokken = all(a_godor[i] >= a_godor[i + 1] for i in range(legmelyebb_pont_index + 1, len(a_godor) - 1))
 
     print(f'    b) {"Folyamatosan mélyül" if bal_szeltol_legnagyobbig_no and legnagyobbtol_jobb_szelig_csokken else "Nem mélyül folyamatosan"}')
-    print(f'    c) Legnagyobb mélység: {legnagyobb_melyseg}m')
+    print(f'    c) Legnagyobb mélység: {a_godor[legmelyebb_pont_index]}m')
 
     terfogat = sum(a_godor) * 10
     vizmennyiseg = terfogat - 10 * (bekert_hely_zaro_godor_tavolsag - bekert_hely_kezdo_godor_tavolsag + 1)

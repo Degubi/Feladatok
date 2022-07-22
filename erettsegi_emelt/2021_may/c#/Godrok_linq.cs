@@ -52,8 +52,6 @@ if(melysegABekertHelyen == 0) {
     var legmelyebbPontIndex = Enumerable.Range(0, aGodor.Length)
                                         .First(i => aGodor[i] == legmelyebbPontErtek);
 
-    var legnagyobbMelyseg = aGodor[legmelyebbPontIndex];
-
     var balSzeltolLegnagyobbigNo = Enumerable.Range(0, legmelyebbPontIndex - 1)
                                              .All(i => aGodor[i] <= aGodor[i + 1]);
 
@@ -61,7 +59,7 @@ if(melysegABekertHelyen == 0) {
                                                    .All(i => aGodor[i] >= aGodor[i + 1]);
 
     Console.WriteLine("    b) " + (balSzeltolLegnagyobbigNo && legnagyobbtolJobbSzeligCsokken ? "Folyamatosan Mélyül" : "Nem mélyül folyamatosan"));
-    Console.WriteLine($"    c) Legnagyobb méység: {legnagyobbMelyseg}m");
+    Console.WriteLine($"    c) Legnagyobb méység: {aGodor[legmelyebbPontIndex]}m");
 
     var terfogat = aGodor.Sum() * 10;
     var vizmennyiseg = terfogat - 10 * (bekertHelyZaroGodorTavolsag - bekertHelyKezdoGodorTavolsag + 1);
