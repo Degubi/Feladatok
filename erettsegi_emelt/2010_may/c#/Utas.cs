@@ -1,17 +1,17 @@
 public class Utas {
 
-    public final int sorszam;
-    public final int ules;
-    public final int felszallasKm;
-    public final int leszallasKm;
+    public readonly int sorszam;
+    public readonly int ules;
+    public readonly int felszallasKm;
+    public readonly int leszallasKm;
 
-    public Utas(String line, int sorsz) {
-        var split = line.split(" ");
+    public Utas(string line, int sorsz) {
+        var split = line.Split(' ');
 
         sorszam = sorsz;
-        ules = Integer.parseInt(split[0]);
-        felszallasKm = Integer.parseInt(split[1]);
-        leszallasKm = Integer.parseInt(split[2]);
+        ules = int.Parse(split[0]);
+        felszallasKm = int.Parse(split[1]);
+        leszallasKm = int.Parse(split[2]);
     }
 
     public static int getAr(Utas utas, int arPer10km) {

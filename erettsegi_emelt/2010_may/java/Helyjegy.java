@@ -5,57 +5,57 @@ import java.util.*;
 public class Helyjegy {
 
     public static void main(String[] args) throws IOException {
-        var file = Files.readAllLines(Path.of("eladott.txt"));
-        var firstSplit = file.get(0).split(" ");
+        var lines = Files.readAllLines(Path.of("eladott.txt"));
+        var firstLineSplit = lines.get(0).split(" ");
 
-        var utHossz = Integer.parseInt(firstSplit[1]);
-        var ar = Integer.parseInt(firstSplit[2]);  //10 km-ként
+        var vonalHossz = Integer.parseInt(firstLineSplit[1]);
+        var arPer10km = Integer.parseInt(firstLineSplit[2]);
         var utasok = new ArrayList<Utas>();
 
-        for(var k = 1; k < file.size(); ++k) {
-            utasok.add(new Utas(file.get(k), k));
+        for(var k = 1; k < lines.size(); ++k) {
+            utasok.add(new Utas(lines.get(k), k));
         }
 
         var utolso = utasok.get(utasok.size() - 1);
-        System.out.println("2.Feladat: Utolsó utas ülése: " + utolso.ules + " utazott távolság: " + utolso.getTavolsag());
+        System.out.println("2.Feladat: Utolsó utas ülése: " + utolso.ules + " utazott távolság: " + (utolso.leszallasKm - utolso.felszallasKm));
         System.out.println("3.Feladat");
 
         var osszesPenz = 0;
         for(var utas : utasok) {
-            osszesPenz += utas.getAr(ar);
+            osszesPenz += Utas.getAr(utas, arPer10km);
 
-            if(utas.getTavolsag() == utHossz) {
+            if((utas.leszallasKm - utas.felszallasKm) == vonalHossz) {
                 System.out.print(utas.sorszam + " ");
             }
         }
 
         System.out.println("\n4.Feladat: Összes bevétel: " + osszesPenz);
 
-        var utolsoMegallo = 0;
+        var utolsoElottiMegalloKm = 0;
         for(var utas : utasok) {
-            if(utas.end > utolsoMegallo && utas.end != utHossz) {
-                utolsoMegallo = utas.end;
+            if(utas.leszallasKm > utolsoElottiMegalloKm && utas.leszallasKm != vonalHossz) {
+                utolsoElottiMegalloKm = utas.leszallasKm;
             }
         }
 
-        var felszallok = 0;
-        var leszallok = 0;
+        var utoljaraFelszallok = 0;
+        var utoljaraLeszallok = 0;
         for(var utas : utasok) {
-            if(utas.start == utolsoMegallo) {
-                ++felszallok;
+            if(utas.felszallasKm == utolsoElottiMegalloKm) {
+                ++utoljaraFelszallok;
             }
 
-            if(utas.end == utolsoMegallo) {
-                ++leszallok;
+            if(utas.leszallasKm == utolsoElottiMegalloKm) {
+                ++utoljaraLeszallok;
             }
         }
 
-        System.out.println("5.Feladat: Utolsó megállónál felszállók: " + felszallok + ", leszállók: " + leszallok);
+        System.out.println("5.Feladat: Utolsó megállónál felszállók: " + utoljaraFelszallok + ", leszállók: " + utoljaraLeszallok);
 
         var allomasok = new HashSet<Integer>();
         for(var utas : utasok) {
-            allomasok.add(utas.start);
-            allomasok.add(utas.end);
+            allomasok.add(utas.felszallasKm);
+            allomasok.add(utas.leszallasKm);
         }
 
         System.out.println("6.Feladat: Megállók száma: " + (allomasok.size() - 2));
@@ -65,13 +65,13 @@ public class Helyjegy {
 
             System.out.println("Írj be 1 km számot!");
 
-            var readTav = console.nextInt();
+            var bekertKm = console.nextInt();
 
             for(var k = 1; k <= 48; ++k) {
-                Utas currentUtas = null;
+                var currentUtas = (Utas) null;
 
                 for(var utas : utasok) {
-                    if(utas.ules == k && (utas.start == readTav || utas.end == readTav)) {
+                    if(utas.ules == k && (utas.felszallasKm == bekertKm || utas.leszallasKm == bekertKm)) {
                         currentUtas = utas;
                     }
                 }

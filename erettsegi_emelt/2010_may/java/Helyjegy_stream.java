@@ -7,41 +7,41 @@ public class Helyjegy_stream {
 
     public static void main(String[] args) throws IOException {
         var lines = Files.readAllLines(Path.of("eladott.txt"));
-        var firstSplit = lines.get(0).split(" ");
+        var firstLineSplit = lines.get(0).split(" ");
 
-        var utHossz = Integer.parseInt(firstSplit[1]);
-        var ar = Integer.parseInt(firstSplit[2]);  //10 km-ként
+        var vonalHossz = Integer.parseInt(firstLineSplit[1]);
+        var arPer10km = Integer.parseInt(firstLineSplit[2]);
         var utasok = IntStream.range(1, lines.size())
                               .mapToObj(i -> new Utas(lines.get(i), i))
                               .toArray(Utas[]::new);
 
         var utolso = utasok[utasok.length - 1];
-        System.out.println("2.Feladat: Utolsó utas ülése: " + utolso.ules + " utazott távolság: " + utolso.getTavolsag());
-        System.out.println("3.Feladat");
+
+        System.out.println("2.Feladat: Utolsó utas ülése: " + utolso.ules + " utazott távolság: " + (utolso.leszallasKm - utolso.felszallasKm));
+        System.out.println("3.Feladat:");
 
         Arrays.stream(utasok)
-              .filter(k -> k.getTavolsag() == utHossz)
+              .filter(k -> (k.leszallasKm - k.felszallasKm) == vonalHossz)
               .forEach(k -> System.out.print(k.sorszam + " "));
 
-        System.out.println("\n4.Feladat");
-        System.out.println("Összes bevétel: " + Arrays.stream(utasok).mapToInt(k -> k.getAr(ar)).sum());
+        System.out.println("\n4.Feladat: Összes bevétel: " + Arrays.stream(utasok).mapToInt(k -> Utas.getAr(k, arPer10km)).sum());
 
-        var uccso = Arrays.stream(utasok)
-                          .mapToInt(k -> k.end)
-                          .filter(k -> k != utHossz)
-                          .max()
-                          .orElseThrow();
+        var utolsoElottiMegalloKm = Arrays.stream(utasok)
+                                          .mapToInt(k -> k.leszallasKm)
+                                          .filter(k -> k != vonalHossz)
+                                          .max()
+                                          .orElseThrow();
 
-        var felszallok = Arrays.stream(utasok).filter(k -> k.start == uccso).count();
-        var leszallok = Arrays.stream(utasok).filter(k -> k.end == uccso).count();
+        var utoljaraFelszallok = Arrays.stream(utasok).filter(k -> k.felszallasKm == utolsoElottiMegalloKm).count();
+        var utoljaraLeszallok  = Arrays.stream(utasok).filter(k -> k.leszallasKm == utolsoElottiMegalloKm).count();
 
-        System.out.println("5.Feladat: Utolsó megállónál felszállók: " + felszallok + ", leszállók: " + leszallok);
+        System.out.println("5.Feladat: Utolsó megállónál felszállók: " + utoljaraFelszallok + ", leszállók: " + utoljaraLeszallok);
 
-        var allomasok = IntStream.concat(Arrays.stream(utasok).mapToInt(k -> k.end), Arrays.stream(utasok).mapToInt(k -> k.start))
-                                 .distinct()
-                                 .toArray();
+        var megallokSzama = IntStream.concat(Arrays.stream(utasok).mapToInt(k -> k.leszallasKm), Arrays.stream(utasok).mapToInt(k -> k.felszallasKm))
+                                     .distinct()
+                                     .count() - 2;
 
-        System.out.println("6.Feladat: Megállók száma: " + (allomasok.length - 2));
+        System.out.println("6.Feladat: Megállók száma: " + megallokSzama);
 
         try(var console = new Scanner(System.in)) {
             System.out.println("Írj be 1 km számot!");
@@ -58,7 +58,7 @@ public class Helyjegy_stream {
     static String getUlesStatus(int ules, int bekertKm, Utas[] utasok) {
         return ules + ". ülés: " + Arrays.stream(utasok)
                                          .filter(k -> k.ules == ules)
-                                         .filter(k -> k.start == bekertKm || k.end == bekertKm)
+                                         .filter(k -> k.felszallasKm == bekertKm || k.leszallasKm == bekertKm)
                                          .findFirst()
                                          .map(k -> k.sorszam + ". utas")
                                          .orElse("üres");
