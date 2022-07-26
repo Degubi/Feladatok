@@ -3,7 +3,7 @@ from collections import Counter
 
 class Csatlakozas:
 
-    def __init__(self, line):
+    def __init__(self, line: str):
         split = line.strip().split(';')
 
         self.orszag = split[0]

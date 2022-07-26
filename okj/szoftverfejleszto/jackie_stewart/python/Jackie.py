@@ -2,7 +2,7 @@ from itertools import groupby
 
 class Verseny:
 
-    def __init__(self, line):
+    def __init__(self, line: str):
         split = line.split('\t')
 
         self.ev = int(split[0])

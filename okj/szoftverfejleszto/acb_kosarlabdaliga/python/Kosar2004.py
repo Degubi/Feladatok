@@ -3,7 +3,7 @@ from collections import Counter
 
 class Eredmeny:
 
-    def __init__(self, line):
+    def __init__(self, line: str):
         split = line.split(';')
 
         self.hazaiCsapat = split[0]

@@ -1,7 +1,7 @@
 from collections import Counter
 
 class Keres:
-    def __init__(self, line):
+    def __init__(self, line: str):
         split = line.split("*")
         utolsoSzokozIndex = split[3].find(" ")
 

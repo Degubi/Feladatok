@@ -2,7 +2,7 @@ from itertools import groupby
 
 class Hianyzas:
 
-    def __init__(self, line):
+    def __init__(self, line: str):
         split = line.split(';')
 
         self.nev = split[0]

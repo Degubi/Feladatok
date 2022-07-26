@@ -1,23 +1,23 @@
 from inspect import cleandoc
 
-def domain(szint, domain):
-    split = domain.split(".")
+def domain(szint: int, domain: str):
+    split = domain.split('.')
     utolsoIndex = len(split) - 1
 
-    return "nincs" if utolsoIndex < szint else split[utolsoIndex - szint]
+    return 'nincs' if utolsoIndex < szint else split[utolsoIndex - szint]
 
-with open("csudh.txt") as file:
+with open('csudh.txt') as file:
     lines = file.readlines()
-    pairs = [ lines[i].split(";") for i in range(1, len(lines)) ]
+    pairs = [ lines[i].split(';') for i in range(1, len(lines)) ]
 
-print(f"3. Feladat: Párok száma: {str(len(pairs))}")
-print("5. Feladat:")
+print(f'3. Feladat: Párok száma: {str(len(pairs))}')
+print('5. Feladat:')
 
 elsoDomain = pairs[0][0]
 for i in range(0, 5):
     print(f'{i + 1}. szint: {domain(i, elsoDomain)}')
 
-header = """<table>
+header = '''<table>
             <tr>
             <th style='text-align: left'>Sorszam</th>
             <th style='text-align: left'>Host domain neve</th>
@@ -27,22 +27,22 @@ header = """<table>
             <th style='text-align: left'>3. szint</th>
             <th style='text-align: left'>4. szint</th>
             <th style='text-align: left'>5. szint</th>
-            </tr>"""
+            </tr>'''
 
-with open("table.html", "w+") as table:
+with open('table.html', 'w+') as table:
     table.write(cleandoc(header))
 
     for sorszam in range(0, len(pairs)):
         jelendomain, jelenip = pairs[sorszam]
 
-        table.write("<tr>")
-        table.write("<th style='text-align: left'>" + str((sorszam + 1)) + ".</th>")
-        table.write("<td>" + jelendomain + "</td>")
-        table.write("<td>" + jelenip + "</td>")
+        table.write('<tr>')
+        table.write(f"<th style='text-align: left'>{sorszam + 1}.</th>")
+        table.write(f'<td>{jelendomain}</td>')
+        table.write(f'<td>{jelenip}</td>')
 
         for k in range(0, 5):
-            table.write("<td>" + domain(k, jelendomain) + "</td>")
+            table.write(f'<td>{domain(k, jelendomain)}</td>')
 
-        table.write("</tr>")
+        table.write('</tr>')
 
-    table.write("</table>")
+    table.write('</table>')

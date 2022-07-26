@@ -1,6 +1,6 @@
 class Bejegyzes:
 
-    def __init__(self, line):
+    def __init__(self, line: str):
         split = line.split(';')
 
         self.ora = int(split[0])
@@ -8,7 +8,7 @@ class Bejegyzes:
         self.adasok = int(split[2])
         self.nev = split[3].strip()
 
-def atszamolPercre(ora, perc):
+def atszamolPercre(ora: int, perc: int):
     return ora * 60 + perc
 
 
@@ -19,13 +19,13 @@ with open('cb.txt', 'r') as file:
 print(f'3. Feladat: Bejegyzések száma: {len(bejegyzesek)}')
 
 voltE4Adasos = any(k for k in bejegyzesek if k.adasok == 4)
-print('4. Feladat: ' + ('Volt' if voltE4Adasos else 'Nem volt') + ' 4 adást indító sofőr')
+print(f'4. Feladat: {"Volt" if voltE4Adasos else "Nem volt"} 4 adást indító sofőr')
 
 bekertNev = input('5. Feladat: Írj be egy nevet! ')
 bekertHasznalatok = sum(k.adasok for k in bejegyzesek if k.nev == bekertNev)
 
 if bekertHasznalatok > 0:
-    print(bekertNev + ' ' + bekertHasznalatok + 'x használta a rádiót')
+    print(f'{bekertNev} {bekertHasznalatok}x használta a rádiót')
 else:
     print('Nincs ilyen nevű sofőr!')
 
@@ -43,4 +43,4 @@ for bejegyzes in bejegyzesek:
 
 legtobbAdasBejegyzes = max((k for k in soforokAdasszamokkal.items()), key = lambda k: k[1])
 
-print('9. Feladat: Legtöbb adást indító sofőr: ' + legtobbAdasBejegyzes[0] + ', adások: ' + str(legtobbAdasBejegyzes[1]))
+print(f'9. Feladat: Legtöbb adást indító sofőr: {legtobbAdasBejegyzes[0]}, adások: {legtobbAdasBejegyzes[1]}')

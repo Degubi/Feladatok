@@ -1,47 +1,47 @@
 from collections import Counter
 
 class Dij:
-    def __init__(self, line):
-        split = line.split(";")
+    def __init__(self, line: str):
+        split = line.split(';')
 
         self.ev = int(split[0])
         self.tipus = split[1]
         self.keresztNev = split[2]
-        self.vezetekNev = split[3] if len(split) == 4 else ""
+        self.vezetekNev = split[3] if len(split) == 4 else ''
 
-with open("nobel.csv", encoding = "utf-8", mode = "r") as file:
+with open('nobel.csv', encoding = 'utf-8', mode = 'r') as file:
     lines = file.readlines()
     dijak = [ Dij(lines[i].strip()) for i in range(1, len(lines)) ]
 
 for dij in dijak:
-    if dij.keresztNev == "Arthur B." and dij.vezetekNev == "McDonald":
-        print(f"3. Feladat: Arthur {dij.tipus} díjat kapott")
+    if dij.keresztNev == 'Arthur B.' and dij.vezetekNev == 'McDonald':
+        print(f'3. Feladat: Arthur {dij.tipus} díjat kapott')
         break
 
-print("4. Feladat:")
+print('4. Feladat:')
 for dij in dijak:
-    if dij.ev == 2017 and dij.tipus == "irodalmi":
-        print(f"Irodalmi díjat kapott: {dij.keresztNev} {dij.vezetekNev}")
+    if dij.ev == 2017 and dij.tipus == 'irodalmi':
+        print(f'Irodalmi díjat kapott: {dij.keresztNev} {dij.vezetekNev}')
 
-print("5. Feladat:")
+print('5. Feladat:')
 for dij in dijak:
-    if dij.ev >= 1990 and dij.vezetekNev == "":
-        print(f"{dij.ev}: {dij.keresztNev}")
+    if dij.ev >= 1990 and dij.vezetekNev == '':
+        print(f'{dij.ev}: {dij.keresztNev}')
 
-print("6. Feladat:")
+print('6. Feladat:')
 for dij in dijak:
-    if "Curie" in dij.vezetekNev:
-        print(f"{dij.ev}: {dij.keresztNev} {dij.vezetekNev}: {dij.tipus}")
+    if 'Curie' in dij.vezetekNev:
+        print(f'{dij.ev}: {dij.keresztNev} {dij.vezetekNev}: {dij.tipus}')
 
-print("7.Feladat:")
+print('7.Feladat:')
 
 tipusSzamlalok = Counter(k.tipus for k in dijak)
 for tipus, db in tipusSzamlalok.items():
-    print(f"{tipus}: {db} db")
+    print(f'{tipus}: {db} db')
 
 dijak.sort(key = lambda k: k.ev)
 
-with open("orvosi.txt", mode = "w", encoding = "utf-8") as file:
+with open('orvosi.txt', mode = 'w', encoding = 'utf-8') as file:
     for dij in dijak:
-        if dij.tipus == "orvosi":
-            file.write(f"{dij.ev}: {dij.keresztNev} {dij.vezetekNev}\n")
+        if dij.tipus == 'orvosi':
+            file.write(f'{dij.ev}: {dij.keresztNev} {dij.vezetekNev}\n')

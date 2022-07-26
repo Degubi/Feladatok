@@ -5,7 +5,7 @@ URES_RAJTSZAM = -1
 
 class Pilota:
 
-    def __init__(self, line):
+    def __init__(self, line: str):
         split = line.split(';')
 
         self.nev = split[0]

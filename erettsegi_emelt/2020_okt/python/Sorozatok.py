@@ -4,7 +4,7 @@ from itertools import groupby
 HIANYZO_DATUM = date.min
 
 class Sorozat:
-    def __init__(self, lines, index):
+    def __init__(self, lines: list[str], index: int):
         datumStr = lines[index].strip()
         epizodInfoSplit = lines[index + 2].split('x')
 
@@ -18,7 +18,7 @@ class Sorozat:
 napok = [ 'v', 'h', 'k', 'sz', 'cs', 'p', 'szo' ]
 honapok = [ 0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4 ]
 
-def hetnapja(ev, ho, nap):
+def hetnapja(ev: int, ho: int, nap: int):
     ev = ev - 1 if ho < 3 else ev
 
     return napok[(ev + ev // 4 - ev // 100 + ev // 400 + honapok[ho - 1] + nap) % 7]

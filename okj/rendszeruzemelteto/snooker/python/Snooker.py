@@ -3,7 +3,7 @@ from collections import Counter
 
 class Versenyzo:
 
-    def __init__(self, line):
+    def __init__(self, line: str):
         split = line.split(';')
 
         self.helyezes = int(split[0])

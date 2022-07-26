@@ -5,7 +5,7 @@ from statistics import mean
 
 class IdojarasAdat:
 
-    def __init__(self, line):
+    def __init__(self, line: str):
         split = line.split(' ')
         teljesIdo = int(split[1])
 
