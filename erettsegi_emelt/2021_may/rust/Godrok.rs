@@ -4,8 +4,7 @@ use std::io::{ BufReader, BufRead, stdin, Write };
 use itertools::Itertools;
 
 fn main() {
-    let input_file = File::open("melyseg.txt").unwrap();
-    let melysegek = BufReader::new(input_file)
+    let melysegek = BufReader::new(File::open("melyseg.txt").unwrap())
                              .lines()
                              .map(|k| k.unwrap().parse::<i32>().unwrap())
                              .collect::<Vec<i32>>();
@@ -38,9 +37,7 @@ fn main() {
                               .map(|k| k.iter().join(" "))
                               .join("\n");
 
-    let mut output_file = File::create("godrok.txt").unwrap();
-    write!(output_file, "{}", godrok_fileba);
-
+    write!(File::create("godrok.txt").unwrap(), "{}", godrok_fileba);
     println!("5. Feladat: Gödrök száma: {}", godrok.len());
 
     if melyseg_a_bekert_helyen == 0 {

@@ -38,8 +38,7 @@ public class VizibicikliKolcsonzo_stream {
 
             Arrays.stream(kolcsonzesek)
                   .filter(k -> bekertIdopont.isAfter(k.elvitelIdopont) && bekertIdopont.isBefore(k.visszahozatalIdopont))
-                  .map(k -> "    " + k.elvitelIdopont + "-" + k.visszahozatalIdopont + ": " + k.nev)
-                  .forEach(System.out::println);
+                  .forEach(k -> System.out.println("    " + k.elvitelIdopont + "-" + k.visszahozatalIdopont + ": " + k.nev));
         }
 
         var totalStartedHours = Arrays.stream(kolcsonzesek)
@@ -47,14 +46,14 @@ public class VizibicikliKolcsonzo_stream {
                                       .mapToInt(k -> (int) Math.ceil(k / 30.0))
                                       .sum();
 
-        System.out.println("8. Feladat: A bevétel " + (totalStartedHours * 2400) + " Ft");
+        System.out.println("8. Feladat: A bevétel " + (totalStartedHours * 2400) + "Ft");
 
-        var pressFToPayRespect = Arrays.stream(kolcsonzesek)
-                                       .filter(k -> k.jarmuAzonosito.equals("F"))
-                                       .map(k -> k.elvitelIdopont + "-" + k.visszahozatalIdopont + ": " + k.nev)
-                                       .collect(Collectors.toList());
+        var fileba = Arrays.stream(kolcsonzesek)
+                           .filter(k -> k.jarmuAzonosito.equals("F"))
+                           .map(k -> k.elvitelIdopont + "-" + k.visszahozatalIdopont + ": " + k.nev)
+                           .collect(Collectors.toList());
 
-        Files.write(Path.of("F.txt"), pressFToPayRespect);
+        Files.write(Path.of("F.txt"), fileba);
         System.out.println("10. Feladat:");
 
         Arrays.stream(kolcsonzesek)

@@ -31,8 +31,7 @@ fn main() {
     let input_row_index = input_row_index_str.trim_end().parse::<usize>().unwrap() - 1;
     let input_column_index = input_column_index_str.trim_end().parse::<usize>().unwrap() - 1;
 
-    let input_file = File::open(input_file_name_str.trim_end()).unwrap();
-    let numbers_per_line = BufReader::new(input_file)
+    let numbers_per_line = BufReader::new(File::open(input_file_name_str.trim_end()).unwrap())
                                     .lines()
                                     .map(|k| k.unwrap().split(' ').map(|n| n.parse::<i32>().unwrap()).collect::<Vec<i32>>())
                                     .collect::<Vec<Vec<i32>>>();

@@ -40,8 +40,7 @@ fn get_ules_status(ules: i32, bekert_km: i32, utasok: &Vec<Utas>) -> String {
 }
 
 fn main() {
-    let input_file = File::open("eladott.txt").unwrap();
-    let lines = BufReader::new(input_file)
+    let lines = BufReader::new(File::open("eladott.txt").unwrap())
                          .lines()
                          .map(|k| k.unwrap())
                          .collect::<Vec<String>>();
@@ -87,7 +86,6 @@ fn main() {
 
     let bekert_km = bekert_km_str.trim_end().parse::<i32>().unwrap();
     let fileba = (1 .. 49).map(|i| get_ules_status(i, bekert_km, &utasok)).join("\n");
-    let mut output = File::create("kihol.txt").unwrap();
 
-    write!(output, "{}", fileba);
+    write!(File::create("kihol.txt").unwrap(), "{}", fileba);
 }

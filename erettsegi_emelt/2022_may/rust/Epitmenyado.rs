@@ -31,8 +31,7 @@ fn ado(telek: &Telek, fizetendo_ado_savonkent: &HashMap<&str, i32>) -> i32 {
 }
 
 fn main() {
-    let input_file = File::open("utca.txt").unwrap();
-    let lines = BufReader::new(input_file)
+    let lines = BufReader::new(File::open("utca.txt").unwrap())
                          .lines()
                          .map(|k| k.unwrap())
                          .collect::<Vec<String>>();
@@ -96,6 +95,5 @@ fn main() {
                         .map(|(adoszam, telkek_adoszamhoz)| format!("{} {}", adoszam, telkek_adoszamhoz.map(|k| ado(k, &fizetendo_ado_savonkent)).sum::<i32>()))
                         .join("\n");
 
-    let mut output = File::create("fizetendo.txt").unwrap();
-    write!(output, "{}", to_file);
+    write!(File::create("fizetendo.txt").unwrap(), "{}", to_file);
 }

@@ -57,16 +57,16 @@ public class VizibicikliKolcsonzo {
             totalStartedHours += (int) Math.ceil(minutesBetweenStartEnd / 30.0);
         }
 
-        System.out.println("8. Feladat: A bevétel " + (totalStartedHours * 2400) + " Ft");
+        System.out.println("8. Feladat: A bevétel " + (totalStartedHours * 2400) + "Ft");
 
-        var pressFToPayRespect = new ArrayList<String>();
+        var fileba = new ArrayList<String>();
         for(var kolcsonzes : kolcsonzesek) {
             if(kolcsonzes.jarmuAzonosito.equals("F")) {
-                pressFToPayRespect.add(kolcsonzes.elvitelIdopont + "-" + kolcsonzes.visszahozatalIdopont + ": " + kolcsonzes.nev);
+                fileba.add(kolcsonzes.elvitelIdopont + "-" + kolcsonzes.visszahozatalIdopont + ": " + kolcsonzes.nev);
             }
         }
 
-        Files.write(Path.of("F.txt"), pressFToPayRespect);
+        Files.write(Path.of("F.txt"), fileba);
         System.out.println("10. Feladat:");
 
         var azonositoStat = new HashMap<String, Integer>();

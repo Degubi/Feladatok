@@ -24,8 +24,7 @@ fn create_hianyzas(line: &String) -> Hianyzas {
 }
 
 fn main() {
-    let input_file = File::open("szeptember.csv").unwrap();
-    let hianyzasok = BufReader::new(input_file)
+    let hianyzasok = BufReader::new(File::open("szeptember.csv").unwrap())
                               .lines()
                               .skip(1)
                               .map(|k| create_hianyzas(&k.unwrap()))
@@ -71,6 +70,5 @@ fn main() {
                             .map(|(osztaly, items)| format!("{};{}", osztaly, items.map(|k| k.mulasztott_orak).sum::<i32>()))
                             .join("\n");
 
-    let mut output = File::create("osszesites.csv").unwrap();
-    write!(output, "{}", to_file);
+    write!(File::create("osszesites.csv").unwrap(), "{}", to_file);
 }

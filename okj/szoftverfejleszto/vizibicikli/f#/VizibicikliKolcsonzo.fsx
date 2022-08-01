@@ -33,13 +33,12 @@ let bekertIdopont = TimeSpan(int bekertIdopontParts.[0], int bekertIdopontParts.
 printfn "7. Feladat:"
 
 kolcsonzesek |> Seq.filter(fun k -> bekertIdopont > k.elvitelIdopont && bekertIdopont < k.visszahozatalIdopont)
-             |> Seq.map(fun k -> $"    {k.elvitelIdopont}-{k.visszahozatalIdopont}: {k.nev}")
-             |> Seq.iter(Console.WriteLine)
+             |> Seq.iter(fun k -> printfn "    %O-%O: %s" k.elvitelIdopont k.visszahozatalIdopont k.nev)
 
 kolcsonzesek |> Seq.map(fun k -> (k.visszahozatalIdopont - k.elvitelIdopont).TotalMinutes)
              |> Seq.map(fun k -> int(Math.Ceiling(k / 30.0)))
              |> Seq.sum
-             |> fun k -> printfn "8. Feladat: A bevétel %d Ft" (k * 2400)
+             |> fun k -> printfn "8. Feladat: A bevétel %dFt" (k * 2400)
 
 kolcsonzesek |> Seq.filter(fun k -> k.jarmuAzonosito = "F")
              |> Seq.map(fun k -> $"{k.elvitelIdopont}-{k.visszahozatalIdopont}: {k.nev}")
