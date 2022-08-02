@@ -22,13 +22,14 @@ public class Telekocsi_stream {
 
         System.out.println("3. Feladat: BP to Miskolc hely: " + bpToMiskolc);
 
-        var utvonalakToFerohelyek = Arrays.stream(autok).collect(Collectors.groupingBy(k -> k.indulas + '-' + k.cel, Collectors.summingInt(k -> k.ferohely)));
-
-        utvonalakToFerohelyek.entrySet().stream()
-                             .max(Entry.comparingByValue())
-                             .ifPresent(k -> System.out.println("4. Feladat: " + k.getKey() + ": " + k.getValue() + " hely"));
+        Arrays.stream(autok)
+              .collect(Collectors.groupingBy(k -> k.indulas + '-' + k.cel, Collectors.summingInt(k -> k.ferohely)))
+              .entrySet().stream()
+              .max(Entry.comparingByValue())
+              .ifPresent(k -> System.out.println("4. Feladat: " + k.getKey() + ": " + k.getValue() + " hely"));
 
         System.out.println("5. Feladat");
+
         var igenyek = Files.lines(Path.of("igenyek.csv"), StandardCharsets.ISO_8859_1)
                            .skip(1)
                            .map(Igeny::new)
@@ -36,22 +37,19 @@ public class Telekocsi_stream {
 
         Arrays.stream(igenyek)
               .forEach(igeny -> Telekocsi_stream.autotKeresIgenyre(igeny, autok)
-              .ifPresent(k -> System.out.println(igeny.azonosito + " -> " + k.rendszam)));
-
+                                                .ifPresent(k -> System.out.println(igeny.azonosito + " -> " + k.rendszam)));
         var fileba = Arrays.stream(igenyek)
                            .map(igeny -> Telekocsi_stream.autotKeresIgenyre(igeny, autok)
                                                          .map(k -> igeny.azonosito + ": Rendszam: " + k.rendszam + ", Telefonszam: " + k.telefonszam)
                                                          .orElse(igeny.azonosito + ": " + "Sajnos nem sikerült autót találni"))
-                           .collect(Collectors.joining("\n"));
+                           .collect(Collectors.toList());
 
-        Files.writeString(Path.of("utazasuzenetek.txt"), fileba);
+        Files.write(Path.of("utazasuzenetek.txt"), fileba);
     }
 
     public static Optional<Auto> autotKeresIgenyre(Igeny igeny, Auto[] autok) {
         return Arrays.stream(autok)
-                     .filter(k -> k.indulas.equals(igeny.indulas))
-                     .filter(k -> k.cel.equals(igeny.cel))
-                     .filter(k -> k.ferohely >= igeny.szemelyek)
+                     .filter(k -> k.indulas.equals(igeny.indulas) && k.cel.equals(igeny.cel) && k.ferohely >= igeny.szemelyek)
                      .findFirst();
     }
 }

@@ -1,6 +1,5 @@
 open System
 open System.IO
-open System.Text
 open Microsoft.FSharp.Core.Operators.Checked // Ez kell, mert így az operatorok exception-t dobnak overflow esetén
 
 type Kifejezes = { ElsoOperandus: int; Operator: string; MasodikOperandus: int; TeljesKifejezes: string }
@@ -32,7 +31,7 @@ let kifejezestKiertekel(kif: Kifejezes) =
     with
     | _ -> "Egyéb hiba!"
 
-let kifejezesek = File.ReadLines("kifejezesek.txt", Encoding.Latin1)
+let kifejezesek = File.ReadLines("kifejezesek.txt", System.Text.Encoding.Latin1)
                   |> Seq.map(kifejezestKeszit)
                   |> Seq.toArray
 

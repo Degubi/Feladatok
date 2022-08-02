@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 var kifejezesek = new List<Kifejezes>();
-var lines = File.ReadAllLines("kifejezesek.txt", Encoding.GetEncoding("ISO-8859-1"));
+var lines = File.ReadAllLines("kifejezesek.txt", System.Text.Encoding.Latin1);
 
 foreach(var line in lines) {
     kifejezesek.Add(new Kifejezes(line));

@@ -1,4 +1,5 @@
 public class Igeny {
+
     public final String azonosito;
     public final String indulas;
     public final String cel;

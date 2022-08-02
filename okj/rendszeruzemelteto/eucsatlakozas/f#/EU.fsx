@@ -1,7 +1,7 @@
 ﻿open System
 open System.IO
 
-let csatlakozasok = File.ReadLines("EUcsatlakozas.txt", System.Text.Encoding.GetEncoding("ISO-8859-1"))
+let csatlakozasok = File.ReadLines("EUcsatlakozas.txt", System.Text.Encoding.Latin1)
                     |> Seq.map(fun k -> k.Split ';')
                     |> Seq.map(fun m -> {| Orszag = m.[0]; Datum = DateTime.Parse(m.[1]) |})
                     |> Seq.toArray

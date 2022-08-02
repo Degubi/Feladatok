@@ -1,5 +1,4 @@
 open System.IO
-open System.Text
 
 let eredmenytKeszit(data: string[]) = {|
     Csapat = data.[0]
@@ -8,7 +7,7 @@ let eredmenytKeszit(data: string[]) = {|
     Pontszam = int data.[3]
 |}
 
-let eredmenyek = File.ReadLines("fifa.txt", Encoding.Latin1)
+let eredmenyek = File.ReadLines("fifa.txt", System.Text.Encoding.Latin1)
                  |> Seq.skip 1
                  |> Seq.map(fun k -> k.Split ';' |> eredmenytKeszit)
                  |> Seq.toArray

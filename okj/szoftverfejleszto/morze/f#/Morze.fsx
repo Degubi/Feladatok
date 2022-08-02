@@ -10,7 +10,7 @@ let idezetetKeszit(abc: Map<string, string>) (data: string[]) = {|
     uzenet = morze2Szoveg data.[1] abc
 |}
 
-let betuToMorze = File.ReadLines("morzeabc.txt", Text.Encoding.Latin1)
+let betuToMorze = File.ReadLines("morzeabc.txt", System.Text.Encoding.Latin1)
                   |> Seq.skip 1
                   |> Seq.map(fun k -> k.Split "\t")
                   |> Seq.map(fun k -> (k.[0], k.[1]))

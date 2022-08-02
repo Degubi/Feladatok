@@ -15,7 +15,7 @@ let vegyjeletBeker _ =
     Console.ReadLine()
 
 
-let elemek = File.ReadLines("felfedezesek.csv", Text.Encoding.Latin1)
+let elemek = File.ReadLines("felfedezesek.csv", System.Text.Encoding.Latin1)
             |> Seq.skip 1
             |> Seq.map(fun k -> k.Split ';' |> createElem)
             |> Seq.toArray

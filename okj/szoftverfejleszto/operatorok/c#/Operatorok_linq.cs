@@ -2,9 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 
-var kifejezesek = File.ReadLines("kifejezesek.txt", Encoding.GetEncoding("ISO-8859-1"))
+var kifejezesek = File.ReadLines("kifejezesek.txt", System.Text.Encoding.Latin1)
                       .Select(k => new Kifejezes(k))
                       .ToArray();
 
