@@ -1,0 +1,309 @@
+date;grandprix;position;laps;points;team;status
+1991-08-25;Belgian Grand Prix;0;0;0;Jordan;Clutch
+1991-09-08;Italian Grand Prix;5;53;2;Benetton;Finished
+1991-09-22;Portuguese Grand Prix;6;71;1;Benetton;Finished
+1991-09-29;Spanish Grand Prix;6;65;1;Benetton;Finished
+1991-10-20;Japanese Grand Prix;0;34;0;Benetton;Engine
+1991-11-03;Australian Grand Prix;0;5;0;Benetton;Spun off
+1992-03-01;South African Grand Prix;4;72;3;Benetton;Finished
+1992-03-22;Mexican Grand Prix;3;69;4;Benetton;Finished
+1992-04-05;Brazilian Grand Prix;3;70;4;Benetton;+1 Lap
+1992-05-03;Spanish Grand Prix;2;65;6;Benetton;Finished
+1992-05-17;San Marino Grand Prix;0;20;0;Benetton;Spun off
+1992-05-31;Monaco Grand Prix;4;78;3;Benetton;Finished
+1992-06-14;Canadian Grand Prix;2;69;6;Benetton;Finished
+1992-07-05;French Grand Prix;0;17;0;Benetton;Accident
+1992-07-12;British Grand Prix;4;59;3;Benetton;Finished
+1992-07-26;German Grand Prix;3;45;4;Benetton;Finished
+1992-08-16;Hungarian Grand Prix;0;63;0;Benetton;Broken wing
+1992-08-30;Belgian Grand Prix;1;44;10;Benetton;Finished
+1992-09-13;Italian Grand Prix;3;53;4;Benetton;Finished
+1992-09-27;Portuguese Grand Prix;7;69;0;Benetton;+2 Laps
+1992-10-25;Japanese Grand Prix;0;13;0;Benetton;Gearbox
+1992-11-08;Australian Grand Prix;2;81;6;Benetton;Finished
+1993-03-14;South African Grand Prix;0;39;0;Benetton;Spun off
+1993-03-28;Brazilian Grand Prix;3;71;4;Benetton;Finished
+1993-04-11;European Grand Prix;0;22;0;Benetton;Spun off
+1993-04-25;San Marino Grand Prix;2;61;6;Benetton;Finished
+1993-05-09;Spanish Grand Prix;3;65;4;Benetton;Finished
+1993-05-23;Monaco Grand Prix;0;32;0;Benetton;Hydraulics
+1993-06-13;Canadian Grand Prix;2;69;6;Benetton;Finished
+1993-07-04;French Grand Prix;3;72;4;Benetton;Finished
+1993-07-11;British Grand Prix;2;59;6;Benetton;Finished
+1993-07-25;German Grand Prix;2;45;6;Benetton;Finished
+1993-08-15;Hungarian Grand Prix;0;26;0;Benetton;Fuel pump
+1993-08-29;Belgian Grand Prix;2;44;6;Benetton;Finished
+1993-09-12;Italian Grand Prix;0;21;0;Benetton;Engine
+1993-09-26;Portuguese Grand Prix;1;71;10;Benetton;Finished
+1993-10-24;Japanese Grand Prix;0;10;0;Benetton;Collision
+1993-11-07;Australian Grand Prix;0;19;0;Benetton;Engine
+1994-03-27;Brazilian Grand Prix;1;71;10;Benetton;Finished
+1994-04-17;Pacific Grand Prix;1;83;10;Benetton;Finished
+1994-05-01;San Marino Grand Prix;1;58;10;Benetton;Finished
+1994-05-15;Monaco Grand Prix;1;78;10;Benetton;Finished
+1994-05-29;Spanish Grand Prix;2;65;6;Benetton;Finished
+1994-06-12;Canadian Grand Prix;1;69;10;Benetton;Finished
+1994-07-03;French Grand Prix;1;72;10;Benetton;Finished
+1994-07-10;British Grand Prix;0;60;0;Benetton;Disqualified
+1994-07-31;German Grand Prix;0;20;0;Benetton;Engine
+1994-08-14;Hungarian Grand Prix;1;77;10;Benetton;Finished
+1994-08-28;Belgian Grand Prix;0;44;0;Benetton;Disqualified
+1994-10-16;European Grand Prix;1;69;10;Benetton;Finished
+1994-11-06;Japanese Grand Prix;2;50;6;Benetton;Finished
+1994-11-13;Australian Grand Prix;0;35;0;Benetton;Collision
+1995-03-26;Brazilian Grand Prix;1;71;10;Benetton;Finished
+1995-04-09;Argentine Grand Prix;3;72;4;Benetton;Finished
+1995-04-30;San Marino Grand Prix;0;10;0;Benetton;Spun off
+1995-05-14;Spanish Grand Prix;1;65;10;Benetton;Finished
+1995-05-28;Monaco Grand Prix;1;78;10;Benetton;Finished
+1995-06-11;Canadian Grand Prix;5;68;2;Benetton;Finished
+1995-07-02;French Grand Prix;1;72;10;Benetton;Finished
+1995-07-16;British Grand Prix;0;45;0;Benetton;Collision
+1995-07-30;German Grand Prix;1;45;10;Benetton;Finished
+1995-08-13;Hungarian Grand Prix;11;73;0;Benetton;Engine
+1995-08-27;Belgian Grand Prix;1;44;10;Benetton;Finished
+1995-09-10;Italian Grand Prix;0;23;0;Benetton;Collision
+1995-09-24;Portuguese Grand Prix;2;71;6;Benetton;Finished
+1995-10-01;European Grand Prix;1;67;10;Benetton;Finished
+1995-10-22;Pacific Grand Prix;1;83;10;Benetton;Finished
+1995-10-29;Japanese Grand Prix;1;53;10;Benetton;Finished
+1995-11-12;Australian Grand Prix;0;25;0;Benetton;Collision
+1996-03-10;Australian Grand Prix;0;32;0;Ferrari;Brakes
+1996-03-31;Brazilian Grand Prix;3;70;4;Ferrari;+1 Lap
+1996-04-07;Argentine Grand Prix;0;46;0;Ferrari;Broken wing
+1996-04-28;European Grand Prix;2;67;6;Ferrari;Finished
+1996-05-05;San Marino Grand Prix;2;63;6;Ferrari;Finished
+1996-05-19;Monaco Grand Prix;0;0;0;Ferrari;Spun off
+1996-06-02;Spanish Grand Prix;1;65;10;Ferrari;Finished
+1996-06-16;Canadian Grand Prix;0;41;0;Ferrari;Halfshaft
+1996-06-30;French Grand Prix;0;0;0;Ferrari;Engine
+1996-07-14;British Grand Prix;0;3;0;Ferrari;Hydraulics
+1996-07-28;German Grand Prix;4;45;3;Ferrari;Finished
+1996-08-11;Hungarian Grand Prix;9;70;0;Ferrari;Throttle
+1996-08-25;Belgian Grand Prix;1;44;10;Ferrari;Finished
+1996-09-08;Italian Grand Prix;1;53;10;Ferrari;Finished
+1996-09-22;Portuguese Grand Prix;3;70;4;Ferrari;Finished
+1996-10-13;Japanese Grand Prix;2;52;6;Ferrari;Finished
+1997-03-09;Australian Grand Prix;2;58;6;Ferrari;Finished
+1997-03-30;Brazilian Grand Prix;5;72;2;Ferrari;Finished
+1997-04-13;Argentine Grand Prix;0;0;0;Ferrari;Collision
+1997-04-27;San Marino Grand Prix;2;62;6;Ferrari;Finished
+1997-05-11;Monaco Grand Prix;1;62;10;Ferrari;Finished
+1997-05-25;Spanish Grand Prix;4;64;3;Ferrari;Finished
+1997-06-15;Canadian Grand Prix;1;54;10;Ferrari;Finished
+1997-06-29;French Grand Prix;1;72;10;Ferrari;Finished
+1997-07-13;British Grand Prix;0;38;0;Ferrari;Wheel
+1997-07-27;German Grand Prix;2;45;6;Ferrari;Finished
+1997-08-10;Hungarian Grand Prix;4;77;3;Ferrari;Finished
+1997-08-24;Belgian Grand Prix;1;44;10;Ferrari;Finished
+1997-09-07;Italian Grand Prix;6;53;1;Ferrari;Finished
+1997-09-21;Austrian Grand Prix;6;71;1;Ferrari;Finished
+1997-09-28;Luxembourg Grand Prix;0;2;0;Ferrari;Suspension
+1997-10-12;Japanese Grand Prix;1;53;10;Ferrari;Finished
+1997-10-26;European Grand Prix;0;47;0;Ferrari;Collision
+1998-03-08;Australian Grand Prix;0;5;0;Ferrari;Engine
+1998-03-29;Brazilian Grand Prix;3;72;4;Ferrari;Finished
+1998-04-12;Argentine Grand Prix;1;72;10;Ferrari;Finished
+1998-04-26;San Marino Grand Prix;2;62;6;Ferrari;Finished
+1998-05-10;Spanish Grand Prix;3;65;4;Ferrari;Finished
+1998-05-24;Monaco Grand Prix;10;76;0;Ferrari;+2 Laps
+1998-06-07;Canadian Grand Prix;1;69;10;Ferrari;Finished
+1998-06-28;French Grand Prix;1;71;10;Ferrari;Finished
+1998-07-12;British Grand Prix;1;60;10;Ferrari;Finished
+1998-07-26;Austrian Grand Prix;3;71;4;Ferrari;Finished
+1998-08-02;German Grand Prix;5;45;2;Ferrari;Finished
+1998-08-16;Hungarian Grand Prix;1;77;10;Ferrari;Finished
+1998-08-30;Belgian Grand Prix;0;25;0;Ferrari;Collision
+1998-09-13;Italian Grand Prix;1;53;10;Ferrari;Finished
+1998-09-27;Luxembourg Grand Prix;2;67;6;Ferrari;Finished
+1998-11-01;Japanese Grand Prix;0;31;0;Ferrari;Tyre
+1999-03-07;Australian Grand Prix;8;56;0;Ferrari;+1 Lap
+1999-04-11;Brazilian Grand Prix;2;72;6;Ferrari;Finished
+1999-05-02;San Marino Grand Prix;1;62;10;Ferrari;Finished
+1999-05-16;Monaco Grand Prix;1;78;10;Ferrari;Finished
+1999-05-30;Spanish Grand Prix;3;65;4;Ferrari;Finished
+1999-06-13;Canadian Grand Prix;0;29;0;Ferrari;Spun off
+1999-06-27;French Grand Prix;5;72;2;Ferrari;Finished
+1999-07-11;British Grand Prix;0;0;0;Ferrari;Brakes
+1999-10-17;Malaysian Grand Prix;2;56;6;Ferrari;Finished
+1999-10-31;Japanese Grand Prix;2;53;6;Ferrari;Finished
+2000-03-12;Australian Grand Prix;1;58;10;Ferrari;Finished
+2000-03-26;Brazilian Grand Prix;1;71;10;Ferrari;Finished
+2000-04-09;San Marino Grand Prix;1;62;10;Ferrari;Finished
+2000-04-23;British Grand Prix;3;60;4;Ferrari;Finished
+2000-05-07;Spanish Grand Prix;5;65;2;Ferrari;Finished
+2000-05-21;European Grand Prix;1;67;10;Ferrari;Finished
+2000-06-04;Monaco Grand Prix;0;55;0;Ferrari;Suspension
+2000-06-18;Canadian Grand Prix;1;69;10;Ferrari;Finished
+2000-07-02;French Grand Prix;0;58;0;Ferrari;Engine
+2000-07-16;Austrian Grand Prix;0;0;0;Ferrari;Collision
+2000-07-30;German Grand Prix;0;0;0;Ferrari;Collision
+2000-08-13;Hungarian Grand Prix;2;77;6;Ferrari;Finished
+2000-08-27;Belgian Grand Prix;2;44;6;Ferrari;Finished
+2000-09-10;Italian Grand Prix;1;53;10;Ferrari;Finished
+2000-09-24;United States Grand Prix;1;73;10;Ferrari;Finished
+2000-10-08;Japanese Grand Prix;1;53;10;Ferrari;Finished
+2000-10-22;Malaysian Grand Prix;1;56;10;Ferrari;Finished
+2001-03-04;Australian Grand Prix;1;58;10;Ferrari;Finished
+2001-03-18;Malaysian Grand Prix;1;55;10;Ferrari;Finished
+2001-04-01;Brazilian Grand Prix;2;71;6;Ferrari;Finished
+2001-04-15;San Marino Grand Prix;0;24;0;Ferrari;Suspension
+2001-04-29;Spanish Grand Prix;1;65;10;Ferrari;Finished
+2001-05-13;Austrian Grand Prix;2;71;6;Ferrari;Finished
+2001-05-27;Monaco Grand Prix;1;78;10;Ferrari;Finished
+2001-06-10;Canadian Grand Prix;2;69;6;Ferrari;Finished
+2001-06-24;European Grand Prix;1;67;10;Ferrari;Finished
+2001-07-01;French Grand Prix;1;72;10;Ferrari;Finished
+2001-07-15;British Grand Prix;2;60;6;Ferrari;Finished
+2001-07-29;German Grand Prix;0;23;0;Ferrari;Fuel pressure
+2001-08-19;Hungarian Grand Prix;1;77;10;Ferrari;Finished
+2001-09-02;Belgian Grand Prix;1;36;10;Ferrari;Finished
+2001-09-16;Italian Grand Prix;4;53;3;Ferrari;Finished
+2001-09-30;United States Grand Prix;2;73;6;Ferrari;Finished
+2001-10-14;Japanese Grand Prix;1;53;10;Ferrari;Finished
+2002-03-03;Australian Grand Prix;1;58;10;Ferrari;Finished
+2002-03-17;Malaysian Grand Prix;3;56;4;Ferrari;Finished
+2002-03-31;Brazilian Grand Prix;1;71;10;Ferrari;Finished
+2002-04-14;San Marino Grand Prix;1;62;10;Ferrari;Finished
+2002-04-28;Spanish Grand Prix;1;65;10;Ferrari;Finished
+2002-05-12;Austrian Grand Prix;1;71;10;Ferrari;Finished
+2002-05-26;Monaco Grand Prix;2;78;6;Ferrari;Finished
+2002-06-09;Canadian Grand Prix;1;70;10;Ferrari;Finished
+2002-06-23;European Grand Prix;2;60;6;Ferrari;Finished
+2002-07-07;British Grand Prix;1;60;10;Ferrari;Finished
+2002-07-21;French Grand Prix;1;72;10;Ferrari;Finished
+2002-07-28;German Grand Prix;1;67;10;Ferrari;Finished
+2002-08-18;Hungarian Grand Prix;2;77;6;Ferrari;Finished
+2002-09-01;Belgian Grand Prix;1;44;10;Ferrari;Finished
+2002-09-15;Italian Grand Prix;2;53;6;Ferrari;Finished
+2002-09-29;United States Grand Prix;2;73;6;Ferrari;Finished
+2002-10-13;Japanese Grand Prix;1;53;10;Ferrari;Finished
+2003-03-09;Australian Grand Prix;4;58;5;Ferrari;Finished
+2003-03-23;Malaysian Grand Prix;6;55;3;Ferrari;+1 Lap
+2003-04-06;Brazilian Grand Prix;0;27;0;Ferrari;Accident
+2003-04-20;San Marino Grand Prix;1;62;10;Ferrari;Finished
+2003-05-04;Spanish Grand Prix;1;65;10;Ferrari;Finished
+2003-05-18;Austrian Grand Prix;1;69;10;Ferrari;Finished
+2003-06-01;Monaco Grand Prix;3;78;6;Ferrari;Finished
+2003-06-15;Canadian Grand Prix;1;70;10;Ferrari;Finished
+2003-06-29;European Grand Prix;5;60;4;Ferrari;Finished
+2003-07-06;French Grand Prix;3;70;6;Ferrari;Finished
+2003-07-20;British Grand Prix;4;60;5;Ferrari;Finished
+2003-08-03;German Grand Prix;7;66;2;Ferrari;+1 Lap
+2003-08-24;Hungarian Grand Prix;8;69;1;Ferrari;+1 Lap
+2003-09-14;Italian Grand Prix;1;53;10;Ferrari;Finished
+2003-09-28;United States Grand Prix;1;73;10;Ferrari;Finished
+2003-10-12;Japanese Grand Prix;8;53;1;Ferrari;Finished
+2004-03-07;Australian Grand Prix;1;58;10;Ferrari;Finished
+2004-03-21;Malaysian Grand Prix;1;56;10;Ferrari;Finished
+2004-04-04;Bahrain Grand Prix;1;57;10;Ferrari;Finished
+2004-04-25;San Marino Grand Prix;1;62;10;Ferrari;Finished
+2004-05-09;Spanish Grand Prix;1;66;10;Ferrari;Finished
+2004-05-23;Monaco Grand Prix;0;45;0;Ferrari;Collision
+2004-05-30;European Grand Prix;1;60;10;Ferrari;Finished
+2004-06-13;Canadian Grand Prix;1;70;10;Ferrari;Finished
+2004-06-20;United States Grand Prix;1;73;10;Ferrari;Finished
+2004-07-04;French Grand Prix;1;70;10;Ferrari;Finished
+2004-07-11;British Grand Prix;1;60;10;Ferrari;Finished
+2004-07-25;German Grand Prix;1;66;10;Ferrari;Finished
+2004-08-15;Hungarian Grand Prix;1;70;10;Ferrari;Finished
+2004-08-29;Belgian Grand Prix;2;44;8;Ferrari;Finished
+2004-09-12;Italian Grand Prix;2;53;8;Ferrari;Finished
+2004-09-26;Chinese Grand Prix;12;55;0;Ferrari;+1 Lap
+2004-10-10;Japanese Grand Prix;1;53;10;Ferrari;Finished
+2004-10-24;Brazilian Grand Prix;7;71;2;Ferrari;Finished
+2005-03-06;Australian Grand Prix;0;42;0;Ferrari;Accident
+2005-03-20;Malaysian Grand Prix;7;56;2;Ferrari;Finished
+2005-04-03;Bahrain Grand Prix;0;12;0;Ferrari;Hydraulics
+2005-04-24;San Marino Grand Prix;2;62;8;Ferrari;Finished
+2005-05-08;Spanish Grand Prix;0;46;0;Ferrari;Puncture
+2005-05-22;Monaco Grand Prix;7;78;2;Ferrari;Finished
+2005-05-29;European Grand Prix;5;59;4;Ferrari;Finished
+2005-06-12;Canadian Grand Prix;2;70;8;Ferrari;Finished
+2005-06-19;United States Grand Prix;1;73;10;Ferrari;Finished
+2005-07-03;French Grand Prix;3;70;6;Ferrari;Finished
+2005-07-10;British Grand Prix;6;60;3;Ferrari;Finished
+2005-07-24;German Grand Prix;5;67;4;Ferrari;Finished
+2005-07-31;Hungarian Grand Prix;2;70;8;Ferrari;Finished
+2005-08-21;Turkish Grand Prix;0;32;0;Ferrari;Retired
+2005-09-04;Italian Grand Prix;10;53;0;Ferrari;Finished
+2005-09-11;Belgian Grand Prix;0;13;0;Ferrari;Accident
+2005-09-25;Brazilian Grand Prix;4;71;5;Ferrari;Finished
+2005-10-09;Japanese Grand Prix;7;53;2;Ferrari;Finished
+2005-10-16;Chinese Grand Prix;0;20;0;Ferrari;Spun off
+2006-03-12;Bahrain Grand Prix;2;57;8;Ferrari;Finished
+2006-03-19;Malaysian Grand Prix;6;56;3;Ferrari;Finished
+2006-04-02;Australian Grand Prix;0;32;0;Ferrari;Accident
+2006-04-23;San Marino Grand Prix;1;62;10;Ferrari;Finished
+2006-05-07;European Grand Prix;1;60;10;Ferrari;Finished
+2006-05-14;Spanish Grand Prix;2;66;8;Ferrari;Finished
+2006-05-28;Monaco Grand Prix;5;78;4;Ferrari;Finished
+2006-06-11;British Grand Prix;2;60;8;Ferrari;Finished
+2006-06-25;Canadian Grand Prix;2;70;8;Ferrari;Finished
+2006-07-02;United States Grand Prix;1;73;10;Ferrari;Finished
+2006-07-16;French Grand Prix;1;70;10;Ferrari;Finished
+2006-07-30;German Grand Prix;1;67;10;Ferrari;Finished
+2006-08-06;Hungarian Grand Prix;8;67;1;Ferrari;Track rod
+2006-08-27;Turkish Grand Prix;3;58;6;Ferrari;Finished
+2006-09-10;Italian Grand Prix;1;53;10;Ferrari;Finished
+2006-10-01;Chinese Grand Prix;1;56;10;Ferrari;Finished
+2006-10-08;Japanese Grand Prix;0;36;0;Ferrari;Engine
+2006-10-22;Brazilian Grand Prix;4;71;5;Ferrari;Finished
+2010-03-14;Bahrain Grand Prix;6;49;8;Mercedes;Finished
+2010-03-28;Australian Grand Prix;10;58;1;Mercedes;Finished
+2010-04-04;Malaysian Grand Prix;0;9;0;Mercedes;Wheel
+2010-04-18;Chinese Grand Prix;10;56;1;Mercedes;Finished
+2010-05-09;Spanish Grand Prix;4;66;12;Mercedes;Finished
+2010-05-16;Monaco Grand Prix;12;78;0;Mercedes;Finished
+2010-05-30;Turkish Grand Prix;4;58;12;Mercedes;Finished
+2010-06-13;Canadian Grand Prix;11;69;0;Mercedes;+1 Lap
+2010-06-27;European Grand Prix;15;57;0;Mercedes;Finished
+2010-07-11;British Grand Prix;9;52;2;Mercedes;Finished
+2010-07-25;German Grand Prix;9;66;2;Mercedes;+1 Lap
+2010-08-01;Hungarian Grand Prix;11;69;0;Mercedes;+1 Lap
+2010-08-29;Belgian Grand Prix;7;44;6;Mercedes;Finished
+2010-09-12;Italian Grand Prix;9;53;2;Mercedes;Finished
+2010-09-26;Singapore Grand Prix;13;60;0;Mercedes;+1 Lap
+2010-10-10;Japanese Grand Prix;6;53;8;Mercedes;Finished
+2010-10-24;Korean Grand Prix;4;55;12;Mercedes;Finished
+2010-11-07;Brazilian Grand Prix;7;71;6;Mercedes;Finished
+2010-11-14;Abu Dhabi Grand Prix;0;0;0;Mercedes;Collision
+2011-03-27;Australian Grand Prix;0;19;0;Mercedes;Collision
+2011-04-10;Malaysian Grand Prix;9;56;2;Mercedes;Finished
+2011-04-17;Chinese Grand Prix;8;56;4;Mercedes;Finished
+2011-05-08;Turkish Grand Prix;12;58;0;Mercedes;Finished
+2011-05-22;Spanish Grand Prix;6;65;8;Mercedes;+1 Lap
+2011-05-29;Monaco Grand Prix;0;32;0;Mercedes;Engine
+2011-06-12;Canadian Grand Prix;4;70;12;Mercedes;Finished
+2011-06-26;European Grand Prix;17;56;0;Mercedes;+1 Lap
+2011-07-10;British Grand Prix;9;52;2;Mercedes;Finished
+2011-07-24;German Grand Prix;8;59;4;Mercedes;+1 Lap
+2011-07-31;Hungarian Grand Prix;0;26;0;Mercedes;Gearbox
+2011-08-28;Belgian Grand Prix;5;44;10;Mercedes;Finished
+2011-09-11;Italian Grand Prix;5;53;10;Mercedes;Finished
+2011-09-25;Singapore Grand Prix;0;28;0;Mercedes;Accident
+2011-10-09;Japanese Grand Prix;6;53;8;Mercedes;Finished
+2011-10-16;Korean Grand Prix;0;15;0;Mercedes;Collision
+2011-10-30;Indian Grand Prix;5;60;10;Mercedes;Finished
+2011-11-13;Abu Dhabi Grand Prix;7;55;6;Mercedes;Finished
+2011-11-27;Brazilian Grand Prix;15;70;0;Mercedes;+1 Lap
+2012-03-18;Australian Grand Prix;0;10;0;Mercedes;Gearbox
+2012-03-25;Malaysian Grand Prix;10;56;1;Mercedes;Finished
+2012-04-15;Chinese Grand Prix;0;12;0;Mercedes;Wheel nut
+2012-04-22;Bahrain Grand Prix;10;57;1;Mercedes;Finished
+2012-05-13;Spanish Grand Prix;0;12;0;Mercedes;Collision
+2012-05-27;Monaco Grand Prix;0;63;0;Mercedes;Fuel pressure
+2012-06-10;Canadian Grand Prix;0;43;0;Mercedes;Rear wing
+2012-06-24;European Grand Prix;3;57;15;Mercedes;Finished
+2012-07-08;British Grand Prix;7;52;6;Mercedes;Finished
+2012-07-22;German Grand Prix;7;67;6;Mercedes;Finished
+2012-07-29;Hungarian Grand Prix;0;58;0;Mercedes;+11 Laps
+2012-09-02;Belgian Grand Prix;7;44;6;Mercedes;Finished
+2012-09-09;Italian Grand Prix;6;53;8;Mercedes;Finished
+2012-09-23;Singapore Grand Prix;0;38;0;Mercedes;Collision
+2012-10-07;Japanese Grand Prix;11;53;0;Mercedes;Finished
+2012-10-14;Korean Grand Prix;13;55;0;Mercedes;Finished
+2012-10-28;Indian Grand Prix;22;55;0;Mercedes;Retired
+2012-11-04;Abu Dhabi Grand Prix;11;55;0;Mercedes;Finished
+2012-11-18;United States Grand Prix;16;55;0;Mercedes;+1 Lap
+2012-11-25;Brazilian Grand Prix;7;71;6;Mercedes;Finished
