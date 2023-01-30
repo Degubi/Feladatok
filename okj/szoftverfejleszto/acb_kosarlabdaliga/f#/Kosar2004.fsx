@@ -27,9 +27,9 @@ eredmenyek |> Seq.exists(fun k -> k.hazaiPont = k.idegenPont)
            |> fun k -> printfn "4. Feladat: Volt e döntetlen: %s" (if k then "igen" else "nem")
 
 eredmenyek |> Seq.tryFind(fun k -> k.hazaiCsapat.Contains("Barcelona") || k.idegenCsapat.Contains("Barcelona"))
-           |> fun k -> match k with
-                       | Some k -> printfn "5. Feladat: Barcelona csapat neve: %s" (if k.hazaiCsapat.Contains("Barcelona") then k.hazaiCsapat else k.idegenCsapat)
-                       | None -> ()
+           |> function
+              | Some k -> printfn "5. Feladat: Barcelona csapat neve: %s" (if k.hazaiCsapat.Contains("Barcelona") then k.hazaiCsapat else k.idegenCsapat)
+              | None -> ()
 
 let hatosFeladatIdopont = DateTime(2004, 11, 21)
 
