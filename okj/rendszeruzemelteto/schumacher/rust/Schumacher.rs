@@ -11,7 +11,7 @@ fn main() {
                               .lines()
                               .skip(1)
                               .map(|k| create_eredmeny(&k.unwrap()))
-                              .collect::<Vec<Eredmeny>>();
+                              .collect::<Vec<_>>();
 
     println!("2. Feladat: Adatsorok száma: {}", eredmenyek.len());
     println!("4. Feladat:");
@@ -29,7 +29,7 @@ fn main() {
               .group_by(|k| &k.vegeredmeny_statusz)
               .into_iter()
               .for_each(|(status, stat)| {
-                   let statuszhoz_statok = stat.collect::<Vec<&Eredmeny>>();
+                   let statuszhoz_statok = stat.collect::<Vec<_>>();
 
                    if statuszhoz_statok.len() > 2 {
                         println!("    {}: {}", status, statuszhoz_statok.len());
@@ -39,7 +39,7 @@ fn main() {
 
 
 fn create_eredmeny(line: &String) -> Eredmeny {
-    let split = line.split(';').collect::<Vec<&str>>();
+    let split = line.split(';').collect::<Vec<_>>();
 
     Eredmeny {
         datum: NaiveDate::parse_from_str(split[0], "%Y-%m-%d").unwrap(),

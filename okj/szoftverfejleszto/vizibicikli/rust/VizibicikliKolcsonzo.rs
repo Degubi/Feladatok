@@ -12,7 +12,7 @@ struct Kolcsonzes {
 }
 
 fn create_kolcsonzes(line: &String) -> Kolcsonzes {
-    let split = line.split(';').collect::<Vec<&str>>();
+    let split = line.split(';').collect::<Vec<_>>();
 
     Kolcsonzes {
         nev: split[0].to_string(),
@@ -27,7 +27,7 @@ fn main() {
                                 .lines()
                                 .skip(1)
                                 .map(|k| create_kolcsonzes(&k.unwrap()))
-                                .collect::<Vec<Kolcsonzes>>();
+                                .collect::<Vec<_>>();
 
     println!("5. Feladat: Kölcsönzések száma: {}", kolcsonzesek.len());
     println!("Írj be 1 nevet!");
@@ -38,7 +38,7 @@ fn main() {
     let bekert_nev = bekert_nev_str.trim_end();
     let bekert_nevhez_tartozo_kolcsonzesek = kolcsonzesek.iter()
                                                          .filter(|k| k.nev == bekert_nev)
-                                                         .collect::<Vec<&Kolcsonzes>>();
+                                                         .collect::<Vec<_>>();
 
     let bekerthez_kiirando = if bekert_nevhez_tartozo_kolcsonzesek.len() == 0 { "Nem volt ilyen nevű kölcsönző".to_string() }
                              else { bekert_nevhez_tartozo_kolcsonzesek.iter()
@@ -54,7 +54,7 @@ fn main() {
 
     let bekert_idopont_parts = bekert_idopont_str.trim_end()
                                                  .split(':')
-                                                 .collect::<Vec<&str>>();
+                                                 .collect::<Vec<_>>();
 
     let bekert_idopont = NaiveTime::from_hms(bekert_idopont_parts[0].parse::<u32>().unwrap(), bekert_idopont_parts[1].parse::<u32>().unwrap(), 0);
 

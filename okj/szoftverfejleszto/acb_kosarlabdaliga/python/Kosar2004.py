@@ -22,7 +22,7 @@ idegenMadridDb = sum(1 for k in eredmenyek if k.idegenCsapat == 'Real Madrid')
 
 print(f'3. Feladat: Hazai: {hazaiMadridDb}, idegen: {idegenMadridDb}')
 
-voltEDontetlen = any(k for k in eredmenyek if k.hazaiPont == k.idegenPont)
+voltEDontetlen = any(True for k in eredmenyek if k.hazaiPont == k.idegenPont)
 print(f'4. Feladat: Volt e döntetlen: {"igen" if voltEDontetlen else "nem"}')
 
 barcelona = next(k for k in eredmenyek if 'Barcelona' in k.hazaiCsapat or 'Barcelona' in k.idegenCsapat)

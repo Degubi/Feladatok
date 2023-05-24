@@ -8,7 +8,7 @@ fn main() {
                              .lines()
                              .skip(1)
                              .map(|k| create_verseny(&k.unwrap()))
-                             .collect::<Vec<Verseny>>();
+                             .collect::<Vec<_>>();
 
     println!("3. Feladat: Adatsorok száma: {}", versenyek.len());
 
@@ -31,7 +31,7 @@ fn main() {
 }
 
 fn create_verseny(line: &String) -> Verseny {
-    let split = line.split(';').collect::<Vec<&str>>();
+    let split = line.split(';').collect::<Vec<_>>();
 
     Verseny {
         csapat: split[0].to_string(),

@@ -11,7 +11,7 @@ struct Utas {
 }
 
 fn create_utas(line: &str, sorszam: usize) -> Utas {
-    let split = line.split(' ').collect::<Vec<&str>>();
+    let split = line.split(' ').collect::<Vec<_>>();
 
     Utas {
         sorszam: sorszam,
@@ -43,13 +43,13 @@ fn main() {
     let lines = BufReader::new(File::open("eladott.txt").unwrap())
                          .lines()
                          .map(|k| k.unwrap())
-                         .collect::<Vec<String>>();
+                         .collect::<Vec<_>>();
 
-    let first_line_split = lines[0].split(' ').collect::<Vec<&str>>();
+    let first_line_split = lines[0].split(' ').collect::<Vec<_>>();
     let vonal_hossz = first_line_split[1].parse::<i32>().unwrap();
     let ar_per_10km = first_line_split[2].parse::<i32>().unwrap();
     let utasok = (1 .. lines.len()).map(|i| create_utas(&lines[i], i))
-                                   .collect::<Vec<Utas>>();
+                                   .collect::<Vec<_>>();
 
     let utolso = &utasok[utasok.len() - 1];
 

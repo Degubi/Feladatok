@@ -1,7 +1,7 @@
 def get_step_attempt_result_message(value: int, row_index: int, column_index: int, game_state: list[list[int]]):
     if game_state[row_index][column_index] != 0: return "A helyet már kitöltötték"
-    if any(k for k in game_state[row_index] if k == value): return "Az adott sorban már szerepel a szám"
-    if any(k for k in game_state if k[column_index] == value): return "Az adott oszlopban már szerepel a szám"
+    if any(True for k in game_state[row_index] if k == value): return "Az adott sorban már szerepel a szám"
+    if any(True for k in game_state if k[column_index] == value): return "Az adott oszlopban már szerepel a szám"
 
     begin_row = (row_index // 3) * 3
     end_row = begin_row + 3

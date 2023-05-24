@@ -22,7 +22,7 @@ print('4. Feladat: Átlagpontszám: %.2f' % atlagPontszam)
 legtobbetJavitoCsapat = max(eredmenyek, key = lambda k: k.valtozas)
 print(f'5. Feladat: Legtöbbet javító csapat: {legtobbetJavitoCsapat.csapat}, helyezés: {legtobbetJavitoCsapat.helyezes}, pontszam: {legtobbetJavitoCsapat.pontszam}')
 
-voltEMo = any(k for k in eredmenyek if k.csapat == 'Magyarország')
+voltEMo = any(True for k in eredmenyek if k.csapat == 'Magyarország')
 print('6. Feladat: Csapatok között van Magyarország' if voltEMo else '6. Feladat: Csapatok között nincs Magyarország')
 print('7. Feladat:')
 

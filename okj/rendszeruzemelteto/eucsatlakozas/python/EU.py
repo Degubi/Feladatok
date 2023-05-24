@@ -20,7 +20,7 @@ print(f'4. Feladat: 2007-ben csatlakozott országok száma: {ketezerhetben_csatl
 magyarorszag_csat = next(k for k in csatlakozasok if k.orszag == 'Magyarország')
 print(f'5. Feladat: Magyarország csatlakozása: {magyarorszag_csat.datum}')
 
-voltemajusban = any(k for k in csatlakozasok if k.datum.month == 5)
+voltemajusban = any(True for k in csatlakozasok if k.datum.month == 5)
 print(f'6. Feladat: {"Volt" if voltemajusban else "Nem volt"} májusban csatlakozás')
 
 utolso_csatlakozas = max((k for k in csatlakozasok), key = lambda k: k.datum)

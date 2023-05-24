@@ -13,7 +13,7 @@ struct Telek {
 }
 
 fn create_telek(line: &String) -> Telek {
-    let split = line.split(' ').collect::<Vec<&str>>();
+    let split = line.split(' ').collect::<Vec<_>>();
 
     Telek {
         adoszam: split[0].parse::<i32>().unwrap(),
@@ -34,17 +34,17 @@ fn main() {
     let lines = BufReader::new(File::open("utca.txt").unwrap())
                          .lines()
                          .map(|k| k.unwrap())
-                         .collect::<Vec<String>>();
+                         .collect::<Vec<_>>();
 
     let first_line_split = lines[0].split(' ')
                                    .map(|k| k.parse::<i32>().unwrap())
-                                   .collect::<Vec<i32>>();
+                                   .collect::<Vec<_>>();
 
     let fizetendo_ado_savonkent = HashMap::from([ ("A", first_line_split[0]), ("B", first_line_split[1]), ("C", first_line_split[2]) ]);
     let telkek = lines.iter()
                       .skip(1)
                       .map(|k| create_telek(&k))
-                      .collect::<Vec<Telek>>();
+                      .collect::<Vec<_>>();
 
     println!("2. Feladat: Telkek száma: {}", telkek.len());
     println!("3. Feladat: Írj be 1 adószámot!");
@@ -55,7 +55,7 @@ fn main() {
     let bekert_adoszam = bekert_adoszam_str.trim_end().parse::<i32>().unwrap();
     let bekert_telkei = telkek.iter()
                               .filter(|k| k.adoszam == bekert_adoszam)
-                              .collect::<Vec<&Telek>>();
+                              .collect::<Vec<_>>();
 
     if bekert_telkei.len() == 0 {
         println!("Nem szerepel az adatállományban");
@@ -70,7 +70,7 @@ fn main() {
           .group_by(|k| &k.adosav)
           .into_iter()
           .for_each(|(adosav, telks)| {
-            let savhoz_telkek = telks.collect::<Vec<&Telek>>();
+            let savhoz_telkek = telks.collect::<Vec<_>>();
             let ossz_ado = savhoz_telkek.iter()
                                         .map(|k| ado(k, &fizetendo_ado_savonkent))
                                         .sum::<i32>();

@@ -7,7 +7,7 @@ fn main() {
     let melysegek = BufReader::new(File::open("melyseg.txt").unwrap())
                              .lines()
                              .map(|k| k.unwrap().parse::<i32>().unwrap())
-                             .collect::<Vec<i32>>();
+                             .collect::<Vec<_>>();
 
     println!("1. Feladat: {}", melysegek.len());
     println!("2. Feladat: Írjon be egy távolságértéket!");
@@ -28,7 +28,7 @@ fn main() {
 
     let godor_kezdo_zaro_indexek = (0 .. melysegek.len() - 1).filter(|i| (melysegek[*i] == 0 && melysegek[*i + 1] != 0) || (melysegek[*i] != 0 && melysegek[*i + 1] == 0))
                                                              .map(|i| i + 1)
-                                                             .collect::<Vec<usize>>();
+                                                             .collect::<Vec<_>>();
 
     let godrok = (0 .. godor_kezdo_zaro_indexek.len()).step_by(2)
                                                       .map(|i| &melysegek[godor_kezdo_zaro_indexek[i] .. godor_kezdo_zaro_indexek[i + 1]])

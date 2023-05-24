@@ -12,7 +12,7 @@ struct Hianyzas {
 }
 
 fn create_hianyzas(line: &String) -> Hianyzas {
-    let split = line.split(';').collect::<Vec<&str>>();
+    let split = line.split(';').collect::<Vec<_>>();
 
     Hianyzas {
         nev: split[0].to_string(),
@@ -28,7 +28,7 @@ fn main() {
                               .lines()
                               .skip(1)
                               .map(|k| create_hianyzas(&k.unwrap()))
-                              .collect::<Vec<Hianyzas>>();
+                              .collect::<Vec<_>>();
 
     let total_hianyzott_orak = hianyzasok.iter()
                                          .map(|k| k.mulasztott_orak)
@@ -55,7 +55,7 @@ fn main() {
 
     let azon_a_napon_hianyoztak = hianyzasok.iter()
                                             .filter(|k| bekert_nap >= k.elso_nap && bekert_nap <= k.utolso_nap)
-                                            .collect::<Vec<&Hianyzas>>();
+                                            .collect::<Vec<_>>();
 
     if azon_a_napon_hianyoztak.len() == 0 {
         println!("Nem volt hiányzó");

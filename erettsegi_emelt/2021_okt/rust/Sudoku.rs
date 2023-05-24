@@ -33,8 +33,8 @@ fn main() {
 
     let numbers_per_line = BufReader::new(File::open(input_file_name_str.trim_end()).unwrap())
                                     .lines()
-                                    .map(|k| k.unwrap().split(' ').map(|n| n.parse::<i32>().unwrap()).collect::<Vec<i32>>())
-                                    .collect::<Vec<Vec<i32>>>();
+                                    .map(|k| k.unwrap().split(' ').map(|n| n.parse::<i32>().unwrap()).collect::<Vec<_>>())
+                                    .collect::<Vec<_>>();
 
     let game_state = &numbers_per_line[0 .. 9];
     let value_at_input_slot = game_state[input_row_index][input_column_index];

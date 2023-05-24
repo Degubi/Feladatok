@@ -13,7 +13,7 @@ struct Eredmeny {
 }
 
 fn create_eredmeny(line: &String) -> Eredmeny {
-    let split = line.split(';').collect::<Vec<&str>>();
+    let split = line.split(';').collect::<Vec<_>>();
 
     Eredmeny {
         csapat: split[0].to_string(),
@@ -29,13 +29,13 @@ fn main() {
                               .lines()
                               .skip(1)
                               .map(|k| create_eredmeny(&k.unwrap()))
-                              .collect::<Vec<Eredmeny>>();
+                              .collect::<Vec<_>>();
 
     println!("3. Feladat: Csapatok száma: {}", eredmenyek.len());
 
     let pontszamok = eredmenyek.iter()
                                .map(|k| k.pontszam as f32)
-                               .collect::<Vec<f32>>();
+                               .collect::<Vec<_>>();
 
     println!("4. Feladat: Átlagpontszám: {:.2}", pontszamok.iter().sum::<f32>() / pontszamok.len() as f32);
 

@@ -21,7 +21,7 @@ print(f'2. Feladat: Hianyzott orak: {totalHianyzottOrak}')
 
 bekertNap = int(input('3. Feladat: Írj be egy napot(1-30)!'))
 bekertNev = input('Írj be 1 nevet!')
-bekert_hianyzott_e = any(k for k in hianyzasok if k.nev == bekertNev)
+bekert_hianyzott_e = any(True for k in hianyzasok if k.nev == bekertNev)
 
 print(f'4. Feladat: {bekertNev} {"hiányzott" if bekert_hianyzott_e else "nem hiányzott"}')
 print('5. Feladat')

@@ -12,7 +12,7 @@ struct Csatlakozas {
 }
 
 fn create_csatlakozas(line: &String) -> Csatlakozas {
-    let split = line.split(';').collect::<Vec<&str>>();
+    let split = line.split(';').collect::<Vec<_>>();
 
     Csatlakozas {
         orszag: split[0].to_string(),
@@ -25,7 +25,7 @@ fn main() {
     let csatlakozasok = BufReader::new(DecodeReaderBytesBuilder::new().encoding(Some(WINDOWS_1252)).build(input_file))
                                  .lines()
                                  .map(|k| create_csatlakozas(&k.unwrap()))
-                                 .collect::<Vec<Csatlakozas>>();
+                                 .collect::<Vec<_>>();
 
     println!("3. Feladat: 2018-ig EU államok száma: {}", csatlakozasok.len());
 

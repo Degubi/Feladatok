@@ -18,7 +18,7 @@ with open('cb.txt', 'r') as file:
 
 print(f'3. Feladat: Bejegyzések száma: {len(bejegyzesek)}')
 
-voltE4Adasos = any(k for k in bejegyzesek if k.adasok == 4)
+voltE4Adasos = any(True for k in bejegyzesek if k.adasok == 4)
 print(f'4. Feladat: {"Volt" if voltE4Adasos else "Nem volt"} 4 adást indító sofőr')
 
 bekertNev = input('5. Feladat: Írj be egy nevet! ')

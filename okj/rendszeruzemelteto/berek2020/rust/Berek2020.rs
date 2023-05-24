@@ -8,7 +8,7 @@ fn main() {
                             .lines()
                             .skip(1)
                             .map(|k| create_dolgozo(&k.unwrap()))
-                            .collect::<Vec<Dolgozo>>();
+                            .collect::<Vec<_>>();
 
     println!("3. Feladat: Dolgozók száma: {}", dolgozok.len());
 
@@ -25,7 +25,7 @@ fn main() {
     let bekert_reszleg = bekert_reszleg_str.trim_end();
     let bekert_reszlegen_dolgozok = dolgozok.iter()
                                             .filter(|k| k.munka_reszleg == bekert_reszleg)
-                                            .collect::<Vec<&Dolgozo>>();
+                                            .collect::<Vec<_>>();
 
     match bekert_reszlegen_dolgozok.iter().max_by_key(|k| k.munka_ber) {
         None => println!("A megadott részleg nem létezik a cégnél!"),
@@ -42,7 +42,7 @@ fn main() {
 }
 
 fn create_dolgozo(line: &String) -> Dolgozo {
-    let split = line.split(';').collect::<Vec<&str>>();
+    let split = line.split(';').collect::<Vec<_>>();
 
     Dolgozo {
         nev: split[0].to_string(),

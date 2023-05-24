@@ -10,7 +10,7 @@ fn main() {
                               .lines()
                               .skip(1)
                               .map(|k| create_eredmeny(&k.unwrap()))
-                              .collect::<Vec<Eredmeny>>();
+                              .collect::<Vec<_>>();
 
     let hazai_madrid_db = eredmenyek.iter()
                                     .filter(|k| k.hazai_csapat == "Real Madrid")
@@ -52,7 +52,7 @@ fn main() {
 }
 
 fn create_eredmeny(line: &String) -> Eredmeny {
-    let split = line.split(';').collect::<Vec<&str>>();
+    let split = line.split(';').collect::<Vec<_>>();
 
     Eredmeny {
         hazai_csapat: split[0].to_string(),

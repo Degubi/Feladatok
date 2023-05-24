@@ -23,7 +23,7 @@ print('4. Feladat: Átlag kereset: %.2f' % atlagKereset)
 legjobbKinai = max((k for k in versenyzok if k.orszag == 'Kína'), key = lambda k: k.nyeremeny)
 print(f'5. Feladat: Legjobban kereső kínai versenyző:\n  Helyezés: {legjobbKinai.helyezes}\n  Név: {legjobbKinai.nev}\n  Nyeremény: {legjobbKinai.nyeremeny * 380} FT')
 
-voltNorveg = any(k for k in versenyzok if k.orszag == 'Norvégia')
+voltNorveg = any(True for k in versenyzok if k.orszag == 'Norvégia')
 print(f'6. Feladat: {"Van" if voltNorveg else "Nincs"} norvég játékos')
 print('7. Feladat:')
 
