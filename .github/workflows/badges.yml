@@ -56,6 +56,15 @@ jobs:
           badge_label: 'Rust Sorok'
           badge_color: 'grey'
 
+      - name: Make R Badge
+        uses: shadowmoose/GHA-LoC-Badge@1.0.0
+        with:
+          directory: ./
+          badge: ./output/r.svg
+          patterns: '**/*.r'
+          badge_label: 'R Sorok'
+          badge_color: 'cyan'
+
       - name: Deploy to image-data branch
         uses: peaceiris/actions-gh-pages@v3
         with:
