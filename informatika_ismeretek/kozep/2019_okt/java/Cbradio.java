@@ -23,23 +23,20 @@ public class Cbradio {
         }
 
         System.out.println("4. Feladat: " + (voltE4AdastIndito ? "Volt" : "Nem volt") + " 4 adást indító sofőr");
-        System.out.println("5. Feladat: Írj be egy nevet");
 
-        try(var console = new Scanner(System.in)){
-            var bekertNev = console.nextLine();
-            var bekertHasznalatok = 0;
+        var bekertNev = System.console().readLine("5. Feladat: Írj be egy nevet: ");
+        var bekertHasznalatok = 0;
 
-            for(var bejegyzes : bejegyzesek) {
-                if(bejegyzes.nev.equals(bekertNev)) {
-                    bekertHasznalatok += bejegyzes.adasok;
-                }
+        for(var bejegyzes : bejegyzesek) {
+            if(bejegyzes.nev.equals(bekertNev)) {
+                bekertHasznalatok += bejegyzes.adasok;
             }
+        }
 
-            if(bekertHasznalatok > 0) {
-                System.out.println(bekertNev + " " + bekertHasznalatok + "x használta a rádiót");
-            }else{
-                System.out.println("Nincs ilyen nevű sofőr!");
-            }
+        if(bekertHasznalatok > 0) {
+            System.out.println(bekertNev + " " + bekertHasznalatok + "x használta a rádiót");
+        }else{
+            System.out.println("Nincs ilyen nevű sofőr!");
         }
 
         try(var file = new PrintWriter("cb2.txt")){

@@ -5,21 +5,20 @@ import java.util.*;
 public class Tesztverseny {
 
     public static void main(String[] args) throws IOException{
-        var console = new Scanner(System.in);
         var lines = Files.readAllLines(Path.of("valaszok.txt"));
-
         var megoldasok = lines.get(0).toCharArray();
         var versenyzok = new ArrayList<Versenyzo>();
+
         for(var k = 1; k < lines.size(); ++k) {
             versenyzok.add(new Versenyzo(lines.get(k)));
         }
 
-        System.out.println("2. feladat: A vetélkedőn " + versenyzok.size() + " versenyző indult.\nÍrj be 1 ID-t!");
+        System.out.println("2. feladat: A vetélkedőn " + versenyzok.size() + " versenyző indult");
 
-        var readID = console.nextLine();
+        var bekertAzonosito = System.console().readLine("Írj be 1 ID-t: ");
         for(var mindenki : versenyzok){
-            if(mindenki.nev.equals(readID)){
-                System.out.println("3. feladat: A versenyző azonosítója = " + readID + "\n" + String.valueOf(mindenki.valaszok) + " (a versenyző válaszai)");
+            if(mindenki.nev.equals(bekertAzonosito)){
+                System.out.println("3. feladat: A versenyző azonosítója = " + bekertAzonosito + "\n" + String.valueOf(mindenki.valaszok) + " (a versenyző válaszai)");
                 System.out.println("4. feladat:\n" + String.valueOf(megoldasok) + " (a helyes megoldás)");
 
                 for(var k = 0; k < megoldasok.length; ++k) {
@@ -34,20 +33,18 @@ public class Tesztverseny {
             }
         }
 
-        System.out.println("Írd be 1 feladat sorszámát!");
-        var readIndex = console.nextInt() - 1;
-        var good = 0;
+        var bekertFeladatIndex = Integer.parseInt(System.console().readLine("Írd be 1 feladat sorszámát: ")) - 1;
+        var jolValaszolokSzama = 0;
 
         for(var mindenki : versenyzok) {
-            if(mindenki.valaszok[readIndex] == megoldasok[readIndex]) {
-                ++good;
+            if(mindenki.valaszok[bekertFeladatIndex] == megoldasok[bekertFeladatIndex]) {
+                ++jolValaszolokSzama;
             }
         }
-        console.close();
 
-        System.out.println("5. feladat: A feladat sorszáma = " + (readIndex + 1));
-        String percent = String.valueOf(((float)good * 100 / versenyzok.size())).substring(0, 5);
-        System.out.println("A feladatra " + good + " fő, a versenyzők " + percent + "%-a adott helyes választ.");
+        System.out.println("5. feladat: A feladat sorszáma = " + (bekertFeladatIndex + 1));
+        String percent = String.valueOf(((float) jolValaszolokSzama * 100 / versenyzok.size())).substring(0, 5);
+        System.out.println("A feladatra " + jolValaszolokSzama + " fő, a versenyzők " + percent + "%-a adott helyes választ.");
 
         try(var output = new PrintWriter("pontok.txt")){
             for(var mindenki : versenyzok) {

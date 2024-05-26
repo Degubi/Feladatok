@@ -30,18 +30,16 @@ public class VB2018_stream {
         System.out.println("6. Feladat: Alternativ neves stadionok: " + nevesStadionDb);
         System.out.println("7. Feladat:");
 
-        try(var input = new Scanner(System.in)) {
-            var olvasottNev = Stream.generate(() -> varostBeker(input))
-                                    .dropWhile(k -> k.length() < 3)
-                                    .findFirst()
-                                    .orElseThrow();
+        var bekertNev = Stream.generate(() -> System.console().readLine("Kérem 1 város nevét: "))
+                              .dropWhile(k -> k.length() < 3)
+                              .findFirst()
+                              .orElseThrow();
 
-            Arrays.stream(helyszinek)
-                  .filter(k -> k.varos.equalsIgnoreCase(olvasottNev))
-                  .findFirst()
-                  .ifPresentOrElse(k -> System.out.println("8. Feladat: Volt " + olvasottNev + "-ban merkozes"),
-                                  () -> System.out.println("8. Feladat: Nem volt " + olvasottNev + "-ban merkozes"));
-        }
+        Arrays.stream(helyszinek)
+              .filter(k -> k.varos.equalsIgnoreCase(bekertNev))
+              .findFirst()
+              .ifPresentOrElse(k -> System.out.println("8. Feladat: Volt " + bekertNev + "-ban merkozes"),
+                              () -> System.out.println("8. Feladat: Nem volt " + bekertNev + "-ban merkozes"));
 
         var varosokSzama = Arrays.stream(helyszinek)
                                  .map(k -> k.varos)
@@ -49,10 +47,5 @@ public class VB2018_stream {
                                  .count();
 
         System.out.println("9. Feladat: Varosok szama: " + varosokSzama);
-    }
-
-    public static String varostBeker(Scanner input) {
-        System.out.println("Kérem 1 város nevét!");
-        return input.nextLine();
     }
 }

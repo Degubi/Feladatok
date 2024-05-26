@@ -20,19 +20,15 @@ public class Telefon_stream {
               .max(Comparator.comparing(k -> Duration.between(k.kezdet, k.veg)))
               .ifPresent(k -> System.out.println("Leghosszabb hívás sorszáma: " + k.sorszam + ", hossza: " + Duration.between(k.kezdet, k.veg).toSeconds() + " mp"));
 
-        try(var input = new Scanner(System.in)){
-            System.out.println("5. Feladat: Adjon meg egy idopontot");
+        var bekertIdopont = LocalTime.parse(System.console().readLine("5. Feladat: Adjon meg egy idopontot: ").replace('.', '-'));
+        var koztesHivasok = Arrays.stream(hivasok)
+                                  .filter(k -> bekertIdopont.isAfter(k.kezdet) && bekertIdopont.isBefore(k.veg))
+                                  .toArray(Hivas[]::new);
 
-            var bekert = LocalTime.of(input.nextInt(), input.nextInt(), input.nextInt());
-            var koztesHivasok = Arrays.stream(hivasok)
-                                      .filter(k -> bekert.isAfter(k.kezdet) && bekert.isBefore(k.veg))
-                                      .toArray(Hivas[]::new);
-
-            if(koztesHivasok.length == 0) {
-                System.out.println("Nem volt beszélő");
-            }else{
-                System.out.println("Várakozók száma: " + (koztesHivasok.length - 1) + ", a beszélő sorszáma: " + koztesHivasok[0].sorszam);
-            }
+        if(koztesHivasok.length == 0) {
+            System.out.println("Nem volt beszélő");
+        }else{
+            System.out.println("Várakozók száma: " + (koztesHivasok.length - 1) + ", a beszélő sorszáma: " + koztesHivasok[0].sorszam);
         }
 
         System.out.println("7. Feladat");

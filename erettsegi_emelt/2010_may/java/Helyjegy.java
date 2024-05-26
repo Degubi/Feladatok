@@ -60,12 +60,8 @@ public class Helyjegy {
 
         System.out.println("6.Feladat: Megállók száma: " + (allomasok.size() - 2));
 
-        try(var output = new PrintWriter("kihol.txt");
-            var console = new Scanner(System.in)) {
-
-            System.out.println("Írj be 1 km számot!");
-
-            var bekertKm = console.nextInt();
+        try(var output = new PrintWriter("kihol.txt")) {
+            var bekertKm = Integer.parseInt(System.console().readLine("Írj be 1 km számot: "));
 
             for(var k = 1; k <= 48; ++k) {
                 var currentUtas = (Utas) null;

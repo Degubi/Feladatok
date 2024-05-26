@@ -15,16 +15,12 @@ public class Morze_stream {
                                .collect(Collectors.toMap(k -> k[0], k -> k[1]));
 
         System.out.println("3. Feladat: Karakterek száma: " + betuToMorze.size());
-        System.out.println("4. Feladat: Írjon be 1 karaktert!");
 
-        try(var input = new Scanner(System.in)){
-            var bekert = input.nextLine();
-
-            if(betuToMorze.containsKey(bekert)){
-                System.out.println("A " + bekert + " karakter kódja: " + betuToMorze.get(bekert));
-            }else{
-                System.out.println("Nem található a kódtárban ilyen karakter!");
-            }
+        var bekertKarakter = System.console().readLine("4. Feladat: Írjon be 1 karaktert: ");
+        if(betuToMorze.containsKey(bekertKarakter)){
+            System.out.println("A " + bekertKarakter + " karakter kódja: " + betuToMorze.get(bekertKarakter));
+        }else{
+            System.out.println("Nem található a kódtárban ilyen karakter!");
         }
 
         var morzeToBetu = betuToMorze.entrySet().stream().collect(Collectors.toMap(Entry::getValue, Entry::getKey));

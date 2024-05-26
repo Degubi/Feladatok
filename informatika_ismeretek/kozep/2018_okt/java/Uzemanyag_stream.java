@@ -34,31 +34,24 @@ public class Uzemanyag_stream {
                            .collect(Collectors.joining("\n"));
 
         Files.writeString(Path.of("euro.txt"), fileba);
-
         System.out.println("8. Feladat:");
-        try(var console = new Scanner(System.in)) {
-            var bekertEvszam = IntStream.generate(() -> evszamotBeker(console))
-                                        .dropWhile(k -> k <= 2011 || k >= 2016)
-                                        .findFirst()
-                                        .orElseThrow();
 
-            var bekertEviValtozasok = Arrays.stream(valtozasok)
-                                            .filter(k -> k.valtozasDatuma.getYear() == bekertEvszam)
-                                            .toArray(Arvaltozas[]::new);
+        var bekertEvszam = IntStream.generate(() -> Integer.parseInt(System.console().readLine("Írj be 1 évszámot (2010 < evszam < 2016): ")))
+                                    .dropWhile(k -> k <= 2011 || k >= 2016)
+                                    .findFirst()
+                                    .orElseThrow();
 
-            IntStream.range(0, bekertEviValtozasok.length - 1)
-                     .map(i -> idokulonbseg(bekertEviValtozasok[i], bekertEviValtozasok[i + 1]))
-                     .max()
-                     .ifPresent(kul -> System.out.println("10. Feladat: " + bekertEvszam + " leghosszabb időszaka: " + kul + " nap volt."));
-        }
+        var bekertEviValtozasok = Arrays.stream(valtozasok)
+                                        .filter(k -> k.valtozasDatuma.getYear() == bekertEvszam)
+                                        .toArray(Arvaltozas[]::new);
+
+        IntStream.range(0, bekertEviValtozasok.length - 1)
+                 .map(i -> idokulonbseg(bekertEviValtozasok[i], bekertEviValtozasok[i + 1]))
+                 .max()
+                 .ifPresent(kul -> System.out.println("10. Feladat: " + bekertEvszam + " leghosszabb időszaka: " + kul + " nap volt."));
     }
 
     public static int idokulonbseg(Arvaltozas kezdet, Arvaltozas veg) {
         return (int) ChronoUnit.DAYS.between(kezdet.valtozasDatuma, veg.valtozasDatuma);
-    }
-
-    public static int evszamotBeker(Scanner input) {
-        System.out.println("Írj be 1 évszámot (2010 < evszam < 2016");
-        return input.nextInt();
     }
 }

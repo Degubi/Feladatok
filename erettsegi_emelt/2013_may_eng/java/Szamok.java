@@ -47,26 +47,22 @@ public class Szamok {
         System.out.println("A legkisebb válaszú feladat: " + feladatok.get(0).valasz + ", a legnagyobb: " + feladatok.get(feladatok.size() - 1).valasz);
         System.out.println("Előforduló témakörök: " + temakorok);
 
-        var input = new Scanner(System.in);
-        System.out.println("Írj be 1 témakört!");
-        var readCat = input.nextLine();
+        var bekertTemakor = System.console().readLine("Írj be 1 témakört: ");
         var categorizált = new ArrayList<Feladat>();
 
         for(var all : feladatok) {
-            if(all.temakor.equals(readCat)) {
+            if(all.temakor.equals(bekertTemakor)) {
                 categorizált.add(all);
             }
         }
 
         var chosen = categorizált.get(rand.nextInt(categorizált.size()));
-        System.out.println(chosen.kerdes);
 
-        if(input.nextInt() == chosen.valasz) {
+        if(Integer.parseInt(System.console().readLine(chosen.kerdes)) == chosen.valasz) {
             System.out.println("Kapott pontszám: " + chosen.pont);
         }else{
             System.out.println("Rossz válasz, 0 pont...\nA helyes válasz: " + chosen.valasz);
         }
-        input.close();
 
         var generalt = new ArrayList<Feladat>();
         for(var k = 0; k < 10; ++k) {
@@ -80,7 +76,7 @@ public class Szamok {
         }
 
         var osszpont = 0;
-        try(var output = new PrintWriter("tesztfel.txt")){
+        try(var output = new PrintWriter("tesztfel.txt")) {
             for(var toPrint : generalt) {
                 osszpont += toPrint.pont;
                 output.println(toPrint.pont + " " + toPrint.kerdes);

@@ -16,27 +16,22 @@ public class Hianyzasok_stream {
                                        .sum();
 
         System.out.println("2. Feladat: Hiányzott órák: " + totalHianyzottOrak);
-        System.out.println("3. Feladat: Írj be egy napot(1-30) és egy nevet!");
 
-        try(var input = new Scanner(System.in)) {
-            var bekertNap = input.nextInt();
-            input.nextLine();
-            var bekertNev = input.nextLine();
+        var bekertNap = Integer.parseInt(System.console().readLine("3. Feladat:\nÍrj be egy napot(1-30): "));
+        var bekertNev = System.console().readLine("Írj be egy nevet: ");
+        var bekertHianyzottE = Arrays.stream(hianyzasok).anyMatch(k -> k.nev.equals(bekertNev));
 
-            var bekertHianyzottE = Arrays.stream(hianyzasok).anyMatch(k -> k.nev.equals(bekertNev));
+        System.out.println("4. Feladat: " + bekertNev + (bekertHianyzottE ? " hiányzott" : " nem hiányzott"));
+        System.out.println("5. Feladat");
 
-            System.out.println("4. Feladat: " + bekertNev + (bekertHianyzottE ? " hiányzott" : " nem hiányzott"));
-            System.out.println("5. Feladat");
+        var azonANaponHianyoztak = Arrays.stream(hianyzasok)
+                                         .filter(k -> bekertNap >= k.elsoNap && bekertNap <= k.utolsoNap)
+                                         .toArray(Hianyzas[]::new);
 
-            var azonANaponHianyoztak = Arrays.stream(hianyzasok)
-                                             .filter(k -> bekertNap >= k.elsoNap && bekertNap <= k.utolsoNap)
-                                             .toArray(Hianyzas[]::new);
-
-            if(azonANaponHianyoztak.length == 0) {
-                System.out.println("Nem volt hiányzó");
-            }else{
-                Arrays.stream(azonANaponHianyoztak).forEach(k -> System.out.println(k.nev + " " + k.osztaly));
-            }
+        if(azonANaponHianyoztak.length == 0) {
+            System.out.println("Nem volt hiányzó");
+        }else{
+            Arrays.stream(azonANaponHianyoztak).forEach(k -> System.out.println(k.nev + " " + k.osztaly));
         }
 
         var hianyzasokStat = Arrays.stream(hianyzasok)

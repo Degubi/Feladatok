@@ -28,17 +28,14 @@ public class Tanciskola_stream {
                                     .collect(Collectors.joining(", "));
 
         System.out.println("Vilma által táncolt kategóriák: " + vilmaKategoriai);
-        System.out.println("Írj be 1 kategóriát!");
 
-        try(var console = new Scanner(System.in)) {
-            var readCat = console.nextLine();
+        var readCat = System.console().readLine("Írj be 1 kategóriát: ");
 
-            Arrays.stream(tancok)
-                  .filter(k -> k.woman.equals("Vilma") && k.category.equals(readCat))
-                  .findFirst()
-                  .ifPresentOrElse(k -> System.out.println("Vilma vele táncolt " + readCat + "-t: " + k.man + "-val"),
-                                  () -> System.out.println("Vilma senkivel sem táncolt " + readCat + "-t"));
-        }
+        Arrays.stream(tancok)
+              .filter(k -> k.woman.equals("Vilma") && k.category.equals(readCat))
+              .findFirst()
+              .ifPresentOrElse(k -> System.out.println("Vilma vele táncolt " + readCat + "-t: " + k.man + "-val"),
+                              () -> System.out.println("Vilma senkivel sem táncolt " + readCat + "-t"));
 
         var lanyokToTancalkalmak = Arrays.stream(tancok)
                                          .collect(Collectors.groupingBy(k -> k.woman, Collectors.counting()));

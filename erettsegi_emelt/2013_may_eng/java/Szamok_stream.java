@@ -42,22 +42,16 @@ public class Szamok_stream {
 
         System.out.println("Előforduló témakörök: " + temakorok);
 
-        try(var console = new Scanner(System.in)){
-            System.out.println("Írj be 1 témakört!");
-            var readKor = console.nextLine();
+        var bekertTemakor = System.console().readLine("Írj be 1 témakört: ");
+        var bekertTemakorFeladatai = Arrays.stream(feladatok)
+                                           .filter(k -> k.temakor.equals(bekertTemakor))
+                                           .toArray(Feladat[]::new);
 
-            var bekertTemakorFeladatai = Arrays.stream(feladatok)
-                                               .filter(k -> k.temakor.equals(readKor))
-                                               .toArray(Feladat[]::new);
+        var randomFeladat = bekertTemakorFeladatai[rand.nextInt(bekertTemakorFeladatai.length)];
+        var bekertValasz = Integer.parseInt(System.console().readLine(randomFeladat.kerdes));
 
-            var randomFeladat = bekertTemakorFeladatai[rand.nextInt(bekertTemakorFeladatai.length)];
-            System.out.println(randomFeladat.kerdes);
-
-            var bekertValasz = console.nextInt();
-            System.out.println(bekertValasz == randomFeladat.valasz ? "Kapott pontszám: " + randomFeladat.pont
-                                                                    : "Rossz válasz, 0 pont...\nA helyes válasz: " + randomFeladat.valasz);
-        }
-
+        System.out.println(bekertValasz == randomFeladat.valasz ? "Kapott pontszám: " + randomFeladat.pont
+                                                                : "Rossz válasz, 0 pont...\nA helyes válasz: " + randomFeladat.valasz);
         var generalt = rand.ints(0, feladatok.length)
                            .mapToObj(i -> feladatok[i])
                            .distinct()

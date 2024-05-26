@@ -43,16 +43,12 @@ public class Helyjegy_stream {
 
         System.out.println("6.Feladat: Megállók száma: " + megallokSzama);
 
-        try(var console = new Scanner(System.in)) {
-            System.out.println("Írj be 1 km számot!");
+        var bekertKm = Integer.parseInt(System.console().readLine("Írj be 1 km számot: "));
+        var fileba = IntStream.rangeClosed(1, 48)
+                              .mapToObj(i -> getUlesStatus(i, bekertKm, utasok))
+                              .collect(Collectors.toList());
 
-            var bekertKm = console.nextInt();
-            var fileba = IntStream.rangeClosed(1, 48)
-                                  .mapToObj(i -> getUlesStatus(i, bekertKm, utasok))
-                                  .collect(Collectors.toList());
-
-            Files.write(Path.of("kihol.txt"), fileba);
-        }
+        Files.write(Path.of("kihol.txt"), fileba);
     }
 
     static String getUlesStatus(int ules, int bekertKm, Utas[] utasok) {

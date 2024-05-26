@@ -15,37 +15,31 @@ public class VizibicikliKolcsonzo {
 
         System.out.println("5. Feladat: Kölcsönzések száma: " + kolcsonzesek.size());
 
-        try(var console = new Scanner(System.in)) {
-            System.out.println("Írj be 1 nevet!");
+        var bekertNev = System.console().readLine("Írj be 1 nevet: ");
+        var bekertNevhezTartozoKolcsonzesek = new ArrayList<Kolcsonzes>();
 
-            var bekertNev = console.nextLine();
-            var bekertNevhezTartozoKolcsonzesek = new ArrayList<Kolcsonzes>();
-
-            for(var kolcsonzes : kolcsonzesek) {
-                if(kolcsonzes.nev.equals(bekertNev)) {
-                    bekertNevhezTartozoKolcsonzesek.add(kolcsonzes);
-                }
+        for(var kolcsonzes : kolcsonzesek) {
+            if(kolcsonzes.nev.equals(bekertNev)) {
+                bekertNevhezTartozoKolcsonzesek.add(kolcsonzes);
             }
+        }
 
-            if(bekertNevhezTartozoKolcsonzesek.isEmpty()) {
-                System.out.println("Nem volt ilyen nevű kölcsönző");
-            }else{
-                for(var kolcsonzes : bekertNevhezTartozoKolcsonzesek) {
-                    System.out.println(kolcsonzes.elvitelIdopont + "-" + kolcsonzes.visszahozatalIdopont);
-                }
+        if(bekertNevhezTartozoKolcsonzesek.isEmpty()) {
+            System.out.println("Nem volt ilyen nevű kölcsönző");
+        }else{
+            for(var kolcsonzes : bekertNevhezTartozoKolcsonzesek) {
+                System.out.println(kolcsonzes.elvitelIdopont + "-" + kolcsonzes.visszahozatalIdopont);
             }
+        }
 
-            System.out.println("Adj meg 1 időpontot! (óra:perc)");
+        var bekertIdopontParts = System.console().readLine("Adj meg 1 időpontot! (óra:perc): ").split(":");
+        var bekertIdopont = LocalTime.of(Integer.parseInt(bekertIdopontParts[0]), Integer.parseInt(bekertIdopontParts[1]));
 
-            var bekertIdopontParts = console.nextLine().split(":");
-            var bekertIdopont = LocalTime.of(Integer.parseInt(bekertIdopontParts[0]), Integer.parseInt(bekertIdopontParts[1]));
+        System.out.println("7. Feladat:");
 
-            System.out.println("7. Feladat:");
-
-            for(var kolcsonzes : kolcsonzesek) {
-                if(bekertIdopont.isAfter(kolcsonzes.elvitelIdopont) && bekertIdopont.isBefore(kolcsonzes.visszahozatalIdopont)) {
-                    System.out.println("    " + kolcsonzes.elvitelIdopont + "-" + kolcsonzes.visszahozatalIdopont + ": " + kolcsonzes.nev);
-                }
+        for(var kolcsonzes : kolcsonzesek) {
+            if(bekertIdopont.isAfter(kolcsonzes.elvitelIdopont) && bekertIdopont.isBefore(kolcsonzes.visszahozatalIdopont)) {
+                System.out.println("    " + kolcsonzes.elvitelIdopont + "-" + kolcsonzes.visszahozatalIdopont + ": " + kolcsonzes.nev);
             }
         }
 

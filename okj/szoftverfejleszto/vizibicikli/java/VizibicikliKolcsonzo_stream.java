@@ -14,32 +14,27 @@ public class VizibicikliKolcsonzo_stream {
 
         System.out.println("5. Feladat: Kölcsönzések száma: " + kolcsonzesek.length);
 
-        try(var console = new Scanner(System.in)) {
-            System.out.println("Írj be 1 nevet!");
+        var bekertNev = System.console().readLine("Írj be 1 nevet: ");
+        var bekertNevhezTartozoKolcsonzesek = Arrays.stream(kolcsonzesek)
+                                                    .filter(k -> k.nev.equals(bekertNev))
+                                                    .toArray(Kolcsonzes[]::new);
 
-            var bekertNev = console.nextLine();
-            var bekertNevhezTartozoKolcsonzesek = Arrays.stream(kolcsonzesek)
-                                                        .filter(k -> k.nev.equals(bekertNev))
-                                                        .toArray(Kolcsonzes[]::new);
+        var bekerthezKiirando = bekertNevhezTartozoKolcsonzesek.length == 0
+                                ? "Nem volt ilyen nevű kölcsönző"
+                                : Arrays.stream(bekertNevhezTartozoKolcsonzesek)
+                                        .map(k -> k.elvitelIdopont + "-" + k.visszahozatalIdopont)
+                                        .collect(Collectors.joining("\n"));
 
-            var bekerthezKiirando = bekertNevhezTartozoKolcsonzesek.length == 0
-                                    ? "Nem volt ilyen nevű kölcsönző"
-                                    : Arrays.stream(bekertNevhezTartozoKolcsonzesek)
-                                            .map(k -> k.elvitelIdopont + "-" + k.visszahozatalIdopont)
-                                            .collect(Collectors.joining("\n"));
+        System.out.println(bekerthezKiirando);
 
-            System.out.println(bekerthezKiirando);
-            System.out.println("Adj meg 1 időpontot! (óra:perc)");
+        var bekertIdopontParts = System.console().readLine("Adj meg 1 időpontot! (óra:perc): ").split(":");
+        var bekertIdopont = LocalTime.of(Integer.parseInt(bekertIdopontParts[0]), Integer.parseInt(bekertIdopontParts[1]));
 
-            var bekertIdopontParts = console.nextLine().split(":");
-            var bekertIdopont = LocalTime.of(Integer.parseInt(bekertIdopontParts[0]), Integer.parseInt(bekertIdopontParts[1]));
+        System.out.println("7. Feladat:");
 
-            System.out.println("7. Feladat:");
-
-            Arrays.stream(kolcsonzesek)
-                  .filter(k -> bekertIdopont.isAfter(k.elvitelIdopont) && bekertIdopont.isBefore(k.visszahozatalIdopont))
-                  .forEach(k -> System.out.println("    " + k.elvitelIdopont + "-" + k.visszahozatalIdopont + ": " + k.nev));
-        }
+        Arrays.stream(kolcsonzesek)
+              .filter(k -> bekertIdopont.isAfter(k.elvitelIdopont) && bekertIdopont.isBefore(k.visszahozatalIdopont))
+              .forEach(k -> System.out.println("    " + k.elvitelIdopont + "-" + k.visszahozatalIdopont + ": " + k.nev));
 
         var totalStartedHours = Arrays.stream(kolcsonzesek)
                                       .mapToLong(k -> Duration.between(k.elvitelIdopont, k.visszahozatalIdopont).toMinutes())

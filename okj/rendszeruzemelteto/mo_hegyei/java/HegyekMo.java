@@ -34,20 +34,16 @@ public class HegyekMo {
 
         System.out.println("5. Feladat: Legmagasabb hegy: " + legmagasabbHegy.hegyseg + "-ben a " + legmagasabbHegy.nev + ", magassága: " + legmagasabbHegy.magassag + " m");
 
-        try(var input = new Scanner(System.in)) {
-            System.out.println("6. Feladat: Írj be egy magasságot!");
-            var beMagassag = input.nextInt();
-
-            var vanMagasabb = false;
-            for(var hegy : hegyek) {
-                if(hegy.hegyseg.equals("Börzsöny") && hegy.magassag > beMagassag) {
-                    vanMagasabb = true;
-                    break;
-                }
+        var beMagassag = Integer.parseInt("6. Feladat: Írj be egy magasságot: ");
+        var vanMagasabb = false;
+        for(var hegy : hegyek) {
+            if(hegy.hegyseg.equals("Börzsöny") && hegy.magassag > beMagassag) {
+                vanMagasabb = true;
+                break;
             }
-
-            System.out.println((vanMagasabb ? "Van" : "Nincs") + " magasabb hegység ennél a Börzsönyben");
         }
+
+        System.out.println((vanMagasabb ? "Van" : "Nincs") + " magasabb hegység ennél a Börzsönyben");
 
         var konvertaltLab3000 = 3000D / 3.280839895D;
         var magasakSzama = 0;

@@ -30,13 +30,8 @@ public class Futar_stream{
                                                                        .sum())
                  .forEach(System.out::println);
 
-        try(var console = new Scanner(System.in)){
-            System.out.println("7.Feladat: Írj be 1 távolságot!");
-
-            var readKm = console.nextInt();
-
-            System.out.println(readKm + " km esetén fizetendő: " + calcPrice(readKm));
-        }
+        var bekertKm = Integer.parseInt(System.console().readLine("7.Feladat: Írj be 1 távolságot: "));
+        System.out.println(bekertKm + " km esetén fizetendő: " + calcPrice(bekertKm));
 
         var fileba = Arrays.stream(fuvarLista)
                            .map(fuvar -> fuvar.nap + ". nap " + fuvar.sorszam + ". fuvar: " + calcPrice(fuvar.tavolsag) + "FT")

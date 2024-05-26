@@ -10,17 +10,14 @@ public class Metjelentes {
             adatok.add(new IdojarasAdat(line));
         }
 
-        System.out.println("2. Feladat: Írj be egy városkódot!");
-        try(var console = new Scanner(System.in)) {
-            var bekertKod = console.nextLine();
+        var bekertKod = System.console().readLine("2. Feladat: Írj be egy városkódot: ");
 
-            for(var i = adatok.size() - 1; i >= 0; --i) {
-                var jelenlegi = adatok.get(i);
+        for(var i = adatok.size() - 1; i >= 0; --i) {
+            var jelenlegi = adatok.get(i);
 
-                if(jelenlegi.telepules.equals(bekertKod)) {
-                    System.out.println("Utolsó mérés időpontja: " + jelenlegi.ido);
-                    break;
-                }
+            if(jelenlegi.telepules.equals(bekertKod)) {
+                System.out.println("Utolsó mérés időpontja: " + jelenlegi.ido);
+                break;
             }
         }
 

@@ -11,19 +11,14 @@ public class Valasztas_stream {
 
         System.out.println("2.Feladat: Választáson indult képviselők száma: " + kepviselokSzama);
 
-        try(var console = new Scanner(System.in)) {
-            System.out.println("3.Feladat: Írd be 1 képviselő Első nevét");
-            var firstName = console.nextLine();
+        var firstName = System.console().readLine("3.Feladat: Írd be 1 képviselő Első nevét: ");
+        var lastName = System.console().readLine("Írd be 1 képviselő Második nevét: ");
 
-            System.out.println("Írd be 1 képviselő Második nevét");
-            var lastName = console.nextLine();
-
-            Arrays.stream(szavazatok)
-                  .filter(k -> k.nev.equals(firstName + " " + lastName))
-                  .findAny()
-                  .ifPresentOrElse(l -> System.out.println("A jelöltre jött szavazatok száma: " + l.szavazottSzam),
-                                  () -> System.out.println("Nem volt ilyen jelölt!"));
-        }
+        Arrays.stream(szavazatok)
+              .filter(k -> k.nev.equals(firstName + " " + lastName))
+              .findAny()
+              .ifPresentOrElse(l -> System.out.println("A jelöltre jött szavazatok száma: " + l.szavazottSzam),
+                              () -> System.out.println("Nem volt ilyen jelölt!"));
 
         var szavazatokSzama = Arrays.stream(szavazatok).mapToInt(k -> k.szavazottSzam).sum();
         System.out.printf("4.Feladat: A választáson " + szavazatokSzama +

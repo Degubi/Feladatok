@@ -9,19 +9,18 @@ public class KarakterDekodolo_stream {
         var bankKarakterek = readKarakterFile("bank.txt");
 
         System.out.println("5. Feladat: Karakterek száma: " + bankKarakterek.length);
+        System.out.println("6. Feladat:");
 
-        try(var console = new Scanner(System.in)) {
-            var bekertBetu = Stream.generate(() -> betutBeker(console))
-                                   .dropWhile(k -> k.length() != 1 || !Character.isUpperCase(k.charAt(0)))
-                                   .findFirst()
-                                   .orElseThrow();
+        var bekertBetu = Stream.generate(() -> System.console().readLine("Kérek egy angol nagybetűt: "))
+                               .dropWhile(k -> k.length() != 1 || !Character.isUpperCase(k.charAt(0)))
+                               .findFirst()
+                               .orElseThrow();
 
-            Arrays.stream(bankKarakterek)
-                  .filter(k -> k.karakter.equals(bekertBetu))
-                  .findFirst()
-                  .ifPresentOrElse(k -> System.out.println("7. Feladat: \n" + k.formatMatrix()),
-                                  () -> System.out.println("7. Feladat: Nincs ilyen karakter a bankban!"));
-        }
+        Arrays.stream(bankKarakterek)
+              .filter(k -> k.karakter.equals(bekertBetu))
+              .findFirst()
+              .ifPresentOrElse(k -> System.out.println("7. Feladat: \n" + k.formatMatrix()),
+                              () -> System.out.println("7. Feladat: Nincs ilyen karakter a bankban!"));
 
         var dekodolKarakterek = readKarakterFile("dekodol.txt");
         var dekodoltSzoveg = Arrays.stream(dekodolKarakterek)
@@ -33,13 +32,6 @@ public class KarakterDekodolo_stream {
                                    .collect(Collectors.joining());
 
         System.out.println("9. Feladat: " + dekodoltSzoveg);
-    }
-
-
-    private static String betutBeker(Scanner console) {
-        System.out.print("6. Feladat: Kérek egy angol nagybetűt!");
-
-        return console.nextLine();
     }
 
     private static Karakter[] readKarakterFile(String filePath) throws IOException {

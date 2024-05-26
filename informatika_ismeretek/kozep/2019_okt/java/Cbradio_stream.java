@@ -16,20 +16,16 @@ public class Cbradio_stream {
 
         System.out.println("3. Feladat: Bejegyzések száma: " + bejegyzesek.length);
         System.out.println("4. Feladat: " + (voltE4AdastIndito ? "Volt" : "Nem volt") + " 4 adást indító sofőr");
-        System.out.println("5. Feladat: Írj be egy nevet");
 
-        try(var console = new Scanner(System.in)){
-            var bekertNev = console.nextLine();
-
-            var bekertHasznalatok = Arrays.stream(bejegyzesek)
-                                          .filter(k -> k.nev.equals(bekertNev))
-                                          .mapToInt(k -> k.adasok)
-                                          .sum();
-            if(bekertHasznalatok > 0) {
-                System.out.println(bekertNev + " " + bekertHasznalatok + "x használta a rádiót");
-            }else{
-                System.out.println("Nincs ilyen nevű sofőr!");
-            }
+        var bekertNev = System.console().readLine("5. Feladat: Írj be egy nevet: ");
+        var bekertHasznalatok = Arrays.stream(bejegyzesek)
+                                        .filter(k -> k.nev.equals(bekertNev))
+                                        .mapToInt(k -> k.adasok)
+                                        .sum();
+        if(bekertHasznalatok > 0) {
+            System.out.println(bekertNev + " " + bekertHasznalatok + "x használta a rádiót");
+        }else{
+            System.out.println("Nincs ilyen nevű sofőr!");
         }
 
         var fileContent = Arrays.stream(bejegyzesek)

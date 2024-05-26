@@ -32,28 +32,23 @@ public class Hianyzasok_stream {
                                   .sum();
 
         System.out.println("3. Feladat: Igazolt hiányzások: " + igazoltak + ", igazolatlanok: " + igazolatlanok);
+        System.out.println("5. Feladat:");
 
-        try(var input = new Scanner(System.in)) {
-            System.out.println("5. Feladat: Írjon be egy hónapot és egy napot");
+        var beHonap = Integer.parseInt(System.console().readLine("Írj be egy hónap számot: "));
+        var beNap = Integer.parseInt(System.console().readLine("Írj be egy nap számot: "));
 
-            var beHonap = input.nextInt();
-            var beNap = input.nextInt();
+        System.out.println("Azon a napon: " + hetnapja(beHonap, beNap) + " volt");
+        System.out.println("6. Feladat:");
 
-            System.out.println("Azon a napon: " + hetnapja(beHonap, beNap) + " volt");
-            System.out.println("6. Feladat: Írja be 1 nap nevét és 1 óraszámot");
+        var beTanNap = System.console().readLine("Írj be egy nap nevet! ");
+        var beOraszam = Integer.parseInt(System.console().readLine("Írj be egy óraszámot! ")) - 1;
+        var hianyzasokSzama = Arrays.stream(hianyzasok)
+                                    .filter(k -> beTanNap.equals(hetnapja(k.honap, k.nap)))
+                                    .map(k -> k.orak.charAt(beOraszam))
+                                    .filter(k -> k == 'X' || k == 'I')
+                                    .count();
 
-            var beTanNap = input.next();
-            var beOraszam = input.nextInt() - 1;
-
-            var hianyzasokSzama = Arrays.stream(hianyzasok)
-                                        .filter(k -> beTanNap.equals(hetnapja(k.honap, k.nap)))
-                                        .map(k -> k.orak.charAt(beOraszam))
-                                        .filter(k -> k == 'X' || k == 'I')
-                                        .count();
-
-            System.out.println("Ekkor " + hianyzasokSzama + "-an hiányoztak");
-        }
-
+        System.out.println("Ekkor " + hianyzasokSzama + "-an hiányoztak");
         System.out.println("7. Feladat: ");
 
         var hianyzasMap = Arrays.stream(hianyzasok)

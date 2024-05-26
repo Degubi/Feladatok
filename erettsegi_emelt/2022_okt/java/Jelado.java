@@ -12,17 +12,10 @@ public class Jelado {
             jelek.add(new Jel(line));
         }
 
-        try(var console = new Scanner(System.in)) {
-            System.out.println("2. Feladat: Írja be 1 jel sorszámát!");
+        var bekertJel = jelek.get(Integer.parseInt(System.console().readLine("2. Feladat: Írja be 1 jel sorszámát: ")) - 1);
 
-            var bekertJel = jelek.get(console.nextInt() - 1);
-
-            System.out.println("Bekért jel pozíciója: x=" + bekertJel.x + " y=" + bekertJel.y);
-        }
-
-        var elteltIdo = LocalTime.ofSecondOfDay(eltelt(jelek.get(0).idopont, jelek.get(jelek.size() - 1).idopont));
-
-        System.out.println("4. Feladat: Első & utolsó között eltelt idő: " + elteltIdo);
+        System.out.println("Bekért jel pozíciója: x=" + bekertJel.x + " y=" + bekertJel.y);
+        System.out.println("4. Feladat: Első & utolsó között eltelt idő: " + LocalTime.ofSecondOfDay(eltelt(jelek.get(0).idopont, jelek.get(jelek.size() - 1).idopont)));
 
         var minX = Integer.MAX_VALUE;
         var maxX = Integer.MIN_VALUE;

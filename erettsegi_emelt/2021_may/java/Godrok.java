@@ -13,9 +13,8 @@ public class Godrok {
         }
 
         System.out.println("1. Feladat: " + melysegek.length);
-        System.out.println("2. Feladat: Írjon be egy távolságértéket!");
 
-        var bekertTavolsagIndexe = szamotBeker() - 1;
+        var bekertTavolsagIndexe = Integer.parseInt(System.console().readLine("2. Feladat: Írjon be egy távolságértéket: ")) - 1;
         var melysegABekertHelyen = melysegek[bekertTavolsagIndexe];
 
         System.out.println("A felszín " + melysegABekertHelyen + "m mélyen van");
@@ -109,13 +108,6 @@ public class Godrok {
 
             System.out.println("    d) Térfogat: " + terfogat + "m^3");
             System.out.println("    e) Vízmennyiség: " + vizmennyiseg + "m^3");
-        }
-    }
-
-
-    static int szamotBeker() {
-        try(var input = new Scanner(System.in)) {
-            return input.nextInt();
         }
     }
 }

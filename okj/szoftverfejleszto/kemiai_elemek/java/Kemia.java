@@ -24,38 +24,34 @@ public class Kemia {
         System.out.println("4. Feladat: Ókori elemek száma: " + okoriElemekSzama);
         System.out.println("5. Feladat:");
 
-        try(var input = new Scanner(System.in)) {
-            scannerLoop:
-            while(true) {
-                System.out.println("Írj be egy vegyjelet! (1-2 karakter)");
+        bekeresLoop:
+        while(true) {
+            var bekertVegyjel = System.console().readLine("Írj be egy vegyjelet! (1-2 karakter): ");
 
-                var bekertVegyjel = input.nextLine();
-
-                if(bekertVegyjel.length() == 1 || bekertVegyjel.length() == 2) {
-                    for(var i = 0; i < bekertVegyjel.length(); ++i) {
-                        if(!Character.isLetter(bekertVegyjel.charAt(i))) {
-                            continue scannerLoop;
-                        }
+            if(bekertVegyjel.length() == 1 || bekertVegyjel.length() == 2) {
+                for(var i = 0; i < bekertVegyjel.length(); ++i) {
+                    if(!Character.isLetter(bekertVegyjel.charAt(i))) {
+                        continue bekeresLoop;
                     }
-
-                    System.out.println("6. Feladat:");
-
-                    var bekertElem = (Elem) null;
-                    for(var elem : elemek) {
-                        if(elem.vegyjel.equalsIgnoreCase(bekertVegyjel)) {
-                            bekertElem = elem;
-                            break;
-                        }
-                    }
-
-                    if(bekertElem == null) {
-                        System.out.println("Nincs ilyen elem eltárolva!");
-                    }else{
-                        System.out.println(bekertElem.vegyjel + ": " + bekertElem.nev + ", rsz.: " + bekertElem.rendszam + ", év: " + bekertElem.ev + ", felf.: " + bekertElem.felfedezo);
-                    }
-
-                    break scannerLoop;
                 }
+
+                System.out.println("6. Feladat:");
+
+                var bekertElem = (Elem) null;
+                for(var elem : elemek) {
+                    if(elem.vegyjel.equalsIgnoreCase(bekertVegyjel)) {
+                        bekertElem = elem;
+                        break;
+                    }
+                }
+
+                if(bekertElem == null) {
+                    System.out.println("Nincs ilyen elem eltárolva!");
+                }else{
+                    System.out.println(bekertElem.vegyjel + ": " + bekertElem.nev + ", rsz.: " + bekertElem.rendszam + ", év: " + bekertElem.ev + ", felf.: " + bekertElem.felfedezo);
+                }
+
+                break bekeresLoop;
             }
         }
 

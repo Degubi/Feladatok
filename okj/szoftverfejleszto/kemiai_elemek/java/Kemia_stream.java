@@ -16,19 +16,17 @@ public class Kemia_stream {
         System.out.println("4. Feladat: Ókori elemek száma: " + Arrays.stream(elemek).filter(k -> k.ev == Elem.OKOR_EV).count());
         System.out.println("5. Feladat:");
 
-        try(var input = new Scanner(System.in)) {
-            var bekertVegyjel = Stream.generate(() -> vegyjeletBeker(input))
-                                      .filter(k -> (k.length() == 1 || k.length() == 2) && k.chars().allMatch(Character::isLetter))
-                                      .findFirst()
-                                      .orElseThrow();
+        var bekertVegyjel = Stream.generate(() -> System.console().readLine("Írj be egy vegyjelet! (1-2 karakter): "))
+                                  .filter(k -> (k.length() == 1 || k.length() == 2) && k.chars().allMatch(Character::isLetter))
+                                  .findFirst()
+                                  .orElseThrow();
 
-            System.out.println("6. Feladat:");
-            Arrays.stream(elemek)
-                  .filter(k -> k.vegyjel.equalsIgnoreCase(bekertVegyjel))
-                  .findFirst()
-                  .ifPresentOrElse(k -> System.out.println(k.vegyjel + ": " + k.nev + ", rsz.: " + k.rendszam + ", év: " + k.ev + ", felf.: " + k.felfedezo),
-                                  () -> System.out.println("Nincs ilyen elem eltárolva!"));
-        }
+        System.out.println("6. Feladat:");
+        Arrays.stream(elemek)
+              .filter(k -> k.vegyjel.equalsIgnoreCase(bekertVegyjel))
+              .findFirst()
+              .ifPresentOrElse(k -> System.out.println(k.vegyjel + ": " + k.nev + ", rsz.: " + k.rendszam + ", év: " + k.ev + ", felf.: " + k.felfedezo),
+                              () -> System.out.println("Nincs ilyen elem eltárolva!"));
 
         IntStream.range(0, elemek.length - 1)
                  .filter(i -> elemek[i].ev != Elem.OKOR_EV && elemek[i + 1].ev != Elem.OKOR_EV)
@@ -43,10 +41,5 @@ public class Kemia_stream {
               .entrySet().stream()
               .filter(k -> k.getValue() > 3)
               .forEach(e -> System.out.println(e.getKey() + ": " + e.getValue() + " db"));
-    }
-
-    public static String vegyjeletBeker(Scanner input) {
-        System.out.println("Írj be egy vegyjelet! (1-2 karakter)");
-        return input.nextLine();
     }
 }

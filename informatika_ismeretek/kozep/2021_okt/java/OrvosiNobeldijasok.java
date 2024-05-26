@@ -19,19 +19,15 @@ public class OrvosiNobeldijasok {
               .ifPresent(k -> System.out.println("4. Feladat: Utolsó év: " + k));
 
         var orszagonkentiStat = Arrays.stream(dijak).collect(Collectors.groupingBy(k -> k.orszagkod));
+        var bekertKod = System.console().readLine("5. Feladat: Írja be 1 ország kódját: ");
+        var bekertOrszagbanKiosztottak = orszagonkentiStat.get(bekertKod);
+        var kiirando = switch(bekertOrszagbanKiosztottak.size()) {
+            case 0  -> "A megadott országból nem volt díjazott!";
+            case 1  -> "Név: " + bekertOrszagbanKiosztottak.get(0).nev + ", év: " + bekertOrszagbanKiosztottak.get(0).ev;
+            default -> "A megadott országból " + bekertOrszagbanKiosztottak.size() + " fő díjazott volt!";
+        };
 
-        System.out.println("5. Feladat: Írja be 1 ország kódját!");
-        try(var input = new Scanner(System.in)) {
-            var bekertKod = input.nextLine();
-            var bekertOrszagbanKiosztottak = orszagonkentiStat.get(bekertKod);
-            var kiosztasokSzama = bekertOrszagbanKiosztottak.size();
-
-            var kiirando = kiosztasokSzama == 0 ? "A megadott országból nem volt díjazott!" :
-                           kiosztasokSzama == 1 ? "Név: " + bekertOrszagbanKiosztottak.get(0).nev + ", év: " + bekertOrszagbanKiosztottak.get(0).ev
-                                                : "A megadott országból " + kiosztasokSzama + " fő díjazott volt!";
-            System.out.println(kiirando);
-        }
-
+        System.out.println(kiirando);
         System.out.println("6. Feladat:");
 
         orszagonkentiStat.entrySet().stream()

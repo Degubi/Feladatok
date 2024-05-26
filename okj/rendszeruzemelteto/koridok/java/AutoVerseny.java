@@ -22,21 +22,17 @@ public class AutoVerseny {
             }
         }
 
-        System.out.println("5. Felatad: Írj be egy nevet!");
+        var beNev = System.console().readLine("5. Felatad: Írj be egy nevet: ");
+        var legrovidebb = LocalTime.of(23, 59);
 
-        try(var input = new Scanner(System.in)){
-            var beNev = input.nextLine();
-            var legrovidebb = LocalTime.of(23, 59);
-
-            for(var verseny : versenyek) {
-                if(verseny.versenyzo.equals(beNev)) {
-                    if(verseny.korido.compareTo(legrovidebb) == -1) {
-                        legrovidebb = verseny.korido;
-                    }
+        for(var verseny : versenyek) {
+            if(verseny.versenyzo.equals(beNev)) {
+                if(verseny.korido.compareTo(legrovidebb) == -1) {
+                    legrovidebb = verseny.korido;
                 }
             }
-
-            System.out.println("6. Feladat: " + (legrovidebb.getHour() == 23 ? "Nincs ilyen versenyző" : legrovidebb));
         }
+
+        System.out.println("6. Feladat: " + (legrovidebb.getHour() == 23 ? "Nincs ilyen versenyző" : legrovidebb));
     }
 }

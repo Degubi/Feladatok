@@ -16,23 +16,20 @@ public class Lift_stream {
               .max(Comparator.comparingInt(k -> k.celSzint))
               .ifPresent(k -> System.out.println("5. Feladat: Max célszint: " + k.celSzint));
 
-        System.out.println("6. Feladat: Írj be egy kártyaszámot és egy célszintet");
-        try(var input = new Scanner(System.in)){
-            var beKartya = parseOrDefault(input.nextLine(), 5);
-            var beCelszint = parseOrDefault(input.nextLine(), 5);
-            var utaztakE = Arrays.stream(hasznalatok)
-                                 .anyMatch(k -> k.kartyaSorszam == beKartya && k.celSzint == beCelszint);
+        var beKartya = parseIntOrDefault(System.console().readLine("Írj be egy kártyaszámot: "), 5);
+        var beCelszint = parseIntOrDefault(System.console().readLine("Írj be egy célszintet: "), 5);
+        var utaztakE = Arrays.stream(hasznalatok)
+                             .anyMatch(k -> k.kartyaSorszam == beKartya && k.celSzint == beCelszint);
 
-            System.out.println("7. Feladat: A " + beKartya + " kártyával" + (utaztakE ? "" : " nem") + " utaztak a " + beCelszint + ". emeletre");
-        }
-
+        System.out.println("7. Feladat: A " + beKartya + " kártyával" + (utaztakE ? "" : " nem") + " utaztak a " + beCelszint + ". emeletre");
         System.out.println("8. Feladat");
+
         Arrays.stream(hasznalatok)
               .collect(Collectors.groupingBy(k -> k.idopont, Collectors.counting()))
               .forEach((ido, db) -> System.out.println(ido + " - " + db + "x"));
     }
 
-    public static int parseOrDefault(String num, int defaultVal) {
+    public static int parseIntOrDefault(String num, int defaultVal) {
         try {
             return Integer.parseInt(num);
         }catch(NumberFormatException e) {

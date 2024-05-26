@@ -43,14 +43,11 @@ public class KarakterDekodolo {
 
 
     private static String betutBeker() {
-        try(var console = new Scanner(System.in)) {
-            while(true) {
-                System.out.print("6. Feladat: Kérek egy angol nagybetűt!");
+        while(true) {
+            var bekertBetu = System.console().readLine("6. Feladat: Kérek egy angol nagybetűt: ");
 
-                var bekertBetu = console.nextLine();
-                if(bekertBetu.length() == 1 && Character.isUpperCase(bekertBetu.charAt(0))) {
-                    return bekertBetu;
-                }
+            if(bekertBetu.length() == 1 && Character.isUpperCase(bekertBetu.charAt(0))) {
+                return bekertBetu;
             }
         }
     }

@@ -16,21 +16,17 @@ public class Epitmenyado_stream {
                           .toArray(Telek[]::new);
 
         System.out.println("2. Feladat: Telkek száma: " + telkek.length);
-        System.out.println("3. Feladat: Írj be 1 adószámot!");
 
-        try(var console = new Scanner(System.in)) {
-            var bekertAdoszam = console.nextInt();
-            var bekertTelkei = Arrays.stream(telkek)
-                                     .filter(k -> k.adoszam == bekertAdoszam)
-                                     .toArray(Telek[]::new);
+        var bekertAdoszam = Integer.parseInt(System.console().readLine("3. Feladat: Írj be 1 adószámot: "));
+        var bekertTelkei = Arrays.stream(telkek)
+                                 .filter(k -> k.adoszam == bekertAdoszam)
+                                 .toArray(Telek[]::new);
 
-            var kiirando = bekertTelkei.length == 0 ? "Nem szerepel az adatállományban"
-                                                    : Arrays.stream(bekertTelkei)
-                                                            .map(k -> k.utcaNev + " " + k.hazSzam)
-                                                            .collect(Collectors.joining("\n"));
-            System.out.println(kiirando);
-        }
-
+        var kiirando = bekertTelkei.length == 0 ? "Nem szerepel az adatállományban"
+                                                : Arrays.stream(bekertTelkei)
+                                                        .map(k -> k.utcaNev + " " + k.hazSzam)
+                                                        .collect(Collectors.joining("\n"));
+        System.out.println(kiirando);
         System.out.println("5. Feladat:");
 
         Arrays.stream(telkek)

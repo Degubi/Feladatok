@@ -38,33 +38,29 @@ public class Hianyzasok {
         }
 
         System.out.println("3. Feladat: Igazolt hiányzások: " + igazoltHianyzasok + ", igazolatlanok: " + igazolatlanHianyzasok);
+        System.out.println("5. Feladat:");
 
-        try(var input = new Scanner(System.in)) {
-            System.out.println("5. Feladat: Írjon be egy hónapot és egy napot");
+        var beHonap = Integer.parseInt(System.console().readLine("Írj be egy hónap számot: "));
+        var beNap = Integer.parseInt(System.console().readLine("Írj be egy nap számot: "));
 
-            var beHonap = input.nextInt();
-            var beNap = input.nextInt();
+        System.out.println("Azon a napon: " + hetnapja(beHonap, beNap) + " volt");
+        System.out.println("6. Feladat:");
 
-            System.out.println("Azon a napon: " + hetnapja(beHonap, beNap) + " volt");
-            System.out.println("6. Feladat: Írja be 1 nap nevét és 1 óraszámot");
+        var beTanNap = System.console().readLine("Írj be egy nap nevet! ");
+        var beOraszam = Integer.parseInt(System.console().readLine("Írj be egy óraszámot! ")) - 1;
+        var hianyzottak = 0;
 
-            var beTanNap = input.next();
-            var beOraszam = input.nextInt() - 1;
-            var hianyzottak = 0;
+        for(var hiany : hianyzasok) {
+            if(beTanNap.equals(hetnapja(hiany.honap, hiany.nap))) {
+                var ora = hiany.orak.charAt(beOraszam);
 
-            for(var hiany : hianyzasok) {
-                if(beTanNap.equals(hetnapja(hiany.honap, hiany.nap))) {
-                    var ora = hiany.orak.charAt(beOraszam);
-
-                    if(ora == 'X' || ora == 'I') {
-                        ++hianyzottak;
-                    }
+                if(ora == 'X' || ora == 'I') {
+                    ++hianyzottak;
                 }
             }
-
-            System.out.println("Ekkor " + hianyzottak + "-an hiányoztak");
         }
 
+        System.out.println("Ekkor " + hianyzottak + "-an hiányoztak");
         System.out.println("7. Feladat: ");
 
         var hianyzasMap = new HashMap<String, Integer>();

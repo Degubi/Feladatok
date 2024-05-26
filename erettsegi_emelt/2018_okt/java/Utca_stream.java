@@ -34,25 +34,21 @@ public class Utca_stream {
                  .findFirst()
                  .ifPresent(k -> System.out.println("4. Feladat: Talált házszám: " + k.hazszam));
 
-        System.out.println("5. Feladat: Írd be 1 telek számát!");
+        var bekertTelekSzam = Integer.parseInt(System.console().readLine("5. Feladat: Írd be 1 telek számát: "));
+        var bekertTelekIndexe = IntStream.range(0, telkek.length)
+                                         .filter(i -> telkek[i].hazszam == bekertTelekSzam)
+                                         .findFirst()
+                                         .orElseThrow();
 
-        try(var console = new Scanner(System.in)) {
-            var bekertTelekSzam = console.nextInt();
-            var bekertTelekIndexe = IntStream.range(0, telkek.length)
-                                             .filter(i -> telkek[i].hazszam == bekertTelekSzam)
-                                             .findFirst()
-                                             .orElseThrow();
+        var bekertTelek = telkek[bekertTelekIndexe];
 
-            var bekertTelek = telkek[bekertTelekIndexe];
+        System.out.println("Kerítés színe: " + (bekertTelek.keritesSzine == ':' ? "Nem készült el" :
+                           bekertTelek.keritesSzine == '#' ? "Festetlen" : bekertTelek.keritesSzine));
 
-            System.out.println("Kerítés színe: " + (bekertTelek.keritesSzine == ':' ? "Nem készült el" :
-                               bekertTelek.keritesSzine == '#' ? "Festetlen" : bekertTelek.keritesSzine));
-
-            IntStream.rangeClosed('A', 'Z')
-                     .filter(c -> telkek[bekertTelekIndexe - 1].keritesSzine != c && telkek[bekertTelekIndexe + 1].keritesSzine != c && bekertTelek.keritesSzine != c)
-                     .findFirst()
-                     .ifPresent(c -> System.out.println("Az új szín lehet: " + (char) c));
-        }
+        IntStream.rangeClosed('A', 'Z')
+                 .filter(c -> telkek[bekertTelekIndexe - 1].keritesSzine != c && telkek[bekertTelekIndexe + 1].keritesSzine != c && bekertTelek.keritesSzine != c)
+                 .findFirst()
+                 .ifPresent(c -> System.out.println("Az új szín lehet: " + (char) c));
 
         var elsoSor = Arrays.stream(telkek)
                             .filter(k -> !k.parosE)

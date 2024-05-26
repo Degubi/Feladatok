@@ -26,19 +26,11 @@ public class Otszaz {
 
         System.out.println("2. Feladat: Vásárlások száma: " + vasarlasok.size());
         System.out.println("3. Feladat: Elsö vásárlásnál vett dolgok száma: " + vasarlasok.get(0).size());
-
-        var console = new Scanner(System.in);
         System.out.println("4. Feladat:");
-        System.out.println("Írj be 1 sorszámot");
-        var bekertSorszam = console.nextInt();
 
-        System.out.println("Írj be 1 árut");
-        var bekertAru = console.next();
-
-        System.out.println("Írj be 1 mennyiséget");
-        var bekertDBszam = console.nextInt();
-        console.close();
-
+        var bekertSorszam = Integer.parseInt(System.console().readLine("Írj be 1 sorszámot: "));
+        var bekertAru = System.console().readLine("Írj be 1 árut: ");
+        var bekertDBszam = Integer.parseInt(System.console().readLine("Írj be 1 mennyiséget: "));
         var bekertAruOsszDbSzam = 0;
         var bekertAruUtolsoVasarlasIndex = 0;
 

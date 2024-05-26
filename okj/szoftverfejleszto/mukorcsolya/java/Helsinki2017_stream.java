@@ -15,13 +15,8 @@ public class Helsinki2017_stream {
         var bejutottEMagyar = Arrays.stream(dontosok).anyMatch(k -> k.orszag.equals("HUN"));
         System.out.print("3. Feladat: A magyar versenyző " + (bejutottEMagyar ? "bejutott" : "nem jutott be"));
 
-        try(var input = new Scanner(System.in)){
-            System.out.println("5. Feladat: Kérem 1 versenyző nevét!");
-
-            var bekertNev = input.nextLine();
-
-            System.out.println("6. Feladat: " + bekertNev + " pontszáma: " + osszPontszam(bekertNev, versenyzok, dontosok));
-        }
+        var bekertNev = System.console().readLine("5. Feladat: Kérem 1 versenyző nevét: ");
+        System.out.println("6. Feladat: " + bekertNev + " pontszáma: " + osszPontszam(bekertNev, versenyzok, dontosok));
 
         System.out.println("7. Feladat");
         Arrays.stream(dontosok)

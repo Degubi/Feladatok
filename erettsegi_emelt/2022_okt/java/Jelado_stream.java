@@ -11,17 +11,10 @@ public class Jelado_stream {
                          .map(Jel::new)
                          .toArray(Jel[]::new);
 
-        try(var console = new Scanner(System.in)) {
-            System.out.println("2. Feladat: Írja be 1 jel sorszámát!");
+        var bekertJel = jelek[Integer.parseInt(System.console().readLine("2. Feladat: Írja be 1 jel sorszámát: ")) - 1];
 
-            var bekertJel = jelek[console.nextInt() - 1];
-
-            System.out.println("Bekért jel pozíciója: x=" + bekertJel.x + " y=" + bekertJel.y);
-        }
-
-        var elteltIdo = LocalTime.ofSecondOfDay(eltelt(jelek[0].idopont, jelek[jelek.length - 1].idopont));
-
-        System.out.println("4. Feladat: Első & utolsó között eltelt idő: " + elteltIdo);
+        System.out.println("Bekért jel pozíciója: x=" + bekertJel.x + " y=" + bekertJel.y);
+        System.out.println("4. Feladat: Első & utolsó között eltelt idő: " + LocalTime.ofSecondOfDay(eltelt(jelek[0].idopont, jelek[jelek.length - 1].idopont)));
 
         var xStat = Arrays.stream(jelek).mapToInt(k -> k.x).summaryStatistics();
         var yStat = Arrays.stream(jelek).mapToInt(k -> k.y).summaryStatistics();

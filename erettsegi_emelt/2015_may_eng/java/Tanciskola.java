@@ -31,22 +31,19 @@ public class Tanciskola {
         }
 
         System.out.println("Vilma által táncolt kategóriák: " + String.join(", ", viliCat));
-        System.out.println("Írj be 1 kategóriát!");
 
-        try(var console = new Scanner(System.in)) {
-            var readCat = console.nextLine();
-            var hasPrinted = false;
+        var readCat = System.console().readLine("Írj be 1 kategóriát: ");
+        var hasPrinted = false;
 
-            for(var dansz : tancok) {
-                if(dansz.woman.equals("Vilma") && dansz.category.equals(readCat)) {
-                    System.out.println("Vilma a " + readCat + " kategóriában " + dansz.man + "-val táncolt");
-                    hasPrinted = true;
-                }
+        for(var dansz : tancok) {
+            if(dansz.woman.equals("Vilma") && dansz.category.equals(readCat)) {
+                System.out.println("Vilma a " + readCat + " kategóriában " + dansz.man + "-val táncolt");
+                hasPrinted = true;
             }
+        }
 
-            if(!hasPrinted) {
-                System.out.println("Vilma a " + readCat + " kategóriában nem táncolt");
-            }
+        if(!hasPrinted) {
+            System.out.println("Vilma a " + readCat + " kategóriában nem táncolt");
         }
 
         var lanyokToTancalkalmak = new HashMap<String, Integer>();

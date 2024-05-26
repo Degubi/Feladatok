@@ -16,35 +16,32 @@ public class Tesztverseny_stream {
                               .sorted(Comparator.comparingInt(k -> k.pontok))
                               .collect(Collectors.toList());
 
-        System.out.println("2. feladat: A vetélkedőn " + versenyzok.size() + " versenyző indult.\nÍrj be 1 ID-t!");
+        System.out.println("2. feladat: A vetélkedőn " + versenyzok.size() + " versenyző indult");
 
-        try(var console = new Scanner(System.in)) {
-            var readID = console.nextLine();
-            var kivalasztott = versenyzok.stream()
-                                         .filter(k -> k.nev.equals(readID))
-                                         .findFirst()
-                                         .orElseThrow();
+        var bekertAzonosito = System.console().readLine("Írj be 1 ID-t: ");
+        var kivalasztott = versenyzok.stream()
+                                     .filter(k -> k.nev.equals(bekertAzonosito))
+                                     .findFirst()
+                                     .orElseThrow();
 
-            System.out.println("3. feladat: A versenyző azonosítója = " + readID + "\n" + String.valueOf(kivalasztott.valaszok) + " (a versenyző válaszai)");
-            System.out.println("4. feladat:\n" + String.valueOf(megoldasok) + " (a helyes megoldás)");
+        System.out.println("3. feladat: A versenyző azonosítója = " + bekertAzonosito + "\n" + String.valueOf(kivalasztott.valaszok) + " (a versenyző válaszai)");
+        System.out.println("4. feladat:\n" + String.valueOf(megoldasok) + " (a helyes megoldás)");
 
-            IntStream.range(0, megoldasok.length)
-                     .mapToObj(index -> kivalasztott.valaszok[index] == megoldasok[index] ? "+" : " ")
-                     .forEach(System.out::print);
+        IntStream.range(0, megoldasok.length)
+                 .mapToObj(index -> kivalasztott.valaszok[index] == megoldasok[index] ? "+" : " ")
+                 .forEach(System.out::print);
 
-            System.out.println(" (a versenyző helyes válaszai)\nÍrd be 1 feladat sorszámát!");
+        System.out.println(" (a versenyző helyes válaszai)");
 
-            var readIndex = console.nextInt() - 1;
-            var good = versenyzok.stream()
-                                 .filter(k -> k.valaszok[readIndex] == megoldasok[readIndex])
-                                 .mapToInt(k -> 1)
-                                 .sum();
+        var bekertFeladatIndex = Integer.parseInt(System.console().readLine("Írd be 1 feladat sorszámát: ")) - 1;
+        var jolValaszolokSzama = versenyzok.stream()
+                                           .filter(k -> k.valaszok[bekertFeladatIndex] == megoldasok[bekertFeladatIndex])
+                                           .mapToInt(k -> 1)
+                                           .sum();
 
-
-            System.out.println("5. feladat: A feladat sorszáma = " + (readIndex + 1));
-            String percent = String.valueOf(((float)good * 100 / versenyzok.size())).substring(0, 5);
-            System.out.println("A feladatra " + good + " fő, a versenyzők " + percent + "%-a adott helyes választ.");
-        }
+        System.out.println("5. feladat: A feladat sorszáma = " + (bekertFeladatIndex + 1));
+        String percent = String.valueOf(((float) jolValaszolokSzama * 100 / versenyzok.size())).substring(0, 5);
+        System.out.println("A feladatra " + jolValaszolokSzama + " fő, a versenyzők " + percent + "%-a adott helyes választ.");
 
         Files.write(Path.of("pontok.txt"), versenyzok.stream().map(Versenyzo::toString).collect(Collectors.toList()));
         System.out.println("7. feladat: A verseny legjobbjai:");

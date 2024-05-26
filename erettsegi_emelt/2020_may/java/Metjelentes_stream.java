@@ -10,15 +10,12 @@ public class Metjelentes_stream {
                           .map(IdojarasAdat::new)
                           .toArray(IdojarasAdat[]::new);
 
-        System.out.println("2. Feladat: Írj be egy városkódot!");
-        try(var console = new Scanner(System.in)) {
-            var bekertKod = console.nextLine();
+        var bekertKod = System.console().readLine("2. Feladat: Írj be egy városkódot: ");
 
-            Arrays.stream(adatok)
-                  .filter(k -> k.telepules.equals(bekertKod))
-                  .reduce((k, l) -> l)
-                  .ifPresent(k -> System.out.println("Utolsó mérés időpontja: " + k.ido));
-        }
+        Arrays.stream(adatok)
+              .filter(k -> k.telepules.equals(bekertKod))
+              .reduce((k, l) -> l)
+              .ifPresent(k -> System.out.println("Utolsó mérés időpontja: " + k.ido));
 
         System.out.println("3. Feladat:");
 

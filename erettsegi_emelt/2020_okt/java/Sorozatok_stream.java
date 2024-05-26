@@ -32,32 +32,25 @@ public class Sorozatok_stream {
         var elpazaroltIdoStat = Duration.ofMinutes(osszesElpazaroltPerc);
 
         System.out.printf("4. Feladat: Eltöltött idő: %d nap, %d óra és %d perc\n", elpazaroltIdoStat.toDaysPart(), elpazaroltIdoStat.toHoursPart(), elpazaroltIdoStat.toMinutesPart());
-        System.out.println("5. Feladat: Írj be 1 dátumot! (éééé.hh.nn)");
 
-        try(var input = new Scanner(System.in)) {
-            var bekertDatum = LocalDate.parse(input.nextLine().replace('.', '-'));
+        var bekertDatum = LocalDate.parse(System.console().readLine("5. Feladat: Írj be 1 dátumot! (éééé.hh.nn): ").replace('.', '-'));
 
-            Arrays.stream(sorozatok)
-                  .filter(k -> k.adasbaKerulesiDatum != Sorozat.HIANYZO_DATUM)
-                  .filter(k -> k.adasbaKerulesiDatum.isBefore(bekertDatum) || k.adasbaKerulesiDatum.isEqual(bekertDatum))
-                  .filter(k -> !k.lattaEMarAKeszito)
-                  .forEach(k -> System.out.println(k.evadokSzama + "x" + k.epizodokSzama + "\t" + k.cim));
+        Arrays.stream(sorozatok)
+              .filter(k -> k.adasbaKerulesiDatum != Sorozat.HIANYZO_DATUM)
+              .filter(k -> k.adasbaKerulesiDatum.isBefore(bekertDatum) || k.adasbaKerulesiDatum.isEqual(bekertDatum))
+              .filter(k -> !k.lattaEMarAKeszito)
+              .forEach(k -> System.out.println(k.evadokSzama + "x" + k.epizodokSzama + "\t" + k.cim));
 
-            System.out.println("7. Feladat: Add meg 1 hét napját! (h, k, sze, cs, p, szo, v)");
+        var bekertNap = System.console().readLine("7. Feladat: Add meg 1 hét napját! (h, k, sze, cs, p, szo, v): ");
+        var bekertNapraEsok = Arrays.stream(sorozatok)
+                                    .filter(k -> k.adasbaKerulesiDatum != Sorozat.HIANYZO_DATUM)
+                                    .filter(k -> bekertNap.equals(hetnapja(k.adasbaKerulesiDatum.getYear(), k.adasbaKerulesiDatum.getMonthValue(), k.adasbaKerulesiDatum.getDayOfMonth())))
+                                    .map(k -> k.cim)
+                                    .distinct()
+                                    .toArray(String[]::new);
 
-            var bekertNap = input.nextLine();
-            var bekertNapraEsok = Arrays.stream(sorozatok)
-                                        .filter(k -> k.adasbaKerulesiDatum != Sorozat.HIANYZO_DATUM)
-                                        .filter(k -> bekertNap.equals(hetnapja(k.adasbaKerulesiDatum.getYear(), k.adasbaKerulesiDatum.getMonthValue(), k.adasbaKerulesiDatum.getDayOfMonth())))
-                                        .map(k -> k.cim)
-                                        .distinct()
-                                        .toArray(String[]::new);
-
-            var kiirando = bekertNapraEsok.length == 0 ? "Az adott napon nem kerül adásba sorozat."
-                                                       : String.join("\n", bekertNapraEsok);
-            System.out.println(kiirando);
-        }
-
+        System.out.println(bekertNapraEsok.length == 0 ? "Az adott napon nem kerül adásba sorozat."
+                                                       : String.join("\n", bekertNapraEsok));
         var stat = Arrays.stream(sorozatok)
                          .collect(Collectors.groupingBy(k -> k.cim,
                                   Collectors.teeing(Collectors.summingInt(k -> k.epizodonkentiHossz), Collectors.counting(), (hossz, db) -> hossz + " " + db)));

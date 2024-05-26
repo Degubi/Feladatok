@@ -33,7 +33,7 @@ public class Radio {
             System.out.println(k + ". napon levő feljegyzések száma: " + napiSzam);
         }
 
-        try(var output = new PrintWriter("adaas.txt")){
+        try(var output = new PrintWriter("adaas.txt")) {
             for(var k = 1; k < 12; ++k) {
                 char[] felj = null;
 
@@ -56,30 +56,25 @@ public class Radio {
             }
         }
 
-        System.out.println("7.Feladat\nÍrj be 1 napot (1-11) és 1 megfigyelő sorszámát!");
-        try(var console = new Scanner(System.in)) {
-            var readNap = console.nextInt();
-            var readMegfigyelo = console.nextInt();
-            var egyedszam = 0;
-            var voltIlyen = false;
+        System.out.println("7.Feladat:");
 
-            for(var feljegyzes : feljegyzesek) {
-                if(feljegyzes.nap == readNap && feljegyzes.radioAmator == readMegfigyelo) {
-                    voltIlyen = true;
-                    egyedszam += feljegyzes.gyerekekSzama;
-                    egyedszam += feljegyzes.szulokSzama;
-                }
-            }
+        var readNap = Integer.parseInt(System.console().readLine("Írj be 1 napot (1-11): "));
+        var readMegfigyelo = Integer.parseInt(System.console().readLine("Írd be 1 megfigyelő sorszámát: "));
+        var egyedszam = 0;
+        var voltIlyen = false;
 
-            if(voltIlyen) {
-                if(egyedszam == 0) {
-                    System.out.println("Nem határozható meg");
-                }else {
-                    System.out.println(egyedszam);
-                }
-            }else {
-                System.out.println("Nem volt ilyen feljegyzés");
+        for(var feljegyzes : feljegyzesek) {
+            if(feljegyzes.nap == readNap && feljegyzes.radioAmator == readMegfigyelo) {
+                voltIlyen = true;
+                egyedszam += feljegyzes.gyerekekSzama;
+                egyedszam += feljegyzes.szulokSzama;
             }
+        }
+
+        if(voltIlyen) {
+            System.out.println(egyedszam == 0 ? "Nem határozható meg" : egyedszam);
+        }else{
+            System.out.println("Nem volt ilyen feljegyzés");
         }
     }
 

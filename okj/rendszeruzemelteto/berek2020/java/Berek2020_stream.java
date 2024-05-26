@@ -19,10 +19,9 @@ public class Berek2020_stream {
                              .orElse(0);
 
         System.out.printf("4. Feladat: Átlagbér: %.2f\n", atlagBer / 1000);
-        System.out.println("5. Feladat: Írjon be 1 részleg nevet!");
-        System.out.print("6. Feladat: ");
 
-        var bekertReszleg = readLineFromConsole();
+        var bekertReszleg = System.console().readLine("5. Feladat: Írjon be 1 részleg nevet: ");
+        System.out.print("6. Feladat: ");
 
         Arrays.stream(dolgozok)
               .filter(k -> k.munkaReszleg.equals(bekertReszleg))
@@ -35,12 +34,5 @@ public class Berek2020_stream {
         Arrays.stream(dolgozok)
               .collect(Collectors.groupingBy(k -> k.munkaReszleg, Collectors.counting()))
               .forEach((reszleg, dbSzam) -> System.out.println("    " + reszleg + " - " + dbSzam + " fő"));
-    }
-
-
-    static String readLineFromConsole() {
-        try(var input = new Scanner(System.in)) {
-            return input.nextLine();
-        }
     }
 }

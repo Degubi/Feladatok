@@ -20,37 +20,35 @@ public class Berek2020 {
         }
 
         System.out.printf("4. Feladat: Átlagbér: %.2f\n", (float) totalBer / dolgozok.size() / 1000);
-        System.out.println("5. Feladat: Írjon be 1 részleg nevet!");
+
+        var bekertReszleg = System.console().readLine("5. Feladat: Írjon be 1 részleg nevet: ");
+        var legtobbBeresDolgozo = (Dolgozo) null;
+        var legtobbBer = 0;
+
+        for(var dolgozo : dolgozok) {
+            if(dolgozo.munkaReszleg.equals(bekertReszleg) && dolgozo.munkaBer > legtobbBer) {
+                legtobbBeresDolgozo = dolgozo;
+                legtobbBer = dolgozo.munkaBer;
+            }
+        }
+
         System.out.print("6. Feladat: ");
 
-        try(var input = new Scanner(System.in)) {
-            var bekertReszleg = input.nextLine();
-            var legtobbBeresDolgozo = (Dolgozo) null;
-            var legtobbBer = 0;
+        if(legtobbBeresDolgozo == null) {
+            System.out.println("A megadott részleg nem létezik a cégnél!");
+        }else{
+            System.out.println(legtobbBeresDolgozo.nev + " (" + legtobbBeresDolgozo.munkabaLepesEv + ") : " + legtobbBeresDolgozo.munkaBer + " FT");
+        }
 
-            for(var dolgozo : dolgozok) {
-                if(dolgozo.munkaReszleg.equals(bekertReszleg) && dolgozo.munkaBer > legtobbBer) {
-                    legtobbBeresDolgozo = dolgozo;
-                    legtobbBer = dolgozo.munkaBer;
-                }
-            }
+        System.out.println("7. Feladat:");
 
-            if(legtobbBeresDolgozo == null) {
-                System.out.println("A megadott részleg nem létezik a cégnél!");
-            }else{
-                System.out.println(legtobbBeresDolgozo.nev + " (" + legtobbBeresDolgozo.munkabaLepesEv + ") : " + legtobbBeresDolgozo.munkaBer + " FT");
-            }
+        var reszlegStat = new HashMap<String, Integer>();
+        for(var dolgozo : dolgozok) {
+            reszlegStat.put(dolgozo.munkaReszleg, reszlegStat.getOrDefault(dolgozo.munkaReszleg, 0) + 1);
+        }
 
-            System.out.println("7. Feladat:");
-
-            var reszlegStat = new HashMap<String, Integer>();
-            for(var dolgozo : dolgozok) {
-                reszlegStat.put(dolgozo.munkaReszleg, reszlegStat.getOrDefault(dolgozo.munkaReszleg, 0) + 1);
-            }
-
-            for(var statEntry : reszlegStat.entrySet()) {
-                System.out.println("    " + statEntry.getKey() + " - " + statEntry.getValue() + " fő");
-            }
+        for(var statEntry : reszlegStat.entrySet()) {
+            System.out.println("    " + statEntry.getKey() + " - " + statEntry.getValue() + " fő");
         }
     }
 }

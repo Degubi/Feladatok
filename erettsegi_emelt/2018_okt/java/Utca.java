@@ -31,29 +31,25 @@ public class Utca {
             }
         }
 
-        System.out.println("5. Feladat: Írd be 1 telek számát!");
+        var beolvasottTelekSzam = Integer.parseInt(System.console().readLine("5. Feladat: Írd be 1 telek számát: "));
 
-        try(var console = new Scanner(System.in)) {
-            var beolvasottTelekSzam = console.nextInt();
+        for(var i = 0; i < telkek.size(); ++i){
+            var jelenlegiTelek = telkek.get(i);
 
-            for(var i = 0; i < telkek.size(); ++i){
-                var jelenlegiTelek = telkek.get(i);
+            if(jelenlegiTelek.hazszam == beolvasottTelekSzam) {
+                System.out.println("Kerítés színe: " + (jelenlegiTelek.keritesSzine == ':' ? "Nem készült el" : jelenlegiTelek.keritesSzine == '#' ? "Festetlen" : jelenlegiTelek.keritesSzine));
 
-                if(jelenlegiTelek.hazszam == beolvasottTelekSzam) {
-                    System.out.println("Kerítés színe: " + (jelenlegiTelek.keritesSzine == ':' ? "Nem készült el" : jelenlegiTelek.keritesSzine == '#' ? "Festetlen" : jelenlegiTelek.keritesSzine));
+                var balSzomszed = telkek.get(i - 1);
+                var jobbSzomszed = telkek.get(i + 1);
 
-                    var balSzomszed = telkek.get(i - 1);
-                    var jobbSzomszed = telkek.get(i + 1);
-
-                    for(var generalt = 'A'; ; ++generalt) {
-                        if(balSzomszed.keritesSzine != generalt && jobbSzomszed.keritesSzine != generalt && jelenlegiTelek.keritesSzine != generalt) {
-                            System.out.println("Az új szín lehet: " + generalt);
-                            break;
-                        }
+                for(var generalt = 'A'; ; ++generalt) {
+                    if(balSzomszed.keritesSzine != generalt && jobbSzomszed.keritesSzine != generalt && jelenlegiTelek.keritesSzine != generalt) {
+                        System.out.println("Az új szín lehet: " + generalt);
+                        break;
                     }
-
-                    break;
                 }
+
+                break;
             }
         }
 

@@ -5,15 +5,9 @@ import java.util.*;
 public class Sudoku {
 
     public static void main(String[] args) throws IOException {
-        System.out.println("1. Feladat: Írd be 1 bemeneti fájl nevét, 1 sor és 1 oszlop számát!");
-
-        var input = new Scanner(System.in);
-        var inputFileName = input.nextLine();
-        var inputRowIndex = input.nextInt() - 1;
-        var inputColumnIndex = input.nextInt() - 1;
-
-        input.close();
-
+        var inputFileName = System.console().readLine("Írd be a bemeneti fájl nevét: ");
+        var inputRowIndex = Integer.parseInt(System.console().readLine("Írd be 1 sor számát: ")) - 1;
+        var inputColumnIndex = Integer.parseInt(System.console().readLine("Írd be 1 oszlop számát: ")) - 1;
         var lines = Files.readAllLines(Path.of(inputFileName));
 
         var numbersPerLine = new int[lines.size()][];

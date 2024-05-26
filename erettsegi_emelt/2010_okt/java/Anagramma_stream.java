@@ -7,10 +7,7 @@ import java.util.stream.*;
 public class Anagramma_stream {
 
     public static void main(String[] args) throws IOException {
-        System.out.println("1. Feladat: Írjon be 1 szöveget!");
-
-        var console = new Scanner(System.in);
-        var bekertSzoveg = console.nextLine();
+        var bekertSzoveg = System.console().readLine("1. Feladat: Írjon be 1 szöveget: ");
         var bekertSzovegKarakterek = bekertSzoveg.chars()
                                                  .distinct()
                                                  .sorted()
@@ -26,20 +23,18 @@ public class Anagramma_stream {
         Files.write(Path.of("abc.txt"), szotarSzavakRendezve);
         System.out.println("4. Feladat: Írjon be 2 szót!");
 
-        var elsoSzo = console.next();
-        var masodikSzo = console.next();
+        var elsoSzo = System.console().readLine("1. szó: ");
+        var masodikSzo = System.console().readLine("2. szó: ");
 
         System.out.println(isAnagramm(elsoSzo, masodikSzo) ? "Anagramma" : "Nem anagramma");
-        System.out.println("5. Feladat: Írjon be 1 szót!");
 
-        var bekertSzo = console.next();
+        var bekertSzo = System.console().readLine("5. Feladat: Írjon be 1 szót: ");
         var bekertSzoAnagrammai = szotarSzavak.stream()
                                               .filter(k -> isAnagramm(k, bekertSzo))
                                               .toArray(String[]::new);
 
         System.out.println(bekertSzoAnagrammai.length == 0 ? "Nincs a szótárban anagramma" : "    " + String.join("\n    ", bekertSzoAnagrammai));
         System.out.println("6. Feladat:");
-        console.close();
 
         var legosszabbSzoHossza = szotarSzavak.stream()
                                               .mapToInt(String::length)

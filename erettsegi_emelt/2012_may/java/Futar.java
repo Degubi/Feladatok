@@ -56,16 +56,11 @@ public class Futar{
             System.out.println("A " + k + ". nap: " + napiKm + " km");
         }
 
-        try(var console = new Scanner(System.in)){
-            System.out.println("7.Feladat: Írj be 1 távolságot!");
-
-            var readKm = console.nextInt();
-
-            System.out.println(readKm + " km esetén fizetendő: " + calcPrice(readKm));
-        }
+        var bekertKm = Integer.parseInt(System.console().readLine("7.Feladat: Írj be 1 távolságot: "));
+        System.out.println(bekertKm + " km esetén fizetendő: " + calcPrice(bekertKm));
 
         var allPrice = 0;
-        try(var output = new PrintWriter("dijazas.txt")){
+        try(var output = new PrintWriter("dijazas.txt")) {
             for(var fuvar : fuvarLista) {
                 int fuvarAr = calcPrice(fuvar.tavolsag);
 

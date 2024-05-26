@@ -10,7 +10,7 @@ public class Feljegyzes {
         nap = Integer.parseInt(data1[0]);
         radioAmator = Integer.parseInt(data1[1]);
 
-        if(data2.contains("/")){
+        if(data2.contains("/")) {
             var first = data2.charAt(0);
             var second = data2.charAt(2);
 

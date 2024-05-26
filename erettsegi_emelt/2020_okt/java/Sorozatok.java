@@ -33,38 +33,32 @@ public class Sorozatok {
         System.out.println("2. Feladat: " + ismertDatumuakSzama + " db ismert dátumú epizód van");
         System.out.printf("3. Feladat: Látottak százaléka: %.2f%%\n", ((float) keszitoAltalLatottakSzama / sorozatok.size() * 100));
         System.out.printf("4. Feladat: Eltöltött idő: %d nap, %d óra és %d perc\n", elpazaroltIdoStat.toDaysPart(), elpazaroltIdoStat.toHoursPart(), elpazaroltIdoStat.toMinutesPart());
-        System.out.println("5. Feladat: Írj be 1 dátumot! (éééé.hh.nn)");
 
-        try(var input = new Scanner(System.in)) {
-            var bekertDatum = LocalDate.parse(input.nextLine().replace('.', '-'));
+        var bekertDatum = LocalDate.parse(System.console().readLine("5. Feladat: Írj be 1 dátumot! (éééé.hh.nn): ").replace('.', '-'));
 
-            for(var sorozat : sorozatok) {
-                if(sorozat.adasbaKerulesiDatum != Sorozat.HIANYZO_DATUM && !sorozat.lattaEMarAKeszito) {
-                   if(sorozat.adasbaKerulesiDatum.isBefore(bekertDatum) || sorozat.adasbaKerulesiDatum.isEqual(bekertDatum)) {
-                        System.out.println(sorozat.evadokSzama + "x" + sorozat.epizodokSzama + "\t" + sorozat.cim);
-                    }
+        for(var sorozat : sorozatok) {
+            if(sorozat.adasbaKerulesiDatum != Sorozat.HIANYZO_DATUM && !sorozat.lattaEMarAKeszito) {
+                if(sorozat.adasbaKerulesiDatum.isBefore(bekertDatum) || sorozat.adasbaKerulesiDatum.isEqual(bekertDatum)) {
+                    System.out.println(sorozat.evadokSzama + "x" + sorozat.epizodokSzama + "\t" + sorozat.cim);
                 }
             }
-
-            System.out.println("7. Feladat: Add meg 1 hét napját! (h, k, sze, cs, p, szo, v)");
-
-            var bekertNap = input.nextLine();
-            var bekertNapraEsok = new ArrayList<String>();
-
-            for(var sorozat : sorozatok) {
-                if(sorozat.adasbaKerulesiDatum != Sorozat.HIANYZO_DATUM) {
-                    var adasbaKerulesNapja = hetnapja(sorozat.adasbaKerulesiDatum.getYear(), sorozat.adasbaKerulesiDatum.getMonthValue(), sorozat.adasbaKerulesiDatum.getDayOfMonth());
-
-                    if(bekertNap.equals(adasbaKerulesNapja) && !bekertNapraEsok.contains(sorozat.cim)) {
-                        bekertNapraEsok.add(sorozat.cim);
-                    }
-                }
-            }
-
-            var kiirando = bekertNapraEsok.size() == 0 ? "Az adott napon nem kerül adásba sorozat."
-                                                       : String.join("\n", bekertNapraEsok);
-            System.out.println(kiirando);
         }
+
+        var bekertNap = System.console().readLine("7. Feladat: Add meg 1 hét napját! (h, k, sze, cs, p, szo, v): ");
+        var bekertNapraEsok = new ArrayList<String>();
+
+        for(var sorozat : sorozatok) {
+            if(sorozat.adasbaKerulesiDatum != Sorozat.HIANYZO_DATUM) {
+                var adasbaKerulesNapja = hetnapja(sorozat.adasbaKerulesiDatum.getYear(), sorozat.adasbaKerulesiDatum.getMonthValue(), sorozat.adasbaKerulesiDatum.getDayOfMonth());
+
+                if(bekertNap.equals(adasbaKerulesNapja) && !bekertNapraEsok.contains(sorozat.cim)) {
+                    bekertNapraEsok.add(sorozat.cim);
+                }
+            }
+        }
+
+        System.out.println(bekertNapraEsok.size() == 0 ? "Az adott napon nem kerül adásba sorozat."
+                                                       : String.join("\n", bekertNapraEsok));
 
         var vetitesiIdoSorozatonkent = new HashMap<String, Integer>();
         var epizodokSzamaSorozatonkent = new HashMap<String, Integer>();

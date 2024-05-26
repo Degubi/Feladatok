@@ -13,38 +13,31 @@ public class Operatorok_stream {
 
         System.out.println("2. Feladat: Kifejezések száma: " + kifejezesek.length);
 
-        var operatoronkentiDbSzam = Arrays.stream(kifejezesek)
-                                          .collect(Collectors.groupingBy(k -> k.operator, Collectors.counting()));
+        var operatorDbSzamok = Arrays.stream(kifejezesek)
+                                     .collect(Collectors.groupingBy(k -> k.operator, Collectors.counting()));
 
-        System.out.println("3. Feladat: Maradékos osztások száma: " + operatoronkentiDbSzam.get("mod"));
+        System.out.println("3. Feladat: Maradékos osztások száma: " + operatorDbSzamok.get("mod"));
 
         var vanETizzelOszthatoOperandusu = Arrays.stream(kifejezesek)
                                                  .anyMatch(k -> k.elsoOperandus % 10 == 0 && k.masodikOperandus % 10 == 0);
 
         System.out.println("4. Feladat: " + (vanETizzelOszthatoOperandusu ? "Van" : "Nincs") + " ilyen kifejezés");
         System.out.println("5. Feladat: \n" +
-                           "    'mod' -> " + operatoronkentiDbSzam.get("mod") + " db\n" +
-                           "      '/' -> " + operatoronkentiDbSzam.get("/") + " db\n" +
-                           "    'div' -> " + operatoronkentiDbSzam.get("div") + " db\n" +
-                           "      '-' -> " + operatoronkentiDbSzam.get("-") + " db\n" +
-                           "      '*' -> " + operatoronkentiDbSzam.get("*") + " db\n" +
-                           "      '+' -> " + operatoronkentiDbSzam.get("+") + " db");
+                           "    'mod' -> " + operatorDbSzamok.get("mod") + " db\n" +
+                           "      '/' -> " + operatorDbSzamok.get("/") + " db\n" +
+                           "    'div' -> " + operatorDbSzamok.get("div") + " db\n" +
+                           "      '-' -> " + operatorDbSzamok.get("-") + " db\n" +
+                           "      '*' -> " + operatorDbSzamok.get("*") + " db\n" +
+                           "      '+' -> " + operatorDbSzamok.get("+") + " db");
 
-        try(var input = new Scanner(System.in)) {
-            Stream.generate(() -> kifejezestBeker(input))
-                  .takeWhile(k -> !k.equals("vége"))
-                  .forEach(k -> System.out.println(k + " = " + new Kifejezes(k).kiertekel()));
-        }
+        Stream.generate(() -> System.console().readLine("Kérek egy kifejezést: "))
+              .takeWhile(k -> !k.equals("vége"))
+              .forEach(k -> System.out.println(k + " = " + new Kifejezes(k).kiertekel()));
 
         var kiertekeltSorok = Arrays.stream(kifejezesek)
                                     .map(k -> k.teljesKifejezes + " = " + k.kiertekel())
                                     .collect(Collectors.toList());
 
         Files.write(Path.of("eredmenyek.txt"), kiertekeltSorok);
-    }
-
-    public static String kifejezestBeker(Scanner input) {
-        System.out.println("Kérek egy kifejezést!");
-        return input.nextLine();
     }
 }

@@ -18,39 +18,33 @@ public class Hianyzasok {
         }
 
         System.out.println("2. Feladat: Hiányzott órák: " + totalHianyzottOrak);
-        System.out.println("3. Feladat: Írj be egy napot(1-30) és egy nevet!");
 
-        try(var input = new Scanner(System.in)) {
-            var bekertNap = input.nextInt();
-            input.nextLine();
-            var bekertNev = input.nextLine();
+        var bekertNap = Integer.parseInt(System.console().readLine("3. Feladat:\nÍrj be egy napot(1-30): "));
+        var bekertNev = System.console().readLine("Írj be egy nevet: ");
 
-            System.out.println("4. Feladat");
-
-            var hianyzottE = false;
-            for(var hianyzas : hianyzasok) {
-                if(hianyzas.nev.equals(bekertNev)) {
-                    hianyzottE = true;
-                    break;
-                }
+        var hianyzottE = false;
+        for(var hianyzas : hianyzasok) {
+            if(hianyzas.nev.equals(bekertNev)) {
+                hianyzottE = true;
+                break;
             }
+        }
 
-            System.out.println(bekertNev + (hianyzottE ? " hianyzott" : " nem hianyzott"));
-            System.out.println("5. Feladat");
+        System.out.println("4. Feladat: " + bekertNev + (hianyzottE ? " hianyzott" : " nem hianyzott"));
+        System.out.println("5. Feladat:");
 
-            var azonANaponHianyoztak = new ArrayList<Hianyzas>();
-            for(var hianyzas : hianyzasok) {
-                if(bekertNap >= hianyzas.elsoNap && bekertNap <= hianyzas.utolsoNap) {
-                    azonANaponHianyoztak.add(hianyzas);
-                }
+        var azonANaponHianyoztak = new ArrayList<Hianyzas>();
+        for(var hianyzas : hianyzasok) {
+            if(bekertNap >= hianyzas.elsoNap && bekertNap <= hianyzas.utolsoNap) {
+                azonANaponHianyoztak.add(hianyzas);
             }
+        }
 
-            if(azonANaponHianyoztak.size() == 0) {
-                System.out.println("Nem volt hiányzó");
-            }else{
-                for(var hiany : azonANaponHianyoztak) {
-                    System.out.println(hiany.nev + " " + hiany.osztaly);
-                }
+        if(azonANaponHianyoztak.size() == 0) {
+            System.out.println("Nem volt hiányzó");
+        }else{
+            for(var hiany : azonANaponHianyoztak) {
+                System.out.println(hiany.nev + " " + hiany.osztaly);
             }
         }
 

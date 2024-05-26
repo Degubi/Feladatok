@@ -22,17 +22,14 @@ public class HegyekMo_stream {
               .max(Comparator.comparingInt(k -> k.magassag))
               .ifPresent(k -> System.out.println("5. Feladat: Legmagasabb hegy: " + k.hegyseg + "-ben a " + k.nev + ", magassága: " + k.magassag + " m"));
 
-        try(var input = new Scanner(System.in)) {
-            System.out.println("6. Feladat: Írj be egy magasságot!");
-            var beMagassag = input.nextInt();
+        var beMagassag = Integer.parseInt("6. Feladat: Írj be egy magasságot: ");
 
-            Arrays.stream(hegyek)
-                  .filter(k -> k.hegyseg.equals("Börzsöny"))
-                  .filter(k -> k.magassag > beMagassag)
-                  .findFirst()
-                  .ifPresentOrElse(k -> System.out.println("Van magasabb hegység ennél a Börzsönyben"),
-                                  () -> System.out.println("Nincs magasabb hegység ennél a Börzsönyben"));
-        }
+        Arrays.stream(hegyek)
+              .filter(k -> k.hegyseg.equals("Börzsöny"))
+              .filter(k -> k.magassag > beMagassag)
+              .findFirst()
+              .ifPresentOrElse(k -> System.out.println("Van magasabb hegység ennél a Börzsönyben"),
+                              () -> System.out.println("Nincs magasabb hegység ennél a Börzsönyben"));
 
         var konvertaltLab3000 = 3000D / 3.280839895D;
         var magasakSzama = Arrays.stream(hegyek).filter(k -> k.magassag > konvertaltLab3000).count();

@@ -1,6 +1,5 @@
 import java.io.*;
 import java.nio.file.*;
-import java.util.*;
 
 public class RGB {
 
@@ -18,18 +17,12 @@ public class RGB {
             }
         }
 
-        try(var console = new Scanner(System.in)) {
-            System.out.println("2. Feladat: Kérem egy képpont adatait!");
-            System.out.println("Sor:");
+        System.out.println("2. Feladat: Kérem egy képpont adatait!");
 
-            var bekertSorIndex = console.nextInt() - 1;
+        var bekertSorIndex = Integer.parseInt(System.console().readLine("Sor: ")) - 1;
+        var bekertOszlopIndex = Integer.parseInt(System.console().readLine("Oszlop: ")) - 1;
 
-            System.out.println("Oszlop:");
-
-            var bekertOszlopIndex = console.nextInt() - 1;
-
-            System.out.println("Képpont színe: " + pixelek[bekertSorIndex][bekertOszlopIndex]);
-        }
+        System.out.println("Képpont színe: " + pixelek[bekertSorIndex][bekertOszlopIndex]);
 
         var vilagosKeppontokSzama = 0;
         var legsotetebbKeppontErteke = 255 * 3;

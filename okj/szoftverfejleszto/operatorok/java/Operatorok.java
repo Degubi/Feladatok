@@ -38,17 +38,14 @@ public class Operatorok {
                            "      '*' -> " + operatoronkentiDbSzam.get("*") + " db\n" +
                            "      '+' -> " + operatoronkentiDbSzam.get("+") + " db");
 
-        try(var input = new Scanner(System.in)) {
-            while(true) {
-                System.out.println("Kérek egy kifejezést!");
-                var bekert = input.nextLine();
+        while(true) {
+            var bekertKifejezes = System.console().readLine("Kérek egy kifejezést: ");
 
-                if(bekert.equals("vége")) {
-                    break;
-                }
-
-                System.out.println(bekert + " = " + new Kifejezes(bekert).kiertekel());
+            if(bekertKifejezes.equals("vége")) {
+                break;
             }
+
+            System.out.println(bekertKifejezes + " = " + new Kifejezes(bekertKifejezes).kiertekel());
         }
 
         var kiertekeltSorok = new ArrayList<String>();
