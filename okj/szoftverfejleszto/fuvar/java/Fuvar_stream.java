@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.stream.*;
 
 public class Fuvar_stream {
+
     public static void main(String[] args) throws IOException {
         var fuvarok = Files.lines(Path.of("fuvar.csv"))
                            .skip(1)
@@ -18,7 +19,7 @@ public class Fuvar_stream {
 
         System.out.println("4. Feladat: " + szurt.length + " db fuvarra: " + Arrays.stream(szurt).mapToDouble(k -> k.dij).sum());
         System.out.println("5. Feladat:");
-        
+
         Arrays.stream(fuvarok)
               .collect(Collectors.groupingBy(k -> k.fizetesMod, Collectors.counting()))
               .forEach((mod, db) -> System.out.println(mod + ": " + db + " db"));
@@ -35,7 +36,7 @@ public class Fuvar_stream {
                                 .sorted(Comparator.comparing(k -> k.indulas))
                                 .map(k -> k.azonosito + ";" + k.indulas + ";" + k.idotartam + ";" + k.tavolsag + ";" + k.dij + ";" + k.borravalo + ";" + k.fizetesMod)
                                 .collect(Collectors.joining("\n"));
-        
+
         Files.writeString(Path.of("hibak.txt"), header + hibasAdatok);
     }
 }

@@ -1,19 +1,18 @@
+from dataclasses import dataclass
 from itertools import groupby
 
+@dataclass
 class Hianyzas:
+    nev: str
+    osztaly: str
+    elsoNap: int
+    utolsoNap: int
+    mulasztottOrak: int
 
-    def __init__(self, line: str):
-        split = line.split(';')
 
-        self.nev = split[0]
-        self.osztaly = split[1]
-        self.elsoNap = int(split[2])
-        self.utolsoNap = int(split[3])
-        self.mulasztottOrak = int(split[4])
-
-with open('szeptember.csv', encoding = "utf-8") as file:
-    file.readline()
-    hianyzasok = [ Hianyzas(k) for k in file.readlines() ]
+with open('szeptember.csv', encoding = 'utf-8') as file:
+    create_hianyzas = lambda split: Hianyzas(split[0], split[1], int(split[2], int(split[3], int(split[4]))))
+    hianyzasok = [ create_hianyzas(k.split(';')) for k in file.readlines()[1:] ]
 
 totalHianyzottOrak = sum(k.mulasztottOrak for k in hianyzasok)
 

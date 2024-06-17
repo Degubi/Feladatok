@@ -27,6 +27,5 @@ print(f"5. Feladat: Kérések száma: {len(keresek)}")
 print(f"6. Feladat: Összméret: {osszmeret} byte")
 print("8. Feladat: Domaines kérések: %.2f%%" % (domainesek / len(keresek) * 100))
 
-stat = Counter(k.httpKod for k in keresek)
-for key, value in stat.items():
-    print(f"    {key}: {value} db")
+for kod, db in Counter(k.httpKod for k in keresek).items():
+    print(f"    {kod}: {db} db")

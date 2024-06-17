@@ -13,10 +13,9 @@ class Pilota:
         self.nemzetiseg = split[2]
         self.rajtszam = URES_RAJTSZAM if line[-1] == ';' else int(split[3])
 
-with open('pilotak.csv', encoding = 'UTF-8') as file:
-    file.readline()
 
-    pilotak = [ Pilota(k.strip()) for k in file.readlines() ]
+with open('pilotak.csv', encoding = 'UTF-8') as file:
+    pilotak = [ Pilota(k.strip()) for k in file.readlines()[1:] ]
 
 print(f'3. Feladat: Adatsorok száma: {len(pilotak)}')
 print(f'4. Feladat: Utolsó pilóta neve: {pilotak[-1].nev}')
@@ -31,8 +30,6 @@ legkisebb_rajtszamu_pilota = min((k for k in pilotak if k.rajtszam != URES_RAJTS
 print(f'6. Feladat: {legkisebb_rajtszamu_pilota.nemzetiseg}')
 print('7. Feladat:')
 
-rajtszam_stat = Counter(k.rajtszam for k in pilotak if k.rajtszam != URES_RAJTSZAM)
-
-for (rajtszam, dbSzam) in rajtszam_stat.items():
-    if dbSzam > 1:
+for rajtszam, db in Counter(k.rajtszam for k in pilotak if k.rajtszam != URES_RAJTSZAM).items():
+    if db > 1:
         print(f'{rajtszam}', end = ' ')

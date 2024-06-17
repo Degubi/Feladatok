@@ -11,9 +11,9 @@ class Versenyzo:
         self.orszag = split[2]
         self.nyeremeny = int(split[3])
 
+
 with open('snooker.txt') as file:
-    lines = file.readlines()
-    versenyzok = [ Versenyzo(lines[i]) for i in range(1, len(lines)) ]
+    versenyzok = [ Versenyzo(k) for k in file.readlines()[1:] ]
 
 print(f'3. Feladat: Versenyzők száma: {len(versenyzok)}')
 
@@ -27,7 +27,6 @@ voltNorveg = any(True for k in versenyzok if k.orszag == 'Norvégia')
 print(f'6. Feladat: {"Van" if voltNorveg else "Nincs"} norvég játékos')
 print('7. Feladat:')
 
-stat = Counter(k.orszag for k in versenyzok)
-for orszag, db in stat.items():
+for orszag, db in Counter(k.orszag for k in versenyzok).items():
     if db > 4:
         print(f'{orszag}: {db} fő')

@@ -18,9 +18,9 @@ class Versenyzo:
 
         return ora + (perc / 60.0) + (mp / 3600.0)
 
+
 with open('ub2017egyeni.txt', 'r') as file:
-    lines = file.readlines()
-    versenyzok = [ Versenyzo(lines[i]) for i in range(1, len(lines)) ]
+    versenyzok = [ Versenyzo(k) for k in file.readlines()[1:] ]
 
 print(f'3. Feladat: Egyéni indulók: {len(versenyzok)}')
 

@@ -12,10 +12,9 @@ class Kolcsonzes:
         self.elvitelIdopont = time(int(split[2]), int(split[3]))
         self.visszahozatalIdopont = time(int(split[4]), int(split[5]))
 
-with open('kolcsonzesek.txt', encoding = 'UTF-8') as file:
-    file.readline()
 
-    kolcsonzesek = [ Kolcsonzes(k) for k in file.readlines() ]
+with open('kolcsonzesek.txt', encoding = 'UTF-8') as file:
+    kolcsonzesek = [ Kolcsonzes(k) for k in file.readlines()[1:] ]
 
 print(f'5. Feladat: Kölcsönzések száma: {len(kolcsonzesek)}')
 

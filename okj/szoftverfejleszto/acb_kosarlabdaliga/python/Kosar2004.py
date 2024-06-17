@@ -13,9 +13,9 @@ class Eredmeny:
         self.helyszin = split[4]
         self.idopont = date.fromisoformat(split[5].strip())
 
+
 with open('eredmenyek.csv') as file:
-    lines = file.readlines()
-    eredmenyek = [ Eredmeny(lines[i]) for i in range(1, len(lines)) ]
+    eredmenyek = [ Eredmeny(k) for k in file.readlines()[1:] ]
 
 hazaiMadridDb  = sum(1 for k in eredmenyek if k.hazaiCsapat  == 'Real Madrid')
 idegenMadridDb = sum(1 for k in eredmenyek if k.idegenCsapat == 'Real Madrid')
@@ -36,7 +36,6 @@ for eredmeny in eredmenyek:
 
 print('7. Feladat:')
 
-stat = Counter(k.helyszin for k in eredmenyek)
-for helyszin, db in stat.items():
+for helyszin, db in Counter(k.helyszin for k in eredmenyek)():
     if db > 20:
         print(f'    {helyszin}: {db}')

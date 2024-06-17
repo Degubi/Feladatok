@@ -10,9 +10,9 @@ class Eredmeny:
         self.valtozas = int(split[2])
         self.pontszam = int(split[3])
 
+
 with open('fifa.txt') as file:
-    lines = file.readlines()
-    eredmenyek = [ Eredmeny(lines[i]) for i in range(1, len(lines)) ]
+    eredmenyek = [ Eredmeny(k) for k in file.readlines()[1:] ]
 
 print(f'3. Feladat: Csapatok száma: {len(eredmenyek)}')
 
@@ -26,7 +26,6 @@ voltEMo = any(True for k in eredmenyek if k.csapat == 'Magyarország')
 print('6. Feladat: Csapatok között van Magyarország' if voltEMo else '6. Feladat: Csapatok között nincs Magyarország')
 print('7. Feladat:')
 
-stat = Counter(k.valtozas for k in eredmenyek)
-for valtozas, dbSzam in stat.items():
-    if dbSzam > 1:
-        print(f'    {valtozas} helyet változott: {dbSzam} csapat')
+for valtozas, db in Counter(k.valtozas for k in eredmenyek).items():
+    if db > 1:
+        print(f'    {valtozas} helyet változott: {db} csapat')

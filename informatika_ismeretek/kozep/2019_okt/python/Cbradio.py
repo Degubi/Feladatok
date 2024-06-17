@@ -13,8 +13,7 @@ def atszamolPercre(ora: int, perc: int):
 
 
 with open('cb.txt', 'r') as file:
-    lines = file.readlines()
-    bejegyzesek = [ Bejegyzes(lines[i]) for i in range(1, len(lines)) ]
+    bejegyzesek = [ Bejegyzes(k) for k in file.readlines()[1:] ]
 
 print(f'3. Feladat: Bejegyzések száma: {len(bejegyzesek)}')
 

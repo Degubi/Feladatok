@@ -6,9 +6,9 @@ def domain(szint: int, domain: str):
 
     return 'nincs' if utolsoIndex < szint else split[utolsoIndex - szint]
 
+
 with open('csudh.txt') as file:
-    lines = file.readlines()
-    pairs = [ lines[i].split(';') for i in range(1, len(lines)) ]
+    pairs = [ k.split(';') for k in file.readlines()[1:] ]
 
 print(f'3. Feladat: Párok száma: {str(len(pairs))}')
 print('5. Feladat:')

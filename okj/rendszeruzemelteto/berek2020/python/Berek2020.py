@@ -13,15 +13,10 @@ class Dolgozo:
         self.munkaBer = int(split[4])
 
 with open('berek2020.txt', encoding = 'UTF-8') as file:
-    file.readline()
-
-    dolgozok = [ Dolgozo(k) for k in file.readlines() ]
+    dolgozok = [ Dolgozo(k) for k in file.readlines()[1:] ]
 
 print(f'3. Feladat: Dolgozók száma: {len(dolgozok)}')
-
-atlag_ber = mean(k.munkaBer for k in dolgozok)
-
-print('4. Feladat: Átlagbér: %.2f' % (atlag_ber / 1000))
+print('4. Feladat: Átlagbér: %.2f' % (mean(k.munkaBer for k in dolgozok) / 1000))
 
 bekert_reszleg = input('5. Feladat: Írjon be 1 részleg nevet!')
 legtobb_munkaberes = max((k for k in dolgozok if k.munkaReszleg == bekert_reszleg), key = lambda k: k.munkaBer, default = None)
@@ -33,7 +28,5 @@ else:
 
 print('7. Feladat:')
 
-reszleg_stat = Counter(k.munkaReszleg for k in dolgozok)
-
-for reszleg, db_szam in reszleg_stat.items():
-    print(f'    {reszleg} - {db_szam} fő')
+for reszleg, db in Counter(k.munkaReszleg for k in dolgozok).items():
+    print(f'    {reszleg} - {db} fő')

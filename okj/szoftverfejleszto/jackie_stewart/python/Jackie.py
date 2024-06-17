@@ -12,10 +12,9 @@ class Verseny:
         self.elsoHelyrolIndulasokSzama = int(split[4])
         self.leggyorsabbKorokSzama = int(split[5])
 
-with open('jackie.txt') as file:
-    file.readline()
 
-    versenyek = [ Verseny(k) for k in file.readlines() ]
+with open('jackie.txt') as file:
+    versenyek = [ Verseny(k) for k in file.readlines()[1:] ]
 
 print(f'3. Feladat: Adatsorok száma: {len(versenyek)}')
 

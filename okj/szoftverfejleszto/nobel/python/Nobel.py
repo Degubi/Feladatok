@@ -9,9 +9,9 @@ class Dij:
         self.keresztNev = split[2]
         self.vezetekNev = split[3] if len(split) == 4 else ''
 
+
 with open('nobel.csv', encoding = 'utf-8', mode = 'r') as file:
-    lines = file.readlines()
-    dijak = [ Dij(lines[i].strip()) for i in range(1, len(lines)) ]
+    dijak = [ Dij(k.strip()) for k in file.readlines()[1:] ]
 
 for dij in dijak:
     if dij.keresztNev == 'Arthur B.' and dij.vezetekNev == 'McDonald':
@@ -35,8 +35,7 @@ for dij in dijak:
 
 print('7.Feladat:')
 
-tipusSzamlalok = Counter(k.tipus for k in dijak)
-for tipus, db in tipusSzamlalok.items():
+for tipus, db in Counter(k.tipus for k in dijak).items():
     print(f'{tipus}: {db} db')
 
 dijak.sort(key = lambda k: k.ev)

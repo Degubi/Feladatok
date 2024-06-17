@@ -5,9 +5,9 @@ public class Sebessegkategoria {
 
     public String getKategorianev() {
         if (utazosebesseg < 500) return KATEGORIAK[0];
-        else if (utazosebesseg < 1000) return KATEGORIAK[1];
-        else if (utazosebesseg < 1200) return KATEGORIAK[2];
-        else return KATEGORIAK[3];
+        if (utazosebesseg < 1000) return KATEGORIAK[1];
+        if (utazosebesseg < 1200) return KATEGORIAK[2];
+        return KATEGORIAK[3];
     }
 
     public Sebessegkategoria(int utazosebesseg) {

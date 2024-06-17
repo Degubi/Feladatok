@@ -4,6 +4,7 @@ import java.time.*;
 import java.util.*;
 
 public class Lift {
+
     public static void main(String[] args) throws IOException {
         var hasznalatok = new ArrayList<Hasznalat>();
         var lines = Files.readAllLines(Path.of("lift.txt"));

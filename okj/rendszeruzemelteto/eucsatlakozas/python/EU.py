@@ -1,16 +1,16 @@
 from datetime import date
+from dataclasses import dataclass
 from collections import Counter
 
+@dataclass
 class Csatlakozas:
+    orszag: str
+    datum: date
 
-    def __init__(self, line: str):
-        split = line.strip().split(';')
-
-        self.orszag = split[0]
-        self.datum = date.fromisoformat(split[1].replace('.', '-'))
 
 with open('EUcsatlakozas.txt') as file:
-    csatlakozasok = [ Csatlakozas(k) for k in file.readlines() ]
+    create_csatlakozas = lambda split: Csatlakozas(split[0], date.fromisoformat(split[1].replace('.', '-')))
+    csatlakozasok = [ create_csatlakozas(k.strip().split(';')) for k in file.readlines() ]
 
 print(f'3. Feladat: 2018-ig csatlakozott országok száma: {len(csatlakozasok)}')
 
@@ -26,6 +26,5 @@ print(f'6. Feladat: {"Volt" if voltemajusban else "Nem volt"} májusban csatlako
 utolso_csatlakozas = max((k for k in csatlakozasok), key = lambda k: k.datum)
 print(f'7. Feladat: Utoljára csatlakozott: {utolso_csatlakozas.orszag}')
 
-stat = Counter(k.datum.year for k in csatlakozasok)
-for ev, db in stat.items():
+for ev, db in Counter(k.datum.year for k in csatlakozasok).items():
     print(f'{ev} - {db} ország')

@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.stream.*;
 
 public class Lift_stream {
+
     public static void main(String[] args) throws IOException {
         var hasznalatok = Files.lines(Path.of("lift.txt"))
                                .map(Hasznalat::new)
