@@ -1,0 +1,361 @@
+2020;1;ma;Szobonya Erzsebet: Sapho 1.;20000
+2020;1;ma;Bodocs Tibor: Meg se kinaltak;20000
+2020;1;ma;Berg Judit: Rumini Tukor-szigeten;15000
+2020;1;ma;Szabo Zsolt: Vidam farm;12000
+2020;1;ma;Tabori Andrea: Gesztesi - Egy elet ezer szine;12000
+2020;1;ma;Benedek Elek: Benedek Elek legszebb mesekonyve;10000
+2020;1;ma;Frei Tamas: 2015 a kaosz eve es a magyar elit haboruja;10000
+2020;1;ma;Szabo Zsolt: Unikornisok nagy mesekonyve;10000
+2020;1;kf;Henaq, Victoria Eugenia: Mrs. Escobar;15000
+2020;1;kf;Francis, Suzanne: Jegvarazs 2.;15000
+2020;1;kf;Paulsen, Rudiger: Husveti nyuszi es baratai;15000
+2020;1;kf;Atwood, Margaret: Testamentumok;10000
+2020;1;kf;Brallier, Max–Holgate, Douglas: Az utolso sracok a foldon;10000
+2020;1;kf;Kinney, Jeff: Egy ropi naploja–A rideg valo;10000
+2020;1;kf;Kinney, Jeff: Egy ropi naploja–Az utolso szalmaszal;10000
+2020;1;kf;Kinney, Jeff: Egy ropi naploja–Negy fal kozott;10000
+2020;1;kf;Russell, Rachel Renee: Egy Zizi naploja 1.–Mesek nem valami meses eletemrol;10000
+2020;1;kf;Smith, Wilbur: Kiralyok kiralya;10000
+2020;1;kf;Steel, Danielle: Nemes harc;10000
+2020;2;ma;Szaraz Miklos Gyorgy: Fajo Trianon;120000
+2020;2;ma;Leiner Laura: A Szent Johanna Gimi. Kalauz 2.0;20000
+2020;2;ma;Szobonya Erzsebet: Sapho. 2. r.;12000
+2020;2;ma;Emlekezo Magyarorszag, 1. (Gyurgyak Janos szerk.);10000
+2020;2;ma;Emlekezo Magyarorszag, 2. (Gyurgyak Janos szerk.);10000
+2020;2;ma;Verzo Magyarorszag. Magyar irok Magyarorszag teruleteert  (Kosztolanyi Dezso szerk.);10000
+2020;2;kf;Collins, Suzanne: enekesmadarak es kigyok balladaja;10000
+2020;2;kf;Giordano, Paolo: Jarvany idejen;10000
+2020;3;ma;Golya viszi a fiat - mondokaskonyv (val.: Orosne Galaczi Edit, Bacskai Csaba, David Ildiko);30000
+2020;3;ma;Gyertek, gyertek gyerekek! - mondokaskonyv (val.:  Orosne Galaczi Edit, Bacskai Csaba, David Ildiko);30000
+2020;3;ma;Lawrence, Leslie L.: Donovan ezredes trefaja I.;20000
+2020;3;ma;Lawrence, Leslie L.: Donovan ezredes trefaja II.;18000
+2020;3;ma;Szobonya Erzsebet: A szard szikla;15000
+2020;3;ma;R. Kelenyi Angelika: Barcelona, Barcelona;15000
+2020;3;ma;Vadadi Adrienn: Leszel a baratom?;15000
+2020;3;ma;Pasztohy Panka: Pitypang es Lili;10005
+2020;3;ma;Benedek Elek: 100 Benedek Elek mese;10000
+2020;3;ma;May Szilvia: Orszaghazi tekergo;10000
+2020;3;ma;Streicher Andras: Itt a nyuszi;10000
+2020;3;ma;Toth Csaba Tamas: Tenyek es tevhitek - allati X;10000
+2020;3;kf;King, Stephen: ejszakai muszak;25000
+2020;3;kf;King, Stephen: Az Intezet;12000
+2020;3;kf;Potter, Beatrix: Nyul Peter es baratai. Beatrix Potter osszes meseje;10000
+2020;3;kf;Kinney, Jeff: Egy ropi naploja-A nagy kiruccanas;10000
+2020;3;kf;Kinney, Jeff: Egy ropi naploja-Pechszeria;10000
+2020;4;ma;Leiner Laura: Bizz bennem - II. trilogia - Iskolak versenye elso kotet;60000
+2020;4;ma;Kepes Andras: A bolond hulye es az okos depresszios;40000
+2020;4;ma;Karinthy Frigyes: Karacsonyi tarsasjatek;30000
+2020;4;ma;Kosztolanyi Dezso: Csodat nekem;30000
+2020;4;ma;Szobonya Erzsebet: A vegzet;20000
+2020;4;ma;Dezso Andras: Magyar Kola;20000
+2020;4;ma;Berg Judit: Rumini;17000
+2020;4;ma;Meseorszag mindenkie (szerk.: Nagy Boldizsar);15000
+2020;4;ma;Tomor Anita: Veled egy szigeten;12000
+2020;4;ma;3-5-8 perces teli mesek, Szimonidesz Hajnalka rajzaival (szerk.: Ret Viktoria);12000
+2020;4;ma;Bojte Csaba, Csender Levente: Bojte Csaba fuveskonyve;12000
+2020;4;ma;Fabian Janka: Julie Konyvkuckoja;12000
+2020;4;ma;Bosnyak Viktoria: A siraly a kiraly?;10000
+2020;4;ma;3 eves lettem! - Kedvenc meseink a Pagony szerzoitol (szerk.:Gyori Hanna);10000
+2020;4;ma;99 magyar nepmese - Jankovics Marcell rajzaival;10000
+2020;4;ma;Koleszar Marta: Ciganymesek 4. fejtorok;10000
+2020;4;ma;Leiner Laura: Maradj velem;10000
+2020;4;ma;Ruzsa Magdolna, Ordody Eszter: Angyalkert;10000
+2020;4;ma;Szanto Daniel: Egy pap vallomasa;10000
+2020;4;kf;Kinney, Jeff: Egy ropi naploja 15. - Mely viz;30000
+2020;4;kf;Steel, Danielle: Csendes ej;25000
+2020;4;kf;Steel, Danielle: A kastely;25000
+2020;4;kf;Steel, Danielle: Pegazus;25000
+2020;4;kf;Follett, Ken: Egy uj korszak hajnala - A katedralis elozmenye;20000
+2020;4;kf;Rowling, J. K.: Az Ickabog;17000
+2020;4;kf;Nesbo, Jo: A birodalom;17000
+2020;4;kf;Cook, Robin: Genezis;15000
+2020;4;kf;Trump, Mary L.: Tul sok es sosem eleg - Avagy hogyan teremtette meg a csaladom a vilag legveszelyesebb emberet;10000
+2020;4;kf;Martin, George R. R.: Tronok harca;10000
+2020;4;kf;Moyes, Jojo: arado feny;10000
+2021;1;ma;Bojte Csaba: Bojte Csaba fuveskonyve - oromhoz segito gondolatok;20000
+2021;1;ma;Szerb Antal: Utas es holdvilag;20000
+2021;1;ma;Bartos Erika: Bogyo es Baboca. Honapok mesei;10000
+2021;1;ma;Dragoman Gyorgy: Fozoskonyv;10000
+2021;1;ma;Dragoman Gyorgy: Fozoskonyv (utannyomas);10000
+2021;1;ma;Ablak - Zsiraf (Merei Ferenc - V. Binet Agnes);10000
+2021;1;kf;Lang es a Szuperverdak - A dicsoseg Langja;27000
+2021;1;kf;Mancs orjarat: A Kaland-obol kalozai;27000
+2021;1;kf;Mancs orjarat: Dinoszauruszok nyomaban;27000
+2021;1;kf;Mancs orjarat: Kosarlabda sztarok;27000
+2021;1;kf;Mancs orjarat: Legimentesre fel!;27000
+2021;1;kf;Mancs orjarat: Szuperhos kutyiero;27000
+2021;1;kf;Steel, Danielle: Egy tokeletes elet;24950
+2021;1;kf;Lipinska, Blanka: 365 nap;20000
+2021;1;kf;Mancs orjarat: A kutyik megmentik a nyuszikat;13000
+2021;1;kf;Peppa malac - Peppa husveti tojasvadaszata;13000
+2021;1;kf;Paz, Veronica: Dora husveti nyuszis kalandja;13000
+2021;1;kf;Kinney, Jeff: Egy ropi naploja-Lepjunk le!;10000
+2021;1;kf;Kinney, Jeff: Egy ropi naploja-Regi szep idok;10000
+2021;1;kf;Obertone, Laurent: Gerilla Barbarok ideje;10000
+2021;1;kf;Smith, Keri: Nyird ki ezt a konyvet;10000
+2021;1;kf;Smith, Wilbur: Szellemtuz;10000
+2021;1;kf;Tapia, Ivan – Linde, Montse: A nagy penzrablas;10000
+2021;2;ma;Leiner Laura: Higgy nekem;40000
+2021;2;ma;Gardonyi Geza: Ida regenye;25000
+2021;2;ma;Szobonya Erzsebet: A kezdet;20000
+2021;2;ma;Bartos Erika: Bogyo es Baboca. Honapok mesei;20000
+2021;2;ma;Eger,Edith Eva: A dontes;15000
+2021;2;ma;Lorincz L. Laszlo: Felhoharcosok, 1.;15000
+2021;2;ma;Lorincz L. Laszlo: Felhoharcosok, 2.;15000
+2021;2;ma;Szobonya Erzsebet: Jesus Herrera;14000
+2021;2;ma;Kepes Andras: A boldog hulye es az okos depresszios;12000
+2021;2;ma;Fabian Janka: Cholera-naplo;12000
+2021;2;ma;Bartos Erika: Bogyo es Baboca az ovodaban;11130
+2021;2;ma;Daniel Andras: A kuflik es a furcsa arnyek;10000
+2021;2;ma;Meszoly Miklos: Nem felelt meg neki;10000
+2021;2;ma;Varga Katalin: Gogos Gunar Gedeon;10000
+2021;2;ma;Ablak - Zsiraf (Merei Ferenc - V. Binet Agnes);10000
+2021;2;ma;Bartos Erika: Bogyo es Baboca. evszakos konyv;10000
+2021;2;kf;Steel,Danielle: A tekozlo fiu;24950
+2021;2;kf;King,Stephen: Minel veresebb;20000
+2021;2;kf;Rowling,J. K.: Harry Potter es a Titkok Kamraja, Mardekar (jubileumi kiadas);18000
+2021;2;kf;Rowling,J. K.: Harry Potter es a Titkok Kamraja, Griffendel (jubileumi kiadas);18000
+2021;2;kf;Coelho,Paulo: Az ijasz;10000
+2021;2;kf;Peterson, Jordan B.: Tul a renden - ujabb 12 szabaly az elethez;10000
+2021;2;kf;King,Stephen: Carrie;10000
+2021;2;kf;Smith,Wilbur – Addison,Corban: A hollo szava;10000
+2021;2;kf;Miler,Zdenek – Miler,Katerina – Doskocilova,Hana: A kisvakond es a tel;10000
+2021;2;kf;Miler,Zdenek – Miler,Katerina – Doskocilova,Hana: A kisvakond es a tavasz;10000
+2021;2;kf;Miler,Zdenek – Miler,Katerina – Doskocilova,Hana: A kisvakond es a nyar;10000
+2021;2;kf;Miler,Zdenek – Katerina Miler – Michal Cernik: Egy het a kisvakonddal;10000
+2021;2;kf;Steel,Danielle: aldas alruhaban;10000
+2021;2;kf;Miler,Zdenek: Nagy csuszkalas a kisvakonddal;10000
+2021;2;kf;Miler,Zdenek: Kukucskalas a kisvakonddal;10000
+2021;2;kf;Kinney,Jeff: Egy ropi naploja;10000
+2021;2;kf;Kinney,Jeff: Egy ropi naploja-Rodrick a kiraly;10000
+2021;2;kf;Kinney,Jeff: Egy ropi naploja-dupla para;10000
+2021;3;ma;Hernady Zsolt: Kajla 7hatarban;50000
+2021;3;ma;Bartos Erika: Bogyo es Baboca - csengettyuk;15000
+2021;3;ma;Bartos Erika: Bruno Budapesten - Budapest kornyeke;15000
+2021;3;ma;Szobonya Erzsebet: Legy(ott) Isztambulban;14000
+2021;3;ma;Martens, Sheila (Janoszky Beata) : Aranykalitka;12000
+2021;3;ma;Martens, Sheila (Janoszky Beata): Nathifa;12000
+2021;3;ma;Meyerin, Jud (Megyeri Judt): A mult bunei;12000
+2021;3;ma;Scott, Julie (Nemes Judit): Az ezerkettedik ejszaka;12000
+2021;3;ma;Scott, Julie (Nemes Judit): Helga tortenete;12000
+2021;3;ma;Swann, Aneka (Nemes Istvan): Luxushajo;12000
+2021;3;kf;Mancs orjarat - A film - Mesekonyv a mozifilm alapjan;19000
+2021;3;kf;Nesbo, Jo: A feltekenyseg-szakerto;15000
+2021;3;kf;King, Stephen: Lisey tortenet;15000
+2021;3;kf;Rowling, J. K.: Harry Potter es a bolcsek kove;13000
+2021;3;kf;100 Ezopusz mese [atd. Lovei Maria es Vajda Reka];10000
+2021;3;kf;Escobar, Roberto Sendoya: Escobar fia: az elsoszulott;10000
+2021;3;kf;King, Stephen: Az irasrol;10000
+2021;3;kf;Kinney, Jeff: Egy ropi naploja-a harmadik kerek;10000
+2021;3;kf;Moyes, Jojo: Az utolso szerelmes level;10000
+2021;4;ma;Babits Mihaly: A golyakalifa;30000
+2021;4;ma;Naray Tamas: Volt egyszer egy varrodam;30000
+2021;4;ma;Szobonya Erzsebet: Az Arab oroksege;25000
+2021;4;ma;Dezso Andras: Fedosztori: kemek es titkos jatszmak Magyarorszagon;25000
+2021;4;ma;Kohalmi Zoltan: Az utolso 450 ev;25000
+2021;4;ma;Bartos Erika: Mesek a pottyos hazbol;20000
+2021;4;ma;Eger, Edith Eva: A dontes;15000
+2021;4;ma;Ugron Zsolna: Nincs egy ferfi - irasok es firkak;15000
+2021;4;ma;Vrtko, Vujity: Aloha;15000
+2021;4;ma;Bosnyak Viktoria: A siraly a kiraly?;12000
+2021;4;ma;Muller Peter: Anyam titkos konyve;12000
+2021;4;ma;100 allatmese: szorakoztato es tanulsagos tortenetek kicsiknek es nagyoknak;10000
+2021;4;ma;Alex suli;10000
+2021;4;ma;Banyaine Nagy Judit: Nem akarok beleszolni;10000
+2021;4;ma;Bartos Erika: Mesek a pottyos hazbol;10000
+2021;4;ma;Karady Anna: A furedi foldesur;10000
+2021;4;ma;Pasztohy Panka: Pitypang jatszik;10000
+2021;4;kf;King, Stephen: Billy Summers;20000
+2021;4;kf;Hawkins, Paula: Lassan izzo tuz;15000
+2021;4;kf;Lipinska, Blanka: 365 nap 2.;13000
+2021;4;kf;Andersen, Hans Christian: A kis gyufaarus lany;10000
+2021;4;kf;Osman, Richard: A ferfi, aki ketszer halt meg;10000
+2021;4;kf;Potter, Beatrix: Nyul Peter adventi kalendariuma;10000
+2021;4;kf;Smith, Wilbur: A haboru oroksege;10000
+2021;4;kf;Steel, Danielle: Gyerekjatek;10000
+2022;1;ma;Bodocs Tibor: Mulat a manezs;60000
+2022;1;ma;Papp Gergo, Kajdi Csaba: A nagy Cyla sztori;30000
+2022;1;ma;Krudy Gyula: Szindbad, az almok hajosa;30000
+2022;1;ma;Bosnyak Viktoria: A siraly a kiraly?;20000
+2022;1;ma;Fabian Janka: Az Anna-bal szerelmesei;20000
+2022;1;ma;Naray Tamas: Volt egyszer egy varrodam;19000
+2022;1;ma;Berg Judit: Rumini;18000
+2022;1;ma;Jakupcsek Gabriella: Alul semmi?;15000
+2022;1;ma;Lawrence, Leslie L.: A jakfarkas zaszlo;15000
+2022;1;ma;Marek Veronika: Boribon karacsonya;15000
+2022;1;ma;Ban Mor: Hunyadi: a forgeteg hirnoke;14200
+2022;1;ma;Tomor Anita: Imadlak Los Angeles;12000
+2022;1;ma;Green, Anne L.: Toszkan rejtely;10000
+2022;1;ma;Boldizsar Ildiko: Amalia almai;10000
+2022;1;ma;Brody Janos: Sajat hangon;10000
+2022;1;ma;Eger, Edith Eva: A dontes;10000
+2022;1;ma;Fejos eva: Athen, vegallomas;10000
+2022;1;ma;Kepes Andras: A boldog hulye es az okos depresszios;10000
+2022;1;ma;Leiner Laura: allj mellem;10000
+2022;1;ma;Varga Katalin: Gogos Gunar Gedeon;10000
+2022;1;kf;Jakob es ezsau (ill. Kort, Kees de ill.);31000
+2022;1;kf;Kinney, Jeff: Egy ropi naploja: a nagy dobas;30000
+2022;1;kf;Escobar, Juan Pablo: Mr. Escobar - Apam titkai;30000
+2022;1;kf;Rossmann, Dirk: A polip kilencedik karja: klimakatasztrofa vagy vilagkormany;25000
+2022;1;kf;Lipinska, Blanka: Meg 365 nap;20000
+2022;1;kf;Nesbo, Jo: A patkanysziget;15000
+2022;1;kf;Hazi kedvenceink (szerk. Brezvai Edit);13029
+2022;1;kf;Russell, Rachel Renee: Zizi naploja: turne;10000
+2022;1;kf;Kinney, Jeff: Rowley Jefferson Bitang Para remtorteneteti;10000
+2022;1;kf;Steel, Danielle: Kem;10000
+2022;1;kf;Kinney, Jeff: Egy ropi naploja- Romhalmaz;10000
+2022;2;ma;Szobonya Erzsebet: Az Arab kiralysaga;25000
+2022;2;ma;Naray Tamas: Anyam szerint;25000
+2022;2;ma;Bartos Erika: Bogyo es Baboca - Mesek a pottyos hazbol;21000
+2022;2;ma;Grecso Krisztian: Valami nepi;20000
+2022;2;ma;Bartos Erika: Balaton-felvidek - Bruno a Balatonon;15000
+2022;2;ma;Leslie L. Lawrence: Szemiramisz elefantjai;15000
+2022;2;ma;Fabian Janka: arvizi naplo;12000
+2022;2;ma;Green, Anne L. (Libor Erzsebet): Egyszeruen bonyolult;12000
+2022;2;ma;Jankovics Andrea: ovodai emlekkonyvem;10000
+2022;2;ma;Ablak - Zsiraf (Merei Ferenc - V. Binet Agnes);10000
+2022;2;ma;Nadas Peter: Remtortenetek;10000
+2022;2;ma;Petofi Sandor osszes versei;10000
+2022;2;kf;King, Stephen: Kesobb;20000
+2022;2;kf;King, Stephen: Tuzgyujto;19000
+2022;2;kf;Kinney, Jeff: Egy ropi naploja - Az utolso szalmaszal;15000
+2022;2;kf;Kinney, Jeff: Egy ropi naploja - Hohaboru;10000
+2022;2;kf;Owens, Delia: Ahol a folyami rakok enekelnek;10000
+2022;2;kf;Smith, Wilbur - Chadbourn, Mark: Az uj kiralysag;10000
+2022;2;kf;Steel, Danielle: Erkolcsi iranytu;10000
+2022;2;kf;Steel, Danielle: Szamjatek;10000
+2022;3;ma;Deres Kornelia: Emma es az elefant;50000
+2022;3;ma;Man-Varhegyi Reka: Kokusz Franci, a fodrasz titkosugynok 1.;50000
+2022;3;ma;Man-Varhegyi Reka: Kokusz Franci, a fodrasz titkosugynok 2.;50000
+2022;3;ma;Sepsi Laszlo: Gogol, a szemetmagus;50000
+2022;3;ma;Gotz Eszter: Kajla a muzeumok nyomaban;25000
+2022;3;ma;Bartos Erika: Bogyo es Baboca - Honapok mesei;18000
+2022;3;ma;Karady Anna: A furedi gyermek;15000
+2022;3;ma;Bartos Erika: Bogyo es Baboca - Csengettyuk;12000
+2022;3;ma;Tomor Anita: Szeretlek Hawaii!;10500
+2022;3;ma;100 Grimm-mese;10000
+2022;3;ma;Nemes Nagy agnes: Szilankos fenyjelek;10000
+2022;3;kf;Owens, Delia: Ahol a folyami rakok enekelnek;20000
+2022;3;kf;Steel, Danielle: Becses ajandekok;15000
+2022;3;kf;Steel, Danielle: Country;15000
+2022;3;kf;Eger, Edith Eva: A dontes;10000
+2022;3;kf;Hoover, Colleen: Velunk veget er;10000
+2022;3;kf;Hoover, Colleen: Ugly Love - Csuf szerelem;10000
+2022;4;ma;Bartos Erika: Bruno a Balatonon - Deli part;25000
+2022;4;ma;Fabian Janka: A szabadsag szerelmesei;23000
+2022;4;ma;Bosnyak Viktoria: A siraly a kiraly?;20000
+2022;4;ma;Szobonya Erzsebet: alszemerem;20000
+2022;4;ma;Fable, Vavyan (Molnar eva): Az elet ocska oromei;20000
+2022;4;ma;Bartos Erika: Bruno a Balatonon;15000
+2022;4;ma;Lawrence, Leslie L.: Bolondok kolostora;15000
+2022;4;ma;Nyerges Attila: Egy ismeros arc;15000
+2022;4;ma;Berg Judit: Rumini Zuzmaragyarmaton;13350
+2022;4;ma;Marek Veronika: Boribon karacsonya;13160
+2022;4;ma;Berg Judit - Agocs irisz: Maszat karacsonya;12000
+2022;4;ma;Anne L. Green (Libor Erzsebet): Keseruen edes;10000
+2022;4;ma;Berg Judit: Rumini es a latouveg;10000
+2022;4;ma;Csukas Istvan: A teli tucsok mesei;10000
+2022;4;ma;Edith Eva Eger: A dontes;10000
+2022;4;ma;Laar Andras: Laaramlas;10000
+2022;4;ma;Lakatos Levente: Tonkreteszlek;10000
+2022;4;ma;Majzik Ilona: Sundorgo;10000
+2022;4;ma;Nadas Peter: Berlini szurke;10000
+2022;4;ma;Simon eva: Furfangos mesek az allatokrol;10000
+2022;4;kf;Hoffmann, E.T.A.: Diotoro es egerkiraly;40020
+2022;4;kf;Kinney, Jeff: Egy ropi naploja 17. - Kiborul a bili;30000
+2022;4;kf;Rossmann, Dirk - Hoppe, Ralf: A polip haragja;16000
+2022;4;kf;Kinney, Jeff:  Egy ropi naploja. A rideg valo;15000
+2022;4;kf;Kinney, Jeff:  Egy ropi naploja. Rodrick a kiraly;15000
+2022;4;kf;Owens, Delia: Ahol a folyami rakok enekelnek;15000
+2022;4;kf;Potter, Beatrix: Nyul Peter vilaga - Mesek minden evszakra;15000
+2022;4;kf;Steel, Danielle : Rejtozkodve;15000
+2022;4;kf;Steel, Danielle: Blue;15000
+2022;4;kf;Szutyejev, Vlagyimir: Vidam mesek;13350
+2022;4;kf;Hoover, Colleen: All Your Perfects - Minden tokeletesed;12000
+2022;4;kf;Potter, Beatrix: Nyul Peter adventi kalendariuma;10240
+2022;4;kf;Jonasson, Jonas: A profeta es a hulye;10000
+2022;4;kf;Kinney, Jeff:  Egy ropi naploja. A rideg valo;10000
+2022;4;kf;Martin, George R. R.: Tuz es ver;10000
+2022;4;kf;Steel, Danielle: Apa lanyai;10000
+2022;4;kf;Steel, Danielle: Az eskuvoi ruha;10000
+2023;1;ma;Anne L. Green (Libor Erzsebet): Hazateres Toszkanaba;10000
+2023;1;ma;Balog-Toth Bernadett: Hanga, a hangya es baratai nagy kalandja. A hoember;10000
+2023;1;ma;Bartos Erika: Bruno Budapesten - Buda tornyai;10000
+2023;1;ma;Bartos Erika: Bruno Budapesten - Pest szive;10000
+2023;1;ma;Bartos Erika: Duna - Bruno Budapesten 5.;10000
+2023;1;ma;Berg Judit: Rumini kincsei;10000
+2023;1;ma;Fekete Istvan: Vuk;10000
+2023;1;kf;Ferguson, Sarah: A sziv iranytuje;30000
+2023;1;kf;Hoover, Colleen: Minden tokeletesed;15000
+2023;1;kf;Hoover, Colleen: Ugly Love - Csuf szerelem;12000
+2023;1;kf;Kinney, Jeff:  Egy ropi naploja. Negy fal kozott;12000
+2023;1;kf;Kinney, Jeff: Egy ropi naploja. Kutya egy ido;12000
+2023;1;kf;Hoover, Colleen: Verity - Sotet titkok vonzasaban!;10000
+2023;1;kf;Martin, George R. R. – Garcia, Jr. Elio M. – Antonsson, Linda: A sarkany felemelkedese;10000
+2023;1;kf;Owens, Delia: Ahol a folyami rakok enekelnek;10000
+2023;2;ma;Leiner Laura: 40 nyari nap;50000
+2023;2;ma;Bartos Erika: Bruno a Balatonon 3. Nyugati karej;25000
+2023;2;ma;Naray Tamas: Barbara - A vegzet;25000
+2023;2;ma;Marek Veronika: Boribon a jatszoteren;15080
+2023;2;ma;Dezso Andras: Nagyfonok;15000
+2023;2;ma;Karady Anna: Zserbo. A mult tengeren;15000
+2023;2;ma;Bartos Erika: A csigahaz kincsei;13805
+2023;2;ma;Szobonya Erzsebet: Vedelem;12000
+2023;2;ma;Bartos Erika: A csigahaz kincsei;10000
+2023;2;ma;Berg Judit: Rumini;10000
+2023;2;ma;Leslie L. Lawrence: Domingos es a halal angyala;10000
+2023;2;ma;Szily Laszlo: Idegtartas;10000
+2023;2;kf;Harry herceg: Tartalek;25000
+2023;2;kf;Hoover, Colleen: Velunk veget er;19000
+2023;2;kf;Kinney, Jeff: Mely viz;15000
+2023;2;kf;Kinney, Jeff: Egy ropi naploja - A nagy kiruccanas;12000
+2023;2;kf;Rossmann, Dirk: Tintoretto es baratai;12000
+2023;2;kf;Hoover, Colleen: Elrontott eletek;10000
+2023;2;kf;Rickman, Alan: orulten, melyen - Alan Rickman naploi;10000
+2023;2;kf;Steel,Danielle: Minden, ami csillog;10000
+2023;2;kf;Steel,Danielle: Royal;10000
+2023;3;ma;Ban Mor: Hunyadi - Tizenkettedik konyv - Angyal a kapuk felett;14200
+2023;3;ma;Szobonya Erzsebet: Bajban Dubajban;13000
+2023;3;ma;Bartos Erika: Bruno Budapesten;10000
+2023;3;ma;100 magyar nepmese: A Magyar nepmesek sorozat teljes kiadasa;10000
+2023;3;ma;Berg Judit: Rumini es az ot toll;10000
+2023;3;kf;Nesbø, Jo: Verhold;20000
+2023;3;kf;Perrin, Valerie: A vasarnap koldusai;20000
+2023;3;kf;Kinney, Jeff: Egy ropi naploja - Pechszeria;12000
+2023;3;kf;Andersen, Hans Christian: 100 Andersen-mese;10000
+2023;3;kf;Steel, Danielle: Szomszedok;10000
+2023;4;ma;Bodocs Tibor: Primszamok hoesesben;50000
+2023;4;ma;Kepes Andras: Ket macska voltam;40000
+2023;4;ma;Naray Tamas: Barbara - A talalkozas;25000
+2023;4;ma;Bosnyak Viktoria: A siraly a kiraly?;20000
+2023;4;ma;Kariko Katalin: attoresek - eletem es a tudomany;15000
+2023;4;ma;Karady Anna: Zserbo 2. - A haboru tengeren;15000
+2023;4;ma;Leslie L. Lawrence (Lorincz L. Laszlo): Sindzse es az atkok konyve;15000
+2023;4;ma;Bartos Erika: A csigahaz kincsei;15000
+2023;4;ma;Csendes Levente: Fenybol es sarbol;12000
+2023;4;ma;Bartos Erika: Bruno bemutatja Budapestet;10100
+2023;4;ma;Borbely Szilard: Egyre rovidebb szavak;10000
+2023;4;ma;Krusovszky Denes: Levelek nelkul;10000
+2023;4;ma;Lakatos Levente: Kiara Lord erkolcstelen randevui;10000
+2023;4;ma;Naray Tamas: Barbara - A vegzet;10000
+2023;4;ma;Pasztohy Panka: Pitypang es Lili, Pitypang es a diotoro;10000
+2023;4;ma;Tomor Anita: ujra veled almodom;10000
+2023;4;ma;Varro Daniel: Tul a Maszat-hegyen 2.;10000
+2023;4;kf;King, Stephen: Tundermese;25000
+2023;4;kf;Perrin, Valerie: Trio;25000
+2023;4;kf;Rowling, J.K.: Harry Potter - Varazsalmanach;20000
+2023;4;kf;Hoover, Colleen: Reminders of him - Emlekek rola;15000
+2023;4;kf;Yarros, Rebecca: Negyedik szarny;15000
+2023;4;kf;Berrios, Frank: Mancs orjarat. A szuperfilm;10000
+2023;4;kf;Black, Holly: How the King of Elfhame Learned to Hate Stories - Hogyan gyulolte meg Elfhon kiralya a torteneteket;10000
+2023;4;kf;Christie, Agatha: oszi borzongas;10000
+2023;4;kf;Grace, Hannah: Icebreaker - Jegtoro;10000
+2023;4;kf;Hoover, Colleen: Egy nap talan;10000
+2023;4;kf;James, E.L.: Missus;10000
+2023;4;kf;King, Stephen: A harcos;10000
+2023;4;kf;King, Stephen: A harmak elhivatasa;10000
+2023;4;kf;Nesbo, Jo: ejszakai Haz;10000
+2023;4;kf;Perrin, Valerie: Masodviragzas;10000
+2023;4;kf;Potter, Beatrix: Nyul Peter, karacsonyi csillag;10000
+2023;4;kf;Score, Lucy: Amin sosem leszunk tul;10000
+2023;4;kf;Stuart, Anna: Az auschwitzi baba;10000

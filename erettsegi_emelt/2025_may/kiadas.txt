@@ -1,0 +1,361 @@
+2020;1;ma;Szobonya Erzsébet: Sapho 1.;20000
+2020;1;ma;Bödőcs Tibor: Meg se kínáltak;20000
+2020;1;ma;Berg Judit: Rumini Tükör-szigeten;15000
+2020;1;ma;Szabó Zsolt: Vidám farm;12000
+2020;1;ma;Tábori Andrea: Gesztesi - Egy élet ezer színe;12000
+2020;1;ma;Benedek Elek: Benedek Elek legszebb mesekönyve;10000
+2020;1;ma;Frei Tamás: 2015 a káosz éve és a magyar elit háborúja;10000
+2020;1;ma;Szabó Zsolt: Unikornisok nagy mesekönyve;10000
+2020;1;kf;Henaq, Victoria Eugenia: Mrs. Escobar;15000
+2020;1;kf;Francis, Suzanne: Jégvarázs 2.;15000
+2020;1;kf;Paulsen, Rüdiger: Húsvéti nyuszi és barátai;15000
+2020;1;kf;Atwood, Margaret: Testamentumok;10000
+2020;1;kf;Brallier, Max–Holgate, Douglas: Az utolsó srácok a földön;10000
+2020;1;kf;Kinney, Jeff: Egy ropi naplója–A rideg való;10000
+2020;1;kf;Kinney, Jeff: Egy ropi naplója–Az utolsó szalmaszál;10000
+2020;1;kf;Kinney, Jeff: Egy ropi naplója–Négy fal között;10000
+2020;1;kf;Russell, Rachel Renee: Egy Zizi naplója 1.–Mesék nem valami mesés életemről;10000
+2020;1;kf;Smith, Wilbur: Királyok királya;10000
+2020;1;kf;Steel, Danielle: Nemes harc;10000
+2020;2;ma;Száraz Miklós György: Fájó Trianon;120000
+2020;2;ma;Leiner Laura: A Szent Johanna Gimi. Kalauz 2.0;20000
+2020;2;ma;Szobonya Erzsébet: Sapho. 2. r.;12000
+2020;2;ma;Emlékező Magyarország, 1. (Gyurgyák János szerk.);10000
+2020;2;ma;Emlékező Magyarország, 2. (Gyurgyák János szerk.);10000
+2020;2;ma;Vérző Magyarország. Magyar írók Magyarország területéért  (Kosztolányi Dezső szerk.);10000
+2020;2;kf;Collins, Suzanne: Énekesmadarak és kígyók balladája;10000
+2020;2;kf;Giordano, Paolo: Járvány idején;10000
+2020;3;ma;Gólya viszi a fiát - mondókáskönyv (vál.: Orosné Galaczi Edit, Bacskai Csaba, Dávid Ildikó);30000
+2020;3;ma;Gyertek, gyertek gyerekek! - mondókáskönyv (vál.:  Orosné Galaczi Edit, Bacskai Csaba, Dávid Ildikó);30000
+2020;3;ma;Lawrence, Leslie L.: Donovan ezredes tréfája I.;20000
+2020;3;ma;Lawrence, Leslie L.: Donovan ezredes tréfája II.;18000
+2020;3;ma;Szobonya Erzsebet: A szárd szikla;15000
+2020;3;ma;R. Kelényi Angelika: Barcelona, Barcelona;15000
+2020;3;ma;Vadadi Adrienn: Leszel a barátom?;15000
+2020;3;ma;Pásztohy Panka: Pitypang és Lili;10005
+2020;3;ma;Benedek Elek: 100 Benedek Elek mese;10000
+2020;3;ma;May Szilvia: Országházi tekergő;10000
+2020;3;ma;Streicher András: Itt a nyuszi;10000
+2020;3;ma;Tóth Csaba Tamás: Tények és tévhitek - Állati X;10000
+2020;3;kf;King, Stephen: Éjszakai műszak;25000
+2020;3;kf;King, Stephen: Az Intézet;12000
+2020;3;kf;Potter, Beatrix: Nyúl Péter és barátai. Beatrix Potter összes meséje;10000
+2020;3;kf;Kinney, Jeff: Egy ropi naplója-A nagy kiruccanás;10000
+2020;3;kf;Kinney, Jeff: Egy ropi naplója-Pechszéria;10000
+2020;4;ma;Leiner Laura: Bízz bennem - II. trilógia - Iskolák versenye első kötet;60000
+2020;4;ma;Kepes András: A bolond hülye és az okos depressziós;40000
+2020;4;ma;Karinthy Frigyes: Karácsonyi társasjáték;30000
+2020;4;ma;Kosztolányi Dezső: Csodát nekem;30000
+2020;4;ma;Szobonya Erzsebet: A végzet;20000
+2020;4;ma;Dezső András: Magyar Kóla;20000
+2020;4;ma;Berg Judit: Rumini;17000
+2020;4;ma;Meseország mindenkié (szerk.: Nagy Boldizsár);15000
+2020;4;ma;Tomor Anita: Veled egy szigeten;12000
+2020;4;ma;3-5-8 perces téli mesék, Szimonidesz Hajnalka rajzaival (szerk.: Rét Viktória);12000
+2020;4;ma;Böjte Csaba, Csender Levente: Böjte Csaba füveskönyve;12000
+2020;4;ma;Fábián Janka: Julie Könyvkuckója;12000
+2020;4;ma;Bosnyák Viktória: A sirály a király?;10000
+2020;4;ma;3 éves lettem! - Kedvenc meséink a Pagony szerzőitől (szerk.:Győri Hanna);10000
+2020;4;ma;99 magyar népmese - Jankovics Marcell rajzaival;10000
+2020;4;ma;Koleszár Márta: Cigánymesék 4. fejtörők;10000
+2020;4;ma;Leiner Laura: Maradj velem;10000
+2020;4;ma;Rúzsa Magdolna, Ordódy Eszter: Angyalkert;10000
+2020;4;ma;Szántó Dániel: Egy pap vallomása;10000
+2020;4;kf;Kinney, Jeff: Egy ropi naplója 15. - Mély víz;30000
+2020;4;kf;Steel, Danielle: Csendes éj;25000
+2020;4;kf;Steel, Danielle: A kastély;25000
+2020;4;kf;Steel, Danielle: Pegazus;25000
+2020;4;kf;Follett, Ken: Egy új korszak hajnala - A katedrális előzménye;20000
+2020;4;kf;Rowling, J. K.: Az Ickabog;17000
+2020;4;kf;Nesbo, Jo: A birodalom;17000
+2020;4;kf;Cook, Robin: Genezis;15000
+2020;4;kf;Trump, Mary L.: Túl sok és sosem elég - Avagy hogyan teremtette meg a családom a világ legveszélyesebb emberét;10000
+2020;4;kf;Martin, George R. R.: Trónok harca;10000
+2020;4;kf;Moyes, Jojo: Áradó fény;10000
+2021;1;ma;Böjte Csaba: Böjte Csaba füveskönyve - Örömhöz segítő gondolatok;20000
+2021;1;ma;Szerb Antal: Utas és holdvilág;20000
+2021;1;ma;Bartos Erika: Bogyó és Babóca. Hónapok meséi;10000
+2021;1;ma;Dragomán György: Főzőskönyv;10000
+2021;1;ma;Dragomán György: Főzőskönyv (utánnyomás);10000
+2021;1;ma;Ablak - Zsiráf (Mérei Ferenc - V. Binét Ágnes);10000
+2021;1;kf;Láng és a Szuperverdák - A dicsőség Lángja;27000
+2021;1;kf;Mancs Őrjárat: A Kaland-öböl kalózai;27000
+2021;1;kf;Mancs Őrjárat: Dinoszauruszok nyomában;27000
+2021;1;kf;Mancs Őrjárat: Kosárlabda sztárok;27000
+2021;1;kf;Mancs Őrjárat: Légimentésre fel!;27000
+2021;1;kf;Mancs Őrjárat: Szuperhős kutyierő;27000
+2021;1;kf;Steel, Danielle: Egy tökéletes élet;24950
+2021;1;kf;Lipinska, Blanka: 365 nap;20000
+2021;1;kf;Mancs őrjárat: A kutyik megmentik a nyuszikat;13000
+2021;1;kf;Peppa malac - Peppa húsvéti tojásvadászata;13000
+2021;1;kf;Paz, Veronica: Dóra húsvéti nyuszis kalandja;13000
+2021;1;kf;Kinney, Jeff: Egy ropi naplója-Lépjünk le!;10000
+2021;1;kf;Kinney, Jeff: Egy ropi naplója-Régi szép idők;10000
+2021;1;kf;Obertone, Laurent: Gerilla Barbárok ideje;10000
+2021;1;kf;Smith, Keri: Nyírd ki ezt a könyvet;10000
+2021;1;kf;Smith, Wilbur: Szellemtűz;10000
+2021;1;kf;Tapia, Ivan – Linde, Montse: A nagy pénzrablás;10000
+2021;2;ma;Leiner Laura: Higgy nekem;40000
+2021;2;ma;Gárdonyi Géza: Ida regénye;25000
+2021;2;ma;Szobonya Erzsebet: A kezdet;20000
+2021;2;ma;Bartos Erika: Bogyó és Babóca. Hónapok meséi;20000
+2021;2;ma;Eger,Edith Eva: A döntés;15000
+2021;2;ma;Lőrincz L. László: Felhőharcosok, 1.;15000
+2021;2;ma;Lőrincz L. László: Felhőharcosok, 2.;15000
+2021;2;ma;Szobonya Erzsebet: Jesus Herrera;14000
+2021;2;ma;Kepes András: A boldog hülye és az okos depressziós;12000
+2021;2;ma;Fábián Janka: Cholera-napló;12000
+2021;2;ma;Bartos Erika: Bogyó és Babóca az óvodában;11130
+2021;2;ma;Dániel András: A kuflik és a furcsa árnyék;10000
+2021;2;ma;Mészöly Miklós: Nem felelt meg neki;10000
+2021;2;ma;Varga Katalin: Gőgös Gúnár Gedeon;10000
+2021;2;ma;Ablak - Zsiráf (Mérei Ferenc - V. Binét Ágnes);10000
+2021;2;ma;Bartos Erika: Bogyó és Babóca. Évszakos könyv;10000
+2021;2;kf;Steel,Danielle: A tékozló fiú;24950
+2021;2;kf;King,Stephen: Minél véresebb;20000
+2021;2;kf;Rowling,J. K.: Harry Potter és a Titkok Kamrája, Mardekár (jubileumi kiadás);18000
+2021;2;kf;Rowling,J. K.: Harry Potter és a Titkok Kamrája, Griffendél (jubileumi kiadás);18000
+2021;2;kf;Coelho,Paulo: Az íjász;10000
+2021;2;kf;Peterson, Jordan B.: Túl a renden - Újabb 12 szabály az élethez;10000
+2021;2;kf;King,Stephen: Carrie;10000
+2021;2;kf;Smith,Wilbur – Addison,Corban: A holló szava;10000
+2021;2;kf;Miler,Zdenek – Miler,Kateřina – Doskočilová,Hana: A kisvakond és a tél;10000
+2021;2;kf;Miler,Zdenek – Miler,Kateřina – Doskočilová,Hana: A kisvakond és a tavasz;10000
+2021;2;kf;Miler,Zdenek – Miler,Kateřina – Doskočilová,Hana: A kisvakond és a nyár;10000
+2021;2;kf;Miler,Zdenek – Kateřina Miler – Michal Cernik: Egy hét a kisvakonddal;10000
+2021;2;kf;Steel,Danielle: Áldás álruhában;10000
+2021;2;kf;Miler,Zdenek: Nagy csúszkálás a kisvakonddal;10000
+2021;2;kf;Miler,Zdenek: Kukucskálás a kisvakonddal;10000
+2021;2;kf;Kinney,Jeff: Egy ropi naplója;10000
+2021;2;kf;Kinney,Jeff: Egy ropi naplója-Rodrick a király;10000
+2021;2;kf;Kinney,Jeff: Egy ropi naplója-dupla para;10000
+2021;3;ma;Hernády Zsolt: Kajla 7határban;50000
+2021;3;ma;Bartos Erika: Bogyó és Babóca - csengettyűk;15000
+2021;3;ma;Bartos Erika: Brúnó Budapesten - Budapest környéke;15000
+2021;3;ma;Szobonya Erzsebet: Légy(ott) Isztambulban;14000
+2021;3;ma;Martens, Sheila (Jánószky Beáta) : Aranykalitka;12000
+2021;3;ma;Martens, Sheila (Jánószky Beáta): Nathifa;12000
+2021;3;ma;Meyerin, Jud (Megyeri Judt): A múlt bűnei;12000
+2021;3;ma;Scott, Julie (Nemes Judit): Az ezerkettedik éjszaka;12000
+2021;3;ma;Scott, Julie (Nemes Judit): Helga története;12000
+2021;3;ma;Swann, Aneka (Nemes István): Luxushajó;12000
+2021;3;kf;Mancs őrjárat - A film - Mesekönyv a mozifilm alapján;19000
+2021;3;kf;Nesbo, Jo: A féltékenység-szakértő;15000
+2021;3;kf;King, Stephen: Lisey történet;15000
+2021;3;kf;Rowling, J. K.: Harry Potter és a bölcsek köve;13000
+2021;3;kf;100 Ezópusz mese [átd. Lövei Mária és Vajda Réka];10000
+2021;3;kf;Escobar, Roberto Sendoya: Escobar fia: az elsőszülött;10000
+2021;3;kf;King, Stephen: Az írásról;10000
+2021;3;kf;Kinney, Jeff: Egy ropi naplója-a harmadik kerék;10000
+2021;3;kf;Moyes, Jojo: Az utolsó szerelmes levél;10000
+2021;4;ma;Babits Mihály: A gólyakalifa;30000
+2021;4;ma;Náray Tamás: Volt egyszer egy varrodám;30000
+2021;4;ma;Szobonya Erzsebet: Az Arab öröksége;25000
+2021;4;ma;Dezső András: Fedősztori: kémek és titkos játszmák Magyarországon;25000
+2021;4;ma;Kőhalmi Zoltán: Az utolsó 450 év;25000
+2021;4;ma;Bartos Erika: Mesék a pöttyös házból;20000
+2021;4;ma;Eger, Edith Eva: A döntés;15000
+2021;4;ma;Ugron Zsolna: Nincs egy férfi - Írások és firkák;15000
+2021;4;ma;Vrtko, Vujity: Aloha;15000
+2021;4;ma;Bosnyák Viktória: A sirály a király?;12000
+2021;4;ma;Müller Péter: Anyám titkos könyve;12000
+2021;4;ma;100 állatmese: szórakoztató és tanulságos történetek kicsiknek és nagyoknak;10000
+2021;4;ma;Alex suli;10000
+2021;4;ma;Bányainé Nagy Judit: Nem akarok beleszólni;10000
+2021;4;ma;Bartos Erika: Mesék a pöttyös házból;10000
+2021;4;ma;Karády Anna: A füredi földesúr;10000
+2021;4;ma;Pásztohy Panka: Pitypang játszik;10000
+2021;4;kf;King, Stephen: Billy Summers;20000
+2021;4;kf;Hawkins, Paula: Lassan izzó tűz;15000
+2021;4;kf;Lipinska, Blanka: 365 nap 2.;13000
+2021;4;kf;Andersen, Hans Christian: A kis gyufaárus lány;10000
+2021;4;kf;Osman, Richard: A férfi, aki kétszer halt meg;10000
+2021;4;kf;Potter, Beatrix: Nyúl Péter adventi kalendáriuma;10000
+2021;4;kf;Smith, Wilbur: A háború öröksége;10000
+2021;4;kf;Steel, Danielle: Gyerekjáték;10000
+2022;1;ma;Bödőcs Tibor: Mulat a manézs;60000
+2022;1;ma;Papp Gergő, Kajdi Csaba: A nagy Cyla sztori;30000
+2022;1;ma;Krúdy Gyula: Szindbád, az álmok hajósa;30000
+2022;1;ma;Bosnyák Viktória: A sirály a király?;20000
+2022;1;ma;Fábián Janka: Az Anna-bál szerelmesei;20000
+2022;1;ma;Náray Tamás: Volt egyszer egy varrodám;19000
+2022;1;ma;Berg Judit: Rumini;18000
+2022;1;ma;Jakupcsek Gabriella: Alul semmi?;15000
+2022;1;ma;Lawrence, Leslie L.: A jakfarkas zászló;15000
+2022;1;ma;Marék Veronika: Boribon karácsonya;15000
+2022;1;ma;Bán Mór: Hunyadi: a förgeteg hírnöke;14200
+2022;1;ma;Tomor Anita: Imádlak Los Angeles;12000
+2022;1;ma;Green, Anne L.: Toszkán rejtély;10000
+2022;1;ma;Boldizsár Ildikó: Amália álmai;10000
+2022;1;ma;Bródy János: Saját hangon;10000
+2022;1;ma;Eger, Edith Eva: A döntés;10000
+2022;1;ma;Fejős Éva: Athén, végállomás;10000
+2022;1;ma;Kepes András: A boldog hülye és az okos depressziós;10000
+2022;1;ma;Leiner Laura: Állj mellém;10000
+2022;1;ma;Varga Katalin: Gőgös Gúnár Gedeon;10000
+2022;1;kf;Jákób és Ézsau (ill. Kort, Kees de ill.);31000
+2022;1;kf;Kinney, Jeff: Egy ropi naplója: a nagy dobás;30000
+2022;1;kf;Escobar, Juan Pablo: Mr. Escobar - Apám titkai;30000
+2022;1;kf;Rossmann, Dirk: A polip kilencedik karja: klímakatasztrófa vagy világkormány;25000
+2022;1;kf;Lipinska, Blanka: Még 365 nap;20000
+2022;1;kf;Nesbo, Jo: A patkánysziget;15000
+2022;1;kf;Házi kedvenceink (szerk. Brezvai Edit);13029
+2022;1;kf;Russell, Rachel Renée: Zizi naplója: turné;10000
+2022;1;kf;Kinney, Jeff: Rowley Jefferson Bitang Para rémtörténeteti;10000
+2022;1;kf;Steel, Danielle: Kém;10000
+2022;1;kf;Kinney, Jeff: Egy ropi naplója- Romhalmaz;10000
+2022;2;ma;Szobonya Erzsebet: Az Arab királysága;25000
+2022;2;ma;Náray Tamás: Anyám szerint;25000
+2022;2;ma;Bartos Erika: Bogyó és Babóca - Mesék a pöttyös házból;21000
+2022;2;ma;Grecsó Krisztián: Valami népi;20000
+2022;2;ma;Bartos Erika: Balaton-felvidék - Brúnó a Balatonon;15000
+2022;2;ma;Leslie L. Lawrence: Szemiramisz elefántjai;15000
+2022;2;ma;Fábián Janka: Árvízi napló;12000
+2022;2;ma;Green, Anne L. (Líbor Erzsébet): Egyszerűen bonyolult;12000
+2022;2;ma;Jankovics Andrea: Óvodai emlékkönyvem;10000
+2022;2;ma;Ablak - Zsiráf (Mérei Ferenc - V. Binét Ágnes);10000
+2022;2;ma;Nádas Péter: Rémtörténetek;10000
+2022;2;ma;Petőfi Sándor összes versei;10000
+2022;2;kf;King, Stephen: Később;20000
+2022;2;kf;King, Stephen: Tűzgyújtó;19000
+2022;2;kf;Kinney, Jeff: Egy ropi naplója - Az utolsó szalmaszál;15000
+2022;2;kf;Kinney, Jeff: Egy ropi naplója - Hóháború;10000
+2022;2;kf;Owens, Delia: Ahol a folyami rákok énekelnek;10000
+2022;2;kf;Smith, Wilbur - Chadbourn, Mark: Az új királyság;10000
+2022;2;kf;Steel, Danielle: Erkölcsi iránytű;10000
+2022;2;kf;Steel, Danielle: Számjáték;10000
+2022;3;ma;Deres Kornélia: Emma és az elefánt;50000
+2022;3;ma;Mán-Várhegyi Réka: Kókusz Franci, a fodrász titkosügynök 1.;50000
+2022;3;ma;Mán-Várhegyi Réka: Kókusz Franci, a fodrász titkosügynök 2.;50000
+2022;3;ma;Sepsi László: Gogol, a szemétmágus;50000
+2022;3;ma;Götz Eszter: Kajla a múzeumok nyomában;25000
+2022;3;ma;Bartos Erika: Bogyó és Babóca - Hónapok meséi;18000
+2022;3;ma;Karády Anna: A füredi gyermek;15000
+2022;3;ma;Bartos Erika: Bogyó és Babóca - Csengettyűk;12000
+2022;3;ma;Tomor Anita: Szeretlek Hawaii!;10500
+2022;3;ma;100 Grimm-mese;10000
+2022;3;ma;Nemes Nagy Ágnes: Szilánkos fényjelek;10000
+2022;3;kf;Owens, Delia: Ahol a folyami rákok énekelnek;20000
+2022;3;kf;Steel, Danielle: Becses ajándékok;15000
+2022;3;kf;Steel, Danielle: Country;15000
+2022;3;kf;Eger, Edith Eva: A döntés;10000
+2022;3;kf;Hoover, Colleen: Velünk véget ér;10000
+2022;3;kf;Hoover, Colleen: Ugly Love - Csúf szerelem;10000
+2022;4;ma;Bartos Erika: Brúnó a Balatonon - Déli part;25000
+2022;4;ma;Fábián Janka: A szabadság szerelmesei;23000
+2022;4;ma;Bosnyák Viktória: A sirály a király?;20000
+2022;4;ma;Szobonya Erzsebet: Álszemérem;20000
+2022;4;ma;Fable, Vavyan (Molnár Éva): Az élet ócska örömei;20000
+2022;4;ma;Bartos Erika: Brúnó a Balatonon;15000
+2022;4;ma;Lawrence, Leslie L.: Bolondok kolostora;15000
+2022;4;ma;Nyerges Attila: Egy ismerős arc;15000
+2022;4;ma;Berg Judit: Rumini Zúzmaragyarmaton;13350
+2022;4;ma;Marék Veronika: Boribon karácsonya;13160
+2022;4;ma;Berg Judit - Agócs Írisz: Maszat karácsonya;12000
+2022;4;ma;Anne L. Green (Libor Erzsébet): Keserűen édes;10000
+2022;4;ma;Berg Judit: Rumini és a látóüveg;10000
+2022;4;ma;Csukás István: A téli tücsök meséi;10000
+2022;4;ma;Edith Eva Eger: A döntés;10000
+2022;4;ma;Laár András: Laáramlás;10000
+2022;4;ma;Lakatos Levente: Tönkreteszlek;10000
+2022;4;ma;Majzik Ilona: Sündörgő;10000
+2022;4;ma;Nádas Péter: Berlini szürke;10000
+2022;4;ma;Simon Éva: Furfangos mesék az állatokról;10000
+2022;4;kf;Hoffmann, E.T.A.: Diótörő és egérkirály;40020
+2022;4;kf;Kinney, Jeff: Egy ropi naplója 17. - Kiborul a bili;30000
+2022;4;kf;Rossmann, Dirk - Hoppe, Ralf: A polip haragja;16000
+2022;4;kf;Kinney, Jeff:  Egy ropi naplója. A rideg való;15000
+2022;4;kf;Kinney, Jeff:  Egy ropi naplója. Rodrick a király;15000
+2022;4;kf;Owens, Delia: Ahol a folyami rákok énekelnek;15000
+2022;4;kf;Potter, Beatrix: Nyúl Péter világa - Mesék minden évszakra;15000
+2022;4;kf;Steel, Danielle : Rejtőzködve;15000
+2022;4;kf;Steel, Danielle: Blue;15000
+2022;4;kf;Szutyejev, Vlagyimir: Vidám mesék;13350
+2022;4;kf;Hoover, Colleen: All Your Perfects - Minden tökéletesed;12000
+2022;4;kf;Potter, Beatrix: Nyúl Péter adventi kalendáriuma;10240
+2022;4;kf;Jonasson, Jonas: A próféta és a hülye;10000
+2022;4;kf;Kinney, Jeff:  Egy ropi naplója. A rideg való;10000
+2022;4;kf;Martin, George R. R.: Tűz és vér;10000
+2022;4;kf;Steel, Danielle: Apa lányai;10000
+2022;4;kf;Steel, Danielle: Az esküvői ruha;10000
+2023;1;ma;Anne L. Green (Libor Erzsébet): Hazatérés Toszkánába;10000
+2023;1;ma;Balog-Tóth Bernadett: Hanga, a hangya és barátai nagy kalandja. A hóember;10000
+2023;1;ma;Bartos Erika: Brúnó Budapesten - Buda tornyai;10000
+2023;1;ma;Bartos Erika: Brúnó Budapesten - Pest szíve;10000
+2023;1;ma;Bartos Erika: Duna - Brúnó Budapesten 5.;10000
+2023;1;ma;Berg Judit: Rumini kincsei;10000
+2023;1;ma;Fekete István: Vuk;10000
+2023;1;kf;Ferguson, Sarah: A szív iránytűje;30000
+2023;1;kf;Hoover, Colleen: Minden tökéletesed;15000
+2023;1;kf;Hoover, Colleen: Ugly Love - Csúf szerelem;12000
+2023;1;kf;Kinney, Jeff:  Egy ropi naplója. Négy fal között;12000
+2023;1;kf;Kinney, Jeff: Egy ropi naplója. Kutya egy idő;12000
+2023;1;kf;Hoover, Colleen: Verity - Sötét titkok vonzásában!;10000
+2023;1;kf;Martin, George R. R. – García, Jr. Elio M. – Antonsson, Linda: A sárkány felemelkedése;10000
+2023;1;kf;Owens, Delia: Ahol a folyami rákok énekelnek;10000
+2023;2;ma;Leiner Laura: 40 nyári nap;50000
+2023;2;ma;Bartos Erika: Brúnó a Balatonon 3. Nyugati karéj;25000
+2023;2;ma;Náray Tamás: Barbara - A végzet;25000
+2023;2;ma;Marék Veronika: Boribon a játszótéren;15080
+2023;2;ma;Dezső András: Nagyfőnök;15000
+2023;2;ma;Karády Anna: Zserbó. A múlt tengerén;15000
+2023;2;ma;Bartos Erika: A csigaház kincsei;13805
+2023;2;ma;Szobonya Erzsebet: Védelem;12000
+2023;2;ma;Bartos Erika: A csigaház kincsei;10000
+2023;2;ma;Berg Judit: Rumini;10000
+2023;2;ma;Leslie L. Lawrence: Domingos és a halál angyala;10000
+2023;2;ma;Szily László: Idegtartás;10000
+2023;2;kf;Harry herceg: Tartalék;25000
+2023;2;kf;Hoover, Colleen: Velünk véget ér;19000
+2023;2;kf;Kinney, Jeff: Mély víz;15000
+2023;2;kf;Kinney, Jeff: Egy ropi naplója - A nagy kiruccanás;12000
+2023;2;kf;Rossmann, Dirk: Tintoretto és barátai;12000
+2023;2;kf;Hoover, Colleen: Elrontott életek;10000
+2023;2;kf;Rickman, Alan: Őrülten, mélyen - Alan Rickman naplói;10000
+2023;2;kf;Steel,Danielle: Minden, ami csillog;10000
+2023;2;kf;Steel,Danielle: Royal;10000
+2023;3;ma;Bán Mór: Hunyadi - Tizenkettedik könyv - Angyal a kapuk felett;14200
+2023;3;ma;Szobonya Erzsebet: Bajban Dubajban;13000
+2023;3;ma;Bartos Erika: Brúnó Budapesten;10000
+2023;3;ma;100 magyar népmese: A Magyar népmesék sorozat teljes kiadása;10000
+2023;3;ma;Berg Judit: Rumini és az öt toll;10000
+2023;3;kf;Nesbø, Jo: Vérhold;20000
+2023;3;kf;Perrin, Valérie: A vasárnap koldusai;20000
+2023;3;kf;Kinney, Jeff: Egy ropi naplója - Pechszéria;12000
+2023;3;kf;Andersen, Hans Christian: 100 Andersen-mese;10000
+2023;3;kf;Steel, Danielle: Szomszédok;10000
+2023;4;ma;Bödőcs Tibor: Prímszámok hóesésben;50000
+2023;4;ma;Kepes András: Két macska voltam;40000
+2023;4;ma;Náray Tamás: Barbara - A találkozás;25000
+2023;4;ma;Bosnyák Viktória: A sirály a király?;20000
+2023;4;ma;Karikó Katalin: Áttörések - Életem és a tudomány;15000
+2023;4;ma;Karády Anna: Zserbó 2. - A háború tengerén;15000
+2023;4;ma;Leslie L. Lawrence (Lőrincz L. László): Sindzse és az átkok könyve;15000
+2023;4;ma;Bartos Erika: A csigaház kincsei;15000
+2023;4;ma;Csendes Levente: Fényből és sárból;12000
+2023;4;ma;Bartos Erika: Brúnó bemutatja Budapestet;10100
+2023;4;ma;Borbély Szilárd: Egyre rövidebb szavak;10000
+2023;4;ma;Krusovszky Dénes: Levelek nélkül;10000
+2023;4;ma;Lakatos Levente: Kiara Lord erkölcstelen randevúi;10000
+2023;4;ma;Náray Tamás: Barbara - A végzet;10000
+2023;4;ma;Pásztohy Panka: Pitypang és Lili, Pitypang és a diótörő;10000
+2023;4;ma;Tomor Anita: Újra veled álmodom;10000
+2023;4;ma;Varró Dániel: Túl a Maszat-hegyen 2.;10000
+2023;4;kf;King, Stephen: Tündérmese;25000
+2023;4;kf;Perrin, Valérie: Trió;25000
+2023;4;kf;Rowling, J.K.: Harry Potter - Varázsalmanach;20000
+2023;4;kf;Hoover, Colleen: Reminders of him - Emlékek róla;15000
+2023;4;kf;Yarros, Rebecca: Negyedik szárny;15000
+2023;4;kf;Berrios, Frank: Mancs őrjárat. A szuperfilm;10000
+2023;4;kf;Black, Holly: How the King of Elfhame Learned to Hate Stories - Hogyan gyűlölte meg Elfhon királya a történeteket;10000
+2023;4;kf;Christie, Agatha: Őszi borzongás;10000
+2023;4;kf;Grace, Hannah: Icebreaker - Jégtörő;10000
+2023;4;kf;Hoover, Colleen: Egy nap talán;10000
+2023;4;kf;James, E.L.: Missus;10000
+2023;4;kf;King, Stephen: A harcos;10000
+2023;4;kf;King, Stephen: A hármak elhívatása;10000
+2023;4;kf;Nesbø, Jo: Éjszakai Ház;10000
+2023;4;kf;Perrin, Valérie: Másodvirágzás;10000
+2023;4;kf;Potter, Beatrix: Nyúl Péter, karácsonyi csillag;10000
+2023;4;kf;Score, Lucy: Amin sosem leszünk túl;10000
+2023;4;kf;Stuart, Anna: Az auschwitzi bába;10000
