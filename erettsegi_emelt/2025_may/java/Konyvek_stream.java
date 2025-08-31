@@ -16,22 +16,13 @@ public class Konyvek_stream {
                                          .filter(k -> k.description.contains(inputWriterName))
                                          .count();
 
-        if(inputWriterNameCount == 0) {
-            System.out.println("Nem adtak ki.");
-        }else{
-            System.out.println(inputWriterNameCount + " alkalommal adtak ki.");
-        }
+        System.out.println(inputWriterNameCount == 0 ? "Nem adtak ki." : inputWriterNameCount + " alkalommal adtak ki.");
 
         var maxQuantitySold = Arrays.stream(books)
-                                    .mapToInt(Book::quantitySold)
-                                    .max()
-                                    .orElseThrow();
+                                    .collect(Collectors.groupingBy(Book::quantitySold, TreeMap::new, Collectors.counting()))
+                                    .lastEntry();
 
-        var maxQuantitySoldBookCount = Arrays.stream(books)
-                                             .filter(k -> k.quantitySold == maxQuantitySold)
-                                             .count();
-
-        System.out.println("3. Feladat: Legtöbb eladott mennyiség: " + maxQuantitySold + ", előfordulások száma: " + maxQuantitySoldBookCount);
+        System.out.println("3. Feladat: Legtöbb eladott mennyiség: " + maxQuantitySold.getKey() + ", előfordulások száma: " + maxQuantitySold.getValue());
 
         Arrays.stream(books)
               .filter(k -> k.origin.equals("kf") && k.quantitySold >= 40_000)
