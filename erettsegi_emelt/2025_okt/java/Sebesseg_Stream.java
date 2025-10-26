@@ -5,7 +5,7 @@ import java.util.stream.*;
 
 public class Sebesseg_Stream {
 
-    void main() throws IOException {
+    public static void main(String[] args) throws IOException {
         var lines = Files.readAllLines(Path.of("ut.txt"));
         var totalRoadMeters = Integer.parseInt(lines.getFirst());
         var roadData = lines.stream()
@@ -39,7 +39,7 @@ public class Sebesseg_Stream {
               .ifPresent(k -> System.out.println("Ezen a távon belül a legalacsonyabb megendetett sebesség " + k + "km/óra volt"));
 
         var totalDistanceInCities = Arrays.stream(citiesData)
-                                          .mapToInt(Sebesseg_Stream::calculateDistance)
+                                          .mapToInt(k -> calculateCityDistance(k.roadData))
                                           .sum();
 
         System.out.printf("4. Feladat: Az út %.2f százaléka vezetett településen belül\n", (float) totalDistanceInCities / totalRoadMeters * 100);
@@ -50,28 +50,28 @@ public class Sebesseg_Stream {
                                       .findFirst()
                                       .orElseThrow();
 
-        var roadDataForInputCity = citiesData[inputCityIndex];
-        var speedLimitingTableCount = Arrays.stream(roadDataForInputCity.roadData)
+        var inputCityRoadData = citiesData[inputCityIndex].roadData;
+        var speedLimitingTableCount = Arrays.stream(inputCityRoadData)
                                             .filter(Sebesseg_Stream::isSpeedLimitingData)
                                             .count();
 
-        System.out.println("Sebességkorlátozások száma: " + speedLimitingTableCount + ", út teljes hossza: " + calculateDistance(roadDataForInputCity));
+        System.out.println("Sebességkorlátozások száma: " + speedLimitingTableCount + ", út teljes hossza: " + calculateCityDistance(inputCityRoadData));
 
-        var oneBeforeInputCity = inputCityIndex == 0 ? null : citiesData[inputCityIndex - 1];
-        var oneAfterInputCity = inputCityIndex == (citiesData.length - 1) ? null : citiesData[inputCityIndex + 1];
+        var previousCity = inputCityIndex == 0 ? null : citiesData[inputCityIndex - 1];
+        var nextCity = inputCityIndex == (citiesData.length - 1) ? null : citiesData[inputCityIndex + 1];
+        var previousCityDistance = previousCity == null ? Integer.MAX_VALUE : inputCityRoadData[0].distance - previousCity.roadData[previousCity.roadData.length - 1].distance;
+        var nextCityDistance = nextCity == null ? Integer.MAX_VALUE : nextCity.roadData[0].distance - inputCityRoadData[inputCityRoadData.length - 1].distance;
+        var minDistance = Math.min(previousCityDistance, nextCityDistance);
 
-        Stream.of(oneBeforeInputCity, oneAfterInputCity)
-              .filter(Objects::nonNull)
-              .min(Comparator.comparingInt(Sebesseg_Stream::calculateDistance))
-              .ifPresent(k -> System.out.println("6. Feladat: A Legközelebbi település: " + k.name));
+        System.out.println("6. Feladat: A legközelebbi település: " + (minDistance == previousCityDistance ? previousCity.name : nextCity.name));
     }
 
     static boolean isSpeedLimitingData(RoadData data) {
         return Character.isDigit(data.value.charAt(0));
     }
 
-    static int calculateDistance(CityData data) {
-        return data.roadData[data.roadData.length - 1].distance - data.roadData[0].distance;
+    static int calculateCityDistance(RoadData[] cityData) {
+        return cityData[cityData.length - 1].distance - cityData[0].distance;
     }
 
     record RoadData(int distance, String value) {}
