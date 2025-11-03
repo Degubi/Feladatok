@@ -38,20 +38,12 @@ public class Sebesseg {
         }
 
         var inputDistance = ((int) Float.parseFloat(System.console().readLine("3. Feladat: Adja meg a vizsgált szakasz hosszát km-ben! ")) * 1000);
-        var distanceTraveled = 0;
-        var lowestSpeedLimit = Integer.MAX_VALUE;
+        var lowestSpeedLimit = 90;
 
-        for(var i = 0; i < roadData.size() - 1; ++i) {
-            var currentRoadData = roadData.get(i);
-            var nextRoadData = roadData.get(i + 1);
+        for(var e : roadData) {
+            lowestSpeedLimit = Math.min(lowestSpeedLimit, Integer.parseInt(e.value));
 
-            distanceTraveled += nextRoadData.distance - currentRoadData.distance;
-
-            if(isSpeedLimitingData(currentRoadData)) {
-                lowestSpeedLimit = Math.min(lowestSpeedLimit, Integer.parseInt(currentRoadData.value));
-            }
-
-            if(distanceTraveled >= inputDistance) {
+            if(e.distance >= inputDistance) {
                 System.out.println("Ezen a távon belül a legalacsonyabb megendetett sebesség " + lowestSpeedLimit + "km/óra volt");
                 break;
             }
@@ -78,7 +70,7 @@ public class Sebesseg {
         var speedLimitingTableCount = 0;
 
         for(var e : inputCityRoadData) {
-            if(isSpeedLimitingData(e)) {
+            if(e.value.length() == 2) {
                 ++speedLimitingTableCount;
             }
         }
@@ -92,10 +84,6 @@ public class Sebesseg {
         var minDistance = Math.min(previousCityDistance, nextCityDistance);
 
         System.out.println("6. Feladat: A legközelebbi település: " + (minDistance == previousCityDistance ? previousCity.name : nextCity.name));
-    }
-
-    static boolean isSpeedLimitingData(RoadData data) {
-        return Character.isDigit(data.value.charAt(0));
     }
 
     static int calculateCityDistance(List<RoadData> cityData) {

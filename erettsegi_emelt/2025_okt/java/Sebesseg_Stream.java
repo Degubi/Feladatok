@@ -28,15 +28,14 @@ public class Sebesseg_Stream {
               .forEach(k -> System.out.println(k.name));
 
         var inputDistance = ((int) Float.parseFloat(System.console().readLine("3. Feladat: Adja meg a vizsgált szakasz hosszát km-ben! ")) * 1000);
+        var speedLimitMin = Arrays.stream(roadData)
+                                  .takeWhile(k -> k.distance <= inputDistance)
+                                  .filter(k -> k.value.length() == 2)
+                                  .mapToInt(k -> Integer.parseInt(k.value))
+                                  .min()
+                                  .orElse(90);
 
-        Arrays.stream(roadData)
-              .gather(Gatherers.windowSliding(2))
-              .gather(Gatherers.scan(() -> new DistanceToData(0, null), (k, dataPair) -> new DistanceToData(k.currentDistance + (dataPair.get(1).distance - dataPair.get(0).distance), dataPair.get(0))))
-              .takeWhile(k -> k.currentDistance <= inputDistance)
-              .filter(k -> isSpeedLimitingData(k.data))
-              .mapToInt(k -> Integer.parseInt(k.data.value))
-              .min()
-              .ifPresent(k -> System.out.println("Ezen a távon belül a legalacsonyabb megendetett sebesség " + k + "km/óra volt"));
+        System.out.println("Ezen a távon belül a legalacsonyabb megendetett sebesség " + speedLimitMin + "km/óra volt");
 
         var totalDistanceInCities = Arrays.stream(citiesData)
                                           .mapToInt(k -> calculateCityDistance(k.roadData))
@@ -52,7 +51,7 @@ public class Sebesseg_Stream {
 
         var inputCityRoadData = citiesData[inputCityIndex].roadData;
         var speedLimitingTableCount = Arrays.stream(inputCityRoadData)
-                                            .filter(Sebesseg_Stream::isSpeedLimitingData)
+                                            .filter(k -> k.value.length() == 2)
                                             .count();
 
         System.out.println("Sebességkorlátozások száma: " + speedLimitingTableCount + ", út teljes hossza: " + calculateCityDistance(inputCityRoadData));
@@ -66,15 +65,10 @@ public class Sebesseg_Stream {
         System.out.println("6. Feladat: A legközelebbi település: " + (minDistance == previousCityDistance ? previousCity.name : nextCity.name));
     }
 
-    static boolean isSpeedLimitingData(RoadData data) {
-        return Character.isDigit(data.value.charAt(0));
-    }
-
     static int calculateCityDistance(RoadData[] cityData) {
         return cityData[cityData.length - 1].distance - cityData[0].distance;
     }
 
     record RoadData(int distance, String value) {}
-    record DistanceToData(int currentDistance, RoadData data) {}
     record CityData(String name, RoadData[] roadData) {}
 }
