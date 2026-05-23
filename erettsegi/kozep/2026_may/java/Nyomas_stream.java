@@ -1,11 +1,9 @@
-import java.nio.file.*;
-import java.util.*;
-import java.util.stream.*;
+import module java.base;
 
 public class Nyomas_stream {
 
     public static void main(String[] args) throws Exception {
-        var meresek = Arrays.stream(Files.readString(Path.of("nyomas.txt")).split(", "))
+        var meresek = Arrays.stream(Files.readString(Path.of("nyomas.txt")).trim().split(", "))
                             .mapToInt(Integer::parseInt)
                             .toArray();
 

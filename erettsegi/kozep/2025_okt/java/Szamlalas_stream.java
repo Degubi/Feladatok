@@ -1,6 +1,4 @@
-import java.nio.file.*;
-import java.util.*;
-import java.util.stream.*;
+import module java.base;
 
 public class Szamlalas_stream {
 

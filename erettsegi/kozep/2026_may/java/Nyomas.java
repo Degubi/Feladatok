@@ -1,10 +1,9 @@
-import java.nio.file.*;
-import java.util.*;
+import module java.base;
 
 public class Nyomas {
 
     public static void main(String[] args) throws Exception {
-        var meresDarabok = Files.readString(Path.of("nyomas.txt")).split(", ");
+        var meresDarabok = Files.readString(Path.of("nyomas.txt")).trim().split(", ");
         var meresek = new int[meresDarabok.length];
 
         for(var i = 0; i < meresek.length; ++i) {
