@@ -3,7 +3,7 @@ import random
 with open('szavak.txt') as szavak_input:
     szavak = szavak_input.readline().strip().replace('"', '').split(', ')
 
-kivalasztott_szo = szavak[random.randint(0, len(szavak))]
+kivalasztott_szo = szavak[random.randint(0, len(szavak) - 1)]
 probak_szama = 1
 
 while True:
