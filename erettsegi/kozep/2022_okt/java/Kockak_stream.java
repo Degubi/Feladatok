@@ -16,7 +16,7 @@ public class Kockak_stream {
         var statok = Arrays.stream(korok)
                            .collect(Collectors.partitioningBy(k -> k.osszeg < 10, Collectors.counting()));
 
-        System.out.println("A játékok során " + statok.get(true) + " alkalommal nyert Anni, " + statok.get(false) + " alkalommal pedig Panni");
+        System.out.println("A játékok során " + statok.getOrDefault(true, 0L) + " alkalommal nyert Anni, " + statok.getOrDefault(false, 0L) + " alkalommal pedig Panni");
     }
 
     static Kor kortGeneral(Random random) {
