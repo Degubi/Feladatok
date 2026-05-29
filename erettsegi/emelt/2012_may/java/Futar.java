@@ -1,8 +1,6 @@
-import java.io.*;
-import java.nio.file.*;
-import java.util.*;
+import module java.base;
 
-public class Futar{
+public class Futar {
 
     public static void main(String[] args) throws IOException{
         var fuvarLista = new ArrayList<Fuvar>();

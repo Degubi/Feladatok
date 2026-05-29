@@ -1,7 +1,4 @@
-import java.util.*;
-import java.util.stream.*;
-import java.nio.file.*;
-import java.time.*;
+import module java.base;
 
 public class Autok {
 

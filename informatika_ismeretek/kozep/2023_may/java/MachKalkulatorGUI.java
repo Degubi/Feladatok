@@ -1,6 +1,5 @@
-import java.awt.event.*;
-
-import javax.swing.*;
+import module java.base;
+import module java.desktop;
 
 public class MachKalkulatorGUI {
 

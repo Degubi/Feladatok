@@ -1,4 +1,4 @@
-import java.time.*;
+import module java.base;
 
 public class FuvarAdat{
     public final int azonosito;
@@ -8,10 +8,10 @@ public class FuvarAdat{
     public final float dij;
     public final float borravalo;
     public final String fizetesMod;
-    
+
     public FuvarAdat(String line) {
         var split = line.split(";");
-        
+
         azonosito = Integer.parseInt(split[0]);
         indulas = LocalDateTime.parse(split[1].replace(' ', 'T'));
         idotartam = Integer.parseInt(split[2]);

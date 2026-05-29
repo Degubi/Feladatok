@@ -1,5 +1,4 @@
-import java.time.*;
-import java.time.format.*;
+import module java.base;
 
 public class Kutya {
     private static final DateTimeFormatter ellenorzesDateFormat = DateTimeFormatter.ofPattern("yyyy.MM.dd");

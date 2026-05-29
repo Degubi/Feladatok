@@ -1,5 +1,4 @@
-import java.time.*;
-import java.time.format.*;
+import module java.base;
 
 public class IdozitettFelirat {
     public final String idozites;

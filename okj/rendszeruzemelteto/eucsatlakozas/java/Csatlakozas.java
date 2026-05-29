@@ -1,4 +1,4 @@
-import java.time.*;
+import module java.base;
 
 public class Csatlakozas {
 

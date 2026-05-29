@@ -1,9 +1,4 @@
-import java.io.*;
-import java.nio.charset.*;
-import java.nio.file.*;
-import java.util.*;
-import java.util.Map.*;
-import java.util.stream.*;
+import module java.base;
 
 public class Morze_stream {
 

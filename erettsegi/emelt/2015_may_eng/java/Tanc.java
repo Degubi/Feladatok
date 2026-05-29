@@ -1,6 +1,6 @@
-import java.util.*;
+import module java.base;
 
-public final class Tanc {
+public class Tanc {
 
     public final String category;
     public final String woman;

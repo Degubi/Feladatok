@@ -1,4 +1,4 @@
-import java.time.*;
+import module java.base;
 
 public class Arvaltozas {
     public final LocalDate valtozasDatuma;

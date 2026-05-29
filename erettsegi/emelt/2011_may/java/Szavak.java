@@ -1,5 +1,4 @@
-import java.io.*;
-import java.util.*;
+import module java.base;
 
 public class Szavak {
 

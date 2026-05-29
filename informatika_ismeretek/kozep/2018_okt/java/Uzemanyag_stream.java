@@ -1,8 +1,4 @@
-import java.io.*;
-import java.nio.file.*;
-import java.time.temporal.*;
-import java.util.*;
-import java.util.stream.*;
+import module java.base;
 
 public class Uzemanyag_stream {
 

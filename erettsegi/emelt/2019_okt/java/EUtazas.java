@@ -1,7 +1,4 @@
-import java.io.*;
-import java.nio.file.*;
-import java.time.temporal.*;
-import java.util.*;
+import module java.base;
 
 public class EUtazas {
 

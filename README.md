@@ -83,6 +83,18 @@ var hosszu = "Nagyon\n" +
              "Szövegeket";
 ```
 
+- Java 25+:
+```java
+// Új
+import module java.base;
+
+// Régi
+import java.nio.file.*;
+import java.util.*;
+import java.util.stream.*;
+...
+```
+
 # C# Linq hasznosságok:
 - IEnumerable generator:
 

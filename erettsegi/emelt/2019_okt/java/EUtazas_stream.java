@@ -1,11 +1,5 @@
-import java.io.*;
-import java.nio.file.*;
-import java.time.temporal.*;
-import java.util.*;
-import java.util.Map.*;
-import java.util.stream.*;
+import module java.base;
 
-@SuppressWarnings("boxing")
 public class EUtazas_stream {
 
     public static void main(String[] args) throws IOException {

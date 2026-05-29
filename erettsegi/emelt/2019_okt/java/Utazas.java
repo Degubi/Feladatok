@@ -1,7 +1,6 @@
-import java.time.*;
-import java.time.format.*;
+import module java.base;
 
-public class Utazas{
+public class Utazas {
     private static final DateTimeFormatter felszallasFormatum = DateTimeFormatter.ofPattern("uuuuMMdd-HHmm");
     private static final DateTimeFormatter ervenyessegFormatum = DateTimeFormatter.ofPattern("uuuuMMdd");
 

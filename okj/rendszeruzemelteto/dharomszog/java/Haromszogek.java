@@ -1,10 +1,5 @@
-import java.awt.*;
-import java.awt.event.*;
-import java.io.*;
-import java.nio.file.*;
-import java.util.*;
-import javax.swing.*;
-import javax.swing.border.*;
+import module java.base;
+import module java.desktop;
 
 public class Haromszogek {
 

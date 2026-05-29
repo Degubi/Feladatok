@@ -1,5 +1,4 @@
-import java.time.*;
-import java.util.*;
+import module java.base;
 
 public class Sorozat {
     public static final LocalDate HIANYZO_DATUM = LocalDate.MIN;

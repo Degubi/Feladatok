@@ -1,4 +1,4 @@
-import java.io.*;
+import module java.base;
 
 public class Reversi {
 

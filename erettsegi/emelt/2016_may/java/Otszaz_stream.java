@@ -1,8 +1,4 @@
-import java.io.*;
-import java.nio.file.*;
-import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+import module java.base;
 
 public class Otszaz_stream {
 

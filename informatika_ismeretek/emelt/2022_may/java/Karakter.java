@@ -1,5 +1,4 @@
-import java.util.*;
-import java.util.stream.*;
+import module java.base;
 
 public class Karakter {
 

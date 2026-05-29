@@ -1,5 +1,4 @@
-import java.time.*;
-import java.time.format.*;
+import module java.base;
 
 public class Pilota {
     public static final int URES_RAJTSZAM = -1;

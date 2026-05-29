@@ -1,6 +1,4 @@
-import java.io.*;
-import java.nio.file.*;
-import java.util.stream.*;
+import module java.base;
 
 public class Csudh_stream {
 

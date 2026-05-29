@@ -1,8 +1,5 @@
+import module java.base;
 import static java.nio.charset.StandardCharsets.*;
-
-import java.nio.file.*;
-import java.util.*;
-import java.util.stream.*;
 
 public class Helsinki1952_stream {
 

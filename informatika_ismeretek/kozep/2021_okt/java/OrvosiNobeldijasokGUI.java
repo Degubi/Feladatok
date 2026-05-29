@@ -1,8 +1,5 @@
-import java.awt.event.*;
-import java.io.*;
-import java.nio.file.*;
-import java.util.*;
-import javax.swing.*;
+import module java.base;
+import module java.desktop;
 
 public class OrvosiNobeldijasokGUI {
 

@@ -1,8 +1,4 @@
-import java.io.*;
-import java.nio.charset.*;
-import java.nio.file.*;
-import java.util.*;
-import java.util.stream.*;
+import module java.base;
 
 public class Tesztverseny_stream {
 

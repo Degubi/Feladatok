@@ -1,7 +1,4 @@
-import java.io.*;
-import java.nio.charset.*;
-import java.nio.file.*;
-import java.util.*;
+import module java.base;
 
 public class Snooker {
 

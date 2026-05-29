@@ -1,8 +1,5 @@
-import java.awt.*;
-import java.awt.event.*;
-import java.util.stream.*;
-import javax.swing.*;
-import javax.swing.event.*;
+import module java.base;
+import module java.desktop;
 
 public class KarakterDekodoloGUI {
 

@@ -1,6 +1,4 @@
-import java.nio.file.*;
-import java.util.*;
-import java.util.stream.*;
+import module java.base;
 
 public class Lud_stream {
     record JatekAllapot(int[] jatekosPoziciok, int kor) {}

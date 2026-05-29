@@ -1,6 +1,5 @@
-import java.util.function.*;
-import javax.swing.*;
-import javax.swing.event.*;
+import module java.base;
+import module java.desktop;
 
 public class TotoGUI {
 
