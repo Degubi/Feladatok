@@ -12,14 +12,14 @@ public class Szamlalas {
 
         var osszesKerekparos = 0;
         for(var meres : meresek) {
-            osszesKerekparos += kerekparosErtekOsszeadashoz(meres);
+            osszesKerekparos += Math.max(0, meres);
         }
 
         System.out.println("2. Feladat: Összesen " + osszesKerekparos + " kerékpárost számoltak");
         System.out.println("3. Feladat: Óránkénti mérések:");
 
         for(int i = 0, ora = 6; i < meresek.length; i += 4, ++ora) {
-            var osszSzam = kerekparosErtekOsszeadashoz(meresek[i]) + kerekparosErtekOsszeadashoz(meresek[i + 1]) + kerekparosErtekOsszeadashoz(meresek[i + 2]) + kerekparosErtekOsszeadashoz(meresek[i + 3]);
+            var osszSzam = Math.max(0, meresek[i]) + Math.max(0, meresek[i + 1]) + Math.max(0, meresek[i + 2]) + Math.max(0, meresek[i + 3]);
 
             System.out.println(ora + " órától " + osszSzam + " kerékpáros");
         }
@@ -32,10 +32,6 @@ public class Szamlalas {
         }
 
         System.out.println("Az áthaladók maximális száma: " + meresek[maxI] + ", időpontja: " + idotFormaz(maxI));
-    }
-
-    static int kerekparosErtekOsszeadashoz(int ertek) {
-        return ertek == -1 ? 0 : ertek;
     }
 
     static String idotFormaz(int meresI) {

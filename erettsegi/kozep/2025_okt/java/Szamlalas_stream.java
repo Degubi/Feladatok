@@ -8,7 +8,7 @@ public class Szamlalas_stream {
                             .toArray();
 
         var osszesKerekparos = Arrays.stream(meresek)
-                                     .map(Szamlalas_stream::kerekparosErtekOsszeadashoz)
+                                     .map(k -> Math.max(0, k))
                                      .sum();
 
         System.out.println("2. Feladat: Összesen " + osszesKerekparos + " kerékpárost számoltak");
@@ -17,7 +17,7 @@ public class Szamlalas_stream {
         var orankentiAthaladok = Arrays.stream(meresek)
                                        .boxed()
                                        .gather(Gatherers.windowFixed(4))
-                                       .mapToInt(k -> k.stream().mapToInt(Szamlalas_stream::kerekparosErtekOsszeadashoz).sum())
+                                       .mapToInt(k -> k.stream().mapToInt(l -> Math.max(0, l)).sum())
                                        .toArray();
 
         IntStream.range(0, orankentiAthaladok.length)
@@ -27,10 +27,6 @@ public class Szamlalas_stream {
                  .boxed()
                  .max(Comparator.comparingInt(i -> meresek[i]))
                  .ifPresent(i -> System.out.println("Az áthaladók maximális száma: " + meresek[i] + ", időpontja: " + idotFormaz(i)));
-    }
-
-    static int kerekparosErtekOsszeadashoz(int ertek) {
-        return ertek == -1 ? 0 : ertek;
     }
 
     static String idotFormaz(int meresI) {

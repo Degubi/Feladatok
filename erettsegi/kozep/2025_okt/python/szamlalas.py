@@ -1,18 +1,16 @@
-kerekparos_ertek_osszeadashoz = lambda ertek: 0 if ertek == -1 else ertek
-
 with open('meres.txt') as meresek_input:
     meresek = [ int(k) for k in meresek_input.readline().strip().split(', ') ]
 
-osszes_kerekparos = sum(kerekparos_ertek_osszeadashoz(k) for k in meresek)
+osszes_kerekparos = sum(max(0, k) for k in meresek)
 
 print(f'2. Feladat: Összesen {osszes_kerekparos} kerékpárost számoltak')
 print(f'3. Feladat: Óránkénti mérések:')
 
 orankent_athaladokat_general = ((
-    kerekparos_ertek_osszeadashoz(meresek[i]),
-    kerekparos_ertek_osszeadashoz(meresek[i + 1]),
-    kerekparos_ertek_osszeadashoz(meresek[i + 2]),
-    kerekparos_ertek_osszeadashoz(meresek[i + 3]))
+    max(0, meresek[i]),
+    max(0, meresek[i + 1]),
+    max(0, meresek[i + 2]),
+    max(0, meresek[i + 3]))
 for i in range(0, len(meresek), 4))
 
 orankenti_athaladok = [ sum(k) for k in orankent_athaladokat_general ]
