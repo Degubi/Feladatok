@@ -1,0 +1,2 @@
+"Kastély", "Fegyvertár", "Agrárgép Kiállítás", "Vadászmúzeum", "Helytörténeti Gyűjtemény", "Népművészeti Kiállítás"
+"Kastely", "Fegyvertar", "Agrargep Kiallitas", "Vadaszmuzeum", "Helytorteneti Gyujtemeny", "Nepmuveszeti Kiallitas"
