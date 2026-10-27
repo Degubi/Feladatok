@@ -48,7 +48,7 @@ public class Muzeumok_stream {
         System.out.println("6. Feladat: A teljes bevétel " + teljesBevetel + " Ft volt");
 
         var napijegyVsNemNapijegy = Arrays.stream(belepesek)
-                                          .filter(k -> k.jegyTipus.contains("N"))
+                                          .filter(k -> k.jegyTipus.endsWith("N"))
                                           .collect(Collectors.partitioningBy(k -> k.helyszinAzonosito == 0, Collectors.counting()));
 
         System.out.println("7. Feladat: A napijegyet váltók általában" + (napijegyVsNemNapijegy.get(true) > napijegyVsNemNapijegy.get(false) ? "" : " nem") + " a Kastélyban kezdtek");
@@ -67,9 +67,9 @@ public class Muzeumok_stream {
 
         Arrays.stream(belepesek)
               .collect(Collectors.groupingBy(Belepes::azonosito))
-              .entrySet().stream()
-              .filter(k -> k.getValue().stream().anyMatch(j -> j.jegyTipus.endsWith("N")) && k.getValue().size() == muzeumokNevei.length)
-              .map(k -> k.getValue().getLast())
+              .values().stream()
+              .filter(k -> k.size() == muzeumokNevei.length && k.stream().anyMatch(j -> j.jegyTipus.endsWith("N")))
+              .map(List::getLast)
               .sorted(Comparator.comparing(Belepes::idobelyeg))
               .forEach(k -> System.out.println(k.idobelyeg + "\t" + k.azonosito + "\t" + muzeumokNevei[k.helyszinAzonosito]));
     }
